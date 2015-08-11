@@ -6,9 +6,6 @@ $this->title = 'My Yii Application';
 
 
 
-
-
-
     
     <ul class="slides">
         <li>
