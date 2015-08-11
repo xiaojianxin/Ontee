@@ -5,7 +5,6 @@ $this->title = 'My Yii Application';
 <div class="flexslider">
     <ul class="slides">
         <li>
-
             <img src="/Ontee/web/img/slide.jpg"/>
         </li>
         <li>
