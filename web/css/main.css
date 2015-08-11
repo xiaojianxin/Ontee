@@ -1,0 +1,23 @@
+
+.container{
+	min-width: 720px;
+}
+.nav-head{
+	background-color: black;
+	height: 55px;
+	padding-top: 18px;
+	font-size: 13px;
+
+
+}
+.nav-item span{
+	margin-left: 5%;
+	color:white;
+
+}
+.modal.fade.in {
+ top: 25%;
+}
+.flexslider .slides ul li img{
+	width:100%;
+}
