@@ -2,8 +2,14 @@
 /* @var $this yii\web\View */
 $this->title = 'My Yii Application';
 ?>
-
 <div class="flexslider">
+
+
+
+
+
+
+    
     <ul class="slides">
         <li>
             <img src="/Ontee/web/img/slide.jpg"/>
@@ -27,4 +33,3 @@ $(function() {
 });
 <?php $this->endBlock()?>
 <?php $this->registerJs($this->blocks['slide'],\yii\web\View::POS_END)?>
-
