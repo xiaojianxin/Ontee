@@ -14,7 +14,6 @@ $this->title = 'My Yii Application';
         <li>
             <img src="/Ontee/web/img/slide.jpg"/>
         </li>
-
     </ul>
 </div>
 <?php $this->beginBlock("slide")?>
