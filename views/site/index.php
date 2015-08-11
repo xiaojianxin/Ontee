@@ -33,4 +33,3 @@ $(function() {
 });
 <?php $this->endBlock()?>
 <?php $this->registerJs($this->blocks['slide'],\yii\web\View::POS_END)?>
-
