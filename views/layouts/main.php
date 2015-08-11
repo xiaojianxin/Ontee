@@ -7,6 +7,7 @@ use app\assets\AppAsset;
 
 AppAsset::register($this);
 
+
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -67,6 +68,7 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
             <?= $content ?>
+
 
 <?php $this->endBody() ?>
 </body>

@@ -19,6 +19,7 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
         'css/site.css',
+
         'css/flexslider.css',
         'css/main.css'
     ];
@@ -26,7 +27,9 @@ class AppAsset extends AssetBundle
         'js/jquery-2.1.1.js',
         'js/bootstrap.js',
         'js/jquery.flexslider-min.js'
+
     ];
+
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
