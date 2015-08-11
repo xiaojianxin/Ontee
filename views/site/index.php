@@ -3,6 +3,8 @@
 $this->title = 'My Yii Application';
 ?>
 
+
+
 <div class="flexslider">
     <ul class="slides">
         <li>
