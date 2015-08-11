@@ -11,6 +11,7 @@ $this->title = 'My Yii Application';
             <img src="/Ontee/web/img/slide.jpg"/>
         </li>
         <li>
+
             <img src="/Ontee/web/img/slide.jpg"/>
         </li>
     </ul>
