@@ -92,6 +92,15 @@ a{
 	color: red;
 }
 #modalBox .boxContent .signIn{
+	 background-color: #4d4d4d;
+	 width: 70px;
+	 height: 70px;
+	 color: white;
+	 margin-left: 330px;
+	 margin-top: -117px;
+	 font-size: 16px;
+ }
+#modalBox .boxContent .signUp{
 	background-color: #4d4d4d;
 	width: 70px;
 	height: 70px;

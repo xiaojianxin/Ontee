@@ -74,6 +74,7 @@ AppAsset::register($this);
                     </div>
                     <div class="errorText"></div>
                 </form>
+                <button class="btn signUp">Next<br/>下一步</button>
             </div>
         </div>
 
