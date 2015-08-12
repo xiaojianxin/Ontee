@@ -23,7 +23,7 @@ $this->title = 'Ontee';
 </div>
 <div class="fixButton">
     <span class="circleButton"> <a href="<?=Url::to(['site/login'])?>"> 认识<br/>Ontee</a></span>
-    <span class="circleButton"> <a href=""> 立即<br/>制作</a></span>
+    <span class="circleButton"> <a href="<?=Url::to(['site/choose'])?>"> 立即<br/>制作</a></span>
 </div>
 <?php $this->beginBlock("slide")?>
 

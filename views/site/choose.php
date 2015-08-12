@@ -30,9 +30,9 @@ $this->title = 'Ontee';
             <div class="chooseItem">
                 <span class="chooseText">颜色</span>
                 <span class="chooseOption color">
-                    <span class="black active"><img src=""/></span>
-                    <span class="grey"><img src=""/></span>
-                    <span class="white"><img src=""/></span>
+                    <span class="black active"><img src="./img/trans.png"/></span>
+                    <span class="grey"><img src="./img/trans.png"/></span>
+                    <span class="white"><img src="./img/trans.png"/></span>
                 </span>
             </div>
         </div>
