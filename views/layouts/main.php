@@ -62,7 +62,18 @@ AppAsset::register($this);
                 <button class="btn signIn">登录</button>
             </div>
             <div id="registerContent">
-
+                <form>
+                    <div class="formItem">
+                        <span class="formText">手机号码</span>
+                        <span class="formArea"><input type="text" ></span>
+                    </div>
+                    <div class="formItem">
+                        <span class="formText">验证码</span>
+                        <span class="formAreaHalf"><input type="password" ></span>
+                        <span class="formAreaHalf"><span>点击收取验证码</span></span>
+                    </div>
+                    <div class="errorText"></div>
+                </form>
             </div>
         </div>
 
@@ -79,12 +90,29 @@ $(function() {
     $("#signInButton").click(function(){
         $("#registerItem").removeClass("active");
         $("#signInItem").addClass("active");
+        $("#registerContent").hide();
+        $("#signInContent").show();
+
+
     });
     $("#registerButton").click(function(){
         $("#signInItem").removeClass("active");
         $("#registerItem").addClass("active");
-
+        $("#signInContent").hide();
+        $("#registerContent").show();
     });
+    $("#registerItem").click(function(){
+        $("#signInItem").removeClass("active");
+        $("#registerItem").addClass("active");
+        $("#signInContent").hide();
+        $("#registerContent").show();
+    })
+    $("#signInItem").click(function(){
+        $("#registerItem").removeClass("active");
+        $("#signInItem").addClass("active");
+        $("#registerContent").hide();
+        $("#signInContent").show();
+    })
 });
 <?php $this->endBlock()?>
 <?php $this->registerJs($this->blocks['signIn'],\yii\web\View::POS_END)?>

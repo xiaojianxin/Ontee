@@ -52,6 +52,9 @@ a{
 	color: white;
 	margin-bottom: 5px;
 }
+#modalBox .boxHeader span:hover{
+	cursor: pointer;
+}
 #modalBox .boxHeader .active{
 	background-color: #444444;
 }
@@ -64,6 +67,24 @@ a{
 	display: inline-block;
 	text-align: right;
 	margin-right: 5px;
+}
+
+#modalBox .boxContent .formArea input{
+	width: 150px;
+}
+#modalBox .boxContent .formAreaHalf input{
+	  width: 62px;
+  }
+#modalBox .boxContent .formAreaHalf span{
+	width: 90px;
+	font-size: 10px;
+	background: rgba(96,96,96,0.6);
+	margin-left: -5px;
+	color: white;
+	display: inline-block;
+	line-height: 28px;
+	text-align: center;
+
 }
 #modalBox .boxContent .errorText{
 	font-size: 12px;
