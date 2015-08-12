@@ -28,8 +28,8 @@ AppAsset::register($this);
                 <img src="./img/logo.png" style="margin-top:-20px;width:35%;"/>
             </div>
             <div class="col-sm-6 nav-item">
-                <span><a href=""> 首页</a></span>
-                <span><a href=""> 认识ONTEE</a></span>
+                <span><a href="index.php"> 首页</a></span>
+                <span><a href="./choose.php"> 认识ONTEE</a></span>
                 <span><a href=""> 我的T恤</a></span>
                 <span><a data-toggle="modal" data-target="#modalBox" id="signInButton">登录</a>
                     ｜<a data-toggle="modal" data-target="#modalBox"  id="registerButton">注册</a>

@@ -1,3 +1,6 @@
+body{
+	background: url("../img/bg.jpg");
+}
 a{
 	text-decoration:none;
 }
@@ -169,6 +172,57 @@ a{
 /*}*/
 /***********************************************choose页面********************************************/
 .chooseContent{
-	background-image: url("../img/bg.jpg");
-	min-height: 800px;
+	margin-top: 6%;
+}
+.chooseContent .teePic img{
+	width:80% ;
+}
+.chooseContent .teeArea{
+	margin-top: 8%;
+}
+.chooseItem{
+	margin-top: 20px;
+}
+.chooseItem span{
+	display: inline-block;
+}
+.chooseItem .chooseText{
+	color: #373737;
+	width: 60px;
+}
+.chooseItem .chooseArea{
+	margin-left: 30px;
+}
+.chooseItem .chooseOption .active{
+	background-color: white;
+	border-color: #00c43c;
+	border-width: 3px;
+
+}
+.chooseOption span{
+    width:80px;
+	height: 30px;
+	margin-right: -4px;
+	background-color: #ebebeb;
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 15%;
+	border-color: #e8e8e8;
+	text-align: center;
+}
+.chooseOption span img{
+	width: 30%;
+}
+.chooseItem .color span{
+	width:53px;
+	height: 30px;
+}
+.black{
+	background: black!important;
+}
+.white{
+	background-color: white!important;
+}
+.grey{
+	background-color: #696969!important;
 }
