@@ -23,8 +23,8 @@ $this->title = 'Ontee';
             <div class="chooseItem">
                 <span class="chooseText">版型</span>
                 <span class="chooseOption">
-                    <span class="frontSide active"><img src="./img/style1.png"/></span>
-                    <span class="backSide"><img src="./img/style2.png"/></span>
+                    <span class="style1 active"><img src="./img/style1.png"/></span>
+                    <span class="style2"><img src="./img/style2.png"/></span>
                 </span>
             </div>
             <div class="chooseItem">

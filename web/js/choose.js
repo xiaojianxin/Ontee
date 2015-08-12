@@ -1,5 +1,50 @@
 $(function(){
-   $(".chooseOption span").click(function(){
-
+   sex=1;
+   style=1;
+   color=1;
+   $(".boyTee").click(function(){
+      $(this).addClass("active");
+      $('.girlTee').removeClass("active");
+      sex=1;
+   });
+   $(".girlTee").click(function(){
+      $(this).addClass("active");
+      $('.boyTee').removeClass("active");
+      sex=2;
+   });
+   $(".style1").click(function(){
+      $(this).addClass("active");
+      $('.style2').removeClass("active");
+      style=1;
+   });
+   $(".style2").click(function(){
+      $(this).addClass("active");
+      $('.style1').removeClass("active");
+      style=2;
+   });
+   $(".black").click(function(){
+      $(this).addClass("active");
+      $('.grey').removeClass("active");
+      $('.white').removeClass("active");
+      $('.tShirtPic').attr('src','./img/teebf.png');
+      color=1;
+   });
+   $(".grey").click(function(){
+      $(this).addClass("active");
+      $('.black').removeClass("active");
+      $('.white').removeClass("active");
+      color=2;
+   });
+   $(".white").click(function(){
+      $(this).addClass("active");
+      $('.grey').removeClass("active");
+      $('.black').removeClass("active");
+      //$(".teePic").addClass("animated fadeOutLeft");
+      //setTimeout("$('.tShirtPic').attr('src','./img/teewf.png')",3000);
+      //$(".teePic").removeClass("animated fadeOutLeft");
+      //$(".tShirtPic").removeClass("animated fadeInLeft");
+      //setTimeout("$('.tShirtPic').removeClass('animated fadeInLeft')",3000);
+      $('.tShirtPic').attr('src','./img/teewf.png');
+      color=3;
    });
 });
