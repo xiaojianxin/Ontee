@@ -79,4 +79,61 @@ a{
 	margin-top: -117px;
 	font-size: 16px;
 }
+/***********************************************index页面********************************************/
+.fixBox{
+	width:20%;
+	height: 80px;
+	background: rgba(96,96,96,0.9);
+	position: absolute;
+	top:57%;
+	left: 42%;
+	text-align: center;
+}
+.fixBox h1{
+	color: white;
+	font-style:oblique;
+	font-weight: bold;
+	font-size: 32px;
+	margin-top: 8px;
 
+
+}
+.fixBox h3{
+	color: white;
+	font-size: 14px;
+	font-style:oblique;
+	margin-top: 0;
+}
+.fixButton{
+	width:30%;
+	height: 80px;
+	position: absolute;
+	top:73%;
+	left: 34%;
+	text-align: center;
+}
+.fixButton span{
+
+	border-style: solid;
+	border-color: rgba(96,96,96,0.8);
+	border-radius: 50%;
+	display: inline-block;
+	width:60px;
+	height: 60px;
+	margin-left: 15%;
+
+
+}
+.fixButton .circleButton a{
+	display: block;margin-left: 11px;margin-top: 6px;
+	width: 30px;
+	text-align: center;
+	text-decoration: none;
+	color: #444444;
+	line-height: 20px;
+}
+/*.fixButton .circleButton a:hover{*/
+	/*　　-webkit-transition:border linear .2s,-webkit-box-shadow linear .5s;*/
+	/*　　border-color:rgba(141,39,142,.75);*/
+	/*　　-webkit-box-shadow:0 0 18px rgba(111,1,32,3);*/
+/*}*/
