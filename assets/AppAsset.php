@@ -22,6 +22,7 @@ class AppAsset extends AssetBundle
         'yii\bootstrap\BootstrapAsset'
     ];
     public $css = [
+        'css/animate.css',
         'css/site.css',
         'css/flexslider.css',
         'css/main.css'
