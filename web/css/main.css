@@ -167,3 +167,8 @@ a{
 	/*　　border-color:rgba(141,39,142,.75);*/
 	/*　　-webkit-box-shadow:0 0 18px rgba(111,1,32,3);*/
 /*}*/
+/***********************************************choose页面********************************************/
+.chooseContent{
+	background-image: url("../img/bg.jpg");
+	min-height: 800px;
+}

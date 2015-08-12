@@ -1,17 +1,17 @@
 <?php
 /* @var $this yii\web\View */
-$this->title = 'My Yii Application';
+$this->title = 'Ontee';
 ?>
 <div class="flexslider">
     <ul class="slides">
         <li>
-            <img src="/Ontee/web/img/slide.jpg"/>
+            <img src="./img/slide.jpg"/>
         </li>
         <li>
-            <img src="/Ontee/web/img/slide.jpg"/>
+            <img src="./img/slide.jpg"/>
         </li>
         <li>
-            <img src="/Ontee/web/img/slide.jpg"/>
+            <img src="./img/slide.jpg"/>
         </li>
     </ul>
 </div>
