@@ -13,7 +13,9 @@ use yii\helpers\Json;
 
 class SiteController extends Controller
 {
-    public  $this->enableCsrfValidation = false;
+    public function init(){
+        $this->enableCsrfValidation = false;
+    }
     public function behaviors()
     {
         return [
