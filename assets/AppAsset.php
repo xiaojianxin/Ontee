@@ -30,7 +30,8 @@ class AppAsset extends AssetBundle
     public $js = [
         'js/jquery-2.1.1.js',
         'js/bootstrap.js',
-        'js/jquery.flexslider-min.js'
+        'js/jquery.flexslider-min.js',
+        'js/sign.js'
 
     ];
 

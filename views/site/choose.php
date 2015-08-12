@@ -10,7 +10,7 @@ $this->title = 'Ontee';
 <div class="chooseContent container">
     <div class="row">
         <div class="col-sm-5 col-sm-offset-2 teePic">
-            <img src="./img/teebf.png"/>
+            <img src="./img/teebf.png" class="tShirtPic"/>
         </div>
         <div class="col-sm-4 teeArea">
             <div class="chooseItem">
@@ -35,6 +35,10 @@ $this->title = 'Ontee';
                     <span class="white"><img src="./img/trans.png"/></span>
                 </span>
             </div>
+            <div class="nextStepButton">
+                <img src="./img/nextbutton.png"/>
+            </div>
         </div>
+
     </div>
 </div>
