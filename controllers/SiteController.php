@@ -7,6 +7,7 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
+use app\models\User;
 use app\models\ContactForm;
 use yii\helpers\Json;
 
@@ -60,11 +61,18 @@ class SiteController extends Controller
     public function actionLogin()
     {
        $model = new LoginForm();
-       $params = json_decode(Yii::$app->request->post(),true);
+       $user = new User();
+       $post = Yii::$app->request->post();
+       $model->username = $post['username'];
+       $model->password = $post['password'];
+       if($model->validate())
+       {    
+            if(Yii::$app->user->login($model->getUser(),3600*24*30)){
 
-       if($model->load($params))
-       {
-            echo "0";
+                echo 0;
+            }
+       }else{
+            echo 1;
        }
     }
 
