@@ -59,7 +59,7 @@ class SiteController extends Controller
     public function actionLogin()
     {
        $model = new LoginForm();
-       $params = decode(Yii::$app->request->post(),true);
+       $params = json_decode(Yii::$app->request->post(),true);
 
        if($model->load($params))
        {
