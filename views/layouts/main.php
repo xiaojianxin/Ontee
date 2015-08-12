@@ -74,7 +74,21 @@ AppAsset::register($this);
                     </div>
                     <div class="errorText"></div>
                 </form>
-                <button class="btn signUp">Next<br/>下一步</button>
+                <button class="btn signUp" id="nextRegister">Next<br/>下一步</button>
+            </div>
+            <div id="registerConfirm">
+                <form>
+                    <div class="formItem">
+                        <span class="formText">设置密码</span>
+                        <span class="formArea"><input type="text" ></span>
+                    </div>
+                    <div class="formItem">
+                        <span class="formText">确认密码</span>
+                        <span class="formArea"><input type="password" ></span>
+                    </div>
+                    <div class="errorText"></div>
+                </form>
+                <button class="btn signIn">注册</button>
             </div>
         </div>
 
@@ -92,6 +106,7 @@ $(function() {
         $("#registerItem").removeClass("active");
         $("#signInItem").addClass("active");
         $("#registerContent").hide();
+        $("#registerConfirm").hide();
         $("#signInContent").show();
 
 
@@ -100,19 +115,30 @@ $(function() {
         $("#signInItem").removeClass("active");
         $("#registerItem").addClass("active");
         $("#signInContent").hide();
+        $("#registerConfirm").hide();
         $("#registerContent").show();
     });
     $("#registerItem").click(function(){
         $("#signInItem").removeClass("active");
         $("#registerItem").addClass("active");
         $("#signInContent").hide();
+        $("#registerConfirm").hide();
         $("#registerContent").show();
-    })
+    });
     $("#signInItem").click(function(){
         $("#registerItem").removeClass("active");
         $("#signInItem").addClass("active");
         $("#registerContent").hide();
+        $("#registerConfirm").hide();
         $("#signInContent").show();
+    });
+    $("#nextRegister").click(function(){
+        $("#signInItem").removeClass("active");
+        $("#registerItem").addClass("active");
+        $("#registerContent").hide();
+        $("#signInContent").hide();
+        $("#registerConfirm").show();
+
     })
 });
 <?php $this->endBlock()?>
