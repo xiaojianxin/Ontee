@@ -25,7 +25,7 @@ AppAsset::register($this);
     <div class="container">
         <div class="row">
             <div class="col-sm-4 col-sm-offset-2">
-                <img src="/Ontee/web/img/logo.png" style="margin-top:-20px;width:35%;"/>
+                <img src="./img/logo.png" style="margin-top:-20px;width:35%;"/>
             </div>
             <div class="col-sm-6 nav-item">
                 <span><a href=""> 首页</a></span>
