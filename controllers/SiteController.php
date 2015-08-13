@@ -69,10 +69,7 @@ class SiteController extends Controller
        $model->password = $post['password'];
        if($model->validate())
        {
-
             $model->login();
-       }else{
-            echo ;
        }
     }
 
