@@ -60,7 +60,7 @@ $(function() {
                  data:{username:username,password:psw},
                  dataType:"Json",
                  success:function(data){
-                    alert(data);
+                    //alert(data);
                      if(data==0)
                      {
                          $("#signInContent").hide();
@@ -83,7 +83,7 @@ $(function() {
                      }
                  },
                  error:function(data){
-                     alert(data);
+                     //alert(data);
                      alert("登录失败");
                  }
              });
