@@ -47,4 +47,8 @@ $(function(){
       $('.tShirtPic').attr('src','./img/teewf.png');
       color=3;
    });
+   $("#nextStepButton").click(function(){
+      $(".chooseContent").hide();
+      $(".editContent").show();
+   })
 });

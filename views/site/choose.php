@@ -35,10 +35,31 @@ $this->title = 'Ontee';
                     <span class="white"><img src="./img/trans.png"/></span>
                 </span>
             </div>
-            <div class="nextStepButton">
+            <div class="nextStepButton" id="nextStepButton">
                 <img src="./img/nextbutton.png"/>
             </div>
         </div>
 
+    </div>
+</div>
+<div class="editContent container" style="min-width: 720px;">
+    <div class="sideSelect">
+        <span class="r-Side">正</span>
+        <span class="l-Side active">反</span>
+    </div>
+    <div class="teeEditPic">
+        <img src="./img/teebf.png" class="tShirtPic"/>
+    </div>
+    <div class="templateBoxes">
+
+    </div>
+    <div class="buttonsArea">
+        <span class="" id="insertText"><a href="">插入文字</a> </span>
+        <span class="" id="insertPic"><a href="">插入图形</a> </span>
+        <span class="" id="uploadPic"><a href="">上传图片</a> </span>
+    </div>
+    <div class="preNextButton">
+        <span class="previousBtn"><img src="./img/backbutton.png"/> </span>
+        <span class="nextBtn"><img src="./img/nextbutton.png"/> </span>
     </div>
 </div>
