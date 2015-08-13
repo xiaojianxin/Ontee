@@ -70,11 +70,9 @@ class SiteController extends Controller
        if($model->validate())
        {
 
-            if($model->login()){
-                echo 0;
-            }
+            $model->login();
        }else{
-            echo 1;
+            echo ;
        }
     }
 
