@@ -41,6 +41,9 @@ AppAsset::register($this);
 <!-- Modal -->
 <div class="modal fade" id="modalBox" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
+    <button type="button" class="close modalClose" data-dismiss="modal" aria-hidden="true">
+        ×
+    </button>
     <div class="modal-dialog">
         <div class="boxHeader">
             <span id="signInItem">登录</span>
