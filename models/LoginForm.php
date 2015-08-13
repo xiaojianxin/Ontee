@@ -30,10 +30,10 @@ class LoginForm extends Model
               if($this->validatePassword($this->getUser()->password)){
                 echo 0;
               }else{
-                echo 1;
+                echo 2;
               }
             }else{
-                echo 2;
+                echo 1;
             }
         }else{
             return false;
