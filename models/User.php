@@ -4,53 +4,60 @@ namespace app\models;
 
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
-class User extends ActiveRecord implements IdentityInterface
+class User extends ActiveRecord 
 {
     public static function tableName()
     {
         return 'user';
     }
 
-
-
-    private static $users = [
-        '100' => [
-            'id' => '100',
-            'username' => 'admin',
-            'password' => 'admin',
-            'authKey' => 'test100key',
-            'accessToken' => '100-token',
-        ],
-        '101' => [
-            'id' => '101',
-            'username' => 'demo',
-            'password' => 'demo',
-            'authKey' => 'test101key',
-            'accessToken' => '101-token',
-        ],
-    ];
-
     /**
      * @inheritdoc
      */
-    public static function findIdentity($id)
+    public function rules()
     {
-        return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+        return [
+            [['username', 'password'], 'required'],
+        ];
     }
 
     /**
      * @inheritdoc
      */
-    public static function findIdentityByAccessToken($token, $type = null)
-    {
-        foreach (self::$users as $user) {
-            if ($user['accessToken'] === $token) {
-                return new static($user);
-            }
-        }
+    // public function attributeLabels()
+    // {
+    //     return [
+    //         'userid' => 'ID',
+    //         'username' => 'Username',
+    //         'password' => 'Password',
+    //         'email' => 'Email',
+    //         'description' => 'Description',
+    //     ];
+    // }
 
-        return null;
-    }
+    /**
+     * @inheritdoc
+     */
+    // public static function findIdentity($id)
+    // {
+    //     return static::findOne($id);
+    //     //return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+    // }
+
+    /**
+     * @inheritdoc
+     */
+    // public static function findIdentityByAccessToken($token, $type = null)
+    // {
+    //     return static::findOne(['access_token' => $token]);
+    //     foreach (self::$users as $user) {
+    //         if ($user['accessToken'] === $token) {
+    //             return new static($user);
+    //         }
+    //     }
+
+    //     return null;
+    // }
 
     /**
      * Finds user by username
@@ -58,40 +65,54 @@ class User extends ActiveRecord implements IdentityInterface
      * @param  string      $username
      * @return static|null
      */
-    public static function findByUsername($username)
-    {
-        foreach (self::$users as $user) {
-            if (strcasecmp($user['username'], $username) === 0) {
-                return new static($user);
-            }
-        }
+    // public static function findByUsername($username)
+    // {
+    //       $user = User::find()
+    //         ->where(['username' => $username])
+    //         ->asArray()
+    //         ->one();
 
-        return null;
-    }
+    //         if($user){
+    //         return new static($user);
+    //     }
 
-    /**
-     * @inheritdoc
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+    //     return null;
+    //     /*foreach (self::$users as $user) {
+    //         if (strcasecmp($user['username'], $username) === 0) {
+    //             return new static($user);
+    //         }
+    //     }
 
-    /**
-     * @inheritdoc
-     */
-    public function getAuthKey()
-    {
-        return $this->authKey;
-    }
+    //     return null;*/
+    // }
 
     /**
      * @inheritdoc
      */
-    public function validateAuthKey($authKey)
-    {
-        return $this->authKey === $authKey;
-    }
+    // public function getId()
+    // {
+    //     return $this->userid;
+    // }
+
+
+
+
+
+    /**
+     * @inheritdoc
+     */
+    // public function getAuthKey()
+    // {
+    //     return $this->authKey;
+    // }
+
+    /**
+     * @inheritdoc
+     */
+    // public function validateAuthKey($authKey)
+    // {
+    //     return $this->authKey === $authKey;
+    // }
 
     /**
      * Validates password
@@ -103,4 +124,5 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return $this->password === $password;
     }
+
 }

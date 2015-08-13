@@ -68,9 +68,9 @@ class SiteController extends Controller
        $model->username = $post['username'];
        $model->password = $post['password'];
        if($model->validate())
-       {    
-            if(Yii::$app->user->login($model->getUser(),3600*24*30)){
+       {
 
+            if($model->login()){
                 echo 0;
             }
        }else{

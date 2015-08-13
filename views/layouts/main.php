@@ -24,10 +24,10 @@ AppAsset::register($this);
 <div class="nav-head">
     <div class="container">
         <div class="row">
-            <div class="col-sm-4 col-sm-offset-2">
-                <img src="./img/logo.png" style="margin-top:-20px;width:35%;"/>
+            <div class="col-xs-2 col-xs-offset-2">
+                <img src="./img/logo.png" style="width: 80%;margin-top: -14%;min-width: 100px;"/>
             </div>
-            <div class="col-sm-6 nav-item">
+            <div class="col-xs-6 nav-item col-xs-offset-2">
                 <span><a href="index.php"> 首页</a></span>
                 <span><a href="./choose.php"> 认识ONTEE</a></span>
                 <span><a href=""> 我的T恤</a></span>
@@ -41,6 +41,9 @@ AppAsset::register($this);
 <!-- Modal -->
 <div class="modal fade" id="modalBox" tabindex="-1" role="dialog"
      aria-labelledby="myModalLabel" aria-hidden="true">
+    <button type="button" class="close modalClose" data-dismiss="modal" aria-hidden="true">
+        ×
+    </button>
     <div class="modal-dialog">
         <div class="boxHeader">
             <span id="signInItem">登录</span>
