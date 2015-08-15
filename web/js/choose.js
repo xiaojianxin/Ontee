@@ -57,10 +57,16 @@ editTee=function(){
       $("#nextStepButton").click(function(){
          $(".chooseContent").hide();
          $(".editContent").show();
-      })
+      });
+      $(".previousBtn").click(function(){
+         $(".editContent").hide();
+         $(".chooseContent").show();
+      });
    };
    me.editShirt=function(){
-
+      $(".insertText").click(function(){
+         $("#text-Area").toggle();
+      });
    }
 
 };

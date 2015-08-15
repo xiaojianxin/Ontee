@@ -55,17 +55,35 @@ $this->title = 'Ontee';
             <svg id="mySvg" xmlns = "http://www.w3.org/2000/svg">
                 <rect x="0" y="0" width="180" height="300" r="0" rx="0" ry="0" fill="#000000" stroke="#ffffff"
                       fill-opacity="0" transform="matrix(1,0,0,1,0,0)" stroke-width="5" style=""></rect>
+                <rect x="15" y="15" width="150" height="30" r="0" rx="5" ry="5" fill="#000000" stroke="#ffffff"
+                      transform="matrix(1,0,0,1,0,0)" stroke-width="2" style="display: none;" id="text-Area">
+                </rect>
+
             </svg>
         </div>
+<!--        <div class="input-TextArea">-->
+<!--            <input type="text" class="form-control" placeholder="文字输入区域" id="inputText"/>-->
+<!--        </div>-->
     </div>
 
     <div class="templateBoxes">
 
     </div>
     <div class="buttonsArea">
-        <span class="" id="insertText"><a href="">插入文字</a> </span>
-        <span class="" id="insertPic"><a href="">插入图形</a> </span>
-        <span class="" id="uploadPic"><a href="">上传图片</a> </span>
+        <span class="insertText" id="insertText">
+            <i class="">T</i>
+        </span>
+        <span class="insertPic" id="insertPic">
+            <i class="glyphicon glyphicon-picture"></i>
+        </span>
+        <span class="uploadPic" id="uploadPic">
+             <i class="glyphicon glyphicon-upload"></i>
+        </span>
+    </div>
+    <div class="buttonTextArea">
+        <span class="insertText" >插入文字</span>
+        <span class="insertPic" >插入图形</span>
+        <span class="uploadPic" >上传图片</span>
     </div>
     <div class="preNextButton">
         <span class="previousBtn"><img src="./img/backbutton.png"/> </span>

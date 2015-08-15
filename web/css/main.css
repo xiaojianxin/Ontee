@@ -313,21 +313,58 @@ a{
 	margin: 0 auto;
 }
 .buttonsArea span{
-	border-style: solid;
-	border-color: rgba(96,96,96,0.8);
-	border-radius: 50%;
-	display: inline-block;
-	width:70px;
-	height: 70px;
-	margin-left: 40px;
-}
-.buttonsArea span a{
-	display: block;margin-left: 17px;margin-top: 9px;
+	 border-style: solid;
+	 border-color: rgba(96,96,96,0.8);
+	 border-radius: 50%;
+	 display: inline-block;
+	 width:40px;
+	 height: 40px;
+	 margin-left: 60px;
+ }
+.buttonsArea span i{
+	display: block;
 	width: 30px;
 	text-align: center;
 	text-decoration: none;
 	color: #444444;
 	line-height: 20px;
+	margin-top: 7px;
+	margin-left: 2px;
+	cursor: pointer;
+
+}
+/*.buttonsArea span i:hover{*/
+	/*text-shadow:0 0 8px rgba(0, 0, 0, 8);*/
+	/*-webkit-text-shadow:0 0 8px rgba(255,255,255, 8);*/
+	/*-moz-text-shadow:0 0 8px rgba(255,255,255, 8);*/
+
+/*}*/
+.buttonsArea span:hover{
+	transition:border linear .2s,box-shadow linear .5s;
+	-moz-transition:border linear .2s,-moz-box-shadow linear .5s;
+	-webkit-transition:border linear .2s,-webkit-box-shadow linear .5s;
+	outline:none;border-color:rgba(241,39,242,.75);
+	box-shadow:0 0 8px rgba(241,39,232,.5);
+	-moz-box-shadow:0 0 8px rgba(241,39,232,.5);
+	-webkit-box-shadow:0 0 8px rgba(241,39,232,3);
+}
+.buttonTextArea{
+	width:400px;
+	margin: 0 auto;
+}
+.buttonTextArea span{
+
+	display: inline-block;
+	width:60px;
+	height: 40px;
+	margin-left: 45px;
+	margin-top:10px;
+	cursor: pointer;
+}
+.buttonTextArea span:hover{
+	text-shadow:0 0 2px rgba(255, 255, 255, 8);
+	-webkit-text-shadow:0 0 2px rgba(255,255,255, 8);
+	-moz-text-shadow:0 0 2px rgba(255,255,255, 8);
 }
 .preNextButton{
 	width: 900px;
@@ -339,7 +376,9 @@ a{
 .preNextButton .nextBtn{
 	float: right;
 }
-
+#inputText{
+	font-family: "兰亭黑-简";
+}
 
 
 

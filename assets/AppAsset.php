@@ -31,6 +31,7 @@ class AppAsset extends AssetBundle
         'js/jquery-2.1.1.js',
         'js/bootstrap.js',
         'js/jquery.flexslider-min.js',
+        'js/drag.js',
         'js/html2canvas.js',
         'js/sign.js',
         'js/choose.js'
