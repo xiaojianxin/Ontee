@@ -48,8 +48,17 @@ $this->title = 'Ontee';
         <span class="l-Side active">反</span>
     </div>
     <div class="teeEditPic">
-        <img src="./img/teebf.png" class="tShirtPic"/>
+        <div id="saveArea">
+            <img src="./img/teebf.png" class="tShirtPic"/>
+        </div>
+        <div class="printArea">
+            <svg id="mySvg" xmlns = "http://www.w3.org/2000/svg">
+                <rect x="0" y="0" width="180" height="300" r="0" rx="0" ry="0" fill="#000000" stroke="#ffffff"
+                      fill-opacity="0" transform="matrix(1,0,0,1,0,0)" stroke-width="5" style=""></rect>
+            </svg>
+        </div>
     </div>
+
     <div class="templateBoxes">
 
     </div>
