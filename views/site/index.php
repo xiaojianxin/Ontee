@@ -1,51 +1,46 @@
 <?php
+
+use yii\helpers\Html;
+use yii\helpers\Url;
 /* @var $this yii\web\View */
-$this->title = 'My Yii Application';
+$this->title = 'Ontee';
 ?>
-<div class="site-index">
-
-    <div class="jumbotron">
-        <h1>Congratulations!</h1>
-
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+<div class="fixContainer">
+    <div class="flexslider">
+        <ul class="slides">
+            <li>
+                <img src="./img/slide.jpg"/>
+            </li>
+            <li>
+                <img src="./img/slide.jpg"/>
+            </li>
+            <li>
+                <img src="./img/slide.jpg"/>
+            </li>
+        </ul>
     </div>
 
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
+    <div class="fixBox center-block">
+        <h1>JUST 3 STEPS</h1>
+        <h3>只需要三步你就能拥有只属于自己T恤</h3>
+        <div class="fixButton">
+            <span class="circleButton"> <a href="<?=Url::to(['site/login'])?>"> 认识<br/>Ontee</a></span>
+            <span class="circleButton"> <a href="<?=Url::to(['site/choose'])?>"> 立即<br/>制作</a></span>
         </div>
-
     </div>
+
 </div>
+
+<?php $this->beginBlock("slide")?>
+
+$(function() {
+    $(".flexslider").flexslider({
+        animation:"slide",
+        slideshowSpeed:2000,
+        directionNav:false
+    });
+
+});
+<?php $this->endBlock()?>
+<?php $this->registerJs($this->blocks['slide'],\yii\web\View::POS_END)?>
+

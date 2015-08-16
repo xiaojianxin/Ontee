@@ -17,13 +17,26 @@ class AppAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
-    public $css = [
-        'css/site.css',
-    ];
-    public $js = [
-    ];
+
     public $depends = [
         'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+        'yii\bootstrap\BootstrapAsset'
     ];
+    public $css = [
+        'css/animate.css',
+        'css/site.css',
+        'css/flexslider.css',
+        'css/main.css'
+    ];
+    public $js = [
+        'js/jquery-2.1.1.js',
+        'js/bootstrap.js',
+        'js/jquery.flexslider-min.js',
+        'js/drag.js',
+        'js/html2canvas.js',
+        'js/sign.js',
+        'js/choose.js'
+
+    ];
+
 }

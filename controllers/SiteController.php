@@ -7,10 +7,17 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
+use app\models\RegisterForm;
+use app\models\User;
 use app\models\ContactForm;
+use yii\helpers\Json;
 
 class SiteController extends Controller
 {
+    public function init(){
+        $this->enableCsrfValidation = false;
+    }
+
     public function behaviors()
     {
         return [
@@ -52,20 +59,30 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    public function actionChoose()
+    {
+        return $this->render('choose');
+    }
     public function actionLogin()
     {
-        if (!\Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
+       $model = new LoginForm();
+       $user = new User();
+       $post = Yii::$app->request->post();
+       $model->username = $post['username'];
+       $model->password = $post['password'];
+       if($model->validate())
+       {
+            $model->login();
+       }
 
-        $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            return $this->render('login', [
-                'model' => $model,
-            ]);
-        }
+    }
+
+    public function actionTestcode()
+    {   
+        $model  = new RegisterForm();
+        $post = Yii::$app->request->post();
+        $model->telephone = $post['telephone'];
+        $model->InsertTestCode();
     }
 
     public function actionLogout()
