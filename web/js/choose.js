@@ -62,6 +62,7 @@ editTee=function(){
          $(".editContent").hide();
          $(".chooseContent").show();
       });
+
    };
    me.editShirt=function(){
       $(".insertText").click(function(){

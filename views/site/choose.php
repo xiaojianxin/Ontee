@@ -5,6 +5,7 @@
  * Date: 15/8/12
  * Time: 下午2:16
  */
+use yii\helpers\Url;
 $this->title = 'Ontee';
 ?>
 <div class="chooseContent container">
@@ -87,6 +88,6 @@ $this->title = 'Ontee';
     </div>
     <div class="preNextButton">
         <span class="previousBtn"><img src="./img/backbutton.png"/> </span>
-        <span class="nextBtn"><img src="./img/nextbutton.png"/> </span>
+        <span class="nextBtn"><a href="<?=Url::to(['site/purchase'])?>"><img src="./img/nextbutton.png"/> </a></span>
     </div>
 </div>

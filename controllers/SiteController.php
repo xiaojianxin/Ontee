@@ -63,6 +63,10 @@ class SiteController extends Controller
     {
         return $this->render('choose');
     }
+    public function actionPurchase()
+    {
+        return $this->render('purchase');
+    }
     public function actionLogin()
     {
        $model = new LoginForm();

@@ -379,12 +379,66 @@ a{
 #inputText{
 	font-family: "兰亭黑-简";
 }
+/******************************************购买页面*********************************************/
+.textPointer{
+	margin-top:15%;
+	text-align: center;
+}
+.textPointer .intro-text{
+	font-size: 12px;
+}
+.printTee img{
+	width: 100%;
+	float: right;
+}
+.priceTag{
+	margin-top: 40%;
+	text-align: center;
+	padding-bottom: 60px;
+}
+.priceTag span{
+	font-size: 40px;
+	font-weight: bold;
 
+}
+.chooseItem1{
+	width: 300px;
+	margin-left: 10%;
+	margin-top: 20px;
+}
 
+.chooseItem1 .chooseOption span{
+	width:40px;
+	height: 20px;
+	display: inline-block;
+	background-color: #ebebeb;
+	border-style: solid;
+	border-width: 3px;
+	border-radius: 10%;
+	border-color: #e8e8e8;
+	text-align: center;
+	cursor: pointer;
+	margin-left: 5px;
+	font-size: 12px;
+	margin-top: 3px;
 
-
-
-
+}
+.chooseItem1 .chooseOption .active{
+	background-color: white;
+	border-color: #00c43c;
+	border-width: 3px;
+}
+.chooseItem1 .chooseText{
+	float: right;
+	padding-top: 3px;
+}
+.purchaseBtn{
+	margin-top: 40px;
+	text-align: center;
+}
+.purchaseBtn #buyBtn{
+	color:white;
+}
 
 
 
