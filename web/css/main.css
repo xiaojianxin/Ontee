@@ -432,6 +432,9 @@ a{
 	float: right;
 	padding-top: 3px;
 }
+#chosenPic{
+ height:24px; filter:alpha(opacity:0);opacity: 0;width:260px;display: none;
+}
 .purchaseBtn{
 	margin-top: 40px;
 	text-align: center;

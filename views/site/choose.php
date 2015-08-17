@@ -59,6 +59,7 @@ $this->title = 'Ontee';
                 <rect x="15" y="15" width="150" height="30" r="0" rx="5" ry="5" fill="#000000" stroke="#ffffff"
                       transform="matrix(1,0,0,1,0,0)" stroke-width="2" style="display: none;" id="text-Area">
                 </rect>
+                <g id="upPic"></g>
 
             </svg>
         </div>
@@ -85,6 +86,7 @@ $this->title = 'Ontee';
         <span class="insertText" >插入文字</span>
         <span class="insertPic" >插入图形</span>
         <span class="uploadPic" >上传图片</span>
+        <input type="file" id="chosenPic" name="uploadPic"/>
     </div>
     <div class="preNextButton">
         <span class="previousBtn"><img src="./img/backbutton.png"/> </span>
