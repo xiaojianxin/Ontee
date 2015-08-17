@@ -24,7 +24,15 @@ class RegisterForm extends Model
 		$user->telephone = $this->telephone;
 
 		if($user->insert('user',['testcode','telephone'],[$user->testcode,$user->telephone])){
-			echo 0;
+			$password = md5("ontee123ontee");
+			//$content = urlencode("I love you");
+			//echo $content;
+			$time = $this->getMillisecond();
+			echo $time;
+			$remote_server = "http://api.sms.cn/mt/?uid=ontee&pwd=".$password."&mobile=18910681721&mobileids=18910681721".$time."&content=I+love+you";
+
+			$data = $this->request_by_curl($remote_server);
+			echo $data;
 		}	
 	}
 	public function GetTestCode($len) 
@@ -41,5 +49,22 @@ class RegisterForm extends Model
   		} 
  		 return $outputstr; 
 	} 
+
+
+	public function getMillisecond() {
+		list($t1, $t2) = explode(' ', microtime());
+		return (float)sprintf('%.0f',(floatval($t1)+floatval($t2))*1000);
+	}	
+ 
+
+	public function request_by_curl($remote_server)
+	{
+        $ch = curl_init();
+        curl_setopt($ch,CURLOPT_URL,$remote_server);
+        curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+        $data = curl_exec($ch);
+        curl_close($ch);
+        return $data;
+	}
 }
 ?>

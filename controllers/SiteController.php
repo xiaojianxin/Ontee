@@ -85,6 +85,7 @@ class SiteController extends Controller
     {   
         $model  = new RegisterForm();
         $post = Yii::$app->request->post();
+        var_dump($post);
         $model->telephone = $post['telephone'];
         $model->InsertTestCode();
     }
