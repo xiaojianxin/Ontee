@@ -26,9 +26,24 @@ class RegisterForm extends Model
 		$isExist = User::find()->where(['telephone' => $user->telephone])->one();
 
 		if(!empty($isExist)){
-			echo "0";
+			if (empty($isExist->username)){
+				if(User::updateAll(['testcode' => $user->testcode], 'telephone ='.$user->telephone)){
+
+				$password = md5("ontee123ontee");
+				$content = urlencode("欢迎您注册ONTEE，您的验证码".$user->testcode."，请在10分钟之内输入。【ONTEE】");
+					
+				$time = $this->getMillisecond();
+				$remote_server = "http://api.sms.cn/mt/?uid=ontee&pwd=".$password."&mobile=".$user->telephone."&mobileids=".$user->telephone.$time."&content=".$content."&encode=utf8";
+				$data = $this->request_by_curl($remote_server);
+				echo $user->testcode;
+				
+				}
+			}
+			else{
+				echo 0;
+			}
 		}else{
-			if($user->insert('user',['testcode','telephone'],[$user->testcode,$user->telephone])){
+		 	if($user->insert('user',['testcode','telephone'],[$user->testcode,$user->telephone])){
 
 			$password = md5("ontee123ontee");
 			$content = urlencode("欢迎您注册ONTEE，您的验证码".$user->testcode."，请在10分钟之内输入。【ONTEE】");
