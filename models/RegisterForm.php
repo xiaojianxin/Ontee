@@ -114,7 +114,8 @@ class RegisterForm extends Model
 	public function Register(){
 
 		$user = User::find()->where(['telephone' => $this->telephone])->one();
-		$user->password = md5($this->password);
+		$user->password = md5($this->password); 
+		
 		$user->username = $this->telephone;
 		if($user->update()){
 			echo "0";
