@@ -23,17 +23,27 @@ class RegisterForm extends Model
 		$user->testcode = $this->GetTestCode(4);
 		$user->telephone = $this->telephone;
 
-		if($user->insert('user',['testcode','telephone'],[$user->testcode,$user->telephone])){
+		$isExist = User::find()->where(['telephone' => $user->telephone])->count('userid');;
+
+		if(!empty($isExist)){
+			echo "0";
+		}else{
+			if($user->insert('user',['testcode'],[$user->testcode])){
+
 			$password = md5("ontee123ontee");
-			//$content = urlencode("I love you");
-			//echo $content;
+			$content = urlencode("欢迎您注册ONTEE，您的验证码".$user->testcode."，请在10分钟之内输入。【ONTEE】");
+			
 			$time = $this->getMillisecond();
 			echo $time;
-			$remote_server = "http://api.sms.cn/mt/?uid=ontee&pwd=".$password."&mobile=18910681721&mobileids=18910681721".$time."&content=I+love+you";
-
+			$remote_server = "http://api.sms.cn/mt/?uid=ontee&pwd=".$password."&mobile=18910681721&mobileids=18910681721".$time."&content=".$content."&encode=utf8";
+			echo $remote_server;
 			$data = $this->request_by_curl($remote_server);
 			echo $data;
-		}	
+			
+
+			}
+		}
+	
 	}
 	public function GetTestCode($len) 
 	{ 
@@ -52,8 +62,9 @@ class RegisterForm extends Model
 
 
 	public function getMillisecond() {
-		list($t1, $t2) = explode(' ', microtime());
-		return (float)sprintf('%.0f',(floatval($t1)+floatval($t2))*1000);
+
+	  list($s1,$s2)=explode(' ',microtime()); 
+      return (float)sprintf('%.0f',(floatval($s1)+floatval($s2))*1000); 
 	}	
  
 
