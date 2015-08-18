@@ -35,7 +35,7 @@ class RegisterForm extends Model
 			
 			$time = $this->getMillisecond();
 			echo $time;
-			$remote_server = "http://api.sms.cn/mt/?uid=ontee&pwd=".$password."&mobile=18910681721&mobileids=18910681721".$time."&content=".$content."&encode=utf8";
+			$remote_server = "http://api.sms.cn/mt/?uid=ontee&pwd=".$password."&mobile=".$user->telephone."&mobileids=".$user->telephone.$time."&content=".$content."&encode=utf8";
 			echo $remote_server;
 			$data = $this->request_by_curl($remote_server);
 			echo $data;
@@ -44,6 +44,12 @@ class RegisterForm extends Model
 			}
 		}
 	
+	}
+
+
+	public function Register(){
+
+
 	}
 	public function GetTestCode($len) 
 	{ 
