@@ -18,6 +18,26 @@ a{
 	margin-left: 5%;
 	color:white;
 }
+.self-menu{
+	margin-left: 230px;
+	margin-top:5px;
+	background-color: #646464;
+	text-align: center;
+}
+.self-menu li{
+
+	 border-bottom: solid #363636;
+	 border-width: 3px;
+	 height: 35px;
+ }
+.self-menu li a{
+
+	margin-top: 5px;
+}
+.user-nav a img{
+	width: 40px;
+	max-height: 30px;
+}
 .nav-item span a{
 	color: white;
 	text-decoration:none;
