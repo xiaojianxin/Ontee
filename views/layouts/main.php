@@ -88,11 +88,11 @@ AppAsset::register($this);
 
                 <div class="formItem">
                     <span class="formText">设置密码</span>
-                    <span class="formArea"><input type="text" ></span>
+                    <span class="formArea"><input type="text" id="inputPsw" ></span>
                 </div>
                 <div class="formItem">
                     <span class="formText">确认密码</span>
-                    <span class="formArea"><input type="password" ></span>
+                    <span class="formArea"><input type="password" id="confirmPsw" ></span>
                 </div>
 
                 <button class="btn signIn">注册</button>
