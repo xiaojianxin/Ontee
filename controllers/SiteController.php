@@ -104,8 +104,10 @@ class SiteController extends Controller
         $model = new RegisterForm();
         $post = Yii::$app->request->post();
 
-        $model->username = $post['telephone'];
+        $model->telephone = $post['telephone'];
         $model->password = $post['password'];
+
+        //var_dump($model->password);
 
         $model->Register();
     }

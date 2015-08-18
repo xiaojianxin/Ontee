@@ -31,6 +31,11 @@ class LoginForm extends Model
             if(!empty($this->getUser())){
 
               if($this->validatePassword($this->getUser()->password)){
+                $session = Yii::$app->session;
+                $session->open();
+                session_cache_expire(30);
+                $session->set('username', $this->username);
+                $session->set('password',$this->password);
                 echo 0;
               }else{
                 echo 2;
@@ -45,7 +50,7 @@ class LoginForm extends Model
     }
     public function validatePassword($password)
     {   
-        if($password === $this->password){
+        if($password === md5($this->password)){
             return true;
         }else{
 
