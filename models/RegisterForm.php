@@ -23,12 +23,12 @@ class RegisterForm extends Model
 		$user->testcode = $this->GetTestCode(4);
 		$user->telephone = $this->telephone;
 
-		$isExist = User::find()->where(['telephone' => $user->telephone])->count('userid');;
+		$isExist = User::find()->where(['telephone' => $user->telephone])->one();
 
 		if(!empty($isExist)){
 			echo "0";
 		}else{
-			if($user->insert('user',['testcode'],[$user->testcode])){
+			if($user->insert('user',['testcode','telephone'],[$user->testcode,$user->telephone])){
 
 			$password = md5("ontee123ontee");
 			$content = urlencode("欢迎您注册ONTEE，您的验证码".$user->testcode."，请在10分钟之内输入。【ONTEE】");
@@ -48,6 +48,7 @@ class RegisterForm extends Model
 
 
 	public function Register(){
+
 
 
 	}
