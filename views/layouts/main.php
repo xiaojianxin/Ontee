@@ -76,7 +76,7 @@ AppAsset::register($this);
                 </div>
                 <div class="formItem">
                     <span class="formText">验证码</span>
-                    <span class="formAreaHalf"><input type="password" ></span>
+                    <span class="formAreaHalf"><input type="text" id="confirmCode"></span>
                     <span class="formAreaHalf"><span id="testCode">点击收取验证码</span></span>
                 </div>
                 <button class="btn signIn" id="nextRegister">Next<br/>下一步</button>

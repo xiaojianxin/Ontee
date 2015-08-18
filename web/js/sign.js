@@ -142,4 +142,10 @@ $(function() {
         }
 
      });
+    $("#telephone").focus(function(){
+        $(".registerError1").html("");
+    });
+    $("#confirmCode").focus(function(){
+        $(".registerError1").html("");
+    });
 });
