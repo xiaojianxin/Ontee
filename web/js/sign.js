@@ -114,11 +114,11 @@ $(function() {
                             function time(btn) {
                                 if (wait == 0) {
                                     btn.removeAttribute("disabled");
-                                    btn.value = "点击获取获取验证码";
+                                    btn.html("点击获取获取验证码");
                                     wait = 60;
                                 } else {
                                     btn.setAttribute("disabled", true);
-                                    btn.value = wait + "秒后重新获取验证码";
+                                    btn.html(wait + "秒后重新获取验证码");
                                     wait--;
                                     $(".registerError1").html("验证码已发送");
                                     setTimeout(function () {
@@ -136,7 +136,7 @@ $(function() {
                     }
                 });
             } else {
-                alert("手机号码格式错误");
+                $(".registerError1").html("手机号码格式错误");
                     }
         }
 
