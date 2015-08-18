@@ -90,6 +90,7 @@ $(function() {
          }
      });
     $("#testCode").click(function(){
+        $(".registerError1").html("");
         var telephone = $("#telephone").val();
         if(telephone=="")
         {
