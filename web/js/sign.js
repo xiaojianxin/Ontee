@@ -226,42 +226,50 @@ sign=function(){
         $("#registerBtn").click(function(){
             var psw = $("#inputPsw").val();
             var cfmPsw=$("#confirmPsw").val();
-            if(psw==cfmPsw)
+            if(psw.length<6||psw.length>12)
             {
-                $(".registerError2").html("");
-                $.ajax({
-                    type:"POST",
-                    url:"index.php?r=site/register",
-                    data:{telephone:me.telephone,password: $.md5(psw)},
-                    dataType:"Json",
-                    success:function(data) {
-                        if(data==0)
-                        {
-                            $("#registerConfirm").hide();
-                            var str="<h2 class='registerSuccess'>注册成功，请登录</h2>";
-                            $("#modalBox").append(str);
-                            setTimeout(function () {
-                                    $(".registerSuccess").remove();
-                                    $("#signInContent").click();
+                $(".registerError2").html("密码不能少于六位或大于12位");
 
-                                },
-                                2000);
-                            $("#signUrn").val(me.telephone);
-                            $("#telephone").val("");
-                            $("#confirmCode").val("");
-                            $("#inputPsw").val("");
-                            $("#confirmPsw").val("");
+            }
+            else{
+                if(psw==cfmPsw)
+                {
+                    $(".registerError2").html("");
+                    $.ajax({
+                        type:"POST",
+                        url:"index.php?r=site/register",
+                        data:{telephone:me.telephone,password: $.md5(psw)},
+                        dataType:"Json",
+                        success:function(data) {
+                            if(data==0)
+                            {
+                                $("#registerConfirm").hide();
+                                var str="<h2 class='registerSuccess'>注册成功，请登录</h2>";
+                                $("#modalBox").append(str);
+                                setTimeout(function () {
+                                        $(".registerSuccess").remove();
+                                        $("#signInContent").click();
 
+                                    },
+                                    2000);
+                                $("#signUrn").val(me.telephone);
+                                $("#telephone").val("");
+                                $("#confirmCode").val("");
+                                $("#inputPsw").val("");
+                                $("#confirmPsw").val("");
+
+                            }
+                            else
+                            {
+                                $(".registerError2").html("注册失败");
+                            }
+                        },
+                        error:function(data){
+                            $(".registerError2").html("注册系统错误");
                         }
-                        else
-                        {
-                            $(".registerError2").html("注册失败");
-                        }
-                    },
-                    error:function(data){
-                        $(".registerError2").html("注册系统错误");
-                    }
-                })
+                    })
+                }
+
             }
 
 
