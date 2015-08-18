@@ -34,11 +34,9 @@ class RegisterForm extends Model
 			$content = urlencode("欢迎您注册ONTEE，您的验证码".$user->testcode."，请在10分钟之内输入。【ONTEE】");
 			
 			$time = $this->getMillisecond();
-			echo $time;
 			$remote_server = "http://api.sms.cn/mt/?uid=ontee&pwd=".$password."&mobile=".$user->telephone."&mobileids=".$user->telephone.$time."&content=".$content."&encode=utf8";
-			echo $remote_server;
 			$data = $this->request_by_curl($remote_server);
-			echo $data;
+			echo $user->testcode;
 			
 
 			}
