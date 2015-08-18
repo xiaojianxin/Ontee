@@ -108,7 +108,6 @@ class SiteController extends Controller
         $model->password = $post['password'];
 
         //var_dump($model->password);
-
         $model->Register();
     }
 
