@@ -59,12 +59,6 @@ class RegisterForm extends Model
 	
 	}
 
-
-	public function Register(){
-
-
-
-	}
 	public function GetTestCode($len) 
 	{ 
   		$chars_array = array( 
