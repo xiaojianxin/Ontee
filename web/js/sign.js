@@ -90,49 +90,55 @@ $(function() {
          }
      });
     $("#testCode").click(function(){
-        alert(0);
-         var telephone=$("#telephone").val();
-         alert(telephone);
-         if(telephone=="")
-         {
-             $(".signInError").html("手机号不能为空");
-         }
-         else
-         {
+        var telephone = $("#telephone").val();
+        if(telephone=="")
+        {
+           $(".registerError1").html("手机号码不能为空");
+        }
+        else
+        {
+            var reg = /^0?1[3|4|5|8][0-9]\d{8}$/;
+            if (reg.test(telephone)) {
+                $.ajax({
+                    type:"POST",
+                    url:"index.php?r=site/testcode",
+                    data:{telephone:telephone},
+                    dataType:"Json",
+                    success:function(data){
+                        if(data==0)
+                        {
+                            $(".registerError1").html("手机号码已存在");
+                        }
+                        else{
+                            var wait = 60;
+                            function time(btn) {
+                                if (wait == 0) {
+                                    btn.removeAttribute("disabled");
+                                    btn.value = "点击获取获取验证码";
+                                    wait = 60;
+                                } else {
+                                    btn.setAttribute("disabled", true);
+                                    btn.value = wait + "秒后重新获取验证码";
+                                    wait--;
+                                    $(".registerError1").html("验证码已发送");
+                                    setTimeout(function () {
+                                            time(btn);
+                                        },
+                                        1000);
+                                }
+                            }
+                            time($("#testCode"));
+                        }
 
-             $.ajax({
-                 type:"POST",
-                 url:"index.php?r=site/testcode",
-                 data:{telephone:telephone,},
-                 dataType:"Json",
-                 success:function(data){
-                    //alert(data);
-                     if(data==0)
-                     {
-                         $("#signInContent").hide();
-                         $("#successContent").show();
-                         setTimeout("$('#modalBox').fadeOut();",3000);
-                         window.location.href=window.location.href;
+                    },
+                    error:function(data){
+                        alert("注册失败");
+                    }
+                });
+            } else {
+                alert("手机号码格式错误");
+                    }
+        }
 
-                     }
-                     else if(data==1)
-                     {
-                         $(".signInError").html("用户名不存在");
-                     }
-                     else if(data==2)
-                     {
-                         $(".signInError").html("密码错误");
-                     }
-                     else
-                     {
-                         $(".signInError").html("未知错误");
-                     }
-                 },
-                 error:function(data){
-                     //alert(data);
-                     alert("登录失败");
-                 }
-             });
-         }
      });
 });

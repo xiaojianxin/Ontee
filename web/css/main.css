@@ -127,6 +127,9 @@ a{
 	margin-top: 50px;
 
 }
+#testCode{
+	cursor: pointer;
+}
 /***********************************************index页面********************************************/
 .fixContainer{
 	position: relative;
@@ -297,6 +300,13 @@ a{
 	z-index: 3;
 	height:300px;
 
+
+}
+#upPic{
+	cursor: move;
+}
+#upPic g{
+	overflow: hidden; cursor: se-resize; position: absolute; right: 0; bottom: 0; background-color: #09C;
 }
 .templateBoxes{
 	background-color:#a0a0a0;
@@ -379,6 +389,12 @@ a{
 #inputText{
 	font-family: "兰亭黑-简";
 }
+#chosenPic{
+	height:24px; filter:alpha(opacity:0);opacity: 0;width:260px;display: none;
+}
+#upPic{
+	cursor: se-resize;
+}
 /******************************************购买页面*********************************************/
 .textPointer{
 	margin-top:15%;
@@ -432,9 +448,7 @@ a{
 	float: right;
 	padding-top: 3px;
 }
-#chosenPic{
- height:24px; filter:alpha(opacity:0);opacity: 0;width:260px;display: none;
-}
+
 .purchaseBtn{
 	margin-top: 40px;
 	text-align: center;

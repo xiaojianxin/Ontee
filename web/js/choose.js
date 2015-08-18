@@ -82,6 +82,9 @@ editTee=function(){
          svg_img.setAttributeNS(null, "width", "180px");
          //$("#mySvg image").remove();
          tsvg_obj.appendChild(svg_img);
+         var point = document.createElementNS(xmlns, "g");
+         point.setAttributeNS(null, "height", "10px");
+         point.setAttributeNS(null, "width", "10px");
          tsvg_obj.onload=function(){
             var rect = me.clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
             svg_img.width  =  rect.width;

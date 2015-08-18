@@ -28,12 +28,12 @@ $(function() {
 		}
 	});
 
-	var $box = $('#box').mousedown(function(e) {
+	var $box = $('#upPic').mousedown(function(e) {
 	    var offset = $(this).offset();
 	    
 	    this.posix = {'x': e.pageX - offset.left, 'y': e.pageY - offset.top};
 	    $.extend(document, {'move': true, 'move_target': this});
-	}).on('mousedown', '#coor', function(e) {
+	}).on('mousedown', '#upPic g', function(e) {
 	    var posix = {
 	            'w': $box.width(), 
 	            'h': $box.height(), 
