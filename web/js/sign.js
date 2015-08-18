@@ -36,6 +36,9 @@ sign=function(){
             $("#registerConfirm").hide();
             $("#successContent").hide();
             $("#registerContent").show();
+            $(".signInError").html("");
+            $(".registerError1").html("");
+            $(".registerError2").html("");
         });
         $("#signInItem").click(function(){
             $("#registerItem").removeClass("active");
@@ -44,6 +47,9 @@ sign=function(){
             $("#registerConfirm").hide();
             $("#successContent").hide();
             $("#signInContent").show();
+            $(".signInError").html("");
+            $(".registerError1").html("");
+            $(".registerError2").html("");
         });
 
         $("#telephone").focus(function(){
@@ -127,7 +133,7 @@ sign=function(){
                 $.ajax({
                     type:"POST",
                     url:"index.php?r=site/login",
-                    data:{username:username,password:psw},
+                    data:{username:username,password: $.md5(psw)},
                     dataType:"Json",
                     success:function(data){
                         //alert(data);
@@ -192,7 +198,7 @@ sign=function(){
                                 function time(btn) {
                                     if (wait == 0) {
                                         btn.attr("disabled",'false');
-                                        btn.html("点击获取获取验证码");
+                                        btn.html("点击获取验证码");
                                         wait = 60;
                                     } else {
                                         btn.attr("disabled", true);
@@ -245,11 +251,10 @@ sign=function(){
                             {
                                 $("#registerConfirm").hide();
                                 var str="<h2 class='registerSuccess'>注册成功，请登录</h2>";
-                                $("#modalBox").append(str);
+                                $(".boxContent").append(str);
                                 setTimeout(function () {
                                         $(".registerSuccess").remove();
-                                        $("#signInContent").click();
-
+                                        $("#modalBox").close();
                                     },
                                     2000);
                                 $("#signUrn").val(me.telephone);
