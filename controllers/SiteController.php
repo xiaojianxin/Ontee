@@ -90,6 +90,26 @@ class SiteController extends Controller
         $model->InsertTestCode();
     }
 
+    public function actionValidateCode()
+    {
+
+        $model = new RegisterForm();
+        $post = Yii::$app->request->post();
+        $model->telephone = $post['telephone'];
+        $model->testcode = $post['confirmCode'];
+        $model->ValidateCode();
+    }
+
+    public function actionRegister(){
+        $model = new RegisterForm();
+        $post = Yii::$app->request->post();
+
+        $model->username = $post['telephone'];
+        $model->password = $post['password'];
+
+        $model->Register();
+    }
+
     public function actionLogout()
     {
         Yii::$app->user->logout();

@@ -97,5 +97,38 @@ class RegisterForm extends Model
         curl_close($ch);
         return $data;
 	}
+
+
+
+	//校验验证码
+	public function ValidateCode(){
+
+		$user = User::find()->where(['telephone' => $this->telephone])->one();
+		if (empty($user)) {
+			echo "-1";
+		}else{
+			if($user->testcode === $this->testcode){
+				echo "0";
+			}else{
+				echo "1";
+			}
+		}
+	}
+
+	//用户注册
+
+	public function Register(){
+
+		$user = User::find()->where(['telephone' => $this->telephone])->one();
+		$user->password = md5($this->password);
+		$user->username = $this->telephone;
+		if($user->update()){
+			echo "0";
+		}else{
+			echo "1";
+		}
+		//User::updateAll(['testcode' => $user->testcode], 'telephone ='.$user->telephone);
+
+	}
 }
 ?>
