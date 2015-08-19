@@ -18,6 +18,26 @@ a{
 	margin-left: 5%;
 	color:white;
 }
+.self-menu{
+	margin-left: 230px;
+	margin-top:5px;
+	background-color: #646464;
+	text-align: center;
+}
+.self-menu li{
+
+	 border-bottom: solid #363636;
+	 border-width: 3px;
+	 height: 35px;
+ }
+.self-menu li a{
+
+	margin-top: 5px;
+}
+.user-nav a img{
+	width: 40px;
+	max-height: 30px;
+}
 .nav-item span a{
 	color: white;
 	text-decoration:none;
@@ -84,10 +104,10 @@ a{
 	width: 150px;
 }
 #modalBox .boxContent .formAreaHalf input{
-	  width: 62px;
+	  width: 52px;
   }
 #modalBox .boxContent .formAreaHalf span{
-	width: 90px;
+	width: 100px;
 	font-size: 10px;
 	background: rgba(96,96,96,0.6);
 	margin-left: -5px;
@@ -126,6 +146,14 @@ a{
 	font-size: 16px;
 	margin-top: 50px;
 
+}
+.registerSuccess{
+	text-align: center;
+	font-size: 16px;
+	margin-top: 50px;
+}
+#testCode{
+	cursor: pointer;
 }
 /***********************************************index页面********************************************/
 .fixContainer{
@@ -251,3 +279,222 @@ a{
 .nextStepButton img{
 	float: right;
 }
+.editContent{
+	display: none;
+	position: relative;
+}
+.sideSelect{
+	background-color: white;
+	border-radius: 6px;
+	width: 10%;
+	text-align: center;
+	position: absolute;
+	left: 20%;
+	top: 260px;
+	line-height: 30px;
+}
+.sideSelect span{
+	width: 47%;
+	display: inline-block;
+	color:black;
+	cursor: pointer;
+
+
+}
+.sideSelect .active{
+	background-color: #a0a0a0;
+
+}
+.teeEditPic{
+	width: 400px;
+	margin: 0 auto;
+}
+.teeEditPic img{
+	width: 90%;
+	margin-top:60px;
+	position: relative;
+	z-index:2
+}
+
+#mySvg{
+	position: absolute;
+	width: 180px;
+	margin: 0 auto;
+	margin-top: -320px;
+	margin-left: 94px;
+	z-index: 3;
+	height:300px;
+
+
+}
+#upPic{
+	cursor: move;
+}
+#upPic g{
+	overflow: hidden; cursor: se-resize; position: absolute; right: 0; bottom: 0; background-color: #09C;
+}
+.templateBoxes{
+	background-color:#a0a0a0;
+	min-height: 80px;
+	position: absolute;
+	left: 70%;
+	width: 200px;
+	top: 80px;
+	height:370px ;
+	border-radius: 10px;
+}
+.buttonsArea{
+	width:400px;
+	margin: 0 auto;
+}
+.buttonsArea span{
+	 border-style: solid;
+	 border-color: rgba(96,96,96,0.8);
+	 border-radius: 50%;
+	 display: inline-block;
+	 width:40px;
+	 height: 40px;
+	 margin-left: 60px;
+ }
+.buttonsArea span i{
+	display: block;
+	width: 30px;
+	text-align: center;
+	text-decoration: none;
+	color: #444444;
+	line-height: 20px;
+	margin-top: 7px;
+	margin-left: 2px;
+	cursor: pointer;
+
+}
+/*.buttonsArea span i:hover{*/
+	/*text-shadow:0 0 8px rgba(0, 0, 0, 8);*/
+	/*-webkit-text-shadow:0 0 8px rgba(255,255,255, 8);*/
+	/*-moz-text-shadow:0 0 8px rgba(255,255,255, 8);*/
+
+/*}*/
+.buttonsArea span:hover{
+	transition:border linear .2s,box-shadow linear .5s;
+	-moz-transition:border linear .2s,-moz-box-shadow linear .5s;
+	-webkit-transition:border linear .2s,-webkit-box-shadow linear .5s;
+	outline:none;border-color:rgba(241,39,242,.75);
+	box-shadow:0 0 8px rgba(241,39,232,.5);
+	-moz-box-shadow:0 0 8px rgba(241,39,232,.5);
+	-webkit-box-shadow:0 0 8px rgba(241,39,232,3);
+}
+.buttonTextArea{
+	width:400px;
+	margin: 0 auto;
+}
+.buttonTextArea span{
+
+	display: inline-block;
+	width:60px;
+	height: 40px;
+	margin-left: 45px;
+	margin-top:10px;
+	cursor: pointer;
+}
+.buttonTextArea span:hover{
+	text-shadow:0 0 2px rgba(255, 255, 255, 8);
+	-webkit-text-shadow:0 0 2px rgba(255,255,255, 8);
+	-moz-text-shadow:0 0 2px rgba(255,255,255, 8);
+}
+.preNextButton{
+	width: 900px;
+	margin: 0 auto;
+}
+.preNextButton .previousBtn{
+	float: left;
+}
+.preNextButton .nextBtn{
+	float: right;
+}
+#inputText{
+	font-family: "兰亭黑-简";
+}
+#chosenPic{
+	height:24px; filter:alpha(opacity:0);opacity: 0;width:260px;display: none;
+}
+#upPic{
+	cursor: se-resize;
+}
+/******************************************购买页面*********************************************/
+.textPointer{
+	margin-top:15%;
+	text-align: center;
+}
+.textPointer .intro-text{
+	font-size: 12px;
+}
+.printTee img{
+	width: 100%;
+	float: right;
+}
+.priceTag{
+	margin-top: 40%;
+	text-align: center;
+	padding-bottom: 60px;
+}
+.priceTag span{
+	font-size: 40px;
+	font-weight: bold;
+
+}
+.chooseItem1{
+	width: 300px;
+	margin-left: 10%;
+	margin-top: 20px;
+}
+
+.chooseItem1 .chooseOption span{
+	width:40px;
+	height: 20px;
+	display: inline-block;
+	background-color: #ebebeb;
+	border-style: solid;
+	border-width: 3px;
+	border-radius: 10%;
+	border-color: #e8e8e8;
+	text-align: center;
+	cursor: pointer;
+	margin-left: 5px;
+	font-size: 12px;
+	margin-top: 3px;
+
+}
+.chooseItem1 .chooseOption .active{
+	background-color: white;
+	border-color: #00c43c;
+	border-width: 3px;
+}
+.chooseItem1 .chooseText{
+	float: right;
+	padding-top: 3px;
+}
+
+.purchaseBtn{
+	margin-top: 40px;
+	text-align: center;
+}
+.purchaseBtn #buyBtn{
+	color:white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

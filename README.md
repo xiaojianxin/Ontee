@@ -1,16 +1,26 @@
+<<<<<<< HEAD
+Yii 2 Basic Application Template
+================================
+
+Yii 2 Basic Application Template is a skeleton Yii 2 application best for
+=======
 Yii 2 Basic Project Template
 ============================
 
 Yii 2 Basic Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
+>>>>>>> be51b3868288948f847f4ee4603b28ed47b022ad
 rapidly creating small projects.
 
 The template contains the basic features including user login/logout and a contact page.
 It includes all commonly used configurations that would allow you to focus on adding new
 features to your application.
 
+<<<<<<< HEAD
+=======
 [![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-basic/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
 [![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-basic/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-basic)
 [![Build Status](https://travis-ci.org/yiisoft/yii2-app-basic.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-basic)
+>>>>>>> be51b3868288948f847f4ee4603b28ed47b022ad
 
 DIRECTORY STRUCTURE
 -------------------
@@ -32,7 +42,11 @@ DIRECTORY STRUCTURE
 REQUIREMENTS
 ------------
 
+<<<<<<< HEAD
+The minimum requirement by this application template that your Web server supports PHP 5.4.0.
+=======
 The minimum requirement by this project template that your Web server supports PHP 5.4.0.
+>>>>>>> be51b3868288948f847f4ee4603b28ed47b022ad
 
 
 INSTALLATION
@@ -55,10 +69,17 @@ http://localhost/basic/web/
 If you do not have [Composer](http://getcomposer.org/), you may install it by following the instructions
 at [getcomposer.org](http://getcomposer.org/doc/00-intro.md#installation-nix).
 
+<<<<<<< HEAD
+You can then install this application template using the following command:
+
+~~~
+php composer.phar global require "fxp/composer-asset-plugin:1.0.0"
+=======
 You can then install this project template using the following command:
 
 ~~~
 php composer.phar global require "fxp/composer-asset-plugin:~1.0.0"
+>>>>>>> be51b3868288948f847f4ee4603b28ed47b022ad
 php composer.phar create-project --prefer-dist --stability=dev yiisoft/yii2-app-basic basic
 ~~~
 

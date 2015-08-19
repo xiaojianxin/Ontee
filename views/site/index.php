@@ -1,4 +1,5 @@
 <?php
+
 use yii\helpers\Html;
 use yii\helpers\Url;
 /* @var $this yii\web\View */
@@ -42,3 +43,4 @@ $(function() {
 });
 <?php $this->endBlock()?>
 <?php $this->registerJs($this->blocks['slide'],\yii\web\View::POS_END)?>
+

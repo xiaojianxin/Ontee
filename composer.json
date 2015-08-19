@@ -1,7 +1,12 @@
 {
     "name": "yiisoft/yii2-app-basic",
+<<<<<<< HEAD
+    "description": "Yii 2 Basic Application Template",
+    "keywords": ["yii2", "framework", "basic", "application template"],
+=======
     "description": "Yii 2 Basic Project Template",
     "keywords": ["yii2", "framework", "basic", "project template"],
+>>>>>>> be51b3868288948f847f4ee4603b28ed47b022ad
     "homepage": "http://www.yiiframework.com/",
     "type": "project",
     "license": "BSD-3-Clause",
@@ -15,7 +20,11 @@
     "minimum-stability": "stable",
     "require": {
         "php": ">=5.4.0",
+<<<<<<< HEAD
+        "yiisoft/yii2": "*",
+=======
         "yiisoft/yii2": ">=2.0.4",
+>>>>>>> be51b3868288948f847f4ee4603b28ed47b022ad
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*"
     },

@@ -7,26 +7,29 @@ use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
+use app\models\RegisterForm;
 use app\models\User;
 use app\models\ContactForm;
 use yii\helpers\Json;
+use yii\helpers\Url;
 
 class SiteController extends Controller
 {
     public function init(){
         $this->enableCsrfValidation = false;
     }
+
     public function behaviors()
     {
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only' => ['index'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['index'],
                         'allow' => true,
-                        'roles' => ['@'],
+                        'roles' => ['?'],
                     ],
                 ],
             ],
@@ -56,9 +59,14 @@ class SiteController extends Controller
     {
         return $this->render('index');
     }
+
     public function actionChoose()
     {
         return $this->render('choose');
+    }
+    public function actionPurchase()
+    {
+        return $this->render('purchase');
     }
     public function actionLogin()
     {
@@ -71,13 +79,48 @@ class SiteController extends Controller
        {
             $model->login();
        }
+
     }
 
-    public function actionLogout()
-    {
-        Yii::$app->user->logout();
+    public function actionTestcode()
+    {   
+        $model  = new RegisterForm();
+        $post = Yii::$app->request->post();
+        //var_dump($post);
+        $model->telephone = $post['telephone'];
+        $model->InsertTestCode();
+    }
 
-        return $this->goHome();
+    public function actionValidateCode()
+    {
+
+        $model = new RegisterForm();
+        $post = Yii::$app->request->post();
+        $model->telephone = $post['telephone'];
+        $model->testcode = $post['confirmCode'];
+        $model->ValidateCode();
+    }
+
+    public function actionRegister(){
+        $model = new RegisterForm();
+        $post = Yii::$app->request->post();
+
+        $model->telephone = $post['telephone'];
+        $model->password = $post['password'];
+
+        //var_dump($model->password);
+        $model->Register();
+    }
+
+    public function actionLayout()
+    {
+        $session = Yii::$app->session;
+        
+        $session->removeall();
+        
+        $this->redirect(Url::to(['site/index']));
+      
+       
     }
 
     public function actionContact()

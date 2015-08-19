@@ -1,14 +1,13 @@
 <?php
-
 use app\assets\AppAsset;
+use  yii\web\Session;
+use yii\helpers\Url;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
 
 AppAsset::register($this);
 ?>
-
-
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -31,9 +30,36 @@ AppAsset::register($this);
                 <span><a href="index.php"> 首页</a></span>
                 <span><a href="./choose.php"> 认识ONTEE</a></span>
                 <span><a href=""> 我的T恤</a></span>
-                <span><a data-toggle="modal" data-target="#modalBox" id="signInButton">登录</a>
+                <?php  $session = Yii::$app->session;
+                //var_dump($session['username']);
+                if(empty($session['username'])){
+                    ?>
+                    <span>
+                        <a data-toggle="modal" data-target="#modalBox" id="signInButton">登录</a>
                     ｜<a data-toggle="modal" data-target="#modalBox"  id="registerButton">注册</a>
-                </span>
+                    </span>
+
+                <?PHP
+                }
+                else{
+                    ?>
+                    <span class="user-nav">
+                        <a class="dropdown-toggle operator-name" data-toggle="dropdown"><img src="./img/head.png" alt=""/><?PHP echo  $_SESSION["username"]?></a>
+                        <ul class="dropdown-menu self-menu">
+                            <li>
+                                <a href="index.php"><span class="glyphicon glyphicon-envelope"></span>个人资料&收货地址</a>
+                            </li>
+                            <li>
+                                <a href="index.php"><span class="glyphicon glyphicon-envelope"></span>订单管理</a>
+                            </li>
+                            <li>
+                                <a href="<?=Url::to(['site/layout'])?>"><span class="glyphicon glyphicon-envelope"></span>退出登录</a>
+                            </li>
+                        </ul>
+                    </span>
+                    <?PHP
+                }
+                ?>
             </div>
         </div>
     </div>
@@ -75,12 +101,12 @@ AppAsset::register($this);
 
                 <div class="formItem">
                     <span class="formText">手机号码</span>
-                    <span class="formArea"><input type="text" ></span>
+                    <span class="formArea"><input id="telephone" type="text" ></span>
                 </div>
                 <div class="formItem">
                     <span class="formText">验证码</span>
-                    <span class="formAreaHalf"><input type="password" ></span>
-                    <span class="formAreaHalf"><span>点击收取验证码</span></span>
+                    <span class="formAreaHalf"><input type="text" id="confirmCode"></span>
+                    <span class="formAreaHalf"><span id="testCode">点击收取验证码</span></span>
                 </div>
                 <button class="btn signIn" id="nextRegister">Next<br/>下一步</button>
                 <div class="errorText registerError1"></div>
@@ -91,14 +117,14 @@ AppAsset::register($this);
 
                 <div class="formItem">
                     <span class="formText">设置密码</span>
-                    <span class="formArea"><input type="text" ></span>
+                    <span class="formArea"><input type="password" id="inputPsw" ></span>
                 </div>
                 <div class="formItem">
                     <span class="formText">确认密码</span>
-                    <span class="formArea"><input type="password" ></span>
+                    <span class="formArea"><input type="password" id="confirmPsw" ></span>
                 </div>
 
-                <button class="btn signIn">注册</button>
+                <button class="btn signIn" id="registerBtn">注册</button>
                 <div class="errorText registerError2"></div>
 
             </div>
@@ -109,6 +135,7 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
             <?= $content ?>
+
 
 <?php $this->endBody() ?>
 </body>
