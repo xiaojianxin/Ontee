@@ -32,13 +32,13 @@ class LoginForm extends Model
             if(!empty($this->getUser())){
 
               if($this->validatePassword($this->getUser()->password)){
-                $session = new Session;
-                //$session->open();
-                $session['username'] =  $this->username;
-                $session['password'] = $this->password;
+                $lifetime=600;
+                session_set_cookie_params($lifetime);
+                $session = Yii::$app->session;
+                $session->open();    
                 //var_dump($session['username']);
-                $session->setCookieParams(['lifetime'=>'1200']);
-                
+                $session['username'] =  $this->username;
+                $session['password'] = $this->password;               
                 echo 0;
               }else{
                 echo 2;
@@ -70,4 +70,6 @@ class LoginForm extends Model
 
         return $this->_user;
     }
+
+
 }

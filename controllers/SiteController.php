@@ -12,22 +12,26 @@ use app\models\User;
 use app\models\ContactForm;
 use yii\helpers\Json;
 use yii\helpers\Url;
+use yii\web\Session;
 
 class SiteController extends Controller
-{
+{   
+    public $layout_data;
+
     public function init(){
         $this->enableCsrfValidation = false;
     }
+
 
     public function behaviors()
     {
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['index'],
+                'except' => ['index','login','testcode','register','logout','choose'],
                 'rules' => [
                     [
-                        'actions' => ['index'],
+                        'actions' => ['login'],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
@@ -36,7 +40,6 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
                 ],
             ],
         ];
@@ -56,12 +59,14 @@ class SiteController extends Controller
     }
 
     public function actionIndex()
-    {
+    {   
+        $this->layout_data = Yii::$app->session['username'];
         return $this->render('index');
     }
 
     public function actionChoose()
     {
+        $this->layout_data = Yii::$app->session['username'];
         return $this->render('choose');
     }
     public function actionPurchase()
@@ -73,12 +78,20 @@ class SiteController extends Controller
        $model = new LoginForm();
        $user = new User();
        $post = Yii::$app->request->post();
-       $model->username = $post['username'];
-       $model->password = $post['password'];
-       if($model->validate())
-       {
-            $model->login();
+       if(empty($post['username'])){
+            return $this->render('error',[
+                    "name" => "wrong",
+                    "message" => "You are not allowed to access this page",
+            ]);
+       }else{
+           $model->username = $post['username'];
+           $model->password = $post['password'];
+           if($model->validate())
+           {
+                $model->login();
+           }
        }
+      
 
     }
 
@@ -112,14 +125,14 @@ class SiteController extends Controller
         $model->Register();
     }
 
-    public function actionLayout()
+    public function actionLogout()
     {
-        $session = Yii::$app->session;
+        $session = Yii::$app->getSession();
         
         $session->removeall();
         
         $this->redirect(Url::to(['site/index']));
-      
+                  
        
     }
 
