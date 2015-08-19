@@ -1,5 +1,7 @@
 <?php
 use app\assets\AppAsset;
+use  yii\web\Session;
+use yii\helpers\Url;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
@@ -28,7 +30,9 @@ AppAsset::register($this);
                 <span><a href="index.php"> 首页</a></span>
                 <span><a href="./choose.php"> 认识ONTEE</a></span>
                 <span><a href=""> 我的T恤</a></span>
-                <?php if(empty($_SESSION["token"])){
+                <?php  $session = Yii::$app->session;
+                //var_dump($session['username']);
+                if(empty($session['username'])){
                     ?>
                     <span>
                         <a data-toggle="modal" data-target="#modalBox" id="signInButton">登录</a>
@@ -40,7 +44,7 @@ AppAsset::register($this);
                 else{
                     ?>
                     <span class="user-nav">
-                        <a class="dropdown-toggle operator-name" data-toggle="dropdown"><img src="./img/head.png" alt=""/><?PHP echo  $_SESSION["nickName"]?></a>
+                        <a class="dropdown-toggle operator-name" data-toggle="dropdown"><img src="./img/head.png" alt=""/><?PHP echo  $_SESSION["username"]?></a>
                         <ul class="dropdown-menu self-menu">
                             <li>
                                 <a href="index.php"><span class="glyphicon glyphicon-envelope"></span>个人资料&收货地址</a>
@@ -49,7 +53,7 @@ AppAsset::register($this);
                                 <a href="index.php"><span class="glyphicon glyphicon-envelope"></span>订单管理</a>
                             </li>
                             <li>
-                                <a href="index.php"><span class="glyphicon glyphicon-envelope"></span>退出登录</a>
+                                <a href="<?=Url::to(['site/layout'])?>"><span class="glyphicon glyphicon-envelope"></span>退出登录</a>
                             </li>
                         </ul>
                     </span>

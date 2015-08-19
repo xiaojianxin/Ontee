@@ -6,6 +6,7 @@ use Yii;
 use yii\base\Model;
 
 use app\models\User;
+use yii\web\Session;
 
 
 /**
@@ -31,11 +32,13 @@ class LoginForm extends Model
             if(!empty($this->getUser())){
 
               if($this->validatePassword($this->getUser()->password)){
-                $session = Yii::$app->session;
-                $session->open();
-                session_cache_expire(30);
-                $session->set('username', $this->username);
-                $session->set('password',$this->password);
+                $session = new Session;
+                //$session->open();
+                $session['username'] =  $this->username;
+                $session['password'] = $this->password;
+                //var_dump($session['username']);
+                $session->setCookieParams(['lifetime'=>'1200']);
+                
                 echo 0;
               }else{
                 echo 2;

@@ -11,6 +11,7 @@ use app\models\RegisterForm;
 use app\models\User;
 use app\models\ContactForm;
 use yii\helpers\Json;
+use yii\helpers\Url;
 
 class SiteController extends Controller
 {
@@ -23,12 +24,12 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only' => ['index'],
                 'rules' => [
                     [
-                        'actions' => ['logout'],
+                        'actions' => ['index'],
                         'allow' => true,
-                        'roles' => ['@'],
+                        'roles' => ['?'],
                     ],
                 ],
             ],
@@ -111,11 +112,15 @@ class SiteController extends Controller
         $model->Register();
     }
 
-    public function actionLogout()
+    public function actionLayout()
     {
-        Yii::$app->user->logout();
-
-        return $this->goHome();
+        $session = Yii::$app->session;
+        
+        $session->removeall();
+        
+        $this->redirect(Url::to(['site/index']));
+      
+       
     }
 
     public function actionContact()

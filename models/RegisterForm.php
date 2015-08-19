@@ -19,7 +19,7 @@ class RegisterForm extends Model
 	public $testcode;
 
 	public function InsertTestCode(){
-		$user = new User;
+		$user = new User();
 		$user->testcode = $this->GetTestCode(4);
 		$user->telephone = $this->telephone;
 
