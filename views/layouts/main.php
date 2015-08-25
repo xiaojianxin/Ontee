@@ -1,6 +1,6 @@
 <?php
 use app\assets\AppAsset;
-use  yii\web\Session;
+use yii\web\Session;
 use yii\helpers\Url;
 
 /* @var $this \yii\web\View */
@@ -25,7 +25,7 @@ $username = $this->context->layout_data;
     <div class="container">
         <div class="row">
             <div class="col-xs-2 col-xs-offset-2">
-                <img src="./img/logo.png" style="width: 80%;margin-top: -14%;min-width: 100px;"/>
+                <img src="<?=Url::to('@web/img/logo.png');?>" style="width: 80%;margin-top: -14%;min-width: 100px;"/>
             </div>
             <div class="col-xs-6 nav-item col-xs-offset-2">
                 <span><a href="index.php"> 首页</a></span>

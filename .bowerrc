@@ -1,3 +1,9 @@
-{
-    "directory" : "vendor/bower"
-}
+# prevent directory listings
+Options -Indexes
+# follow symbolic links
+Options FollowSymlinks
+RewriteEngine on
+
+
+RewriteCond %{REQUEST_URI} ^.*$
+RewriteRule ^(.*)$ /web/$1

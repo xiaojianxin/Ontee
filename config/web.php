@@ -10,7 +10,7 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '7514329',
-
+            //'baseUrl' => '',
             'parsers' => [
                     'application/json' => 'yii\web\JsonParser',
                     'text/json' => 'yii\web\JsonParser',
@@ -43,7 +43,16 @@ $config = [
                 ],
             ],
         ],
-        'db' => require(__DIR__ . '/db.php'),
+        'db' => require(__DIR__ . '/db.php'),      
+        'urlManager' => [        
+            'class' => 'yii\web\UrlManager',
+                // Disable index.php
+            'showScriptName' => false,
+                // Disable r= routes
+            'enablePrettyUrl' => true,
+            'rules' => [ 
+            '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',],
+        ],
     ],
     'params' => $params,
 ];
