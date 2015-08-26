@@ -5,6 +5,7 @@ editTee=function(){
    me.style=1;
    me.color=1;
    me.init=function(){
+
       me.bindEvent();
       me.editShirt();
    };
@@ -46,11 +47,6 @@ editTee=function(){
          $(this).addClass("active");
          $('.grey').removeClass("active");
          $('.black').removeClass("active");
-         //$(".teePic").addClass("animated fadeOutLeft");
-         //setTimeout("$('.tShirtPic').attr('src','./img/teewf.png')",3000);
-         //$(".teePic").removeClass("animated fadeOutLeft");
-         //$(".tShirtPic").removeClass("animated fadeInLeft");
-         //setTimeout("$('.tShirtPic').removeClass('animated fadeInLeft')",3000);
          $('.tShirtPic').attr('src','./img/teewf.png');
          me.color=3;
       });
@@ -70,49 +66,44 @@ editTee=function(){
    me.previewImage=function(file){
       var MAXWIDTH  = 260;
       var MAXHEIGHT = 180;
-      var div1=document.getElementById("upPic");
+      $("#upPic svg").remove();
       if (file.files && file.files[0])
       {
-
-         div1.innerHTML ="<g id='upPic'></g>";
-         var xmlns = "http://www.w3.org/2000/svg";
-         var tsvg_obj = document.getElementById("upPic");
-         var svg_img = document.createElementNS(xmlns, "image");
-         svg_img.setAttributeNS(null, "height", "180px");
-         svg_img.setAttributeNS(null, "width", "180px");
-         //$("#mySvg image").remove();
-         tsvg_obj.appendChild(svg_img);
-         var point = document.createElementNS(xmlns, "g");
-         point.setAttributeNS(null, "height", "10px");
-         point.setAttributeNS(null, "width", "10px");
-         tsvg_obj.onload=function(){
-            var rect = me.clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
-            svg_img.width  =  rect.width;
-            svg_img.height =  rect.height;
-            svg_img.style.marginTop = rect.top+'px';
-         };
+         var draw=SVG('upPic');
          var reader = new FileReader();
-         reader.onload = function(evt){svg_img.href.baseVal = evt.target.result;};
+         reader.onload = function(evt){
+            var image=draw.image(evt.target.result).loaded(
+                function(){
+                   var rect = me.clacImgZoomParam(MAXWIDTH, MAXHEIGHT, image.width, image.height);
+                   image.width  =  rect.width;
+                   image.height =  rect.height;
+                   image.style.marginTop = rect.top+'px';
+                   }
+            );
+            var text = draw.text('SVG.JS').move(100, 200);
+            text.font({
+               family: 'Source Sans Pro'
+               , size: 18
+               , anchor: 'middle'
+               , leading: 1
+            });
+            text.select().resize();
+            text.draggable();
+            image.select().resize();
+            image.draggable();
+            //var rect = me.clacImgZoomParam(MAXWIDTH, MAXHEIGHT,image.width, image.height);
+            //alert(rect.width);
+            //image.width  =  rect.width;
+            //
+            //image.height =  rect.height;
+            //image.style.marginTop = rect.top+'px';
+         };
          reader.readAsDataURL(file.files[0]);
-
 
       }
       else{
          alert("error");
       }
-      //else //兼容IE
-      //{
-      //
-      //   var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
-      //   file.select();
-      //   var src = document.selection.createRange().text;
-      //   div.innerHTML = "<img id='upLoadPic'>";
-      //   var img = document.getElementById('upLoadPic');
-      //   img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
-      //   var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
-      //   status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
-      //   div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;"+sFilter+src+"\"'></div>";
-      //};
    };
    me.clacImgZoomParam=function( maxWidth, maxHeight, width, height ){
       var param = {top:0, left:0, width:width, height:height};
@@ -146,5 +137,5 @@ editTee=function(){
    };
 
 };
-var editTee= new editTee();
-editTee.init();
+var edit= new editTee();
+edit.init();
