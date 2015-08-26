@@ -51,7 +51,7 @@ editTee=function(){
          //$(".teePic").removeClass("animated fadeOutLeft");
          //$(".tShirtPic").removeClass("animated fadeInLeft");
          //setTimeout("$('.tShirtPic').removeClass('animated fadeInLeft')",3000);
-         $('.tShirtPic').attr('src','/Ontee/web/img/teewf.png');
+         $('.tShirtPic').attr('src','/img/teewf.png');
          me.color=3;
       });
       $("#nextStepButton").click(function(){
