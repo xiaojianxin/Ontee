@@ -10,7 +10,7 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '7514329',
-
+            //'baseUrl' => '',
             'parsers' => [
                     'application/json' => 'yii\web\JsonParser',
                     'text/json' => 'yii\web\JsonParser',
@@ -43,20 +43,18 @@ $config = [
                 ],
             ],
         ],
-        'db' => require(__DIR__ . '/db.php'),
 
-        // 'urlManager' => [
-        //     'enablePrettyUrl' => true,
-        //     //'showScriptName' => false,//隐藏index.php 
-        //     'enableStrictParsing' => false,
-        //     'suffix' => '.html',//后缀，如果设置了此项，那么浏览器地址栏就必须带上.html后缀，否则会报404错误
-        //     'rules' => [
-        //     '<controller:\w+>/<id:\d+>'=>'<controller>/view',
-        //     '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
-        //     '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-        //     '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
-        //     ],
-        // ],
+        'db' => require(__DIR__ . '/db.php'),      
+        'urlManager' => [        
+            'class' => 'yii\web\UrlManager',
+                // Disable index.php
+            'showScriptName' => false,
+                // Disable r= routes
+            'enablePrettyUrl' => true,
+            'rules' => [ 
+            '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+            ],
+        ],
     ],
     'params' => $params,
 ];

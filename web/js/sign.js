@@ -132,7 +132,7 @@ sign=function(){
 
                 $.ajax({
                     type:"POST",
-                    url:"index.php?r=site/login",
+                    url:"/site/login",
                     data:{username:username,password: $.md5(psw)},
                     dataType:"Json",
                     success:function(data){
@@ -184,7 +184,7 @@ sign=function(){
                 if (reg.test(me.telephone)) {
                     $.ajax({
                         type:"POST",
-                        url:"index.php?r=site/testcode",
+                        url:"./testcode",
                         data:{telephone:me.telephone},
                         dataType:"Json",
                         success:function(data){
@@ -243,7 +243,7 @@ sign=function(){
                     $(".registerError2").html("");
                     $.ajax({
                         type:"POST",
-                        url:"index.php?r=site/register",
+                        url:"./register",
                         data:{telephone:me.telephone,password: $.md5(psw)},
                         dataType:"Json",
                         success:function(data) {
