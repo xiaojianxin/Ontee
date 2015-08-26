@@ -31,7 +31,7 @@ class SiteController extends Controller
                 'except' => ['index','login','testcode','register','logout','choose'],
                 'rules' => [
                     [
-                        'actions' => ['login'],
+                        'actions' => ['login',],
                         'allow' => true,
                         'roles' => ['?'],
                     ],
