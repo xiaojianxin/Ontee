@@ -132,7 +132,7 @@ sign=function(){
 
                 $.ajax({
                     type:"POST",
-                    url:"./login",
+                    url:"/site/login",
                     data:{username:username,password: $.md5(psw)},
                     dataType:"Json",
                     success:function(data){

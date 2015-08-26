@@ -43,6 +43,7 @@ $config = [
                 ],
             ],
         ],
+
         'db' => require(__DIR__ . '/db.php'),      
         'urlManager' => [        
             'class' => 'yii\web\UrlManager',
@@ -51,7 +52,8 @@ $config = [
                 // Disable r= routes
             'enablePrettyUrl' => true,
             'rules' => [ 
-            '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',],
+            '<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
+            ],
         ],
     ],
     'params' => $params,
