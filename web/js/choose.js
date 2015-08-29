@@ -64,8 +64,8 @@ editTee=function(){
 
    };
    me.previewImage=function(file){
-      var MAXWIDTH  = 260;
-      var MAXHEIGHT = 180;
+      var MAXWIDTH  = 150;
+      var MAXHEIGHT = 300;
       $("#upPic svg").remove();
       if (file.files && file.files[0])
       {
@@ -74,29 +74,23 @@ editTee=function(){
          reader.onload = function(evt){
             var image=draw.image(evt.target.result).loaded(
                 function(){
-                   var rect = me.clacImgZoomParam(MAXWIDTH, MAXHEIGHT, image.width, image.height);
-                   image.width  =  rect.width;
-                   image.height =  rect.height;
-                   image.style.marginTop = rect.top+'px';
+                   var rect = me.clacImgZoomParam(MAXWIDTH, MAXHEIGHT, image.width(), image.height());
+                   this.size(rect.width, rect.height);
                    }
             );
-            var text = draw.text('SVG.JS').move(100, 200);
-            text.font({
-               family: 'Source Sans Pro'
-               , size: 18
-               , anchor: 'middle'
-               , leading: 1
+            image.center(10,10);
+            $("#upPic svg image").blur(function(){
+               $(this).click();
+               image.select(false);
+               image.draggable(false);
             });
-            text.select().resize();
-            text.draggable();
-            image.select().resize();
-            image.draggable();
-            //var rect = me.clacImgZoomParam(MAXWIDTH, MAXHEIGHT,image.width, image.height);
-            //alert(rect.width);
-            //image.width  =  rect.width;
-            //
-            //image.height =  rect.height;
-            //image.style.marginTop = rect.top+'px';
+
+
+            $("#upPic svg image").focus(function(){
+              image.select().resize();
+              image.draggable();
+           });
+
          };
          reader.readAsDataURL(file.files[0]);
 
