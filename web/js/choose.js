@@ -34,7 +34,7 @@ editTee=function(){
          $(this).addClass("active");
          $('.grey').removeClass("active");
          $('.white').removeClass("active");
-         $('.tShirtPic').attr('src','./img/teebf.png');
+         $('.tShirtPic').attr('src','/img/teebf.png');
          me.color=1;
       });
       $(".grey").click(function(){
@@ -47,7 +47,13 @@ editTee=function(){
          $(this).addClass("active");
          $('.grey').removeClass("active");
          $('.black').removeClass("active");
-         $('.tShirtPic').attr('src','./img/teewf.png');
+         //$(".teePic").addClass("animated fadeOutLeft");
+         //setTimeout("$('.tShirtPic').attr('src','./img/teewf.png')",3000);
+         //$(".teePic").removeClass("animated fadeOutLeft");
+         //$(".tShirtPic").removeClass("animated fadeInLeft");
+         //setTimeout("$('.tShirtPic').removeClass('animated fadeInLeft')",3000);
+         $('.tShirtPic').attr('src','/img/teewf.png');
+
          me.color=3;
       });
       $("#nextStepButton").click(function(){

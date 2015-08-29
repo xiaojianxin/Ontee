@@ -9,13 +9,13 @@ $this->title = 'Ontee';
     <div class="flexslider">
         <ul class="slides">
             <li>
-                <img src="./img/slide.jpg"/>
+                <img src="<?=Url::to('@web/img/slide.jpg');?>"/>
             </li>
             <li>
-                <img src="./img/slide.jpg"/>
+                <img src="<?=Url::to('@web/img/slide.jpg');?>"/>
             </li>
             <li>
-                <img src="./img/slide.jpg"/>
+                <img src="<?=Url::to('@web/img/slide.jpg');?>"/>
             </li>
         </ul>
     </div>
