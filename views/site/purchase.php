@@ -1,4 +1,13 @@
-
+<?php
+/**
+ * Created by IntelliJ IDEA.
+ * User: jiye
+ * Date: 15/8/12
+ * Time: 下午2:16
+ */
+use yii\helpers\Url;
+$this->title = 'Ontee';
+?>
 <div class="container">
     <div class="row">
         <div class="col-xs-5 col-xs-offset-2">
@@ -7,7 +16,7 @@
                 <span class="intro-text">这里将有你的专属标签</span>
             </div>
             <div class="printTee">
-                <img src="./img/teebb.png"/>
+                <img src=<?=Url::to('@web/img/teebb.png');?>>
             </div>
         </div>
         <div class="col-xs-4">
@@ -15,6 +24,7 @@
                 <div class="priceTag">
                     <span>$79</span>
                 </div>
+
                 <div class="chooseItem1">
                     <div class="row">
                         <div class="col-xs-3">
@@ -49,8 +59,9 @@
                 </div>
                 <div class="purchaseBtn">
                     <div class="btn btn-success">
-                        <span id="buyBtn">确认购买</span>
+                        <span id="buyBtn"><a href="<?=Url::to(['site/confirm'])?>">确认购买</a> </span>
                     </div>
+
                 </div>
             </div>
         </div>

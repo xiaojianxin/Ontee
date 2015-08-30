@@ -85,17 +85,19 @@ editTee=function(){
                    }
             );
             image.center(10,10);
-            $("#upPic svg image").blur(function(){
-               $(this).click();
-               image.select(false);
-               image.draggable(false);
-            });
-
-
-            $("#upPic svg image").focus(function(){
-              image.select().resize();
-              image.draggable();
-           });
+            image.select().resize();
+            image.draggable();
+           // $("#upPic svg image").blur(function(){
+           //    $(this).click();
+           //    image.select(false);
+           //    image.draggable(false);
+           // });
+           //
+           //
+           // $("#upPic svg image").focus(function(){
+           //   image.select().resize();
+           //   image.draggable();
+           //});
 
          };
          reader.readAsDataURL(file.files[0]);

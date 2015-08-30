@@ -207,7 +207,6 @@
         this.lastUpdateCall = null;
         this.p = el.doc().node.createSVGPoint();
     }
-
     ResizeHandler.prototype.transformPoint = function(x, y, m){
 
         this.p.x = x - (this.offset.x - window.pageXOffset);
