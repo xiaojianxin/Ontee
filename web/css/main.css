@@ -779,10 +779,11 @@ a{
 }
 .secondShow .currentPhone{
 	background-color: #0a8a29;
-	width: 250px;
+	width: 400px;
 	height: 60px;
 	margin-left: 80px;
 	margin-top: 30px;
+
 }
 
 .secondShow .currentPhone .left-side{
@@ -796,6 +797,7 @@ a{
 	height: 25px;
 	color:#22ac38;
 	font-size: 13px;
+	cursor: pointer;
 
 
  }
@@ -804,10 +806,11 @@ a{
 	float: left;
     margin-top: 5px;
 	margin-left: 5px;
+
 }
 .secondShow .editPsw{
 	background-color: #ff9600;
-	width: 250px;
+	width: 400px;
 	height: 56px;
 	margin-left: 80px;
 	margin-top: 20px;
@@ -820,4 +823,36 @@ a{
 }
 .manageButton span{
 	cursor: pointer;
+}
+.thirdShow{
+	margin-left: 30px;
+}
+.thirdShow .editClass{
+	width:400px;
+	height:90px;
+	display: none;
+}
+.thirdShow .editClass .left-side{
+	float: left;
+	width: 80px;
+}
+.thirdShow .editClass .left-side div{
+	float: right;
+	color:#858585;
+	line-height: 30px;
+}
+.thirdShow .editClass .right-side{
+	 float: left;
+	 width:100px;
+	margin-left:20px;
+ }
+.thirdShow .editClass .right-side input{
+	height:26px;
+	margin-top:5px;
+
+}
+.thirdShow .confirmBtn .btn{
+	height:25px ;
+	font-size: 13px;
+	margin-top: 40px;
 }

@@ -47,6 +47,35 @@ $this->title = 'Ontee';
                 <img src="<?=Url::to('@web/img/safe.png');?>"/>
                 <h5>安全认证</h5>
             </div>
+            <div class="thirdShow">
+                <div class="editPhoneArea editClass">
+                    <div style="margin-left: -80px;color: #858585;">绑定新手机</div>
+                    <div class="left-side">
+                        <div>手机号码:</div>
+                        <div>验证码:</div>
+                    </div>
+                    <div class="right-side">
+                        <input type="text" name="newPhone" class="form-control"/>
+                        <input type="text" name="newPhoneCode" class="form-control"/>
+
+                    </div>
+                    <div class="confirmBtn"><div class="btn btn-success"> 确定</div> </div>
+                </div>
+                <div class="editPswArea editClass">
+                    <div style="margin-left: -80px;color: #858585;">修改密码</div>
+                    <div class="left-side">
+                        <div>旧密码:</div>
+                        <div>新密码:</div>
+                        <div>确认密码:</div>
+                    </div>
+                    <div class="right-side">
+                        <input type="password" name="oldPsw" class="form-control"/>
+                        <input type="password" name="newPsw" class="form-control"/>
+                        <input type="password" name="confirmPsw" class="form-control"/>
+                    </div>
+                    <div class="confirmBtn"><div class="btn btn-success"> 确定</div> </div>
+                </div>
+            </div>
             <div class="secondShow">
                 <div class="currentPhone">
                     <div class="left-side">
@@ -63,6 +92,8 @@ $this->title = 'Ontee';
 
                 </div>
             </div>
+
+
         </div>
     </div>
     <div class="selfAddManage">
