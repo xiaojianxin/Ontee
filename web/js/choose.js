@@ -5,6 +5,7 @@ editTee=function(){
    me.style=1;
    me.color=1;
    me.init=function(){
+
       me.bindEvent();
       me.editShirt();
    };
@@ -52,6 +53,7 @@ editTee=function(){
          //$(".tShirtPic").removeClass("animated fadeInLeft");
          //setTimeout("$('.tShirtPic').removeClass('animated fadeInLeft')",3000);
          $('.tShirtPic').attr('src','/img/teewf.png');
+
          me.color=3;
       });
       $("#nextStepButton").click(function(){
@@ -68,51 +70,42 @@ editTee=function(){
 
    };
    me.previewImage=function(file){
-      var MAXWIDTH  = 260;
-      var MAXHEIGHT = 180;
-      var div1=document.getElementById("upPic");
+      var MAXWIDTH  = 150;
+      var MAXHEIGHT = 300;
+      $("#upPic svg").remove();
       if (file.files && file.files[0])
       {
-
-         div1.innerHTML ="<g id='upPic'></g>";
-         var xmlns = "http://www.w3.org/2000/svg";
-         var tsvg_obj = document.getElementById("upPic");
-         var svg_img = document.createElementNS(xmlns, "image");
-         svg_img.setAttributeNS(null, "height", "180px");
-         svg_img.setAttributeNS(null, "width", "180px");
-         //$("#mySvg image").remove();
-         tsvg_obj.appendChild(svg_img);
-         var point = document.createElementNS(xmlns, "g");
-         point.setAttributeNS(null, "height", "10px");
-         point.setAttributeNS(null, "width", "10px");
-         tsvg_obj.onload=function(){
-            var rect = me.clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
-            svg_img.width  =  rect.width;
-            svg_img.height =  rect.height;
-            svg_img.style.marginTop = rect.top+'px';
-         };
+         var draw=SVG('upPic');
          var reader = new FileReader();
-         reader.onload = function(evt){svg_img.href.baseVal = evt.target.result;};
-         reader.readAsDataURL(file.files[0]);
+         reader.onload = function(evt){
+            var image=draw.image(evt.target.result).loaded(
+                function(){
+                   var rect = me.clacImgZoomParam(MAXWIDTH, MAXHEIGHT, image.width(), image.height());
+                   this.size(rect.width, rect.height);
+                   }
+            );
+            image.center(10,10);
+            image.select().resize();
+            image.draggable();
+           // $("#upPic svg image").blur(function(){
+           //    $(this).click();
+           //    image.select(false);
+           //    image.draggable(false);
+           // });
+           //
+           //
+           // $("#upPic svg image").focus(function(){
+           //   image.select().resize();
+           //   image.draggable();
+           //});
 
+         };
+         reader.readAsDataURL(file.files[0]);
 
       }
       else{
          alert("error");
       }
-      //else //兼容IE
-      //{
-      //
-      //   var sFilter='filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
-      //   file.select();
-      //   var src = document.selection.createRange().text;
-      //   div.innerHTML = "<img id='upLoadPic'>";
-      //   var img = document.getElementById('upLoadPic');
-      //   img.filters.item('DXImageTransform.Microsoft.AlphaImageLoader').src = src;
-      //   var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
-      //   status =('rect:'+rect.top+','+rect.left+','+rect.width+','+rect.height);
-      //   div.innerHTML = "<div id=divhead style='width:"+rect.width+"px;height:"+rect.height+"px;margin-top:"+rect.top+"px;"+sFilter+src+"\"'></div>";
-      //};
    };
    me.clacImgZoomParam=function( maxWidth, maxHeight, width, height ){
       var param = {top:0, left:0, width:width, height:height};
@@ -146,5 +139,5 @@ editTee=function(){
    };
 
 };
-var editTee= new editTee();
-editTee.init();
+var edit= new editTee();
+edit.init();

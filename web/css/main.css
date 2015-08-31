@@ -9,7 +9,7 @@ a{
 
 }
 .nav-head{
-	background-color:#373737;
+	background-color:#282828;
 	height: 55px;
 	padding-top: 18px;
 	font-size: 13px;
@@ -417,9 +417,6 @@ a{
 #chosenPic{
 	height:24px; filter:alpha(opacity:0);opacity: 0;width:260px;display: none;
 }
-#upPic{
-	cursor: se-resize;
-}
 /******************************************购买页面*********************************************/
 .textPointer{
 	margin-top:15%;
@@ -481,16 +478,139 @@ a{
 .purchaseBtn #buyBtn{
 	color:white;
 }
+.purchaseBtn #buyBtn a{
+	text-decoration: none;
+	color: white;
+}
+/******************************************确认购买页面*********************************************/
+.confirmText{
+	background-color: #373737;
+	text-align: center;
+	color:white;
+	height: 50px;
+	padding-top: 12px;
+	margin-top: 10px;
+	font-family: "微软雅黑";
+}
+.addressContainer{
+	background-color:white;
+}
 
+.addressContainer .row .active{
+	border:3px solid #22ac38;
 
+}.addressContainer .row .addAddr{
+	 border:1px solid #22ac38;
 
+ }
+.addressContainer .oneAddr{
+	float: left;
+	background-color: #e2e2e2;
+	width:280px;
+	margin-left:30px;
+	margin-top:10px;
+	height:220px;
+	margin-bottom: 20px;
+}
 
+.oneAddr .oneBox{
+	width:80%;
+	margin-left: 10%;
+	padding-top: 10px;
+}
+.oneAddr .oneBox .telephone,.receiver{
+	margin-top: 15px;
+}
+.addressContainer .row .addAddr .addPic{
+	text-align: center;
+}
+.addressContainer .row .addAddr .addPic span{
+	font-size: 50px;
+	margin-top:40px;
+	color:#22ac38;
+	height:70px;
+	width: 70px;
+	border: 2px solid #22ac38;
+	-moz-border-radius: 50%;      /* Gecko browsers */
+	-webkit-border-radius: 50%;   /* Webkit browsers */
+	border-radius:50%;            /* W3C syntax */
+	padding-top:5px;
+	cursor: pointer;
+}
+.addressContainer .row .addAddr .addText{
+	margin-top:20px;
+	text-align: center;
+	color: #22ac38;
 
+	cursor: pointer;
+}
+.addAddrArea{
+	margin-top: 10px;
+	background-color: white;
+	height: 200px;
+	display: none;
+}
+.confirmArea{
+	margin-top: 20px;
+}
+.confirmArea .orderTitle{
+	background-color: #cccccc;
+	line-height: 30px;
+}
 
+.confirmArea .orderContent{
+	background-color: white;
+}
+.confirmArea .orderContent .orderPic{
+    float: left;
+	width:250px;
+	text-align: center;
+}
+.confirmArea .orderContent .orderPic img{
+	margin-top:20px;
+	width:40%;
+	margin-bottom:10px;
+}
+.confirmArea .orderContent .orderNum{
+	float: left;
+	width:200px;
+	margin-left: 300px;
+	margin-top:30px;
+}
 
-
-
-
+.confirmArea .orderContent .paynum{
+	float: left;
+	margin-top:50px;
+}.confirmArea .orderContent .paynum span{
+	 font-size: 20px;
+ }
+.confirmArea .orderContent .numText{
+	float: left;
+	margin-right: 10px;
+}
+.confirmArea .orderContent .numOption{
+	float: left;
+	text-align:center;
+}
+.confirmArea .orderContent .numOption span{
+	width:25px;
+}
+.confirmArea .orderContent .numOption .glyphicon{
+	background-color: #cccccc;
+}
+.orderNum .orderOption  .showBuyNum{
+	background-color: #e6e6e6;
+	width:40px;
+}
+.orderNum .row{
+	margin-top: 10px;
+}
+.confirmArea .payButton{
+	float: right;
+	width: 100px;
+	margin-top: 50px;
+	margin-bottom: 20px;
+}
 
 
 
