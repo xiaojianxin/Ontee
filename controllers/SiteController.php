@@ -28,7 +28,7 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'except' => ['index','login','testcode','register','logout','choose','purchase','confirm'],
+                'except' => ['index','login','testcode','register','logout','choose','purchase','confirm','ordermanage'],
                 'rules' => [
                     [
                         'actions' => ['login',],
@@ -76,6 +76,10 @@ class SiteController extends Controller
     public function actionConfirm()
     {
         return $this->render('confirm');
+    }
+    public function actionOrdermanage()
+    {
+        return $this->render('ordermanage');
     }
     public function actionLogin()
     {

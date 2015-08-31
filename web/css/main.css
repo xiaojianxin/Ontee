@@ -611,10 +611,79 @@ a{
 	margin-top: 50px;
 	margin-bottom: 20px;
 }
+.orderNum1{
+	float: left;
+	width:200px;
+	margin-left: 100px;
+	margin-top:30px;
+}
+.orderNum1 a{
+	color:#22ac38;
+	cursor: pointer;
+	line-height: 30px;
+}
+.confirmArea .orderContent1 .orderPic1{
+	float: left;
+	width:150px;
+	text-align: center;
+	margin-top: 10px;
+}
+.confirmArea .orderContent1 .orderPic1 img{
+	width:50%;
+}
+.orderInfo{
+	float:left;
+	width:350px;
+	margin-top: 10px;
+}
+.orderInfo span,.orderInfo div{
+	font-size: 13px;
+}
+.orderInfo div{
+	margin-top: 10px;
+}
+.orderContent1{
+	background-color: white;
+	height: 100px;
+	border: 1px solid #cccccc;
+}
+.confirmArea .orderContent1 .paynum {
+	float: left;
+	margin-top: 40px;
+	color: #cccccc;
+}
 
+.choosepay{
+	background-color: white;
+	line-height: 40px;
+	border: 1px solid #cccccc;
+}
 
-
-
+.choosepay span{
+	color: #cccccc;
+	font-size:13px;
+	margin-left: 10px;
+}
+.choosepay .payway{
+	float:right;
+	width:80px;
+}
+.payButton1{
+	float: right;
+	width: 100px;
+	margin-top: 10px;
+	margin-right: 20px;
+	margin-bottom: 40px;
+}
+.showState{
+	width:200px;
+	float:right;
+	text-align: center;
+	margin-top: 35px;
+}
+.showState div{
+	color:#cccccc;
+}
 
 
 
