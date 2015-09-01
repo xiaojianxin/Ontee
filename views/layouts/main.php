@@ -47,10 +47,10 @@ $username = $this->context->layout_data;
                         <a class="dropdown-toggle operator-name" data-toggle="dropdown"><img src="<?=Url::to('@web/img/head.png');?>" alt=""/><?PHP echo $username?></a>
                         <ul class="dropdown-menu self-menu">
                             <li>
-                                <a href="index.php"><span class="glyphicon glyphicon-envelope"></span>个人资料&收货地址</a>
+                                <a href="<?=Url::to(['site/personal'])?>"><span class="glyphicon glyphicon-envelope"></span>个人资料&收货地址</a>
                             </li>
                             <li>
-                                <a href="index.php"><span class="glyphicon glyphicon-envelope"></span>订单管理</a>
+                                <a href="<?=Url::to(['site/ordermanage'])?>"><span class="glyphicon glyphicon-envelope"></span>订单管理</a>
                             </li>
                             <li>
                                 <a href="<?=Url::to(['site/logout'])?>"><span class="glyphicon glyphicon-envelope"></span>退出登录</a>
