@@ -67,14 +67,20 @@ class SiteController extends Controller
     public function actionChoose()
     {
         $this->layout_data = Yii::$app->session['username'];
-        return $this->render('choose');
+        $username = Yii::$app->session['username'];
+        return $this->render('choose',
+            [
+            "username" => $username,
+            ]);
     }
     public function actionPurchase()
     {
+        $this->layout_data = Yii::$app->session['username'];
         return $this->render('purchase');
     }
     public function actionConfirm()
     {
+        $this->layout_data = Yii::$app->session['username'];
         return $this->render('confirm');
     }
     public function actionLogin()
