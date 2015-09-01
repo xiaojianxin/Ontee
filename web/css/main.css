@@ -385,7 +385,7 @@ a{
 }
 .buttonTextArea{
 	width:400px;
-	margin: 0 auto;
+	margin:0 auto;
 }
 .buttonTextArea span{
 
@@ -611,10 +611,248 @@ a{
 	margin-top: 50px;
 	margin-bottom: 20px;
 }
+.orderNum1{
+	float: left;
+	width:200px;
+	margin-left: 100px;
+	margin-top:30px;
+}
+.orderNum1 a{
+	color:#22ac38;
+	cursor: pointer;
+	line-height: 30px;
+}
+.confirmArea .orderContent1 .orderPic1{
+	float: left;
+	width:150px;
+	text-align: center;
+	margin-top: 10px;
+}
+.confirmArea .orderContent1 .orderPic1 img{
+	width:50%;
+}
+.orderInfo{
+	float:left;
+	width:350px;
+	margin-top: 10px;
+}
+.orderInfo span,.orderInfo div{
+	font-size: 13px;
+}
+.orderInfo div{
+	margin-top: 10px;
+}
+.orderContent1{
+	background-color: white;
+	height: 100px;
+	border: 1px solid #cccccc;
+}
+.confirmArea .orderContent1 .paynum {
+	float: left;
+	margin-top: 40px;
+	color: #cccccc;
+}
+
+.choosepay{
+	background-color: white;
+	line-height: 40px;
+	border: 1px solid #cccccc;
+}
+
+.choosepay span{
+	color: #cccccc;
+	font-size:13px;
+	margin-left: 10px;
+}
+.choosepay .payway{
+	float:right;
+	width:80px;
+}
+.payButton1{
+	float: right;
+	width: 100px;
+	margin-top: 10px;
+	margin-right: 20px;
+	margin-bottom: 40px;
+}
+.showState{
+	width:200px;
+	float:right;
+	text-align: center;
+	margin-top: 35px;
+}
+.showState div{
+	color:#cccccc;
+}
+/****************************************用户个人资料页面***********************************************/
+.userTitle{
+	margin-top: 20px;
+	height: 250px;
+}
+.userPic{
+	height: 220px;
+	float: left;
+	text-align: center;
+}
+.userPic .img-thumbnail{
+	width: 200px;
+	height:200px;
+	background-color: #d4d4d4;
+}
+.userPic span{
+	cursor: pointer;
+}
+.userItemText{
+	float: left;
+	width: 100px;
+}
+.userItemText ul li{
+	list-style: none;
+	float: right;
+	color: #676767;
+	line-height: 30px;
+}
+.userTitleText span{
+	width: 460px;
+	font-size: 18px;
+	display: inline-block;
+	margin-top:20px;
+}
+.userItemInput{
+	float: left;
+	width: 180px;
+}
+.userItemInput input{
+	height: 25px;
+	margin-top: 5px;
+}
+.userItemInput textarea{
+	margin-top: 5px;
+	height: 80px;
+}
+.userChangeArea{
+	float: left;
+	width: 400px;
+	text-align: center;
+}
+.userChangeArea .safeIcon img{
+	width: 20%;
+	margin-top: 30px;
+}
+.userChangeArea .safeIcon h5{
+	color: white;
+	margin-top: -50px;
+	cursor: pointer;
+}
+#updateUserInfo img{
+	margin-top: 20px;
+	margin-left: 20px;
+	cursor: pointer;
+}
+
+.oneSelfAddr .thumbnail{
+	height: 70px;
+	background-color: transparent;
+}
+.addAddrButton{
+	float: right;
+	margin-bottom: 30px;
+}
+.addAddrButton .glyphicon{
+	width:30px;
+	height:30px;
+	font-size: 22px;
+	color: #22ac38;
+	border: 2px solid #22ac38;
+	-moz-border-radius: 50%;      /* Gecko browsers */
+	-webkit-border-radius: 50%;   /* Webkit browsers */
+	border-radius:50%;            /* W3C syntax */
+	cursor: pointer;
+	text-align: center;
+}
+.addAddrButton a{
+	color: #22ac38;
+
+}
+.secondShow{
+	display: none;
+}
+.secondShow .currentPhone{
+	background-color: #0a8a29;
+	width: 400px;
+	height: 60px;
+	margin-left: 80px;
+	margin-top: 30px;
+
+}
+
+.secondShow .currentPhone .left-side{
+	width:100px;
+}
+.secondShow .currentPhone .right-side{
+	margin-top: 15px;
+}
+.secondShow .currentPhone .right-side .btn{
+	 width:100px;
+	height: 25px;
+	color:#22ac38;
+	font-size: 13px;
+	cursor: pointer;
 
 
+ }
+.secondShow .currentPhone div{
+	color: white;
+	float: left;
+    margin-top: 5px;
+	margin-left: 5px;
 
+}
+.secondShow .editPsw{
+	background-color: #ff9600;
+	width: 400px;
+	height: 56px;
+	margin-left: 80px;
+	margin-top: 20px;
+	color: white;
+}
+.secondShow .editPsw div{
+	color:white;
+	padding-top: 20px;
+	cursor: pointer;
+}
+.manageButton span{
+	cursor: pointer;
+}
+.thirdShow{
+	margin-left: 30px;
+}
+.thirdShow .editClass{
+	width:400px;
+	height:90px;
+	display: none;
+}
+.thirdShow .editClass .left-side{
+	float: left;
+	width: 80px;
+}
+.thirdShow .editClass .left-side div{
+	float: right;
+	color:#858585;
+	line-height: 30px;
+}
+.thirdShow .editClass .right-side{
+	 float: left;
+	 width:100px;
+	margin-left:20px;
+ }
+.thirdShow .editClass .right-side input{
+	height:26px;
+	margin-top:5px;
 
-
-
-
+}
+.thirdShow .confirmBtn .btn{
+	height:25px ;
+	font-size: 13px;
+	margin-top: 40px;
+}

@@ -28,7 +28,7 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'except' => ['index','login','testcode','register','logout','choose','purchase','confirm'],
+                'except' => ['index','login','testcode','register','logout','choose','purchase','confirm','ordermanage','personal'],
                 'rules' => [
                     [
                         'actions' => ['login',],
@@ -67,15 +67,31 @@ class SiteController extends Controller
     public function actionChoose()
     {
         $this->layout_data = Yii::$app->session['username'];
-        return $this->render('choose');
+        $username = Yii::$app->session['username'];
+        return $this->render('choose',
+            [
+            "username" => $username,
+            ]);
     }
     public function actionPurchase()
     {
+        $this->layout_data = Yii::$app->session['username'];
         return $this->render('purchase');
     }
     public function actionConfirm()
     {
+        $this->layout_data = Yii::$app->session['username'];
         return $this->render('confirm');
+    }
+    public function actionOrdermanage()
+    {
+        $this->layout_data = Yii::$app->session['username'];
+        return $this->render('ordermanage');
+    }
+    public function actionPersonal()
+    {
+        $this->layout_data = Yii::$app->session['username'];
+        return $this->render('personal');
     }
     public function actionLogin()
     {

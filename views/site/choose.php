@@ -90,6 +90,14 @@ $this->title = 'Ontee';
     </div>
     <div class="preNextButton">
         <span class="previousBtn"><img src="<?=Url::to('@web/img/backbutton.png');?>"/> </span>
-        <span class="nextBtn"><a href="<?=Url::to(['site/purchase'])?>"><img src="<?=Url::to('@web/img/nextbutton.png');?>"/> </a></span>
+        <span class="nextBtn">
+            <?php 
+            if(!empty($username)){?>
+                 <a href="<?=Url::to(['site/purchase'])?>">
+            <?php }else{ ?>
+                <a data-toggle="modal" data-target="#modalBox" id="signInButton">
+            <?php }?>
+           
+        <img src="<?=Url::to('@web/img/nextbutton.png');?>"/> </a></span>
     </div>
 </div>
