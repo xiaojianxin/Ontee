@@ -85,10 +85,12 @@ class SiteController extends Controller
     }
     public function actionOrdermanage()
     {
+        $this->layout_data = Yii::$app->session['username'];
         return $this->render('ordermanage');
     }
     public function actionPersonal()
     {
+        $this->layout_data = Yii::$app->session['username'];
         return $this->render('personal');
     }
     public function actionLogin()
