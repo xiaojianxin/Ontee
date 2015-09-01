@@ -50,7 +50,7 @@ $username = $this->context->layout_data;
                                 <a href="<?=Url::to(['site/personal'])?>"><span class="glyphicon glyphicon-envelope"></span>个人资料&收货地址</a>
                             </li>
                             <li>
-                                <a href="<?=Url::to(['site/Ordermanage'])?>"><span class="glyphicon glyphicon-envelope"></span>订单管理</a>
+                                <a href="<?=Url::to(['site/ordermanage'])?>"><span class="glyphicon glyphicon-envelope"></span>订单管理</a>
                             </li>
                             <li>
                                 <a href="<?=Url::to(['site/logout'])?>"><span class="glyphicon glyphicon-envelope"></span>退出登录</a>
