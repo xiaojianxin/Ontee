@@ -40,7 +40,8 @@ class AppAsset extends AssetBundle
         'js/jquery.flexslider-min.js',
         'js/md5.js',
         'js/sign.js',
-        'js/choose.js'
+        'js/choose.js',
+        'js/selfInfo.js'
 
     ];
 
