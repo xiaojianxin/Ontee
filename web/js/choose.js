@@ -136,8 +136,8 @@ editTee=function(){
          me.previewImage(this);
       });
       $(".insertPic").click(function(){
-         $(".colorPicker").show();
-         $("#svgIconBox").show();
+         $(".colorPicker").toggle();
+         $("#svgIconBox").toggle();
       })
 
    };
