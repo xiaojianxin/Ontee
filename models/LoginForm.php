@@ -38,6 +38,7 @@ class LoginForm extends Model
                 $session->open();    
                 //var_dump($session['username']);
                 $session['username'] =  $this->username;
+                $session['userid'] = $this->getUser()->userid;
                 $session['password'] = $this->password;               
                 echo 0;
               }else{
