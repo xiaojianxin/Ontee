@@ -4,6 +4,7 @@
 var appendSvg;
 appendSvg=function(){
     var me=this;
+    this.select={};
     this.colorArr=["#F0F8FF","#FAEBD7","#00FFFF","#7FFFD4","#F0FFFF","#F5F5DC", "#FFE4C4","#000000",
         "#FFEBCD","#0000FF","#8A2BE2", "#A52A2A","#DEB887","#5F9EA0","#D2691E","#FF7F50","#6495ED",
         "#7FFF00","#6495ED","#FFF8DC", "#DC143C","#00FFFF","#00008B","#008B8B","#B8860B","#A9A9A9",
@@ -47,16 +48,27 @@ appendSvg=function(){
             }
 
         }
-
-
-
     };
     this.bindEvent=function(){
             me.colorArr.map(function(item){
                 var str='';
                 str +="<span style='background:"+item+"'></span>";
                 $("#picColor").append(str)
+            });
+        $("#picColor span").click(function(){
+            var color=$(this).css("background-color");
+            me.select.fill(color);
+        });
+        $("#svgIcons").children().each(function(){
+            $(this).click(function(){
+                var pointer=$(this).attr("points");
+                var draw=SVG("upPic");
+                var line=draw.polygon(pointer);
+                var select=line.center(30,30).size(120,120).fill("white");
+                me.select=select;
+
             })
+        })
     };
 };
 var appendPic=new appendSvg();
