@@ -87,17 +87,6 @@ editTee=function(){
             image.center(10,10);
             image.select().resize();
             image.draggable();
-           // $("#upPic svg image").blur(function(){
-           //    $(this).click();
-           //    image.select(false);
-           //    image.draggable(false);
-           // });
-           //
-           //
-           // $("#upPic svg image").focus(function(){
-           //   image.select().resize();
-           //   image.draggable();
-           //});
 
          };
          reader.readAsDataURL(file.files[0]);
@@ -130,13 +119,18 @@ editTee=function(){
    };
    me.editShirt=function(){
       $(".insertText").click(function(){
-         $("#text-Area").toggle();
+         $("#picColor").hide();
+         $("#svgIconBox").hide();
+         $("#textColor").toggle();
+         $("#textEditBox").toggle();
       });
       $("input[name='uploadPic']").change(function(){
          me.previewImage(this);
       });
       $(".insertPic").click(function(){
-         $(".colorPicker").toggle();
+         $("#textColor").hide();
+         $("#textEditBox").hide();
+         $("#picColor").toggle();
          $("#svgIconBox").toggle();
       })
 

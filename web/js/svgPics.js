@@ -53,7 +53,8 @@ appendSvg=function(){
             me.colorArr.map(function(item){
                 var str='';
                 str +="<span style='background:"+item+"'></span>";
-                $("#picColor").append(str)
+                $("#textColor").append(str);
+                $("#picColor").append(str);
             });
         $("#picColor span").click(function(){
             var color=$(this).css("background-color");
@@ -66,7 +67,6 @@ appendSvg=function(){
                 var line=draw.polygon(pointer);
                 var select=line.center(30,30).size(120,120).fill("white");
                 me.select=select;
-
             })
         })
     };

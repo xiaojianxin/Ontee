@@ -305,7 +305,7 @@ a{
 
 }
 .colorPicker{
-	background-color:#6d6d6d;
+
 	opacity: 0.8;
 	height: 80px;
 	position: absolute;
@@ -313,12 +313,15 @@ a{
 	width: 140px;
 	top: 120px;
 	z-index: 9999;
-	display: none;
 }
 .colorPicker div{
 	width:132px;
 	margin-left: 4px;
 	margin-top:4px;
+
+}
+#picColor,#textColor{
+	display: none;
 }
 #picColor span{
 	width:12px;
@@ -327,9 +330,14 @@ a{
 	cursor:pointer;
 	padding:2px;border:1px solid #ddd;
 }
-.svgIconBox{
-
-
+#textColor span{
+	width:12px;
+	height:12px;
+	float: left;
+	cursor:pointer;
+	padding:2px;border:1px solid #ddd;
+}
+#textEditBox{
 	background-color:#6d6d6d;
 	opacity: 0.8;
 	min-height: 80px;
@@ -339,7 +347,35 @@ a{
 	top: 220px;
 	height:200px ;
 	border-radius: 5px;
-	z-index: 9999;
+	z-index: 999;
+	display: none;
+}
+.textEditBox .item{
+
+	font-size: 12px;
+	margin-left: 5px;
+}
+.textEditBox input{
+	height: 20px;
+	margin-top:5px;
+}
+.textEditBox #confirmText{
+	line-height:20px;
+	width:80px;
+	margin-top:10px;
+	margin-left:30px;
+}
+#svgIconBox{
+	background-color:#6d6d6d;
+	opacity: 0.8;
+	min-height: 80px;
+	position: absolute;
+	left: 30%;
+	width: 140px;
+	top: 220px;
+	height:200px ;
+	border-radius: 5px;
+	z-index: 999;
 	display: none;
 }
 #svgIcons path{

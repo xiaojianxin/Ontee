@@ -49,6 +49,46 @@ $this->title = 'Ontee';
         <span class="l-Side active">反</span>
     </div>
     <div class="colorPicker">
+        <div  id="textColor">
+
+        </div>
+
+    </div>
+    <div class="textEditBox" id="textEditBox">
+        <div style="height: 10px;"></div>
+        <div class="item">
+            <span class="lText">字体：</span>
+            <span class="fontChoose">
+                <select id="fontList">
+
+                </select>
+            </span>
+        </div>
+        <div class="item">
+            <span class="lText">加粗：</span>
+            <span class="fontBold">
+                <label>
+                    <input type="checkbox"> 加粗
+                </label>
+            </span>
+        </div>
+
+        <div class="item">
+            <span class="lText">倾斜：</span>
+             <span class="fontBold">
+                <label>
+                    <input type="checkbox"> 倾斜
+                </label>
+            </span>
+        </div>
+        <div style="font-size: 12px;margin-left: 5px;margin-top: 5px;">
+            <span class="lText">输入文字：</span>
+            <input class="form-control" placeholder="请输入文字" name="textAreaValue"/>
+        </div>
+        <div class=" btn btn-success" id="confirmText">修改文字 </div>
+
+    </div>
+    <div class="colorPicker">
         <div  id="picColor">
 
         </div>
@@ -76,9 +116,6 @@ $this->title = 'Ontee';
 
             </svg>
         </div>
-<!--        <div class="input-TextArea">-->
-<!--            <input type="text" class="form-control" placeholder="文字输入区域" id="inputText"/>-->
-<!--        </div>-->
     </div>
 
     <div class="templateBoxes">

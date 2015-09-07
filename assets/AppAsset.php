@@ -42,7 +42,8 @@ class AppAsset extends AssetBundle
         'js/sign.js',
         'js/choose.js',
         'js/selfInfo.js',
-           'js/svgPics.js'
+        'js/svgPics.js',
+        'js/textEdit.js'
 
     ];
 
