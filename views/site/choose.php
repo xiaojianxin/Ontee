@@ -48,6 +48,19 @@ $this->title = 'Ontee';
         <span class="r-Side">正</span>
         <span class="l-Side active">反</span>
     </div>
+    <div class="colorPicker">
+        <div  id="picColor">
+
+        </div>
+
+    </div>
+    <div class="svgIconBox" id="svgIconBox">
+        <svg id="svgIcons" xmlns = "http://www.w3.org/2000/svg" class="icon">
+<!--            <use xlink:href="--><?//=Url::to('@web/img/capicon.svg#Icon_1_')?><!--"></use>-->
+<!--            <image src="--><?//=Url::to('@web/img/capicon.svg#Icon_1_')?><!--" height="800" width="800"></image>-->
+
+        </svg>
+    </div>
     <div class="teeEditPic">
         <div id="saveArea">
             <img src="<?=Url::to('@web/img/teebf.png')?>" class="tShirtPic"/>

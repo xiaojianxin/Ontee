@@ -135,6 +135,10 @@ editTee=function(){
       $("input[name='uploadPic']").change(function(){
          me.previewImage(this);
       });
+      $(".insertPic").click(function(){
+         $(".colorPicker").show();
+         $("#svgIconBox").show();
+      })
 
    };
 

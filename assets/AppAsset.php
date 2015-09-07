@@ -27,6 +27,7 @@ class AppAsset extends AssetBundle
         'css/site.css',
         'css/flexslider.css',
         'css/svg.select.css',
+
         'css/main.css'
     ];
     public $js = [
@@ -34,14 +35,14 @@ class AppAsset extends AssetBundle
         "//cdn.bootcss.com/svg.js/2.0.5/svg.js",
         'js/svg.draggable.js',
         'js/svg.select.js',
-
         'js/jquery.rotate.min.js',
         'js/bootstrap.js',
         'js/jquery.flexslider-min.js',
         'js/md5.js',
         'js/sign.js',
         'js/choose.js',
-        'js/selfInfo.js'
+        'js/selfInfo.js',
+           'js/svgPics.js'
 
     ];
 
