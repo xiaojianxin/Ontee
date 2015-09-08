@@ -233,7 +233,6 @@ editTee=function(){
                    }
                );
             }
-
             image.center(10,10);
             image.select().resize();
             image.draggable();
@@ -274,7 +273,14 @@ editTee=function(){
          $("#textColor").toggle();
          $("#textEditBox").toggle();
       });
+      $(".uploadPic").click(function(){
+         $("#textColor").hide();
+         $("#textEditBox").hide();
+         $("#picColor").hide();
+         $("#svgIconBox").hide();
+      });
       $("input[name='uploadPic']").change(function(){
+
          me.previewImage(this);
       });
       $(".insertPic").click(function(){
@@ -284,8 +290,6 @@ editTee=function(){
          $("#svgIconBox").toggle();
       });
       $(".nextBtn").click(function(){
-
-
             var svgHtml= $("#upPic").html();
             canvg("printCanvas",svgHtml);
             var imgSrc = document.getElementById("printCanvas").toDataURL("image/png");
