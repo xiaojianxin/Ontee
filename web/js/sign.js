@@ -9,7 +9,6 @@ sign=function(){
         me.logInAjax();
         me.registerAjax();
         me.sendCodeAjax();
-        me
 
     };
     me.bindSignEvent=function(){
