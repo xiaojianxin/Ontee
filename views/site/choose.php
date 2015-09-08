@@ -105,7 +105,7 @@ $this->title = 'Ontee';
         <div id="saveArea">
             <img src="<?=Url::to('@web/img/teebf.png')?>" class="tShirtPic"/>
         </div>
-        <div class="printArea">
+        <div class="printArea" id="printArea">
             <svg id="mySvg" xmlns = "http://www.w3.org/2000/svg">
                 <rect x="0" y="0" width="180" height="300" r="0" rx="0" ry="0" fill="#000000" stroke="#ffffff"
                       fill-opacity="0" transform="matrix(1,0,0,1,0,0)" stroke-width="5" style=""></rect>
@@ -141,13 +141,10 @@ $this->title = 'Ontee';
     <div class="preNextButton">
         <span class="previousBtn"><img src="<?=Url::to('@web/img/backbutton.png');?>"/> </span>
         <span class="nextBtn">
-            <?php 
-            if(!empty($username)){?>
-                 <a href="<?=Url::to(['site/purchase'])?>">
-            <?php }else{ ?>
-                <a data-toggle="modal" data-target="#modalBox" id="signInButton">
-            <?php }?>
+
            
-        <img src="<?=Url::to('@web/img/nextbutton.png');?>"/> </a></span>
+        <img src="<?=Url::to('@web/img/nextbutton.png');?>"/></span>
     </div>
+    <canvas id="printCanvas" width="180px" height="300px" style="display: none"></canvas>
+    <img src="" id="myImg">
 </div>
