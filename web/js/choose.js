@@ -46,7 +46,6 @@ editTee=function(){
       });
       $("#confirmText").click(function(){
          var textVal=$("input[name='textAreaValue']").val();
-         alert(me.fontFamily);
          var text=me.draw.plain(textVal).fill("white").center(70,30);
          text.font({
             family:   me.fontFamily
@@ -74,8 +73,7 @@ editTee=function(){
       $("#svgIcons").children().each(function(){
          $(this).click(function(){
             var pointer=$(this).attr("points");
-            var draw=SVG("upPic");
-            var line=draw.polygon(pointer);
+            var line=me.draw.polygon(pointer);
             var select=line.center(30,30).size(120,120).fill("white");
             me.select=select;
          })
@@ -236,10 +234,9 @@ editTee=function(){
 
 
             var svgHtml= $("#upPic").html();
-            alert(svgHtml);
             canvg("printCanvas",svgHtml);
-         var imgSrc = document.getElementById("printCanvas").toDataURL("image/png");
-         document.getElementById('myImg').src = imgSrc;
+            var imgSrc = document.getElementById("printCanvas").toDataURL("image/png");
+            document.getElementById('myImg').src = imgSrc;
 
       })
 

@@ -145,6 +145,6 @@ $this->title = 'Ontee';
            
         <img src="<?=Url::to('@web/img/nextbutton.png');?>"/></span>
     </div>
-    <canvas id="printCanvas" width="180px" height="300px" style="display: none"></canvas>
+    <canvas id="printCanvas" width="180px" height="300px" style="display: none;"></canvas>
     <img src="" id="myImg">
 </div>
