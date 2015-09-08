@@ -4,7 +4,10 @@ editTee=function(){
    me.sex=1;
    me.style=1;
    me.color=1;
-   me.draw=SVG('upPic');
+   me.side=1;
+   me.drawFront=SVG('upPicFront');
+   me.drawBack=SVG('upPicBack');
+   me.textColor="grey";
    this.select={};
    this.fontFamily="宋体";
    this.fontArr=["宋体","黑体","微软雅黑","微软正黑体"," 新宋体","新细明体"," 细明体","标楷体","仿宋","楷体","幼圆"];
@@ -46,7 +49,15 @@ editTee=function(){
       });
       $("#confirmText").click(function(){
          var textVal=$("input[name='textAreaValue']").val();
-         var text=me.draw.plain(textVal).fill("white").center(70,30);
+         var text={};
+         if(me.side==1)
+         {
+           text=me.drawFront.plain(textVal).fill("grey").center(70,30);
+         }
+         else
+         {
+            text=me.drawBack.plain(textVal).fill("grey").center(70,30);
+         }
          text.font({
             family:   me.fontFamily
             , size:     30
@@ -73,8 +84,16 @@ editTee=function(){
       $("#svgIcons").children().each(function(){
          $(this).click(function(){
             var pointer=$(this).attr("points");
-            var line=me.draw.polygon(pointer);
-            var select=line.center(30,30).size(120,120).fill("white");
+            var line={};
+            if(me.side==1)
+            {
+               line=me.drawFront.polygon(pointer);
+            }
+            else
+            {
+               line=me.drawBack.polygon(pointer);
+            }
+            var select=line.center(30,30).size(120,120).fill("grey");
             me.select=select;
          })
       })
@@ -104,7 +123,7 @@ editTee=function(){
          $(this).addClass("active");
          $('.grey').removeClass("active");
          $('.white').removeClass("active");
-         $('.tShirtPic').attr('src','/img/teebf.png');
+         $('.tShirtPic').attr('src','../img/teebf.png');
          me.color=1;
       });
       $(".grey").click(function(){
@@ -117,9 +136,30 @@ editTee=function(){
          $(this).addClass("active");
          $('.grey').removeClass("active");
          $('.black').removeClass("active");
-         $('.tShirtPic').attr('src','/img/teewf.png');
+         $('.tShirtPic').attr('src','../img/teewf.png');
 
          me.color=3;
+      });
+      $(".r-Side").click(function(){
+         $('.l-Side').removeClass("active");
+         $(this).addClass("active");
+         me.side=1;
+         if(me.color==1){ $('.tShirtPic').attr('src','../img/teebf.png');}
+         else if(me.color==2){$('.tShirtPic').attr('src','../img/teebf.png');}
+         else{$('.tShirtPic').attr('src','../img/teewf.png');}
+         $("#upPicBack").hide();
+         $("#upPicFront").show();
+
+      });
+      $(".l-Side").click(function(){
+         $('.r-Side').removeClass("active");
+         $(this).addClass("active");
+         me.side=2;
+         if(me.color==1){ $('.tShirtPic').attr('src','../img/teebb.png');}
+         else if(me.color==2){$('.tShirtPic').attr('src','../img/teebb.png');}
+         else{$('.tShirtPic').attr('src','../img/teewb.png');}
+         $("#upPicFront").hide();
+         $("#upPicBack").show();
       });
       $("#nextStepButton").click(function(){
          $(".chooseContent").hide();
@@ -174,12 +214,26 @@ editTee=function(){
       {
          var reader = new FileReader();
          reader.onload = function(evt){
-            var image=me.draw.image(evt.target.result).loaded(
-                function(){
-                   var rect = me.clacImgZoomParam(MAXWIDTH, MAXHEIGHT, image.width(), image.height());
-                   this.size(rect.width, rect.height);
+            var image={};
+            if(me.side==1)
+            {
+               image=me.drawFront.image(evt.target.result).loaded(
+                   function(){
+                      var rect = me.clacImgZoomParam(MAXWIDTH, MAXHEIGHT, image.width(), image.height());
+                      this.size(rect.width, rect.height);
                    }
-            );
+               );
+            }
+            else
+            {
+               image=me.drawBack.image(evt.target.result).loaded(
+                   function(){
+                      var rect = me.clacImgZoomParam(MAXWIDTH, MAXHEIGHT, image.width(), image.height());
+                      this.size(rect.width, rect.height);
+                   }
+               );
+            }
+
             image.center(10,10);
             image.select().resize();
             image.draggable();

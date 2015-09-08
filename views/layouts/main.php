@@ -28,7 +28,7 @@ $username = $this->context->layout_data;
                 <img src="<?=Url::to('@web/img/logo.png');?>" style="width: 80%;margin-top: -14%;min-width: 100px;"/>
             </div>
             <div class="col-xs-6 nav-item col-xs-offset-2">
-                <span><a href="/"> 首页</a></span>
+                <span><a href="<?=Url::to(['site/index'])?>"> 首页</a></span>
                 <span><a href="./choose"> 认识ONTEE</a></span>
                 <span><a href=""> 我的T恤</a></span>
                 <?php 
