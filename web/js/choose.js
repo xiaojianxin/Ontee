@@ -170,7 +170,6 @@ editTee=function(){
    this.previewImage=function(file){
       var MAXWIDTH  = 150;
       var MAXHEIGHT = 300;
-      $("#upPic svg").remove();
       if (file.files && file.files[0])
       {
          var reader = new FileReader();
