@@ -20,7 +20,7 @@ $this->title = 'Ontee';
 
             </div>
             <br/>
-            <span>点击上传头像</span>
+            <span id="uploadPicBtn">点击上传头像</span>
         </div>
 
         <div class="userItemText">
