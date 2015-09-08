@@ -290,10 +290,13 @@ editTee=function(){
          $("#svgIconBox").toggle();
       });
       $(".nextBtn").click(function(){
-            var svgHtml= $("#upPic").html();
-            canvg("printCanvas",svgHtml);
-            var imgSrc = document.getElementById("printCanvas").toDataURL("image/png");
+            var svgHtml= $("#upPicFront").html();
+            canvg("printCanvasFront",svgHtml);
+            var imgSrc = document.getElementById("printCanvasFront").toDataURL("image/png");
             document.getElementById('myImg').src = imgSrc;
+            var svgHtmlBack= $("#upPicBack").html();
+            canvg("printCanvasBack",svgHtmlBack);
+            var imgSrcBack = document.getElementById("printCanvasBack").toDataURL("image/png");
 
       })
 
