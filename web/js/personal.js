@@ -107,7 +107,19 @@ person=function(){
 
                 }
             })
-        })
+        });
+        $("#safeIcon").click(function(){
+            $("#safeIcon").hide();
+            $('.secondShow').show();
+        });
+        $(".currentPhone").click(function(){
+            $(this).hide();
+            $(".editPhoneArea").show();
+        });
+        $(".editPsw").click(function(){
+            $(this).hide();
+            $(".editPswArea").show();
+        });
 
     };
     this.updateInfoAjax=function(){

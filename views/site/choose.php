@@ -146,3 +146,8 @@ $this->title = 'Ontee';
     <canvas id="printCanvasBack" width="180px" height="300px" style="display: none;"></canvas>
     <img src="" id="myImg">
 </div>
+
+<?php $this->beginBlock("choose")?>
+$.getScript("<?=Url::to('@web/js/choose.js');?>");
+<?php $this->endBlock()?>
+<?php $this->registerJs($this->blocks['choose'],\yii\web\View::POS_END)?>

@@ -132,6 +132,10 @@ $username = $this->context->layout_data;
 
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+<?php $this->beginBlock("sign")?>
+$.getScript("<?=Url::to('@web/js/sign.js');?>");
+<?php $this->endBlock()?>
+<?php $this->registerJs($this->blocks['sign'],\yii\web\View::POS_END)?>
 <?php $this->beginBody() ?>
 
             <?= $content ?>
