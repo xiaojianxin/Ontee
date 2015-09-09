@@ -84,9 +84,30 @@ person=function(){
         me.uploader.on( 'uploadComplete', function( file ) {
                 $( '#'+file.id ).find('.progress').remove();
             });
+        $("#cityForm").ready(function(){
+            setup();
+            preselect('北京市');
+            promptinfo();
+        });
+        $("#submitNewAddr").click(function(){
+            var address=document.getElementById('address').value;
+            var detail=$("input[name='addrDetail']").val();
+            var phone=$("input[name='receiverPhone']").val();
+            var receiver=$("input[name='receiverName']").val();
+            var zipCode=$("input[name='receiverCode']").val();
+            $.ajax({
+                type:"POST",
+                url:"",
+                dataType:"Json",
+                data:{address:address,detail:detail,phone:phone,name:receiver,code:zipCode},
+                success:function(){
 
-    };
-    this.uploadUserImg=function(){
+                },
+                error:function(){
+
+                }
+            })
+        })
 
     };
     this.updateInfoAjax=function(){

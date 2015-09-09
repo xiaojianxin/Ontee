@@ -43,6 +43,7 @@ class AppAsset extends AssetBundle
         'js/sign.js',
         'js/choose.js',
         'js/selfInfo.js',
+        'js/city.js',
         'js/personal.js'
 
     ];
