@@ -776,12 +776,14 @@ a{
 	float: left;
 	text-align: center;
 }
+
 .userPic .img-thumbnail{
 	width: 200px;
 	height:200px;
-	background-color: #d4d4d4;
+	max-height: 200px;
 }
 .userPic span{
+
 	cursor: pointer;
 }
 .userItemText{

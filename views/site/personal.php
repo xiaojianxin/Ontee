@@ -16,11 +16,11 @@ $this->title = 'Ontee';
     </div>
     <div class="userTitle">
         <div class="userPic">
-            <div class="img-thumbnail">
-
+            <div class="img-thumbnail" id="showUserHead">
             </div>
-            <br/>
-            <span id="uploadPicBtn">点击上传头像</span>
+            <div style="height:5px">
+            </div>
+            <span id="uploadPicBt">点击上传头像</span>
         </div>
 
         <div class="userItemText">
