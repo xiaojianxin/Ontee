@@ -313,30 +313,24 @@ a{
 	width: 140px;
 	top: 120px;
 	z-index: 9999;
+	display: none;
 }
-.colorPicker div{
+.colorPick {
 	width:132px;
 	margin-left: 4px;
 	margin-top:4px;
 
+	height:80px;
 }
-#picColor,#textColor{
-	display: none;
-}
-#picColor span{
+
+.colorPicker span{
 	width:12px;
 	height:12px;
 	float: left;
 	cursor:pointer;
 	padding:2px;border:1px solid #ddd;
 }
-#textColor span{
-	width:12px;
-	height:12px;
-	float: left;
-	cursor:pointer;
-	padding:2px;border:1px solid #ddd;
-}
+
 #textEditBox{
 	background-color:#6d6d6d;
 	opacity: 0.8;

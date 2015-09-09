@@ -49,10 +49,7 @@ $this->title = 'Ontee';
         <span class="l-Side ">反</span>
     </div>
     <div class="colorPicker">
-        <div  id="textColor">
-
-        </div>
-
+        <div class="colorPick"></div>
     </div>
     <div class="textEditBox" id="textEditBox">
         <div style="height: 10px;"></div>
@@ -87,10 +84,6 @@ $this->title = 'Ontee';
         </div>
         <div class=" btn btn-success" id="confirmText">修改文字 </div>
 
-    </div>
-    <div class="colorPicker">
-        <div  id="picColor">
-        </div>
     </div>
     <div class="svgIconBox" id="svgIconBox">
         <svg id="svgIcons" xmlns = "http://www.w3.org/2000/svg" class="icon">
