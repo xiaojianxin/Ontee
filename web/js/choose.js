@@ -5,6 +5,7 @@ editTee=function(){
    me.style=1;
    me.color=1;
    me.side=1;
+   me.svgElementArr=[];
    me.drawFront=SVG('upPicFront');
    me.drawBack=SVG('upPicBack');
    me.textColor="grey";
@@ -37,7 +38,7 @@ editTee=function(){
       me.initEdit();
       me.bindEvent();
       me.bindTextEvent();
-      me.bindUploadEvent();
+
       me.bindPicEvent();
       me.editShirt();
    };
@@ -46,15 +47,25 @@ editTee=function(){
       me.appendSvgPics();
 
    };
+   this.svgElementEvent=function(){
+      me.svgElementArr.map(function(item){
+         item.mousedown(function(){
+            me.hasSelected.select(false);
+            me.select=item;
+            me.hasSelected=item;
+            me.select.select().resize();
+         })
+      })
+   };
    this.bindTextEvent=function(){
       $("#fontList").change(function(){
          me.fontFamily=$(this).val();
 
       });
-      $("div").on("click", "p", function(){
-         // 这里的this指向触发点击事件的p元素(Element)
-         alert( $(this).text() );
-      });
+      //$("div").on("click", "p", function(){
+      //   // 这里的this指向触发点击事件的p元素(Element)
+      //   alert( $(this).text() );
+      //});
       $("#confirmText").click(function(){
          var textVal=$("input[name='textAreaValue']").val();
          var text={};
@@ -66,6 +77,8 @@ editTee=function(){
          {
             text=me.drawBack.plain(textVal).fill("grey").center(70,30);
          }
+         me.svgElementArr.push(text);
+         me.svgElementEvent();
          me.selectFunc(text);
          text.font({
             family:   me.fontFamily
@@ -76,9 +89,7 @@ editTee=function(){
          })
       });
    };
-   this.bindUploadEvent=function(){
 
-   };
    this.bindPicEvent=function(){
       me.colorArr.map(function(item){
          var str='';
@@ -101,7 +112,11 @@ editTee=function(){
             {
                line=me.drawBack.polygon(pointer);
             }
+
             var select=line.center(30,30).size(120,120).fill("grey");
+            console.log(select);
+            me.svgElementArr.push(select);
+            me.svgElementEvent();
            me.selectFunc(select);
          })
       })
@@ -174,17 +189,7 @@ editTee=function(){
          me.select.select(false);
          me.hasSelected.select(false);
       });
-      $("#nextStepButton").click(function(){
-         $(".chooseContent").hide();
-         $(".editContent").show();
-      });
-      $(".previousBtn").click(function(){
-         $(".editContent").hide();
-         $(".chooseContent").show();
-      });
-      $(".uploadPic").click(function(){
-         $("#chosenPic").click();
-      })
+
 
    };
    this.fontList=function(){
@@ -248,7 +253,10 @@ editTee=function(){
             }
 
             image.center(10,10);
+            me.svgElementArr.push(image);
+            me.svgElementEvent();
             me.selectFunc(image);
+
 
          };
          reader.readAsDataURL(file.files[0]);
@@ -300,6 +308,9 @@ editTee=function(){
          $("#svgIconBox").toggle();
          $(".colorPicker").show();
       });
+      $(".uploadPic").click(function(){
+         $("#chosenPic").click();
+      })
       $(".nextBtn").click(function(){
             var svgHtml= $("#upPicFront").html();
             canvg("printCanvasFront",svgHtml);
@@ -308,7 +319,16 @@ editTee=function(){
             var svgHtmlBack= $("#upPicBack").html();
             canvg("printCanvasBack",svgHtmlBack);
             var imgSrcBack = document.getElementById("printCanvasBack").toDataURL("image/png");
-      })
+      });
+      $("#nextStepButton").click(function(){
+         $(".chooseContent").hide();
+         $(".editContent").show();
+      });
+      $(".previousBtn").click(function(){
+         $(".editContent").hide();
+         $(".chooseContent").show();
+      });
+
 
    };
 
