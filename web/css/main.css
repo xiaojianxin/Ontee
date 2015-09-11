@@ -493,6 +493,10 @@ a{
 #chosenPic{
 	height:24px; filter:alpha(opacity:0);opacity: 0;width:260px;display: none;
 }
+canvas{
+	width:180px;
+	height: 300px;
+}
 /******************************************购买页面*********************************************/
 .textPointer{
 	margin-top:15%;
@@ -501,9 +505,16 @@ a{
 .textPointer .intro-text{
 	font-size: 12px;
 }
-.printTee img{
-	width: 100%;
-	float: right;
+.printTee #printTeeColor{
+	position: absolute;
+	top:110px;
+	width: 450px;
+}
+.printTee #printEditTee{
+	position: absolute;
+	top:150px;
+	left:110px;
+	width: 300px;
 }
 .priceTag{
 	margin-top: 40%;

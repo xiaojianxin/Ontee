@@ -147,7 +147,8 @@ $this->title = 'Ontee';
                     <span class="intro-text">这里将有你的专属标签</span>
                 </div>
                 <div class="printTee">
-                    <img src=<?=Url::to('@web/img/teebb.png');?>>
+                    <img src=<?=Url::to('@web/img/teebb.png');?> id="printTeeColor">
+                    <img src="" id="printEditTee">
                 </div>
             </div>
             <div class="col-xs-4">

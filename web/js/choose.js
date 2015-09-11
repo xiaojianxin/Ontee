@@ -342,7 +342,16 @@ editTee=function(){
             me.picData[0]=imgSrcFront;
             me.picData[1]=imgSrcBack;
              $(".editContent").hide();
-         $("#confirmContent").show();
+             $("#confirmContent").show();
+            if(me.color==1)
+            {
+               $("#printTeeColor").attr("src","../img/teebf.png");
+            }
+             else
+            {
+               $("#printTeeColor").attr("src","../img/teewf.png");
+            }
+            $("#printEditTee").attr("src",me.picData[0]);
 
       });
       $("#nextStepButton").click(function(){
