@@ -1,3 +1,4 @@
+/**
  * Created by jiye on 15/9/8.
  */
 var person;
@@ -10,7 +11,7 @@ person=function(){
         // 选完文件后，是否自动上传。
         auto: true,
         // swf文件路径
-        swf: '/img/Uploader.swf',
+        swf: './img/Uploader.swf',
         // 文件接收服务端。
         server: '/site/upload',
         // 选择文件的按钮。可选。
@@ -18,7 +19,7 @@ person=function(){
         pick: '#uploadPicBt',
         // 只允许选择图片文件。
         accept: {
-            title: 'uploadform[file]',
+            title: 'uploadform[image]',
             extensions: 'gif,jpg,jpeg,bmp,png',
             mimeTypes: 'image/*'
         }
