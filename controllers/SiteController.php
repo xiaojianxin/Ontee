@@ -26,27 +26,27 @@ class SiteController extends Controller
     }
 
 
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'except' => ['index','login','testcode','register','logout','choose','purchase','confirm','ordermanage','personal','upload'],
-                // 'rules' => [
-                //     [
-                //         'actions' => ['login',],
-                //         'allow' => true,
-                //         'roles' => ['@'],
-                //     ],
-                // ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::className(),
-                'actions' => [
-                ],
-            ],
-        ];
-    }
+    // public function behaviors()
+    // {
+    //     return [
+    //         // 'access' => [
+    //         //     'class' => AccessControl::className(),
+    //         //     'except' => ['index','login','testcode','register','logout','choose','purchase','confirm','ordermanage','personal','upload'],
+    //         //     'rules' => [
+    //         //         [
+    //         //             'actions' => ['login',],
+    //         //             'allow' => true,
+    //         //             'roles' => ['@'],
+    //         //         ],
+    //         //     ],
+    //         // ],
+    //         // 'verbs' => [
+    //         //     'class' => VerbFilter::className(),
+    //         //     'actions' => [
+    //         //     ],
+    //         // ],
+    //     ];
+    // }
 
     public function actions()
     {
