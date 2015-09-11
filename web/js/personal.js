@@ -13,13 +13,13 @@ person=function(){
         // swf文件路径
         swf: './img/Uploader.swf',
         // 文件接收服务端。
-        server: 'http://webuploader.duapp.com/server/fileupload.php',
+        server: '/save/upload',
         // 选择文件的按钮。可选。
         // 内部根据当前运行是创建，可能是input元素，也可能是flash.
         pick: '#uploadPicBt',
         // 只允许选择图片文件。
         accept: {
-            title: 'Images',
+            title: 'uploadform[image]',
             extensions: 'gif,jpg,jpeg,bmp,png',
             mimeTypes: 'image/*'
         }
