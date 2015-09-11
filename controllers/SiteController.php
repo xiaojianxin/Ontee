@@ -185,7 +185,7 @@ class SiteController extends Controller
 
             if ($model->validate()) {                
                 $Name = time();
-                $url = Url::to('@web/img/', 'https');
+                $url = Yii::$app->basePath."/web/img/";
                 $model->file->saveAs($url . $Name . '.' . $model->file->extension);
                 $pic->url = '/img/'.$model->file->baseName.'.'.$model->file->extension;
                 $pic->save();
