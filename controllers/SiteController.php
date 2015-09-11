@@ -10,6 +10,9 @@ use app\models\LoginForm;
 use app\models\RegisterForm;
 use app\models\User;
 use app\models\ContactForm;
+use app\models\UploadForm;
+use app\models\Pictures;
+use yii\web\UploadedFile;
 use yii\helpers\Json;
 use yii\helpers\Url;
 use yii\web\Session;
@@ -168,6 +171,27 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+
+    public function actionUpload(){
+
+        $model = new UploadForm();
+        $pic = new Pictures();
+        echo "1";
+        if (Yii::$app->request->isPost) {
+            $model->file = UploadedFile::getInstance($model, 'file');
+
+            if ($model->validate()) {                
+                $model->file->baseName = time();
+                $url = Yii::$app->basePath."/web/img";
+                $model->file->saveAs($url . $model->file->baseName . '.' . $model->file->extension);
+                $pic->url = '/img/'.$model->file->baseName.'.'.$model->file->extension;
+                $pic->save();
+            }
+        }
+
+        echo "1";
     }
 
 }
