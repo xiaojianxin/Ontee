@@ -1,4 +1,3 @@
-/**
  * Created by jiye on 15/9/8.
  */
 var person;
