@@ -11,7 +11,7 @@ person=function(){
         // 选完文件后，是否自动上传。
         auto: true,
         // swf文件路径
-        swf: './img/Uploader.swf',
+        swf: '/img/Uploader.swf',
         // 文件接收服务端。
         server: '/save/upload',
         // 选择文件的按钮。可选。
@@ -19,7 +19,7 @@ person=function(){
         pick: '#uploadPicBt',
         // 只允许选择图片文件。
         accept: {
-            title: 'uploadform[image]',
+            title: 'uploadform[file]',
             extensions: 'gif,jpg,jpeg,bmp,png',
             mimeTypes: 'image/*'
         }
