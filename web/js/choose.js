@@ -8,7 +8,12 @@ editTee=function(){
    me.svgElementArr=[];
    me.drawFront=SVG('upPicFront');
    me.drawBack=SVG('upPicBack');
-   me.textColor="grey";
+   me.text={
+      color:"grey",
+      bold:false,
+      bend:false
+   };
+   me.picData=["",""];
    this.select={};
    this.hasSelected=me.drawBack.circle(0);
    this.fontFamily="宋体";
@@ -68,25 +73,39 @@ editTee=function(){
       //});
       $("#confirmText").click(function(){
          var textVal=$("input[name='textAreaValue']").val();
-         var text={};
-         if(me.side==1)
+         if(textVal!="")
          {
-           text=me.drawFront.plain(textVal).fill("grey").center(70,30);
+            var text={};
+            if(me.side==1)
+            {
+               text=me.drawFront.plain(textVal).fill(me.text.color).center(70,30);
+            }
+            else
+            {
+               text=me.drawBack.plain(textVal).fill(me.text.color).center(70,30);
+            }
+            text.font({
+               family:   me.fontFamily
+               , size:     30
+               , anchor:   'middle'
+               , leading:  '1.5em'
+            });
+            console.log($("input:radio[name='textBold']").attr("check"));
+            if($("input[name='textBold']").attr("checked"))
+            {
+               alert("yes");
+               text.attr("font-weight","bold");
+            }
+            if($("input[name='textBend']").attr("checked"))
+            {
+               text.attr("font-style","italic ");
+            }
+            me.svgElementArr.push(text);
+            me.svgElementEvent();
+            me.selectFunc(text);
+            $("input[name='textAreaValue']").val("");
          }
-         else
-         {
-            text=me.drawBack.plain(textVal).fill("grey").center(70,30);
-         }
-         me.svgElementArr.push(text);
-         me.svgElementEvent();
-         me.selectFunc(text);
-         text.font({
-            family:   me.fontFamily
-            , size:     30
-            , anchor:   'middle'
-            , leading:  '1.5em',
-            color:me.textColor
-         })
+
       });
    };
 
@@ -98,7 +117,9 @@ editTee=function(){
       });
       $(".colorPick span").click(function(){
          var color=$(this).css("background-color");
-         me.select.fill(color);
+         console.log(me.select);
+            me.select.fill(color);
+            me.textColor=color;
       });
       $("#svgIcons").children().each(function(){
          $(this).click(function(){
@@ -310,15 +331,19 @@ editTee=function(){
       });
       $(".uploadPic").click(function(){
          $("#chosenPic").click();
-      })
+      });
       $(".nextBtn").click(function(){
             var svgHtml= $("#upPicFront").html();
             canvg("printCanvasFront",svgHtml);
-            var imgSrc = document.getElementById("printCanvasFront").toDataURL("image/png");
-            document.getElementById('myImg').src = imgSrc;
+            var imgSrcFront = document.getElementById("printCanvasFront").toDataURL("image/png");
             var svgHtmlBack= $("#upPicBack").html();
             canvg("printCanvasBack",svgHtmlBack);
             var imgSrcBack = document.getElementById("printCanvasBack").toDataURL("image/png");
+            me.picData[0]=imgSrcFront;
+            me.picData[1]=imgSrcBack;
+             $(".editContent").hide();
+         $("#confirmContent").show();
+
       });
       $("#nextStepButton").click(function(){
          $(".chooseContent").hide();
@@ -328,8 +353,6 @@ editTee=function(){
          $(".editContent").hide();
          $(".chooseContent").show();
       });
-
-
    };
 
 };

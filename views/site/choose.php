@@ -65,7 +65,7 @@ $this->title = 'Ontee';
             <span class="lText">加粗：</span>
             <span class="fontBold">
                 <label>
-                    <input type="checkbox"> 加粗
+                    <input type="checkbox" name="textBold"> 加粗
                 </label>
             </span>
         </div>
@@ -74,7 +74,7 @@ $this->title = 'Ontee';
             <span class="lText">倾斜：</span>
              <span class="fontBold">
                 <label>
-                    <input type="checkbox"> 倾斜
+                    <input type="checkbox" name="textBend"> 倾斜
                 </label>
             </span>
         </div>
@@ -131,15 +131,74 @@ $this->title = 'Ontee';
     <div class="preNextButton">
         <span class="previousBtn"><img src="<?=Url::to('@web/img/backbutton.png');?>"/> </span>
         <span class="nextBtn">
-
-           
-        <img src="<?=Url::to('@web/img/nextbutton.png');?>"/></span>
+                <img src="<?=Url::to('@web/img/nextbutton.png');?>"/>
+        </span>
     </div>
     <canvas id="printCanvasFront" width="180px" height="300px" style="display: none;"></canvas>
     <canvas id="printCanvasBack" width="180px" height="300px" style="display: none;"></canvas>
-    <img src="" id="myImg">
-</div>
 
+</div>
+<div id="confirmContent"style="display: none;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-5 col-xs-offset-2">
+                <div class="textPointer">
+                    <span class="glyphicon glyphicon-arrow-down"></span>
+                    <span class="intro-text">这里将有你的专属标签</span>
+                </div>
+                <div class="printTee">
+                    <img src=<?=Url::to('@web/img/teebb.png');?>>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="paramArea">
+                    <div class="priceTag">
+                        <span>$79</span>
+                    </div>
+
+                    <div class="chooseItem1">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <span class="chooseText">尺码</span>
+                            </div>
+                            <div class="col-xs-6">
+                             <span class="chooseOption teeSize">
+                                 <span class="active">S</span>
+                                 <span>M</span>
+                                 <span>L</span>
+                                 <span>XL</span>
+                                 <span>XXL</span>
+                                 <span>XXL</span>
+                            </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chooseItem1">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <span class="chooseText">数量</span>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="chooseOption">
+                                    <span class="glyphicon glyphicon-minus"></span>
+                                    <span class="showNum">1</span>
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </div>
+                            </div>
+                            <div class="col-xs-3"></div>
+                        </div>
+                    </div>
+                    <div class="purchaseBtn">
+                        <div class="btn btn-success">
+                            <span id="buyBtn"><a href="<?=Url::to(['site/confirm'])?>">确认购买</a> </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <?php $this->beginBlock("choose")?>
 $.getScript("<?=Url::to('@web/js/choose.js');?>");
 <?php $this->endBlock()?>
