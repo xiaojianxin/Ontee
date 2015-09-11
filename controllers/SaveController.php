@@ -3,17 +3,10 @@
 namespace app\controllers;
 
 use Yii;
-use yii\filters\AccessControl;
 use yii\web\Controller;
-use yii\filters\VerbFilter;
-use app\models\Tshirts;
-use app\models\User;
-use yii\helpers\Json;
-use yii\helpers\Url;
-use yii\web\Session;
 use app\models\UploadForm;
 use yii\web\UploadedFile;
-use yii\models\Pictures;
+use app\models\Pictures;
 
 class SaveController extends Controller
 {   
@@ -39,7 +32,7 @@ class SaveController extends Controller
 
         $model = new UploadForm();
         $pic = new Pictures();
-        echo $_FILES;
+        echo "1";
         if (Yii::$app->request->isPost) {
             $model->file = UploadedFile::getInstance($model, 'file');
 
