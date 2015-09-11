@@ -14,6 +14,7 @@ class SaveController extends Controller
     public function init(){
         $this->enableCsrfValidation = false;
     }
+
     public function actionTshirts(){
     	$Tshirts = new Tshirts;
 
@@ -37,8 +38,8 @@ class SaveController extends Controller
             $model->file = UploadedFile::getInstance($model, 'file');
 
             if ($model->validate()) {                
-                $model->file->saveAs('/img/' . $model->file->baseName . '.' . $model->file->extension);
-                $pic->url = '/img/'.$model->file->baseName.'.'.$model->file->extension;
+                $model->file->saveAs('@web/img/' . $model->file->baseName . '.' . $model->file->extension);
+                $pic->url = '../img/'.$model->file->baseName.'.'.$model->file->extension;
                 $pic->save();
             }
         }

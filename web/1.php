@@ -1,6 +1,4 @@
-<?PHP 
-$a = '{"a":1,"b":2,"c":3,"d":4,"e":5}';
-print_r($a);
-$POST = json_decode($a,true);
-var_dump($POST);
-?>
+<form action="./site/upload" method="POST" enctype="multipart/form-data">
+	<input type="file" name="UploadForm[file]"/>
+	<input type="submit" value="submit"/>
+</form>
