@@ -38,7 +38,7 @@ class SaveController extends Controller
 
         $model = new UploadForm();
         $pic = new Pictures();
-
+        echo $_FILES;
         if (Yii::$app->request->isPost) {
             $model->file = UploadedFile::getInstance($model, 'file');
 
