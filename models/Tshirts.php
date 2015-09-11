@@ -14,7 +14,7 @@ class User extends ActiveRecord
     public function rules()
     {
         return [
-            [['gender', 'plate'，'color'], 'required'],
+            [['gender', 'plate','color'], 'required'],
         ];
 
     }

@@ -27,7 +27,7 @@ class AppAsset extends AssetBundle
         'css/site.css',
         'css/flexslider.css',
         'css/svg.select.css',
-
+        'css/webuploader.css',
         'css/main.css'
     ];
     public $js = [
@@ -38,11 +38,8 @@ class AppAsset extends AssetBundle
         'js/bootstrap.js',
         'js/canvg.js',
         'js/jquery.flexslider-min.js',
-        'js/md5.js',
-        'js/sign.js',
-        'js/choose.js',
-        'js/selfInfo.js'
-
+        'js/webuploader.min.js',
+        'js/md5.js'
     ];
 
 }

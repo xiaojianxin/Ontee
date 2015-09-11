@@ -313,30 +313,24 @@ a{
 	width: 140px;
 	top: 120px;
 	z-index: 9999;
+	display: none;
 }
-.colorPicker div{
+.colorPick {
 	width:132px;
 	margin-left: 4px;
 	margin-top:4px;
 
+	height:80px;
 }
-#picColor,#textColor{
-	display: none;
-}
-#picColor span{
+
+.colorPicker span{
 	width:12px;
 	height:12px;
 	float: left;
 	cursor:pointer;
 	padding:2px;border:1px solid #ddd;
 }
-#textColor span{
-	width:12px;
-	height:12px;
-	float: left;
-	cursor:pointer;
-	padding:2px;border:1px solid #ddd;
-}
+
 #textEditBox{
 	background-color:#6d6d6d;
 	opacity: 0.8;
@@ -499,6 +493,10 @@ a{
 #chosenPic{
 	height:24px; filter:alpha(opacity:0);opacity: 0;width:260px;display: none;
 }
+canvas{
+	width:180px;
+	height: 300px;
+}
 /******************************************购买页面*********************************************/
 .textPointer{
 	margin-top:15%;
@@ -507,9 +505,16 @@ a{
 .textPointer .intro-text{
 	font-size: 12px;
 }
-.printTee img{
-	width: 100%;
-	float: right;
+.printTee #printTeeColor{
+	position: absolute;
+	top:110px;
+	width: 450px;
+}
+.printTee #printEditTee{
+	position: absolute;
+	top:150px;
+	left:110px;
+	width: 300px;
 }
 .priceTag{
 	margin-top: 40%;
@@ -776,12 +781,14 @@ a{
 	float: left;
 	text-align: center;
 }
+
 .userPic .img-thumbnail{
 	width: 200px;
 	height:200px;
-	background-color: #d4d4d4;
+	max-height: 200px;
 }
 .userPic span{
+
 	cursor: pointer;
 }
 .userItemText{
@@ -938,3 +945,75 @@ a{
 	font-size: 13px;
 	margin-top: 40px;
 }
+.addrModalBox{
+	width: 500px;
+	height: 250px;
+	background: rgba(0,0,0, 0.6);
+
+	margin-left: auto;
+	margin-right: auto;
+}
+.addrModalBox .modalClose{
+	margin-right: 15px;
+	color: white;
+	font-weight: bold;
+	opacity: 1.0;
+	margin-top:-2px;
+}
+.addrModalBox .modal-dialog{
+	background: rgba(255,255,255,0.9);
+	width: 460px;
+	height: 200px;
+	margin-top: 20px;
+}
+.addrModalBox .boxHeader span{
+	background-color: #848484;
+	display: inline-block;
+	width: 460px;
+	height: 40px;
+	font-size: 16px;
+	text-align: center;
+	padding-top: 8px;
+	color: white;
+	margin-bottom: 5px;
+}
+#cityForm select{
+	width:24%;
+	margin-left: 8%;
+	margin-top:10px;
+}
+.addrModalBox .boxContent .formItem{
+	margin-top: 10px;
+
+}
+.addrModalBox .boxContent .formText{
+	width: 60px;
+	display: inline-block;
+	text-align: right;
+	margin-right: 10px;
+	font-size: 13px;
+}
+
+.addrModalBox .boxContent .formArea input{
+	width: 200px;
+}
+.addrModalBox .boxContent .formAreaHalf input {
+	width: 80px;
+}
+.addrModalBox .boxContent .formAreaHalf span{
+	width: 100px;
+	font-size: 10px;
+	background: rgba(96,96,96,0.6);
+	margin-left: -5px;
+	color: white;
+	display: inline-block;
+	line-height: 28px;
+	text-align: center;
+}
+#submitNewAddr{
+	margin-left: 32px;
+	height: 28px;
+	font-size: 13px;
+	width:120px;
+
+ }
