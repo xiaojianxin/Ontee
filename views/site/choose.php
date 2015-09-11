@@ -163,7 +163,7 @@ $this->title = 'Ontee';
                                 <span class="chooseText">尺码</span>
                             </div>
                             <div class="col-xs-6">
-                             <span class="chooseOption teeSize">
+                             <span class="chooseOption teeSize" id="teeSize">
                                  <span class="active">S</span>
                                  <span>M</span>
                                  <span>L</span>
@@ -181,9 +181,10 @@ $this->title = 'Ontee';
                             </div>
                             <div class="col-xs-6">
                                 <div class="chooseOption">
-                                    <span class="glyphicon glyphicon-minus"></span>
-                                    <span class="showNum">1</span>
-                                    <span class="glyphicon glyphicon-plus"></span>
+                                    <span class="glyphicon glyphicon-minus" id="cutTeeNum"></span>
+                                    <span class="showNum" id="teeNum">1</span>
+                                    <input class="form-control" id="inputTeeNum">
+                                    <span class="glyphicon glyphicon-plus" id="addTeeNum"></span>
                                 </div>
                             </div>
                             <div class="col-xs-3"></div>

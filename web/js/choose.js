@@ -13,6 +13,8 @@ editTee=function(){
       bold:false,
       bend:false
    };
+   me.size="";
+   me.num=1;
    me.picData=["",""];
    this.select={};
    this.hasSelected=me.drawBack.circle(0);
@@ -43,9 +45,7 @@ editTee=function(){
       me.initEdit();
       me.bindEvent();
       me.bindTextEvent();
-
       me.bindPicEvent();
-      me.editShirt();
    };
    this.initEdit=function(){
       me.fontList();
@@ -210,6 +210,109 @@ editTee=function(){
          me.select.select(false);
          me.hasSelected.select(false);
       });
+      $(".insertText").click(function(){
+         $("#svgIconBox").hide();
+         $("#textEditBox").toggle();
+         $(".colorPicker").show();
+      });
+      $(".uploadPic").click(function(){
+         $("#textEditBox").hide();
+         $(".colorPicker").hide();
+         $("#svgIconBox").hide();
+      });
+      $("input[name='uploadPic']").change(function(){
+
+         me.previewImage(this);
+      });
+      $(".insertPic").click(function(){
+
+         $("#textEditBox").hide();
+         $("#svgIconBox").toggle();
+         $(".colorPicker").show();
+      });
+      $(".uploadPic").click(function(){
+         $("#chosenPic").click();
+      });
+      $(".nextBtn").click(function(){
+         var svgHtml= $("#upPicFront").html();
+         canvg("printCanvasFront",svgHtml);
+         var imgSrcFront = document.getElementById("printCanvasFront").toDataURL("image/png");
+         var svgHtmlBack= $("#upPicBack").html();
+         canvg("printCanvasBack",svgHtmlBack);
+         var imgSrcBack = document.getElementById("printCanvasBack").toDataURL("image/png");
+         me.picData[0]=imgSrcFront;
+         me.picData[1]=imgSrcBack;
+         $(".editContent").hide();
+         $("#confirmContent").show();
+         if(me.color==1)
+         {
+            $("#printTeeColor").attr("src","../img/teebf.png");
+         }
+         else
+         {
+            $("#printTeeColor").attr("src","../img/teewf.png");
+         }
+         $("#printEditTee").attr("src",me.picData[0]);
+
+      });
+      $("#nextStepButton").click(function(){
+         $(".chooseContent").hide();
+         $(".editContent").show();
+      });
+      $(".previousBtn").click(function(){
+         $(".editContent").hide();
+         $(".chooseContent").show();
+      });
+      $("#teeSize span").each(function(){
+         $(this).click(function(){
+            $("#teeSize span").removeClass("active");
+            $(this).addClass("active");
+            me.size=$(this).text();
+         })
+      });
+      $("#addTeeNum").click(function(){
+         me.num+=1;
+         $("#teeNum").text(me.num);
+      });
+      $("#cutTeeNum").click(function(){
+         if(me.num == 1){ }
+         else{  me.num-=1;$("#teeNum").text(me.num);}
+      });
+      $("#teeNum").click(function(){
+         $("#inputTeeNum").show();
+         $(this).hide();
+         $("#inputTeeNum").val(me.num);
+         $("#inputTeeNum").focus();
+      });
+      $("#inputTeeNum").blur(function(){
+         var num=$("#inputTeeNum").val();
+         var nInt=parseInt(num);
+         console.log(nInt);
+         if(!isNaN(nInt))
+         {
+            me.num=nInt
+         }
+         $(this).hide();
+         $("#teeNum").show();
+         $("#teeNum").text(me.num);
+
+      });
+      $("#buyBtn").click(function(){
+         var postData={sex:me.sex,color:me.color,type:me.type,
+            frontPic:me.picData[0],backPic:me.picData[1],size:me.size,num:me.num};
+         $.ajax({
+            type:"POST",
+            url:"",
+            data:postData,
+            dataType:"JSON",
+            success:function(){
+
+            },
+            error:function(){
+               
+            }
+         })
+      })
 
 
    };
@@ -307,61 +410,6 @@ editTee=function(){
       param.left = Math.round((maxWidth - param.width) / 2);
       param.top = Math.round((maxHeight - param.height) / 2);
       return param;
-   };
-   this.editShirt=function(){
-      $(".insertText").click(function(){
-         $("#svgIconBox").hide();
-         $("#textEditBox").toggle();
-         $(".colorPicker").show();
-      });
-      $(".uploadPic").click(function(){
-         $("#textEditBox").hide();
-         $(".colorPicker").hide();
-         $("#svgIconBox").hide();
-      });
-      $("input[name='uploadPic']").change(function(){
-
-         me.previewImage(this);
-      });
-      $(".insertPic").click(function(){
-
-         $("#textEditBox").hide();
-         $("#svgIconBox").toggle();
-         $(".colorPicker").show();
-      });
-      $(".uploadPic").click(function(){
-         $("#chosenPic").click();
-      });
-      $(".nextBtn").click(function(){
-            var svgHtml= $("#upPicFront").html();
-            canvg("printCanvasFront",svgHtml);
-            var imgSrcFront = document.getElementById("printCanvasFront").toDataURL("image/png");
-            var svgHtmlBack= $("#upPicBack").html();
-            canvg("printCanvasBack",svgHtmlBack);
-            var imgSrcBack = document.getElementById("printCanvasBack").toDataURL("image/png");
-            me.picData[0]=imgSrcFront;
-            me.picData[1]=imgSrcBack;
-             $(".editContent").hide();
-             $("#confirmContent").show();
-            if(me.color==1)
-            {
-               $("#printTeeColor").attr("src","../img/teebf.png");
-            }
-             else
-            {
-               $("#printTeeColor").attr("src","../img/teewf.png");
-            }
-            $("#printEditTee").attr("src",me.picData[0]);
-
-      });
-      $("#nextStepButton").click(function(){
-         $(".chooseContent").hide();
-         $(".editContent").show();
-      });
-      $(".previousBtn").click(function(){
-         $(".editContent").hide();
-         $(".chooseContent").show();
-      });
    };
 
 };
