@@ -170,7 +170,8 @@ class SiteController extends Controller
 
     public function actionAbout()
     {
-        return $this->render('about');
+        $url = Yii::$app->basePath."/web/img";
+        echo $url;
     }
 
 
