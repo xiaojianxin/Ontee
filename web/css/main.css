@@ -569,6 +569,15 @@ canvas{
 	text-decoration: none;
 	color: white;
 }
+#inputTeeNum{
+	display: none;
+	width:40px;
+	height: 20px;
+	margin-left: 5px;
+	font-size: 12px;
+	margin-top: 3px;
+
+}
 /******************************************确认购买页面*********************************************/
 .confirmText{
 	background-color: #373737;
