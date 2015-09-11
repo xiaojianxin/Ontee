@@ -10,6 +10,9 @@ use app\models\LoginForm;
 use app\models\RegisterForm;
 use app\models\User;
 use app\models\ContactForm;
+use app\models\UploadForm;
+use app\models\Pictures;
+use yii\web\UploadedFile;
 use yii\helpers\Json;
 use yii\helpers\Url;
 use yii\web\Session;
@@ -175,7 +178,6 @@ class SiteController extends Controller
 
         $model = new UploadForm();
         $pic = new Pictures();
-        echo $_FILES;
         if (Yii::$app->request->isPost) {
             $model->file = UploadedFile::getInstance($model, 'file');
 
@@ -186,6 +188,6 @@ class SiteController extends Controller
             }
         }
 
-        echo "1";
+        echo "1111111";
     }
 }
