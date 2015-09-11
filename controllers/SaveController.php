@@ -13,6 +13,7 @@ use yii\helpers\Url;
 use yii\web\Session;
 use app\models\UploadForm;
 use yii\web\UploadedFile;
+use yii\models\Pictures;
 
 class SaveController extends Controller
 {   

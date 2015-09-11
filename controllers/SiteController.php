@@ -173,21 +173,4 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
-
-    public function actionUpload(){
-
-        $model = new UploadForm();
-        $pic = new Pictures();
-        if (Yii::$app->request->isPost) {
-            $model->file = UploadedFile::getInstance($model, 'file');
-
-            if ($model->validate()) {                
-                $model->file->saveAs('/img/' . $model->file->baseName . '.' . $model->file->extension);
-                $pic->url = '/img/'.$model->file->baseName.'.'.$model->file->extension;
-                $pic->save();
-            }
-        }
-
-        echo "1111111";
-    }
 }
