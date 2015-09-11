@@ -32,13 +32,13 @@ class SiteController extends Controller
             'access' => [
                 'class' => AccessControl::className(),
                 'except' => ['index','login','testcode','register','logout','choose','purchase','confirm','ordermanage','personal','upload'],
-                'rules' => [
-                    [
-                        'actions' => ['login',],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
+                // 'rules' => [
+                //     [
+                //         'actions' => ['login',],
+                //         'allow' => true,
+                //         'roles' => ['@'],
+                //     ],
+                // ],
             ],
             'verbs' => [
                 'class' => VerbFilter::className(),
