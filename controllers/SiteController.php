@@ -28,7 +28,7 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'except' => ['index','login','testcode','register','logout','choose','purchase','confirm','ordermanage','personal'],
+                'except' => ['index','login','testcode','register','logout','choose','purchase','confirm','ordermanage','personal','upload'],
                 'rules' => [
                     [
                         'actions' => ['login',],
@@ -168,5 +168,24 @@ class SiteController extends Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+
+    public function actionUpload(){
+
+        $model = new UploadForm();
+        $pic = new Pictures();
+        echo $_FILES;
+        if (Yii::$app->request->isPost) {
+            $model->file = UploadedFile::getInstance($model, 'file');
+
+            if ($model->validate()) {                
+                $model->file->saveAs('/img/' . $model->file->baseName . '.' . $model->file->extension);
+                $pic->url = '/img/'.$model->file->baseName.'.'.$model->file->extension;
+                $pic->save();
+            }
+        }
+
+        echo "1";
     }
 }
