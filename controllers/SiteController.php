@@ -184,9 +184,9 @@ class SiteController extends Controller
             $model->file = UploadedFile::getInstance($model, 'file');
 
             if ($model->validate()) {                
-                $model->file->baseName = time();
+                $model->file->Name = time();
                 $url = Url::to('@web/img/', 'https');
-                $model->file->saveAs($url . $model->file->baseName . '.' . $model->file->extension);
+                $model->file->saveAs($url . $model->file->Name . '.' . $model->file->extension);
                 $pic->url = '/img/'.$model->file->baseName.'.'.$model->file->extension;
                 $pic->save();
             }
