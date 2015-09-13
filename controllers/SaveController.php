@@ -35,8 +35,7 @@ class SaveController extends Controller
         $username = Yii::$app->session['username'];
         $user= User::find()->where(['username' => $username])->one();
         if (Yii::$app->request->isPost) {
-            $model->file = UploadedFile::getInstanceByName('file')
-
+            $model->file = UploadedFile::getInstanceByName('file');
             if ($model->validate()) {                
                 $model->file->saveAs('@web/img/' . $model->file->baseName . '.' . $model->file->extension);
                 $user->facepic = "img/".$model->file->baseName.'.'.$model->file->extension;
