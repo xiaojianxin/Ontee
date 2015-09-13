@@ -6,7 +6,7 @@ use Yii;
 use yii\web\Controller;
 use app\models\UploadForm;
 use yii\web\UploadedFile;
-use app\models\Pictures;
+use app\models\User;
 
 class SaveController extends Controller
 {   
@@ -32,15 +32,15 @@ class SaveController extends Controller
     public function actionUpload(){
 
         $model = new UploadForm();
-        $pic = new Pictures();
-        echo "1";
+        $username = Yii::$app->session['username'];
+        $user= User::find()->where(['username' => $username])->one();
         if (Yii::$app->request->isPost) {
             $model->file = UploadedFile::getInstance($model, 'file');
 
             if ($model->validate()) {                
                 $model->file->saveAs('@web/img/' . $model->file->baseName . '.' . $model->file->extension);
-                $pic->url = '../img/'.$model->file->baseName.'.'.$model->file->extension;
-                $pic->save();
+                $user->facepic = "img/".$model->file->baseName.'.'.$model->file->extension;
+                $user->save();
             }
         }
 
