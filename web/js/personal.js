@@ -25,6 +25,24 @@ person=function(){
         }
     });
     this.bindEvent=function(){
+         $("#cityForm").ready(function(){
+            setup();
+            preselect('北京市');
+            promptinfo();
+        });
+        $("#safeIcon").click(function(){
+            $("#safeIcon").hide();
+            $('.secondShow').show();
+        });
+        $(".currentPhone").click(function(){
+            $(this).hide();
+            $(".editPhoneArea").show();
+        });
+        $(".editPsw").click(function(){
+            $(this).hide();
+            $(".editPswArea").show();
+        });
+
         $("#updateUserInfo").click(function(){
             me.updateInfoAjax();
         });
@@ -84,11 +102,7 @@ person=function(){
         me.uploader.on( 'uploadComplete', function( file ) {
                 $( '#'+file.id ).find('.progress').remove();
             });
-        $("#cityForm").ready(function(){
-            setup();
-            preselect('北京市');
-            promptinfo();
-        });
+       
         $("#submitNewAddr").click(function(){
             var address=document.getElementById('address').value;
             var detail=$("input[name='addrDetail']").val();
@@ -97,45 +111,35 @@ person=function(){
             var zipCode=$("input[name='receiverCode']").val();
             $.ajax({
                 type:"POST",
-                url:"",
+                url:"/save/addaddress",
                 dataType:"Json",
                 data:{address:address,detail:detail,phone:phone,name:receiver,code:zipCode},
-                success:function(){
-
+                success:function(data){
+                    alert('success');
                 },
                 error:function(){
 
                 }
             })
         });
-        $("#safeIcon").click(function(){
-            $("#safeIcon").hide();
-            $('.secondShow').show();
-        });
-        $(".currentPhone").click(function(){
-            $(this).hide();
-            $(".editPhoneArea").show();
-        });
-        $(".editPsw").click(function(){
-            $(this).hide();
-            $(".editPswArea").show();
-        });
-
+        
     };
     this.updateInfoAjax=function(){
         var userName=$("input[name='userName']").val();
         var nickName=$("input[name='nickName']").val();
         var userEmail=$("input[name='userEmail']").val();
-        var userIntro=$("input[name='userIntro']").val();
+        var userIntro=$("#userIntro").val();
+        alert(userIntro);
         if(userName!=""&&nickName!="")
         {
+          
             $.ajax({
                 type:"POST",
-                url:"",
+                url:"/save/edit",
                 dataType:"Json",
                 data:{username:userName,nickname:nickName,email:userEmail,userinfo:userIntro},
-                success:function(){
-
+                success:function(data){
+                    alert('更新成功');
                 },
                 error:function(){
 

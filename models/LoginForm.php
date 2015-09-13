@@ -16,13 +16,14 @@ class LoginForm extends Model
 {
     public $username;
     public $password;
+    public $telephone;
 
 
     private $_user = false;
 
     public function rules(){
         return [
-            [['username','password'],'required','message'=>'必填'],
+            [['telephone','password'],'required','message'=>'必填'],
         ];
 
     }
@@ -37,7 +38,7 @@ class LoginForm extends Model
                 $session = Yii::$app->session;
                 $session->open();    
                 //var_dump($session['username']);
-                $session['username'] =  $this->username;
+                $session['username'] =  $this->getUser()->username;
                 $session['userid'] = $this->getUser()->userid;
                 $session['password'] = $this->password;               
                 echo 0;
@@ -65,7 +66,7 @@ class LoginForm extends Model
 
     public function getUser(){
         if($this->_user == false){
-            $this->_user = User::find()->where(['username'=>$this->username])->one();
+            $this->_user = User::find()->where(['telephone'=>$this->telephone])->one();
 
         }
 
