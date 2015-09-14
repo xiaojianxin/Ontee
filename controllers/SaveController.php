@@ -41,7 +41,7 @@ class SaveController extends Controller
             $url = Yii::$app->basePath."/web".'/';
             if ($model->validate()) {                
                 $model->file->saveAs($url.'images/' . $name. '.' . $model->file->extension);
-                $user->facepic = "images/".$model->file->baseName.'.'.$model->file->extension;
+                $user->facepic = "images/".$name.'.'.$model->file->extension;
                 $user->save();
             }
         }
