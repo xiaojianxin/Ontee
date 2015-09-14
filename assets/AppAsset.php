@@ -39,6 +39,7 @@ class AppAsset extends AssetBundle
         'js/canvg.js',
         'js/jquery.flexslider-min.js',
         'js/webuploader.min.js',
+        'js/city.js',
         'js/md5.js'
     ];
 

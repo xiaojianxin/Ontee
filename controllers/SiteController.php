@@ -9,6 +9,7 @@ use yii\filters\VerbFilter;
 use app\models\LoginForm;
 use app\models\RegisterForm;
 use app\models\User;
+use app\models\Address;
 use app\models\ContactForm;
 use app\models\UploadForm;
 use app\models\Pictures;
@@ -88,8 +89,13 @@ class SiteController extends Controller
     }
     public function actionPersonal()
     {
+        $user = User::find()->where(['userid' => Yii::$app->session['userid']])->one();
+        $address = Address::find()->where(['userid' => Yii::$app->session['userid']])->all();
         $this->layout_data = Yii::$app->session['username'];
-        return $this->render('personal');
+        return $this->render('personal',[
+            'user' => $user,
+            'address'=> $address,
+            ]);
     }
     public function actionLogin()
     {
@@ -102,7 +108,7 @@ class SiteController extends Controller
                     "message" => "You are not allowed to access this page",
             ]);
        }else{
-           $model->username = $post['username'];
+           $model->telephone = $post['username'];
            $model->password = $post['password'];
            if($model->validate())
            {

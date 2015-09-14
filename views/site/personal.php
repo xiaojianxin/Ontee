@@ -8,6 +8,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 $this->title = 'Ontee';
+var_dump($address[0]->id);
 ?>
 <div class="container" style="width:960px;">
     <div class="userTitleText">
@@ -36,7 +37,7 @@ $this->title = 'Ontee';
             <input class="form-control" type="text" name="userName">
             <input class="form-control" type="text" name="nickName">
             <input class="form-control" type="email" name="userEmail">
-            <textarea class="form-control" name="userIntro"></textarea>
+            <textarea class="form-control" name="userIntro" id="userIntro"></textarea>
             <div id="updateUserInfo">
                 <img src="<?=Url::to('@web/img/save.png');?>"/>
             </div>
@@ -195,7 +196,7 @@ $this->title = 'Ontee';
     </div>
 </div>
 <?php $this->beginBlock("personal")?>
-    $.getScript("<?=Url::to('@web/js/city.js');?>");
+ 
     $.getScript("<?=Url::to('@web/js/personal.js');?>");
 <?php $this->endBlock()?>
 <?php $this->registerJs($this->blocks['personal'],\yii\web\View::POS_END)?>
