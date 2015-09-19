@@ -86,4 +86,48 @@ class SaveController extends Controller
 
     }
 
+    public function actionUpdatecode(){
+
+        //$model =  User::find()->where(['userid' => Yii::$app->session['userid']])->one();
+        $post = Yii::$app->request->post();
+
+        $cache = \Yii::$app->cache;
+        $cache['telephone'] = $post['telephone'];
+
+        $testcode = $this->GetTestCode(4);
+        $cache['testcode'] = $testcode;
+        $password = md5("ontee123ontee");
+        $content = urlencode("欢迎您注册ONTEE，您的验证码".$user->testcode."，请在10分钟之内输入。【ONTEE】");
+            
+        $time = $this->getMillisecond();
+        $remote_server = "http://api.sms.cn/mt/?uid=ontee&pwd=".$password."&mobile=".$user->telephone."&mobileids=".$user->telephone.$time."&content=".$content."&encode=utf8";
+        $data = $this->request_by_curl($remote_server);
+        echo $testcode;
+    }
+
+    public function actionUpdatetelephone(){
+        $post = Yii::$app->request->post();
+        $cache = \Yii::$app->cache;
+        $telephone = $post['telephone'];
+        $testcode = $post['testcode'];
+
+        if($telephone != $cache['telephone']){
+            echo "1";
+        }elseif ($testcode != $cache['testcode']) {
+            echo "2";
+        }else{
+            $model =  User::find()->where(['userid' => Yii::$app->session['userid']])->one();
+            $model->testcode = $testcode;
+            $model->telephone = $telephone;
+            if($model->update()){
+                echo "0";
+            }else{
+               echo "-1"; 
+            }
+            
+        }
+        
+
+    }
+
 }

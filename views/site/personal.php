@@ -32,21 +32,20 @@ $this->title = 'Ontee';
            </ul>
 
         </div>
-        <?php
-        echo '
+  
         <div class="userItemInput">
-            <input class="form-control" type="text" name="userName" placeholder= $user->username />
-            <input class="form-control" type="text" name="nickName" placeholder=$user->nickname>
-            <input class="form-control" type="email" name="userEmail" placeholder=$user->email>
+            <input class="form-control" type="text" name="userName" placeholder= "<?=$user->username?>" />
+            <input class="form-control" type="text" name="nickName" placeholder="<?=$user->nickname?>"/>
+            <input class="form-control" type="email" name="userEmail" placeholder="<?=$user->email?>"/>
             <textarea class="form-control" name="userIntro" id="userIntro"></textarea>
-        </div>
-        '
-
-
-        ?>
-        <div id="updateUserInfo">
+                <div id="updateUserInfo">
             <img src="<?=Url::to('@web/img/save.png');?>"/>
         </div>
+        </div>
+        
+
+
+    
         <div class="userChangeArea">
             <div class="safeIcon" id="safeIcon">
 
