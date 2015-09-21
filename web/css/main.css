@@ -514,7 +514,6 @@ canvas{
 	position: absolute;
 	top:150px;
 	left:110px;
-	width: 300px;
 }
 .priceTag{
 	margin-top: 40%;
@@ -851,6 +850,9 @@ canvas{
 .oneSelfAddr .thumbnail{
 	height: 70px;
 	background-color: transparent;
+}
+.oneSelfAddr .showForm{
+	margin-right:10px;
 }
 .addAddrButton{
 	float: right;

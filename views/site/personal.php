@@ -8,7 +8,6 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 $this->title = 'Ontee';
-var_dump($address[0]->id);
 ?>
 <div class="container" style="width:960px;">
     <div class="userTitleText">
@@ -33,15 +32,20 @@ var_dump($address[0]->id);
            </ul>
 
         </div>
+  
         <div class="userItemInput">
-            <input class="form-control" type="text" name="userName">
-            <input class="form-control" type="text" name="nickName">
-            <input class="form-control" type="email" name="userEmail">
+            <input class="form-control" type="text" name="userName" placeholder= "<?=$user->username?>" />
+            <input class="form-control" type="text" name="nickName" placeholder="<?=$user->nickname?>"/>
+            <input class="form-control" type="email" name="userEmail" placeholder="<?=$user->email?>"/>
             <textarea class="form-control" name="userIntro" id="userIntro"></textarea>
-            <div id="updateUserInfo">
-                <img src="<?=Url::to('@web/img/save.png');?>"/>
-            </div>
+                <div id="updateUserInfo">
+            <img src="<?=Url::to('@web/img/save.png');?>"/>
         </div>
+        </div>
+        
+
+
+    
         <div class="userChangeArea">
             <div class="safeIcon" id="safeIcon">
 
@@ -60,7 +64,11 @@ var_dump($address[0]->id);
                         <input type="text" name="newPhoneCode" class="form-control"/>
 
                     </div>
-                    <div class="confirmBtn"><div class="btn btn-success"> 确定</div> </div>
+                   
+                    <div class="confirmBtn">
+                        <div class="btn btn-success confirm-telephone"> 确定</div> 
+                        <div class="btn btn-success confirm-all"> 确定</div> 
+                    </div>
                 </div>
                 <div class="editPswArea editClass">
                     <div style="margin-left: -80px;color: #858585;">修改密码</div>
@@ -99,49 +107,23 @@ var_dump($address[0]->id);
     </div>
     <div class="selfAddManage">
         <h5>收货地址管理</h5>
-         <div class="oneSelfAddr">
-             <div class="thumbnail">
-                 <div style="width: 75%;margin-left: 30px;margin-top: 15px; float:left;">
-                     <div class="orderText">地址：上海市 上海 闵行区 秀文路898号西子国际中心1709</div>
-                     <span>收货人：</span><span>XXX</span>
-                     <span>电话：</span><span>1800000000</span>
-                     <span>邮编：</span><span>100876</span>
+        <?php
+        foreach ($address as $add){?>
+          <div class='oneSelfAddr'>
+             <div class='thumbnail'>
+                 <div style='width: 75%;margin-left: 30px;margin-top: 15px; float:left;'>
+                     <div class='orderText'>地址：<?=$add->location?></div>
+                     <span>收货人：</span><span class='showForm'><?=$add->receiver?></span>
+                     <span>电话：</span><span class='showForm'><?=$add->telephone?></span>
+                     <span>邮编：</span><span class='showForm'><?=$add->code?></span>
                  </div>
-                 <div class="manageButton" style="float: left;margin-top: 20px;">
+                 <div class='manageButton' style='float: left;margin-top: 20px;'>
                      <span>修改</span><span>｜</span><span>删除</span>
                  </div>
-
              </div>
          </div>
-        <div class="oneSelfAddr">
-            <div class="thumbnail">
-                <div style="width: 75%;margin-left: 30px;margin-top: 15px; float:left;">
-                    <div class="orderText">地址：上海市 上海 闵行区 秀文路898号西子国际中心1709</div>
-                    <span>收货人：</span><span>XXX</span>
-                    <span>电话：</span><span>1800000000</span>
-                    <span>邮编：</span><span>100876</span>
-                </div>
-                <div class="manageButton" style="float: left;margin-top: 20px;">
-                    <span>修改</span><span>｜</span><span>删除</span>
-                </div>
-
-            </div>
-        </div>
-        <div class="oneSelfAddr">
-            <div class="thumbnail">
-                <div style="width: 75%;margin-left: 30px;margin-top: 10px; float:left;">
-                    <div class="orderText">地址：上海市 上海 闵行区 秀文路898号西子国际中心1709</div>
-                    <span>收货人：</span><span>XXX</span>
-                    <span>电话：</span><span>1800000000</span>
-                    <span>邮编：</span><span>100876</span>
-                </div>
-                <div class="manageButton" style="float: left;margin-top: 15px;">
-                    <span>修改</span><span>｜</span><span>删除</span>
-                </div>
-
-
-            </div>
-        </div>
+        <?php }
+        ?>
         <div class="addAddrButton">
                <a data-toggle="modal" data-target="#addrModal">
                 <span class="glyphicon glyphicon-plus"></span>

@@ -152,6 +152,51 @@ person=function(){
         }
 
     }
+
+
+
+    $('.confirm-telephone').click(function(){
+        var telephone = $("input[name='newPhone']").val();
+
+        $.ajax({
+            type:"POST",
+            url:"/save/updatecode",
+            dataType:"Json",
+            data:{telephone:telephone},
+            success:function(data){
+                if(data == "0")
+                alert('发送成功');
+                else
+                alert('发送失败');    
+            },
+            error:function(){
+
+            }
+        })
+
+    });
+
+    $('.confirm-all').click(function(){
+        var telephone = $("input[name='newPhone']").val();
+        var testcode = $("input[name='newPhoneCode']").val();
+
+        $.ajax({
+            type:"POST",
+            url:"/save/updatetelephone",
+            dataType:"Json",
+            data:{telephone:telephone,testcode:testcode},
+            success:function(data){
+                if(data == "0")
+                alert('更新成功');
+                else
+                alert('更新失败');
+            },
+            error:function(){
+
+            }
+        })
+
+    })
 };
 var personal=new person();
 personal.init();
