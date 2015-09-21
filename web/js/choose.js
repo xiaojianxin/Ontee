@@ -73,7 +73,6 @@ editTee=function(){
          if(textVal!="")
          {
             var text={};
-            alert(me.side);
             if(me.side==1)
             {
                text=me.drawFront.plain(textVal).fill(me.text.color).center(70,30);
