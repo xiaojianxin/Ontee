@@ -1,4 +1,4 @@
-var editTee;
+
 editTee=function(){
    var me=this;
    me.sex=1;
@@ -11,14 +11,15 @@ editTee=function(){
    me.text={
       color:"grey",
       bold:false,
-      bend:false
+      bend:false,
+      fontSize:14,
+      fontFamily:"宋体"
    };
    me.size="";
    me.num=1;
    me.picData=["",""];
    this.select={};
    this.hasSelected=me.drawBack.circle(0);
-   this.fontFamily="宋体";
    this.fontArr=["宋体","黑体","微软雅黑","微软正黑体"," 新宋体","新细明体"," 细明体","标楷体","仿宋","楷体","幼圆"];
    this.colorArr=["#F0F8FF","#FAEBD7","#00FFFF","#7FFFD4","#F0FFFF","#F5F5DC", "#FFE4C4","#000000",
       "#FFEBCD","#0000FF","#8A2BE2", "#A52A2A","#DEB887","#5F9EA0","#D2691E","#FF7F50","#6495ED",
@@ -64,18 +65,15 @@ editTee=function(){
    };
    this.bindTextEvent=function(){
       $("#fontList").change(function(){
-         me.fontFamily=$(this).val();
+         me.text.fontFamily=$(this).val();
 
       });
-      //$("div").on("click", "p", function(){
-      //   // 这里的this指向触发点击事件的p元素(Element)
-      //   alert( $(this).text() );
-      //});
       $("#confirmText").click(function(){
          var textVal=$("input[name='textAreaValue']").val();
          if(textVal!="")
          {
             var text={};
+            alert(me.side);
             if(me.side==1)
             {
                text=me.drawFront.plain(textVal).fill(me.text.color).center(70,30);
@@ -84,9 +82,10 @@ editTee=function(){
             {
                text=me.drawBack.plain(textVal).fill(me.text.color).center(70,30);
             }
+
             text.font({
-               family:   me.fontFamily
-               , size:     30
+               family:   me.text.fontFamily
+               , size:     me.text.fontSize
                , anchor:   'middle'
                , leading:  '1.5em'
             });
@@ -413,5 +412,3 @@ editTee=function(){
    };
 
 };
-var edit= new editTee();
-edit.init();

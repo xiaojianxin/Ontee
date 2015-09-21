@@ -202,6 +202,11 @@ $this->title = 'Ontee';
     </div>
 </div>
 <?php $this->beginBlock("choose")?>
-$.getScript("<?=Url::to('@web/js/choose.js');?>");
+$.getScript("<?=Url::to('@web/js/choose.js');?>",function(){
+var edit= new editTee();
+edit.init();});
+
+
+
 <?php $this->endBlock()?>
 <?php $this->registerJs($this->blocks['choose'],\yii\web\View::POS_END)?>
