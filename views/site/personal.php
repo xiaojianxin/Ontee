@@ -64,7 +64,11 @@ $this->title = 'Ontee';
                         <input type="text" name="newPhoneCode" class="form-control"/>
 
                     </div>
-                    <div class="confirmBtn"><div class="btn btn-success"> 确定</div> </div>
+                   
+                    <div class="confirmBtn">
+                        <div class="btn btn-success confirm-telephone"> 确定</div> 
+                        <div class="btn btn-success confirm-all"> 确定</div> 
+                    </div>
                 </div>
                 <div class="editPswArea editClass">
                     <div style="margin-left: -80px;color: #858585;">修改密码</div>
@@ -104,21 +108,21 @@ $this->title = 'Ontee';
     <div class="selfAddManage">
         <h5>收货地址管理</h5>
         <?php
-        foreach ($address as $add){
-            echo "<div class='oneSelfAddr'>
+        foreach ($address as $add){?>
+          <div class='oneSelfAddr'>
              <div class='thumbnail'>
                  <div style='width: 75%;margin-left: 30px;margin-top: 15px; float:left;'>
-                     <div class='orderText'>地址：$add->location</div>
-                     <span>收货人：</span><span class='showForm'>$add->receiver</span>
-                     <span>电话：</span><span class='showForm'>$add->telephone</span>
-                     <span>邮编：</span><span class='showForm'>$add->code</span>
+                     <div class='orderText'>地址：<?=$add->location?></div>
+                     <span>收货人：</span><span class='showForm'><?=$add->receiver?></span>
+                     <span>电话：</span><span class='showForm'><?=$add->telephone?></span>
+                     <span>邮编：</span><span class='showForm'><?=$add->code?></span>
                  </div>
                  <div class='manageButton' style='float: left;margin-top: 20px;'>
                      <span>修改</span><span>｜</span><span>删除</span>
                  </div>
              </div>
-         </div>";
-        }
+         </div>
+        <?php }
         ?>
         <div class="addAddrButton">
                <a data-toggle="modal" data-target="#addrModal">
