@@ -72,9 +72,11 @@ class SiteController extends Controller
     {
         $this->layout_data = Yii::$app->session['username'];
         $username = Yii::$app->session['username'];
+        $pictures = Pictures::find()->all();
         return $this->render('choose',
             [
             "username" => $username,
+            'pictures' => $pictures,
             ]);
     }
     public function actionConfirm()
