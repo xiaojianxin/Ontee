@@ -111,7 +111,7 @@ $this->title = 'Ontee';
         <?php
         foreach ($pictures as $key => $picture){?>
             <div class='onePicContainer'>
-                <img src=<?=$picture["url"]?>>
+                <img src="../<?=$picture["url"]?>">
             </div>
         <?php }
         ?>

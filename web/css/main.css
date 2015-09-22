@@ -421,10 +421,14 @@ a{
 }
 .templateBoxes .onePicContainer{
 	width:100px;
+	float:left;
 }
-.templateBoxes .onePicContainer{
-	width:80px;
-	margin: auto 0;
+.templateBoxes .onePicContainer img{
+	width:80%;
+	margin-left: 10px;margin-top: 10px;
+	background-color: white;
+	border-radius: 15px;
+	cursor: pointer;
 }
 .buttonsArea{
 	width:400px;
