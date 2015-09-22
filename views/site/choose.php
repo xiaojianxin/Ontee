@@ -57,7 +57,6 @@ $this->title = 'Ontee';
             <span class="lText">字体：</span>
             <span class="fontChoose">
                 <select id="fontList">
-
                 </select>
             </span>
         </div>
@@ -109,6 +108,13 @@ $this->title = 'Ontee';
     </div>
 
     <div class="templateBoxes">
+        <?php
+        foreach ($pictures as $key => $picture){?>
+            <div class='onePicContainer'>
+                <img src=<?=$picture["url"]?>>
+            </div>
+        <?php }
+        ?>
 
     </div>
     <div class="buttonsArea">

@@ -419,6 +419,13 @@ a{
 	height:370px ;
 	border-radius: 10px;
 }
+.templateBoxes .onePicContainer{
+	width:100px;
+}
+.templateBoxes .onePicContainer{
+	width:80px;
+	margin: auto 0;
+}
 .buttonsArea{
 	width:400px;
 	margin: 0 auto;
