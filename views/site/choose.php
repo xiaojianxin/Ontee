@@ -106,15 +106,18 @@ $this->title = 'Ontee';
             </svg>
         </div>
     </div>
-
+    <div class="holder"></div>
     <div class="templateBoxes">
-        <?php
-        foreach ($pictures as $key => $picture){?>
-            <div class='onePicContainer'>
-                <img src="../<?=$picture["url"]?>">
-            </div>
-        <?php }
-        ?>
+        <ul id="onePicContainer">
+            <?php
+            foreach ($pictures as $key => $picture){?>
+                <li>
+                    <img src="../<?=$picture["url"]?>">
+                </li>
+            <?php }
+            ?>
+        </ul>
+
 
     </div>
     <div class="buttonsArea">
@@ -208,9 +211,15 @@ $this->title = 'Ontee';
     </div>
 </div>
 <?php $this->beginBlock("choose")?>
+$(function() {
 $.getScript("<?=Url::to('@web/js/choose.js');?>",function(){
 var edit= new editTee();
-edit.init();});
+edit.init();
+
+
+});
+});
+
 
 
 

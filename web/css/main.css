@@ -409,6 +409,15 @@ a{
 #upPic g{
 	overflow: hidden; cursor: se-resize; position: absolute; right: 0; bottom: 0; background-color: #09C;
 }
+.holder{
+
+	position: absolute;
+	left: 70%;
+	width: 200px;
+	top: 250px;
+	height:40px ;
+    z-index: 9;
+}
 .templateBoxes{
 	background-color:#a0a0a0;
 	min-height: 80px;
@@ -419,16 +428,24 @@ a{
 	height:370px ;
 	border-radius: 10px;
 }
-.templateBoxes .onePicContainer{
-	width:100px;
-	float:left;
+.templateBoxes ul{
+	height: 370px;
+	margin-left: -20px;
 }
-.templateBoxes .onePicContainer img{
+.templateBoxes ul li{
+	list-style: none;
+	float: left;
+	display: inline-block;
+	width:80px;
+}
+
+.templateBoxes ul li img{
 	width:80%;
-	margin-left: 10px;margin-top: 10px;
+	margin-left: 10px;margin-top: 8px;
 	background-color: white;
 	border-radius: 15px;
 	cursor: pointer;
+
 }
 .buttonsArea{
 	width:400px;

@@ -47,6 +47,7 @@ editTee=function(){
       me.bindEvent();
       me.bindTextEvent();
       me.bindPicEvent();
+
    };
    this.initEdit=function(){
       me.fontList();
@@ -64,6 +65,8 @@ editTee=function(){
       })
    };
    this.bindTextEvent=function(){
+
+
       $("#fontList").change(function(){
          me.text.fontFamily=$(this).val();
 
@@ -252,10 +255,18 @@ editTee=function(){
          }
          $("#printEditTee").attr("src",me.picData[0]);
 
+
       });
       $("#nextStepButton").click(function(){
          $(".chooseContent").hide();
          $(".editContent").show();
+         $("div.holder").jPages({
+            containerID : "onePicContainer",
+            previous: '上页',
+            next : '下页',
+            perPage : 10//每页显示数据为多少行
+
+         });
       });
       $(".previousBtn").click(function(){
          $(".editContent").hide();
