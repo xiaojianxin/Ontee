@@ -47,6 +47,7 @@ editTee=function(){
       me.bindEvent();
       me.bindTextEvent();
       me.bindPicEvent();
+      me.bindTemplatePicEvent();
 
    };
    this.initEdit=function(){
@@ -141,6 +142,43 @@ editTee=function(){
             me.svgElementEvent();
            me.selectFunc(select);
          })
+      })
+   };
+   this.bindTemplatePicEvent=function(){
+      $("#onePicContainer li").each(function(){
+         var self=$(this);
+         var img=self.children().get(0);
+         var MAXWIDTH  = 150;
+         var MAXHEIGHT = 300;
+         self.click(function(){
+            var image={};
+            if(me.side==1)
+            {
+               image=me.drawFront.image(img.src).loaded(
+                   function(){
+                      var rect = me.clacImgZoomParam(MAXWIDTH, MAXHEIGHT, image.width(), image.height());
+                      this.size(rect.width, rect.height);
+                   }
+               );
+            }
+            else
+            {
+               image=me.drawBack.image(img.src).loaded(
+                   function(){
+                      var rect = me.clacImgZoomParam(MAXWIDTH, MAXHEIGHT, image.width(), image.height());
+                      this.size(rect.width, rect.height);
+                   }
+               );
+            }
+
+            image.center(10,10);
+            me.svgElementArr.push(image);
+            me.svgElementEvent();
+            me.selectFunc(image);
+
+         })
+
+
       })
    };
    this.bindEvent=function(){
