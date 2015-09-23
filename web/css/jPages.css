@@ -8,19 +8,20 @@
 	margin: 0 5px;
 	color: #333;
 	display: none;
+	text-decoration: none;
 }
 
 .holder a:hover {
-	background-color: #222;
+
 	color: #fff;
 }
 
-.holder a.jp-previous { margin-right: 15px; display: inherit;width: 40px;float: left;}
-.holder a.jp-next { margin-left: 15px; display: inherit;width: 40px;float: right;}
+.holder a.jp-previous { margin-right: 15px; display: inherit;width: 30px;float: left;font-size: 30px;font-weight: bold;}
+.holder a.jp-next { margin-left: 15px; display: inherit;width: 30px;float: right;font-size: 30px;font-weight: bold;}
 
 .holder a.jp-current, a.jp-current:hover {
-	color: #FF4242;
 	font-weight: bold;
+
 }
 
 .holder a.jp-disabled, a.jp-disabled:hover {

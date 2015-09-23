@@ -300,11 +300,12 @@ editTee=function(){
          $(".editContent").show();
          $("div.holder").jPages({
             containerID : "onePicContainer",
-            previous: '上页',
-            next : '下页',
+            previous: '←',
+            next : '→',
             perPage : 10//每页显示数据为多少行
 
          });
+
       });
       $(".previousBtn").click(function(){
          $(".editContent").hide();
