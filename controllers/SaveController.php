@@ -189,4 +189,17 @@ class SaveController extends Controller
         }
     }
 
+
+    public function actionChangepassword(){
+        $post = Yii::$app->request->post();
+
+        $user = User::find()->where(['userid' => Yii::$app->session['userid']])->one();
+
+        $user->password = md5($post['password']);
+
+        if($user->update()){
+            echo "0";
+        }
+    }
+
 }

@@ -197,6 +197,40 @@ person=function(){
         })
 
     })
+
+    $('.changepassword').click(function(){
+        var oldpassword = $.md5($("input[name='oldPsw']").val());
+        var confirmoldpassword = $("input[name='confirmoldPsw']").val();
+        if ($.md5(oldpassword)!= confirmoldpassword) {
+             alert('旧密码错误');
+        }else{
+            var newpassword = $("input[name='newPsw']").val();
+            var confirmpasswprd = $("input[name='confirmPsw']").val();
+            if(newpassword!=confirmpasswprd){
+                alert('两次输入的新密码不一致');
+            }else{
+                $.ajax({
+                type:"POST",
+                url:"/save/changepassword",
+                dataType:"Json",
+                data:{password:$.md5(confirmpasswprd),},
+                success:function(data){
+                    if(data == "0")
+                    alert('更新成功');
+                    else
+                    alert('更新失败');
+                },
+                error:function(){
+
+                }
+            })
+        }
+        }
+        
+
+       
+
+    })
 };
 var personal=new person();
 personal.init();

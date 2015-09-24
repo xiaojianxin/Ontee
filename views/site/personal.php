@@ -79,10 +79,11 @@ $this->title = 'Ontee';
                     </div>
                     <div class="right-side">
                         <input type="password" name="oldPsw" class="form-control"/>
+                        <input type="password" name="confirmoldPsw" class="hidden" value="<?=$user->password?>" >
                         <input type="password" name="newPsw" class="form-control"/>
                         <input type="password" name="confirmPsw" class="form-control"/>
                     </div>
-                    <div class="confirmBtn"><div class="btn btn-success"> 确定</div> </div>
+                    <div class="confirmBtn"><div class="btn btn-success changepassword"> 确定</div> </div>
                 </div>
             </div>
             <div class="secondShow">
