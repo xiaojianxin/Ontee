@@ -37,6 +37,7 @@ class AppAsset extends AssetBundle
         'js/svg.draggable.js',
         'js/svg.select.js',
         'js/bootstrap.js',
+        'js/rgbcolor.js',
         'js/canvg.js',
         'js/jquery.flexslider-min.js',
         'js/jPages.min.js',

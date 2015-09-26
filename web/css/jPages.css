@@ -23,15 +23,12 @@
 	font-weight: bold;
 
 }
-
 .holder a.jp-disabled, a.jp-disabled:hover {
 	color: #bbb;
 }
-
 .holder a.jp-current, a.jp-current:hover,
 .holder a.jp-disabled, a.jp-disabled:hover {
 	cursor: default;
 	background: none;
 }
-
 .holder span { margin: 0 5px; display: none;}

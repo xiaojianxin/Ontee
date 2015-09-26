@@ -273,25 +273,30 @@ editTee=function(){
          $("#chosenPic").click();
       });
       $(".nextBtn").click(function(){
-         var svgHtml= $("#upPicFront").html();
-         canvg("printCanvasFront",svgHtml);
-         var imgSrcFront = document.getElementById("printCanvasFront").toDataURL("image/png");
          var svgHtmlBack= $("#upPicBack").html();
-         canvg("printCanvasBack",svgHtmlBack);
-         var imgSrcBack = document.getElementById("printCanvasBack").toDataURL("image/png");
-         me.picData[0]=imgSrcFront;
-         me.picData[1]=imgSrcBack;
-         $(".editContent").hide();
-         $("#confirmContent").show();
-         if(me.color==1)
-         {
-            $("#printTeeColor").attr("src","../img/teebf.png");
-         }
-         else
-         {
-            $("#printTeeColor").attr("src","../img/teewf.png");
-         }
-         $("#printEditTee").attr("src",me.picData[0]);
+         canvg("printCanvasBack",svgHtmlBack,{renderCallback:function(){  //var imgSrcFront = document.getElementById("printCanvasFront").toDataURL("image/png");
+            var imgSrcBack = document.getElementById("printCanvasBack").toDataURL("image/png");
+            me.picData[1]=imgSrcBack;
+         }});
+         var svgHtmlFront= $("#upPicFront").html();
+         canvg("printCanvasFront",svgHtmlFront,{renderCallback:function(){
+            var imgSrcFront = document.getElementById("printCanvasFront").toDataURL("image/png");
+            me.picData[0]=imgSrcFront;
+            $("#testPic").attr("src",me.picData[0]);
+            $(".editContent").hide();
+            $("#confirmContent").show();
+            if(me.color==1)
+            {
+               $("#printTeeColor").attr("src","../img/teebf.png");
+            }
+            else
+            {
+               $("#printTeeColor").attr("src","../img/teewf.png");
+            }
+            $("#printEditTee").attr("src",me.picData[0]);
+         }});
+
+
 
 
       });

@@ -521,10 +521,6 @@ a{
 #chosenPic{
 	height:24px; filter:alpha(opacity:0);opacity: 0;width:260px;display: none;
 }
-canvas{
-	width:180px;
-	height: 300px;
-}
 /******************************************购买页面*********************************************/
 .textPointer{
 	margin-top:15%;

@@ -101,8 +101,6 @@ $this->title = 'Ontee';
                 </rect>
                 <g id="upPicFront"></g>
                 <g id="upPicBack" style="display: none;"></g>
-
-
             </svg>
         </div>
     </div>
@@ -143,8 +141,8 @@ $this->title = 'Ontee';
                 <img src="<?=Url::to('@web/img/nextbutton.png');?>"/>
         </span>
     </div>
-    <canvas id="printCanvasFront" width="180px" height="300px" style="display: none;"></canvas>
-    <canvas id="printCanvasBack" width="180px" height="300px" style="display: none;"></canvas>
+    <canvas id="printCanvasFront"  style="display: none;"></canvas>
+    <canvas id="printCanvasBack" style="display: none;"></canvas>
 
 </div>
 <div id="confirmContent"style="display: none;">
