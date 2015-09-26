@@ -15,7 +15,7 @@ editTee=function(){
       fontSize:14,
       fontFamily:"宋体"
    };
-   me.size="";
+   me.size="S";
    me.num=1;
    me.picData=["",""];
    this.select={};
@@ -353,18 +353,9 @@ editTee=function(){
       $("#buyBtn").click(function(){
          var postData={sex:me.sex,color:me.color,type:me.type,
             frontPic:me.picData[0],backPic:me.picData[1],size:me.size,num:me.num};
-         $.ajax({
-            type:"POST",
-            url:"",
-            data:postData,
-            dataType:"JSON",
-            success:function(){
+         var storge=JSON.stringify(postData);
+         window.localStorage.setItem("orderInfo",storge);
 
-            },
-            error:function(){
-
-            }
-         })
       })
 
 

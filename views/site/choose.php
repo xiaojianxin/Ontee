@@ -176,7 +176,7 @@ $this->title = 'Ontee';
                                  <span>L</span>
                                  <span>XL</span>
                                  <span>XXL</span>
-                                 <span>XXL</span>
+                                 <span>XXXL</span>
                             </span>
                             </div>
                         </div>

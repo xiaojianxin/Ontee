@@ -115,7 +115,13 @@ $this->title = 'Ontee';
         <div class="payButton btn btn-success">支付
         </div>
     </div>
-
-
-
 </div>
+<?php $this->beginBlock("confirm")?>
+$(function() {
+$.getScript("<?=Url::to('@web/js/confirm.js');?>",function(){
+var confirm= new orderConfirm();
+confirm.init();
+});
+});
+<?php $this->endBlock()?>
+<?php $this->registerJs($this->blocks['confirm'],\yii\web\View::POS_END)?>
