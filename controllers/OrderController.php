@@ -43,7 +43,7 @@ class OrderController extends Controller{
 	    	$order->size = $post['size'];
 	    	$order->num = (int)$post['num'];
 	    	$order->type = (int)$post['type'];
-	    	//$order->price = $post['price'];
+	    	$order->price = $post['price'];
 	    	$order->gender = (int)$post['sex'];
 	    	$order->status = 0;
 
