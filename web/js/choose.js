@@ -353,8 +353,22 @@ editTee=function(){
       $("#buyBtn").click(function(){
          var postData={sex:me.sex,color:me.color,type:me.type,
             frontPic:me.picData[0],backPic:me.picData[1],size:me.size,num:me.num};
-         var storge=JSON.stringify(postData);
-         window.localStorage.setItem("orderInfo",storge);
+         //var storge=JSON.stringify(postData);
+         //window.localStorage.setItem("orderInfo",storge);
+         $.ajax({
+            type:"POST",
+            url:"",
+            data:postData,
+            dataType:"JSON",
+            success:function(data){
+               alert("success");
+               console.log(data+"生成订单成功");
+            },
+            error:function(){
+               alert("wrong");
+               console.log("生成订单失败");
+            }
+         })
 
       })
 
