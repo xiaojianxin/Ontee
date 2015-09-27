@@ -199,7 +199,7 @@ $this->title = 'Ontee';
                     </div>
                     <div class="purchaseBtn">
                         <div class="btn btn-success">
-                            <span id="buyBtn"><a href="<?=Url::to(['site/confirm'])?>">确认购买</a> </span>
+                            <span id="buyBtn">确认购买</span>
                         </div>
 
                     </div>
