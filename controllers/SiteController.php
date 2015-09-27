@@ -82,7 +82,13 @@ class SiteController extends Controller
     public function actionConfirm()
     {
         $this->layout_data = Yii::$app->session['username'];
-        return $this->render('confirm');
+        $cache = \Yii::$app->cache;
+        $response = $cache['response'];
+        $address = Address::find()->where(['userid' => Yii::$app->session['userid']])->all();
+        return $this->render('confirm',[
+            'address'=>$address,
+            'response'=>$response,
+            ]);
     }
     public function actionOrdermanage()
     {

@@ -82,7 +82,7 @@ $this->title = 'Ontee';
         <div class="orderTitle">
             <span id="orderTime">2015-05-02</span>
             <span style="margin-left: 10px;">订单号：</span>
-            <span id="orderNumber">87342993</span>
+            <span id="orderNumber"><?=$response['id']?></span>
         </div>
         <div class="orderContent">
             <div class="orderPic">

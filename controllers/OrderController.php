@@ -23,7 +23,7 @@ class OrderController extends Controller{
 
     	$username = Yii::$app->session['username'];
     	if(empty($username)){
-
+    		echo "1";
     	}else{
     		 $user= User::find()->where(['username' => $username])->one();
     		 $name = time();
@@ -49,6 +49,12 @@ class OrderController extends Controller{
 
 	    	
 		    if($order->save()){
+		    	$response =  array(
+		    		'id' => $order->id , 
+		    		'frontPicUrl'=> $order->frontpic,
+		    		);
+		    	$cache = \Yii::$app->cache;
+		    	$cache['response'] = $response;
 		    	echo "0";
 		    }else{
 		    	echo "-1";
