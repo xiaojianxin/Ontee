@@ -1,10 +1,23 @@
 
 editTee=function(){
+   Array.prototype.indexOf = function(val) {
+      for (var i = 0; i < this.length; i++) {
+         if (this[i] == val) return i;
+      }
+      return -1;
+   };
+   Array.prototype.remove = function(val) {
+      var index = this.indexOf(val);
+      if (index > -1) {
+         this.splice(index, 1);
+      }
+   };
    var me=this;
    me.sex=1;
    me.style=1;
    me.color=1;
    me.side=1;
+   me.price=79;
    me.svgElementArr=[];
    me.drawFront=SVG('upPicFront');
    me.drawBack=SVG('upPicBack');
@@ -62,7 +75,14 @@ editTee=function(){
             me.select=item;
             me.hasSelected=item;
             me.select.select().resize();
-         })
+         });
+         //$(item).keydown(function(){
+         //   if(event.keyCode==13)
+         //   {
+         //       me.svgElementArr.remove(this);
+         //      this.hide();
+         //   }
+         //});
       })
    };
    this.bindTextEvent=function(){
@@ -352,7 +372,7 @@ editTee=function(){
       });
       $("#buyBtn").click(function(){
          var postData={sex:me.sex,color:me.color,type:me.type,
-            frontPic:me.picData[0],backPic:me.picData[1],size:me.size,num:me.num};
+            frontPic:me.picData[0],backPic:me.picData[1],size:me.size,num:me.num,price:me.price};
          //var storge=JSON.stringify(postData);
          //window.localStorage.setItem("orderInfo",storge);
          $.ajax({
