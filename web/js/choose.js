@@ -357,11 +357,11 @@ editTee=function(){
          //window.localStorage.setItem("orderInfo",storge);
          $.ajax({
             type:"POST",
-            url:"",
+            url:"/order/createorder",
             data:postData,
             dataType:"JSON",
             success:function(data){
-               alert("success");
+               alert(data);
                console.log(data+"生成订单成功");
             },
             error:function(){

@@ -6,8 +6,9 @@ use Yii;
 use yii\web\Controller;
 use app\models\Order;
 use app\models\UploadForm;
+use app\models\User;
 
-class SaveController extends Controller{
+class OrderController extends Controller{
 
 	public function init(){
         $this->enableCsrfValidation = false;
@@ -19,20 +20,39 @@ class SaveController extends Controller{
 
     	$order = new Order();
 
+
     	$username = Yii::$app->session['username'];
-        $user= User::find()->where(['username' => $username])->one();
+    	if(empty($username)){
 
-    	$frontPicUrl = $post['frontPic'];
+    	}else{
+    		 $user= User::find()->where(['username' => $username])->one();
+    		 $name = time();
+	         $url = Yii::$app->basePath."/web".'/';
+	    	 $frontPicUrl = $post['frontPic'];
 
-    	$frontPicUrl= substr(strstr($frontPicUrl,','),1);
+	    	 //$frontPicUrl = substr(strstr($frontPicUrl,','),1);
+	    	 $frontPicUrl = str_replace('data:image/png;base64,', '', $frontPicUrl);
 
-    	$frontPic = base64_decode($frontPicUrl);
+	    	 $frontPicUrl = base64_decode($frontPicUrl);
+	    	 $file = $url.'orderpic/' . $name. '.png';
+	    	 $file = file_put_contents($file,$frontPicUrl);
+	    	 
+    	 	$order->userid = Yii::$app->session['userid'];
+	    	$order->frontpic = 'orderpic/' . $name. '.png';
+	    	$order->backpic = 'orderpic/' . $name. '.png';
+	    	$order->size = $post['size'];
+	    	$order->num = (int)$post['num'];
+	    	$order->type = (int)$post['type'];
+	    	//$order->price = $post['price'];
+	    	$order->gender = (int)$post['sex'];
+	    	$order->status = 0;
 
-    	$model = new UploadForm();
-    	$model->file = $frontPic;
-    	$url = Yii::$app->basePath."/web".'/';
-    	if ($model->validate()) { 
-    		$model->file->saveAs($url.'orderpic/' . $name. '.' . $model->file->extension);
-    	}
+	    	
+		    if($order->save()){
+		    	echo "0";
+		    }else{
+		    	echo "-1";
+	    	}
+		}
     }
 }

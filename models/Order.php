@@ -35,9 +35,8 @@ class Order extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['id', 'userid', 'addressid', 'frontpic', 'backpic', 'gender', 'type', 'size', 'num', 'price', 'status'], 'required'],
-            [['id', 'userid', 'addressid', 'gender', 'type', 'num', 'price', 'status'], 'integer'],
-            [['frontpic', 'backpic'], 'string', 'max' => 1000],
+            [['userid',  'frontpic', 'backpic',], 'required'],
+            [['frontpic', 'backpic'], 'string', 'max' => 32],
             [['size'], 'string', 'max' => 32]
         ];
     }
