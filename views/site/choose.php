@@ -101,8 +101,6 @@ $this->title = 'Ontee';
                 </rect>
                 <g id="upPicFront"></g>
                 <g id="upPicBack" style="display: none;"></g>
-
-
             </svg>
         </div>
     </div>
@@ -143,8 +141,8 @@ $this->title = 'Ontee';
                 <img src="<?=Url::to('@web/img/nextbutton.png');?>"/>
         </span>
     </div>
-    <canvas id="printCanvasFront" width="180px" height="300px" style="display: none;"></canvas>
-    <canvas id="printCanvasBack" width="180px" height="300px" style="display: none;"></canvas>
+    <canvas id="printCanvasFront"  style="display: none;"></canvas>
+    <canvas id="printCanvasBack" style="display: none;"></canvas>
 
 </div>
 <div id="confirmContent"style="display: none;">
@@ -178,7 +176,7 @@ $this->title = 'Ontee';
                                  <span>L</span>
                                  <span>XL</span>
                                  <span>XXL</span>
-                                 <span>XXL</span>
+                                 <span>XXXL</span>
                             </span>
                             </div>
                         </div>
@@ -201,7 +199,7 @@ $this->title = 'Ontee';
                     </div>
                     <div class="purchaseBtn">
                         <div class="btn btn-success">
-                            <span id="buyBtn"><a href="<?=Url::to(['site/confirm'])?>">确认购买</a> </span>
+                            <span id="buyBtn">确认购买</span>
                         </div>
 
                     </div>

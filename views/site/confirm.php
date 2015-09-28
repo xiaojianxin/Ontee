@@ -80,9 +80,9 @@ $this->title = 'Ontee';
     </div>
     <div class="confirmArea">
         <div class="orderTitle">
-            <span>2015-05-02</span>
+            <span id="orderTime">2015-05-02</span>
             <span style="margin-left: 10px;">订单号：</span>
-            <span>87342993</span>
+            <span id="orderNumber"><?=$response['id']?></span>
         </div>
         <div class="orderContent">
             <div class="orderPic">
@@ -93,7 +93,7 @@ $this->title = 'Ontee';
                         <span class="numText">尺寸</span>
                         <div class="numOption">
                             <span class="glyphicon glyphicon-minus"></span>
-                            <span class="showBuyNum">L</span>
+                            <span class="showBuyNum" id="orderSizeInit">L</span>
                             <span class="glyphicon glyphicon-plus"></span>
                         </div>
                 </div>
@@ -101,7 +101,7 @@ $this->title = 'Ontee';
                     <span class="numText">数量</span>
                     <div class="numOption">
                         <span class="glyphicon glyphicon-minus"></span>
-                        <span class="showBuyNum">1</span>
+                        <span class="showBuyNum" id="orderNumInit">1</span>
                         <span class="glyphicon glyphicon-plus"></span>
                     </div>
                 </div>
@@ -115,7 +115,13 @@ $this->title = 'Ontee';
         <div class="payButton btn btn-success">支付
         </div>
     </div>
-
-
-
 </div>
+<?php $this->beginBlock("confirm")?>
+$(function() {
+$.getScript("<?=Url::to('@web/js/confirm.js');?>",function(){
+var confirm= new orderConfirm();
+confirm.init();
+});
+});
+<?php $this->endBlock()?>
+<?php $this->registerJs($this->blocks['confirm'],\yii\web\View::POS_END)?>
