@@ -820,7 +820,11 @@ a{
 .showState div{
 	color:#cccccc;
 }
-
+#cityConfirmForm select{
+	width:24%;
+	margin-left: 8%;
+	margin-top:10px;
+}
 /****************************************用户个人资料页面***********************************************/
 .userTitle{
 	margin-top: 20px;

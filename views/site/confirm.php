@@ -47,17 +47,58 @@ $this->title = 'Ontee';
             <div class="oneAddr addAddr">
 
                     <div class="oneBox">
-                        <div class="addPic">
-                            <span class="glyphicon glyphicon-plus"></span>
+                        <div class="addPic"><a data-toggle="modal" data-target="#addrModal">
+                            <span class="glyphicon glyphicon-plus"></a></span>
                         </div>
                     </div>
-                <div class="addText">点击添加一个新的地址</div>
+                <div class="addText"><a data-toggle="modal" data-target="#addrModal" style="cursor: pointer">添加一个新的收货地址</a></div>
 
             </div>
         </div>
     </div>
-    <div class="addAddrArea" >
+    <div class="modal fade addrModalBox" id="addrModal" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true">
+        <button type="button" class="close modalClose" data-dismiss="modal" aria-hidden="true">
+            ×
+        </button>
+        <div class="modal-dialog">
+            <div class="boxHeader">
+                <span>收货地址</span>
+            </div>
+            <div class="boxContent">
+                <div id="cityConfirmForm">
+                    <select class="select" name="province" id="s1">
+                        <option></option>
+                    </select>
+                    <select class="select" name="city" id="s2">
+                        <option></option>
+                    </select>
+                    <select class="select" name="town" id="s3">
+                        <option></option>
+                    </select>
+                    <input id="address" name="address" type="hidden" value="" />
+                    <div style="text-align: center">
+                        <div class="formItem">
+                            <span class="formText"> 详细地址</span>
+                            <span class="formArea"><input type="text" name="addrDetail"/></span>
+                        </div>
+                        <div class="formItem">
+                            <span class="formText"> 电话</span>
+                            <span class="formAreaHalf"><input type="password" name="receiverPhone"/></span>
+                            <span class="formText"> 收货人</span>
+                            <span class="formAreaHalf"><input type="text" name="receiverName"/></span>
+                        </div>
+                        <div class="formItem">
+                            <span class="formText"> 邮编</span>
+                            <span class="formAreaHalf"><input type="password" name="receiverCode"/></span>
+                            <span class="btn btn-success" id="submitNewAddr"> 确认添加</span>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
+
+        </div>
     </div>
     <div class="confirmArea">
         <div class="orderTitle">
@@ -101,10 +142,8 @@ $this->title = 'Ontee';
 </div>
 <?php $this->beginBlock("confirm")?>
 $(function() {
-$.getScript("<?=Url::to('@web/js/confirm.js');?>",function(){
-var confirm= new orderConfirm();
-confirm.init();
-});
+
+$.getScript("<?=Url::to('@web/js/confirm.js');?>");
 });
 <?php $this->endBlock()?>
 <?php $this->registerJs($this->blocks['confirm'],\yii\web\View::POS_END)?>
