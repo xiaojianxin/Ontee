@@ -46,8 +46,6 @@ class OrderController extends Controller{
 	    	$order->price = $post['price'];
 	    	$order->gender = (int)$post['sex'];
 	    	$order->status = 0;
-
-	    	
 		    if($order->save()){
 		    	$response =  array(
 		    		'id' => $order->id , 
