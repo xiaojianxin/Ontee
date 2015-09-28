@@ -16,6 +16,7 @@ Thumbs.db
 /vendor
 /web/images
 /web/pictures
+/web/orderpic
 
 # composer itself is not needed
 composer.phar
