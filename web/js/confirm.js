@@ -12,6 +12,9 @@ orderConfirm=function(){
         me.type=obj.type;
         me.initInfo();
         me.bindEvent();
+        setup();
+        preselect('北京市');
+        promptinfo();
     };
     this.initInfo=function(){
         var time=me.initTime();
@@ -28,6 +31,7 @@ orderConfirm=function(){
         return s;
     };
     this.bindEvent=function(){
+      
         $("#addConfirmNum").click(function(){
             me.num+=1;
             $("#orderNumInit").text(me.num);
@@ -60,3 +64,5 @@ orderConfirm=function(){
         });
     }
 };
+var confirm= new orderConfirm();
+confirm.init();
