@@ -19,50 +19,31 @@ $this->title = 'Ontee';
     </div>
     <div class="addressContainer">
         <div class="row">
-            <div class="oneAddr  active">
+            <?php
+            foreach ($address as $add){?>
+                <div class="oneAddr  active">
 
                     <div class="oneBox">
                         <div class="addressText">地址：</div>
-                        <div class="address">上海市 上海 闵行区 秀文路898号
-                            西子国际中心1709</div>
+                        <div class="address"><?=$add->location?></div>
                         <div class="telephone">
                             <span>电话：</span>
-                            <span>1800000000</span>
+                            <span><?=$add->telephone?></span>
                         </div>
                         <div class="postcode">
                             <span>邮编：</span>
-                            <span>100876</span>
+                            <span><?=$add->code?></span>
                         </div>
                         <div class="receiver">
                             <span>收件人：</span>
-                            <span>XXX</span>
+                            <span><?=$add->receiver?></span>
                         </div>
                     </div>
 
 
-            </div>
-            <div class="oneAddr">
-
-                    <div class="oneBox">
-                        <div class="addressText">地址：</div>
-                        <div class="address">上海市 上海 闵行区 秀文路898号
-                            西子国际中心1709</div>
-                        <div class="telephone">
-                            <span>电话：</span>
-                            <span>1800000000</span>
-                        </div>
-                        <div class="postcode">
-                            <span>邮编：</span>
-                            <span>100876</span>
-                        </div>
-                        <div class="receiver">
-                            <span>收件人：</span>
-                            <span>XXX</span>
-                        </div>
-                    </div>
-
-
-            </div>
+                </div>
+            <?php }
+            ?>
             <div class="oneAddr addAddr">
 
                     <div class="oneBox">
@@ -80,29 +61,31 @@ $this->title = 'Ontee';
     </div>
     <div class="confirmArea">
         <div class="orderTitle">
-            <span>2015-05-02</span>
+            <span id="orderTime">2015-05-02</span>
             <span style="margin-left: 10px;">订单号：</span>
-            <span>87342993</span>
+            <span id="orderNumber"><?=$response['id']?></span>
         </div>
         <div class="orderContent">
             <div class="orderPic">
                 <img src="<?=Url::to('@web/img/teebb.png');?>">
+                <img src="<?=Url::to('@web/'.$response['frontPicUrl']);?>" id="renderEditPic">
             </div>
             <div class="orderNum">
                 <div class="row">
                         <span class="numText">尺寸</span>
                         <div class="numOption">
                             <span class="glyphicon glyphicon-minus"></span>
-                            <span class="showBuyNum">L</span>
+                            <span class="showBuyNum" id="orderSizeInit">L</span>
                             <span class="glyphicon glyphicon-plus"></span>
                         </div>
                 </div>
                 <div class="row">
                     <span class="numText">数量</span>
                     <div class="numOption">
-                        <span class="glyphicon glyphicon-minus"></span>
-                        <span class="showBuyNum">1</span>
-                        <span class="glyphicon glyphicon-plus"></span>
+                        <span class="glyphicon glyphicon-minus" id="minusConfirmNum"></span>
+                        <span class="showBuyNum" id="orderNumInit">1</span>
+                        <input class="form-control" id="inputConfirmTeeNum">
+                        <span class="glyphicon glyphicon-plus" id="addConfirmNum"></span>
                     </div>
                 </div>
             </div>
@@ -115,7 +98,13 @@ $this->title = 'Ontee';
         <div class="payButton btn btn-success">支付
         </div>
     </div>
-
-
-
 </div>
+<?php $this->beginBlock("confirm")?>
+$(function() {
+$.getScript("<?=Url::to('@web/js/confirm.js');?>",function(){
+var confirm= new orderConfirm();
+confirm.init();
+});
+});
+<?php $this->endBlock()?>
+<?php $this->registerJs($this->blocks['confirm'],\yii\web\View::POS_END)?>

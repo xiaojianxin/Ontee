@@ -1,13 +1,27 @@
 
 editTee=function(){
+   Array.prototype.indexOf = function(val) {
+      for (var i = 0; i < this.length; i++) {
+         if (this[i] == val) return i;
+      }
+      return -1;
+   };
+   Array.prototype.remove = function(val) {
+      var index = this.indexOf(val);
+      if (index > -1) {
+         this.splice(index, 1);
+      }
+   };
    var me=this;
    me.sex=1;
    me.style=1;
    me.color=1;
    me.side=1;
+   me.price=79;
    me.svgElementArr=[];
    me.drawFront=SVG('upPicFront');
    me.drawBack=SVG('upPicBack');
+   me.drawBack.width(180);me.drawFront.width(180);me.drawBack.height(300);me.drawFront.height(300);
    me.text={
       color:"grey",
       bold:false,
@@ -15,7 +29,7 @@ editTee=function(){
       fontSize:14,
       fontFamily:"宋体"
    };
-   me.size="";
+   me.size="S";
    me.num=1;
    me.picData=["",""];
    this.select={};
@@ -62,7 +76,14 @@ editTee=function(){
             me.select=item;
             me.hasSelected=item;
             me.select.select().resize();
-         })
+         });
+         //$(item).keydown(function(){
+         //   if(event.keyCode==13)
+         //   {
+         //       me.svgElementArr.remove(this);
+         //      this.hide();
+         //   }
+         //});
       })
    };
    this.bindTextEvent=function(){
@@ -273,25 +294,30 @@ editTee=function(){
          $("#chosenPic").click();
       });
       $(".nextBtn").click(function(){
-         var svgHtml= $("#upPicFront").html();
-         canvg("printCanvasFront",svgHtml);
-         var imgSrcFront = document.getElementById("printCanvasFront").toDataURL("image/png");
          var svgHtmlBack= $("#upPicBack").html();
-         canvg("printCanvasBack",svgHtmlBack);
-         var imgSrcBack = document.getElementById("printCanvasBack").toDataURL("image/png");
-         me.picData[0]=imgSrcFront;
-         me.picData[1]=imgSrcBack;
-         $(".editContent").hide();
-         $("#confirmContent").show();
-         if(me.color==1)
-         {
-            $("#printTeeColor").attr("src","../img/teebf.png");
-         }
-         else
-         {
-            $("#printTeeColor").attr("src","../img/teewf.png");
-         }
-         $("#printEditTee").attr("src",me.picData[0]);
+         canvg("printCanvasBack",svgHtmlBack,{renderCallback:function(){  //var imgSrcFront = document.getElementById("printCanvasFront").toDataURL("image/png");
+            var imgSrcBack = document.getElementById("printCanvasBack").toDataURL("image/png");
+            me.picData[1]=imgSrcBack;
+         }});
+         var svgHtmlFront= $("#upPicFront").html();
+         canvg("printCanvasFront",svgHtmlFront,{renderCallback:function(){
+            var imgSrcFront = document.getElementById("printCanvasFront").toDataURL("image/png");
+            me.picData[0]=imgSrcFront;
+            $("#testPic").attr("src",me.picData[0]);
+            $(".editContent").hide();
+            $("#confirmContent").show();
+            if(me.color==1)
+            {
+               $("#printTeeColor").attr("src","../img/teebf.png");
+            }
+            else
+            {
+               $("#printTeeColor").attr("src","../img/teewf.png");
+            }
+            $("#printEditTee").attr("src",me.picData[0]);
+         }});
+
+
 
 
       });
@@ -346,20 +372,39 @@ editTee=function(){
 
       });
       $("#buyBtn").click(function(){
-         var postData={sex:me.sex,color:me.color,type:me.type,
-            frontPic:me.picData[0],backPic:me.picData[1],size:me.size,num:me.num};
+         var postData={sex:me.sex,color:me.color,type:me.style,
+            frontPic:me.picData[0],backPic:me.picData[1],size:me.size,num:me.num,price:me.price};
+         //var storge=JSON.stringify(postData);
+         //window.localStorage.setItem("orderInfo",storge);
          $.ajax({
             type:"POST",
-            url:"",
+            url:"/order/createorder",
             data:postData,
             dataType:"JSON",
-            success:function(){
+            success:function(data){
+               if(data=="1")
+               {
+                  alert("请先登录");
+               }
+               else if(data=="0")
+               {
+                  window.location.href="../site/confirm";
+                  var store={color:me.color,type:me.style,size:me.size,num:me.num,price:me.price}
+                  var storge=JSON.stringify(store);
+                  window.localStorage.setItem("orderInfo",storge);
+               }
+               else
+               {
+                  alert("保存失败");
+               }
 
             },
             error:function(){
-
+               alert("wrong");
+               console.log("生成订单失败");
             }
          })
+
       })
 
 

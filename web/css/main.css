@@ -521,10 +521,6 @@ a{
 #chosenPic{
 	height:24px; filter:alpha(opacity:0);opacity: 0;width:260px;display: none;
 }
-canvas{
-	width:180px;
-	height: 300px;
-}
 /******************************************购买页面*********************************************/
 .textPointer{
 	margin-top:15%;
@@ -540,8 +536,9 @@ canvas{
 }
 .printTee #printEditTee{
 	position: absolute;
-	top:150px;
-	left:110px;
+	top:180px;
+	left:130px;
+	width:225px;
 }
 .priceTag{
 	margin-top: 40%;
@@ -688,11 +685,18 @@ canvas{
     float: left;
 	width:250px;
 	text-align: center;
+	position: relative;
 }
 .confirmArea .orderContent .orderPic img{
 	margin-top:20px;
-	width:40%;
+	width:100px;
 	margin-bottom:10px;
+}
+#renderEditPic{
+	width:50px;
+	position: absolute;
+	left:100px;
+	top:15px;
 }
 .confirmArea .orderContent .orderNum{
 	float: left;
@@ -716,14 +720,23 @@ canvas{
 	text-align:center;
 }
 .confirmArea .orderContent .numOption span{
-	width:25px;
+	width:30px;
+	text-align: center;
+	cursor: pointer;
 }
 .confirmArea .orderContent .numOption .glyphicon{
 	background-color: #cccccc;
 }
-.orderNum .orderOption  .showBuyNum{
+.showBuyNum{
 	background-color: #e6e6e6;
+	width:80px!important;
+}
+#inputConfirmTeeNum{
+	display: none;
 	width:40px;
+	height: 20px;
+	margin-left: 5px;
+	font-size: 12px;
 }
 .orderNum .row{
 	margin-top: 10px;
@@ -807,6 +820,7 @@ canvas{
 .showState div{
 	color:#cccccc;
 }
+
 /****************************************用户个人资料页面***********************************************/
 .userTitle{
 	margin-top: 20px;
