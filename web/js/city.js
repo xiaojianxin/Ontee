@@ -429,13 +429,18 @@ dsy.add("0", ["北京市", "天津市", "上海市", "重庆市", "河北省", "
 var s = ["s1", "s2", "s3"];
 var opt0 = ["省份", "地级市", "市、县级市、县"];
 function setup() {
-    for (i = 0; i < s.length - 1; i++)
-    {
-
+    for (i = 0; i < s.length-1 ; i++)
         document.getElementById(s[i]).onchange = new Function("change(" + (i + 1) + ");promptinfo();");
-    }
 
     change(0);
+    document.getElementById(s[2]).onchange=function(){
+        var address = document.getElementById('address');
+        var s1 = document.getElementById('s1');
+        var s2 = document.getElementById('s2');
+        var s3 = document.getElementById('s3');
+        address.value = s1.value + s2.value + s3.value;
+        console.log(address.value);
+    }
 }
 function promptinfo()
 {

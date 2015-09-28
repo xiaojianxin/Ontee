@@ -26,6 +26,8 @@ $this->title = 'Ontee';
                     <div class="oneBox">
                         <div class="addressText">地址：</div>
                         <div class="address"><?=$add->location?></div>
+                        <div class="addressText">详细地址：</div>
+                        <div class="address"><?=$add->address?></div>
                         <div class="telephone">
                             <span>电话：</span>
                             <span><?=$add->telephone?></span>
@@ -84,13 +86,13 @@ $this->title = 'Ontee';
                         </div>
                         <div class="formItem">
                             <span class="formText"> 电话</span>
-                            <span class="formAreaHalf"><input type="password" name="receiverPhone"/></span>
+                            <span class="formAreaHalf"><input type="text" name="receiverPhone"/></span>
                             <span class="formText"> 收货人</span>
                             <span class="formAreaHalf"><input type="text" name="receiverName"/></span>
                         </div>
                         <div class="formItem">
                             <span class="formText"> 邮编</span>
-                            <span class="formAreaHalf"><input type="password" name="receiverCode"/></span>
+                            <span class="formAreaHalf"><input type="text" name="receiverCode"/></span>
                             <span class="btn btn-success" id="submitNewAddr"> 确认添加</span>
                         </div>
                     </div>

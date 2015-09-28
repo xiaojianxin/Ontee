@@ -27,11 +27,11 @@ orderConfirm=function(){
         var vYear = d.getFullYear();
         var vMon = d.getMonth() + 1;
         var vDay = d.getDate();
-        s=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+(vDay<10 ? "0"+ vDay : vDay);
-        return s;
+        time=vYear+"-"+(vMon<10 ? "0" + vMon : vMon)+"-"+(vDay<10 ? "0"+ vDay : vDay);
+        return time;
     };
     this.bindEvent=function(){
-      
+
         $("#addConfirmNum").click(function(){
             me.num+=1;
             $("#orderNumInit").text(me.num);
@@ -61,6 +61,26 @@ orderConfirm=function(){
             $("#orderNumInit").show();
             $("#orderNumInit").text(me.num);
 
+        });
+        $("#submitNewAddr").click(function(){
+            var address=document.getElementById('address').value;
+            var detail=$("input[name='addrDetail']").val();
+            var phone=$("input[name='receiverPhone']").val();
+            var receiver=$("input[name='receiverName']").val();
+            var zipCode=$("input[name='receiverCode']").val();
+            $.ajax({
+                type:"POST",
+                url:"/save/addaddress",
+                dataType:"Json",
+                data:{address:address,detail:detail,phone:phone,name:receiver,code:zipCode},
+                success:function(data){
+                    alert('success');
+                    $("#addrModal").fadeOut()
+                },
+                error:function(){
+
+                }
+            })
         });
     }
 };
