@@ -99,8 +99,8 @@ $this->title = 'Ontee';
                 <rect x="15" y="15" width="150" height="30" r="0" rx="5" ry="5" fill="#000000" stroke="#ffffff"
                       transform="matrix(1,0,0,1,0,0)" stroke-width="2" style="display: none;" id="text-Area">
                 </rect>
-                <g id="upPicFront"></g>
-                <g id="upPicBack" style="display: none;"></g>
+                <g id="upPicFront" height="300" width="180"></g>
+                <g id="upPicBack" style="display: none;" height="300" width="180"></g>
             </svg>
         </div>
     </div>
@@ -201,7 +201,6 @@ $this->title = 'Ontee';
                         <div class="btn btn-success">
                             <span id="buyBtn">确认购买</span>
                         </div>
-
                     </div>
                 </div>
             </div>

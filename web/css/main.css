@@ -536,8 +536,9 @@ a{
 }
 .printTee #printEditTee{
 	position: absolute;
-	top:150px;
-	left:110px;
+	top:180px;
+	left:130px;
+	width:225px;
 }
 .priceTag{
 	margin-top: 40%;
@@ -684,11 +685,18 @@ a{
     float: left;
 	width:250px;
 	text-align: center;
+	position: relative;
 }
 .confirmArea .orderContent .orderPic img{
 	margin-top:20px;
-	width:40%;
+	width:100px;
 	margin-bottom:10px;
+}
+#renderEditPic{
+	width:50px;
+	position: absolute;
+	left:100px;
+	top:15px;
 }
 .confirmArea .orderContent .orderNum{
 	float: left;
@@ -712,14 +720,23 @@ a{
 	text-align:center;
 }
 .confirmArea .orderContent .numOption span{
-	width:25px;
+	width:30px;
+	text-align: center;
+	cursor: pointer;
 }
 .confirmArea .orderContent .numOption .glyphicon{
 	background-color: #cccccc;
 }
-.orderNum .orderOption  .showBuyNum{
+.showBuyNum{
 	background-color: #e6e6e6;
+	width:80px!important;
+}
+#inputConfirmTeeNum{
+	display: none;
 	width:40px;
+	height: 20px;
+	margin-left: 5px;
+	font-size: 12px;
 }
 .orderNum .row{
 	margin-top: 10px;
@@ -803,7 +820,11 @@ a{
 .showState div{
 	color:#cccccc;
 }
-
+#cityConfirmForm select{
+	width:24%;
+	margin-left: 8%;
+	margin-top:10px;
+}
 /****************************************用户个人资料页面***********************************************/
 .userTitle{
 	margin-top: 20px;

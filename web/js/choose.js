@@ -21,6 +21,7 @@ editTee=function(){
    me.svgElementArr=[];
    me.drawFront=SVG('upPicFront');
    me.drawBack=SVG('upPicBack');
+   me.drawBack.width(180);me.drawFront.width(180);me.drawBack.height(300);me.drawFront.height(300);
    me.text={
       color:"grey",
       bold:false,
@@ -371,7 +372,7 @@ editTee=function(){
 
       });
       $("#buyBtn").click(function(){
-         var postData={sex:me.sex,color:me.color,type:me.type,
+         var postData={sex:me.sex,color:me.color,type:me.style,
             frontPic:me.picData[0],backPic:me.picData[1],size:me.size,num:me.num,price:me.price};
          //var storge=JSON.stringify(postData);
          //window.localStorage.setItem("orderInfo",storge);
@@ -381,8 +382,22 @@ editTee=function(){
             data:postData,
             dataType:"JSON",
             success:function(data){
-               alert(data);
-               console.log(data+"生成订单成功");
+               if(data=="1")
+               {
+                  alert("请先登录");
+               }
+               else if(data=="0")
+               {
+                  window.location.href="../site/confirm";
+                  var store={color:me.color,type:me.style,size:me.size,num:me.num,price:me.price}
+                  var storge=JSON.stringify(store);
+                  window.localStorage.setItem("orderInfo",storge);
+               }
+               else
+               {
+                  alert("保存失败");
+               }
+
             },
             error:function(){
                alert("wrong");

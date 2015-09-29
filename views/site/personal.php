@@ -179,7 +179,7 @@ $this->title = 'Ontee';
     </div>
 </div>
 <?php $this->beginBlock("personal")?>
- 
+
     $.getScript("<?=Url::to('@web/js/personal.js');?>");
 <?php $this->endBlock()?>
 <?php $this->registerJs($this->blocks['personal'],\yii\web\View::POS_END)?>
