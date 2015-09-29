@@ -38,15 +38,15 @@ class OrderController extends Controller{
 	    	 $file = $url.'orderpic/' . $frontname. '.png';
 	    	 $file = file_put_contents($file,$frontPicUrl);
 
-	    	 $backPicUrl = $post['backPic'];
+	    	 // $backPicUrl = $post['backPic'];
 
-	    	 //$frontPicUrl = substr(strstr($frontPicUrl,','),1);
-	    	 $backPicUrl = str_replace('data:image/png;base64,', '', $backPicUrl);
+	    	 // //$frontPicUrl = substr(strstr($frontPicUrl,','),1);
+	    	 // $backPicUrl = str_replace('data:image/png;base64,', '', $backPicUrl);
 
-	    	 $backPicUrl = base64_decode($backPicUrl);
-	    	 $backname = time();
-	    	 $file = $url.'orderpic/' . $backname. '.png';
-	    	 $file = file_put_contents($file,$backPicUrl);
+	    	 // $backPicUrl = base64_decode($backPicUrl);
+	    	  $backname = time();
+	    	 // $file = $url.'orderpic/' . $backname. '.png';
+	    	 // $file = file_put_contents($file,$backPicUrl);
 	    	 
     	 	$order->userid = Yii::$app->session['userid'];
 	    	$order->frontpic = 'orderpic/' . $frontname. '.png';
