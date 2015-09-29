@@ -26,7 +26,7 @@ class OrderController extends Controller{
     		echo "1";
     	}else{
     		 $user= User::find()->where(['username' => $username])->one();
-    		 $name = time();
+    		 $frontname = time();
 	         $url = Yii::$app->basePath."/web".'/';
 	    	 $frontPicUrl = $post['frontPic'];
 
@@ -34,12 +34,23 @@ class OrderController extends Controller{
 	    	 $frontPicUrl = str_replace('data:image/png;base64,', '', $frontPicUrl);
 
 	    	 $frontPicUrl = base64_decode($frontPicUrl);
-	    	 $file = $url.'orderpic/' . $name. '.png';
+
+	    	 $file = $url.'orderpic/' . $frontname. '.png';
 	    	 $file = file_put_contents($file,$frontPicUrl);
+
+	    	 $backPicUrl = $post['backPic'];
+
+	    	 //$frontPicUrl = substr(strstr($frontPicUrl,','),1);
+	    	 $backPicUrl = str_replace('data:image/png;base64,', '', $backPicUrl);
+
+	    	 $backPicUrl = base64_decode($backPicUrl);
+	    	 $backname = time();
+	    	 $file = $url.'orderpic/' . $backname. '.png';
+	    	 $file = file_put_contents($file,$backPicUrl);
 	    	 
     	 	$order->userid = Yii::$app->session['userid'];
-	    	$order->frontpic = 'orderpic/' . $name. '.png';
-	    	$order->backpic = 'orderpic/' . $name. '.png';
+	    	$order->frontpic = 'orderpic/' . $frontname. '.png';
+	    	$order->backpic = 'orderpic/' . $backname. '.png';
 	    	$order->size = $post['size'];
 	    	$order->num = (int)$post['num'];
 	    	$order->type = (int)$post['type'];
