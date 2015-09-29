@@ -3,6 +3,7 @@
  */
 orderConfirm=function(){
     var me=this;
+    me.sizeArr=["S","M","L","XL","XXL","XXXL"];
     this.init=function(){
         var data=window.localStorage.getItem("orderInfo");
         var obj=JSON.parse(data);
@@ -31,7 +32,34 @@ orderConfirm=function(){
         return time;
     };
     this.bindEvent=function(){
+        $("#addConfirmSize").click(function(){
+            var size=$("#orderSizeInit").text();
+            var index=0;
+            me.sizeArr.map(function(item,e){
 
+                if(item==size)
+                {
+                    index=e;
+                }
+            });
+            if(index<5){
+                $("#orderSizeInit").text(me.sizeArr[index+1]);
+            }
+        });
+        $("#minusConfirmSize").click(function(){
+            var size=$("#orderSizeInit").text();
+            var index=0;
+            me.sizeArr.map(function(item,e){
+
+                if(item==size)
+                {
+                    index=e;
+                }
+            });
+            if(index>0){
+                $("#orderSizeInit").text(me.sizeArr[index-1]);
+            }
+        });
         $("#addConfirmNum").click(function(){
             me.num+=1;
             $("#orderNumInit").text(me.num);
