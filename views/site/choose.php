@@ -161,7 +161,7 @@ $this->title = 'Ontee';
             <div class="col-xs-4">
                 <div class="paramArea">
                     <div class="priceTag">
-                        <span>$79</span>
+                        <span id="totalPrice">79元</span>
                     </div>
 
                     <div class="chooseItem1">

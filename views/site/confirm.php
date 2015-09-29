@@ -134,7 +134,7 @@ $this->title = 'Ontee';
             </div>
             <div class="paynum">
                 <span>支付金额：</span>
-                <span>79元</span>
+                <span id="showConfirmPrice">79元</span>
             </div>
 
         </div>

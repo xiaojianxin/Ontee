@@ -11,6 +11,7 @@ orderConfirm=function(){
         me.num=obj.num;
         me.color=obj.color;
         me.type=obj.type;
+        me.price=obj.price;
         me.initInfo();
         me.bindEvent();
         setup();
@@ -22,6 +23,7 @@ orderConfirm=function(){
         $("#orderTime").html(time);
         $("#orderSizeInit").html(me.size);
         $("#orderNumInit").html(me.num);
+        $("#showConfirmPrice").html(me.price+"元");
     };
     this.initTime=function(){
         var d = new Date();
@@ -63,12 +65,16 @@ orderConfirm=function(){
         $("#addConfirmNum").click(function(){
             me.num+=1;
             $("#orderNumInit").text(me.num);
+            me.price=79*me.num;
+            $("#showConfirmPrice").html(me.price+"元");
         });
         $("#minusConfirmNum").click(function(){
             if(me.num!=1)
             {
                 me.num-=1;
                 $("#orderNumInit").text(me.num);
+                me.price=79*me.num;
+                $("#showConfirmPrice").html(me.price+"元");
             }
         });
         $("#orderNumInit").click(function(){
@@ -80,7 +86,6 @@ orderConfirm=function(){
         $("#inputConfirmTeeNum").blur(function(){
             var num=$("#inputConfirmTeeNum").val();
             var nInt=parseInt(num);
-            console.log(nInt);
             if(!isNaN(nInt))
             {
                 me.num=nInt
@@ -88,6 +93,8 @@ orderConfirm=function(){
             $(this).hide();
             $("#orderNumInit").show();
             $("#orderNumInit").text(me.num);
+            me.price=79*me.num;
+            $("#showConfirmPrice").html(me.price+"元");
 
         });
         $("#submitNewAddr").click(function(){
