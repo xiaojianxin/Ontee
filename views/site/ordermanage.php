@@ -16,7 +16,7 @@ $this->title = 'Ontee';
 
     <div class="confirmArea">
            <div class="orderTitle">
-               <span><?=$order->createtime?></span>
+               <span><?=date('Y-m-d',$order->createtime)?></span>
                <span style="margin-left: 10px;">订单号：</span>
                <span><?=$order->id?></span>
            </div>
@@ -55,7 +55,7 @@ $this->title = 'Ontee';
 
     <div class="confirmArea orderList">
            <div class="orderTitle">
-               <span><?=$order->createtime?></span>
+               <span><?=date('Y-m-d',$order->createtime)?></span>
                <span style="margin-left: 10px;">订单号：</span>
                <span><?=$order->id?></span>
            </div>

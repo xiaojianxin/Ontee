@@ -23,7 +23,7 @@ $this->title = 'Ontee';
                 </div>
                 <div class="productInfo">
                     <div>产品名称</div>
-                    <div>创建时间：2015-09-09</div>
+                    <div>创建时间：<?=date('Y-m-d',$order->createtime)?></div>
                 </div>
             </div>
           <?php } ?>
