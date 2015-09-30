@@ -126,7 +126,11 @@ class SiteController extends Controller
     }
     public function actionOrdermanage()
     {
-        $this->layout_data = Yii::$app->session['username'];
+        $layout_data =  array(
+            'username' => Yii::$app->session['username'],
+            'status' => 3
+         );
+        $this->layout_data = $layout_data;
 
         $Orders = Order::find()->where(['userid' => Yii::$app->session['userid']])->with('address')->OrderBy('createtime')->all();
         return $this->render('ordermanage',[
@@ -138,11 +142,14 @@ class SiteController extends Controller
     {
         $user = User::find()->where(['userid' => Yii::$app->session['userid']])->one();
         $address = Address::find()->where(['userid' => Yii::$app->session['userid']])->all();
-        $this->layout_data = Yii::$app->session['username'];
+        $layout_data =  array(
+            'username' => Yii::$app->session['username'],
+            'status' => 3
+        );
+        $this->layout_data = $layo
         return $this->render('personal',[
             'user' => $user,
-            'address'=> $address,
-            ]);
+            'address'=> $address,            ]);
     }
     public function actionLogin()
     {
