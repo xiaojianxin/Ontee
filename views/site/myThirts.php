@@ -11,10 +11,12 @@ $this->title = 'Ontee';
 <div class="container" style="width:980px;margin-top:20px;">
     <div class="tshirtsList" id="itemContainer">
         <div class="row">
+            <?php
+            foreach ($orders as $order){ ?>
             <div class="col-xs-3">
                 <div class="oneTshirt">
                     <img src="<?=Url::to('@web/img/teebb.png');?>">
-                    <img class="printSelfTshirt" src="<?=Url::to('@web/orderpic/1443536991.png');?>">
+                    <img class="printSelfTshirt" src="<?=Url::to('@web/'.$order->frontpic);?>">
                     <div class="btnArea">
                         <span>删除</span><span>|</span><span>购买</span>
                     </div>
@@ -24,71 +26,8 @@ $this->title = 'Ontee';
                     <div>创建时间：2015-09-09</div>
                 </div>
             </div>
-            <div class="col-xs-3">
-                <div class="oneTshirt">
-                    <img src="<?=Url::to('@web/img/teebb.png');?>">
-                    <img class="printSelfTshirt" src="<?=Url::to('@web/orderpic/1443536991.png');?>">
-                    <div class="btnArea">
-                        <span>删除</span><span>|</span><span>购买</span>
-                    </div>
-                </div>
-                <div class="productInfo">
-                    <div>产品名称</div>
-                    <div>创建时间：2015-09-09</div>
-                </div>
-            </div>
-            <div class="col-xs-3">
-                <div class="oneTshirt">
-                    <img src="<?=Url::to('@web/img/teebb.png');?>">
-                    <img class="printSelfTshirt" src="<?=Url::to('@web/orderpic/1443536991.png');?>">
-                    <div class="btnArea">
-                        <span>删除</span><span>|</span><span>购买</span>
-                    </div>
-                </div>
-                <div class="productInfo">
-                    <div>产品名称</div>
-                    <div>创建时间：2015-09-09</div>
-                </div>
-            </div>
-            <div class="col-xs-3">
-                <div class="oneTshirt">
-                    <img src="<?=Url::to('@web/img/teebb.png');?>">
-                    <img class="printSelfTshirt" src="<?=Url::to('@web/orderpic/1443536991.png');?>">
-                    <div class="btnArea">
-                        <span>删除</span><span>|</span><span>购买</span>
-                    </div>
-                </div>
-                <div class="productInfo">
-                    <div>产品名称</div>
-                    <div>创建时间：2015-09-09</div>
-                </div>
-            </div>
-            <div class="col-xs-3">
-                <div class="oneTshirt">
-                    <img src="<?=Url::to('@web/img/teebb.png');?>">
-                    <img class="printSelfTshirt" src="<?=Url::to('@web/orderpic/1443536991.png');?>">
-                    <div class="btnArea">
-                        <span>删除</span><span>|</span><span>购买</span>
-                    </div>
-                </div>
-                <div class="productInfo">
-                    <div>产品名称</div>
-                    <div>创建时间：2015-09-09</div>
-                </div>
-            </div>
-            <div class="col-xs-3">
-                <div class="oneTshirt">
-                    <img src="<?=Url::to('@web/img/teebb.png');?>">
-                    <img class="printSelfTshirt" src="<?=Url::to('@web/orderpic/1443536991.png');?>">
-                    <div class="btnArea">
-                        <span>删除</span><span>|</span><span>购买</span>
-                    </div>
-                </div>
-                <div class="productInfo">
-                    <div>产品名称</div>
-                    <div>创建时间：2015-09-09</div>
-                </div>
-            </div>
+          <?php } ?>
+
         </div>
     </div>
     <div class="row">
