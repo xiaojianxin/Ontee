@@ -28,16 +28,16 @@ $username = $this->context->layout_data;
                 <img src="<?=Url::to('@web/img/logo.png');?>" style="width: 80%;margin-top: -14%;min-width: 100px;"/>
             </div>
             <div class="col-xs-6 nav-item col-xs-offset-2">
-                <span><a href="<?=Url::to(['site/index'])?>"> 首页</a></span>
+                <span  ><a href="<?=Url::to(['site/index'])?>"> 首页</a></span>
 
                 <span><a href="<?=Url::to(['site/choose'])?>"> 认识ONTEE</a></span>
-                <span><a href="<?=Url::to(['site/mytshirts'])?>"> 我的T恤</a></span>
+                <span ><a href="<?=Url::to(['site/mytshirts'])?>"> 我的T恤</a></span>
                 
 
                 <?php 
                 if(empty($username)){
                     ?>
-                    <span>
+                    <span data-num="4">
                         <a data-toggle="modal" data-target="#modalBox" id="signInButton">登录</a>
                     ｜<a data-toggle="modal" data-target="#modalBox"  id="registerButton">注册</a>
                     </span>
@@ -46,7 +46,7 @@ $username = $this->context->layout_data;
                 }
                 else{
                     ?>
-                    <span class="user-nav">
+                    <span class="user-nav" data-num="4">
                         <a class="dropdown-toggle operator-name" data-toggle="dropdown"><img src="<?=Url::to('@web/img/head.png');?>" alt=""/><?PHP echo $username?></a>
                         <ul class="dropdown-menu self-menu">
                             <li>
