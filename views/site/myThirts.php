@@ -15,7 +15,7 @@ $this->title = 'Ontee';
             foreach ($orders as $order){ ?>
             <div class="col-xs-3">
                 <div class="oneTshirt">
-                    <img src="<?=Url::to('@web/img/teebb.png');?>">
+                    <img src="<?=Url::to('@web/img/teef'.$order->type.".png");?>">
                     <img class="printSelfTshirt" src="<?=Url::to('@web/'.$order->frontpic);?>">
                     <div class="btnArea">
                         <span>删除</span><span>|</span><span>购买</span>

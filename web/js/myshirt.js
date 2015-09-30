@@ -9,7 +9,8 @@ myshirt=function(){
     this.bindEvent=function(){
         $(function(){
             $("div.myholder").jPages({
-                containerID : "itemContainer"
+                containerID : "itemContainer",
+                perPage: 8
             });
         });
     }
