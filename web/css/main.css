@@ -763,9 +763,16 @@ a{
 	width:150px;
 	text-align: center;
 	margin-top: 10px;
+	position: relative;
 }
 .confirmArea .orderContent1 .orderPic1 img{
-	width:50%;
+	width:75px;
+}
+.showOrderPrintSvg{
+	width:50px!important;
+	position: absolute;
+	left:52px;
+
 }
 .orderInfo{
 	float:left;
