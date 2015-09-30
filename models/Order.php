@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\models\Address;
 
 /**
  * This is the model class for table "order".
@@ -59,5 +60,12 @@ class Order extends \yii\db\ActiveRecord
             'price' => 'Price',
             'status' => 'Status',
         ];
+    }
+
+    public function getAddress()
+    {
+        //同样第一个参数指定关联的子表模型类名
+        //
+        return $this->hasMany(Address::className(),['id'=>'addressid']);
     }
 }

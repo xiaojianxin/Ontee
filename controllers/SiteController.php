@@ -97,10 +97,11 @@ class SiteController extends Controller
     {
         $this->layout_data = Yii::$app->session['username'];
 
-        $Orders = Order::find()->where(['userid' => Yii::$app->session['userid']])->OrderBy('createtime')->all();
+        $Orders = Order::find()->where(['userid' => Yii::$app->session['userid']])->with('address')->OrderBy('createtime')->all();
         return $this->render('ordermanage',[
                 'orders'=>$Orders,
             ]);
+       
     }
     public function actionPersonal()
     {
