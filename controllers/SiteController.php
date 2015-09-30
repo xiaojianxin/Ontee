@@ -216,5 +216,10 @@ class SiteController extends Controller
 
         echo "1";
     }
+    public function actionMyshirt()
+    {
+        $this->layout_data = Yii::$app->session['username'];
+        return $this->render('myThirts');
+    }
 
 }

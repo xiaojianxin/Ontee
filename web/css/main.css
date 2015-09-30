@@ -1081,3 +1081,92 @@ a{
 	width:120px;
 
  }
+/*******************************************************我的T恤页面*****************************************************/
+.tshirtsList{
+	height:620px;
+	width:980px;
+}
+.oneTshirt{
+	background-color: #383838;
+	position: relative;
+	margin-top:10px;
+}
+.oneTshirt img{
+	z-index:-1;
+	width:215px;
+
+}
+.oneTshirt .printSelfTshirt{
+	position: absolute;
+	top:30px;
+	z-index:3;
+	width:108px;
+	left:55px;
+
+}
+.oneTshirt .btnArea{
+	background-color: #1a1a1a;
+	z-index: 1;
+	position: absolute;
+	top:208px;
+	width:222px;
+	line-height:30px;
+	text-align: center;
+
+}
+.oneTshirt .btnArea span{
+	text-align: center;
+	color:white;
+	display: inline-block;
+	margin-top:3px;
+}
+.productInfo{
+	text-align: center;
+}
+.productInfo div{
+	line-height: 25px;
+	text-align: center;
+}
+.myshirtHolder{
+	width:700px;
+	float:left;
+}
+.doAnotherBtn{
+	float: left;
+	margin-left:100px;
+}
+.myholder {
+	margin: 15px 0;
+}
+
+.myholder a {
+	font-size: 12px;
+	cursor: pointer;
+	margin: 0 5px;
+	color: #333;
+}
+
+.myholder a:hover {
+	background-color: #222;
+	color: #fff;
+}
+
+.myholder a.jp-previous { margin-right: 15px; }
+.myholder a.jp-next { margin-left: 15px; }
+
+.myholder a.jp-current, a.jp-current:hover {
+	color: #FF4242;
+	font-weight: bold;
+}
+
+.myholder a.jp-disabled, a.jp-disabled:hover {
+	color: #bbb;
+}
+
+.myholder a.jp-current, a.jp-current:hover,
+.myholder a.jp-disabled, a.jp-disabled:hover {
+	cursor: default;
+	background: none;
+}
+
+.myholder span { margin: 0 5px; }

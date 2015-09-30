@@ -62,7 +62,7 @@ $this->title = 'Ontee';
            <div class="orderContent1">
                <div class="orderPic1">
                    <img src="<?=Url::to('@web/img/teebb.png');?>">
-                   <img src="<?=Url::to('@web/'.$order->frontpic);?>">
+                   <img class='showOrderPrintSvg' src="<?=Url::to('@web/'.$order->frontpic);?>">
                </div>
                <div class="orderInfo">
                    <span>尺码：</span><span><?=$order->size?></span>
