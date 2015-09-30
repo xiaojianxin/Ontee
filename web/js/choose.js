@@ -235,14 +235,12 @@ editTee=function(){
       });
       $(".black").click(function(){
          $(this).addClass("active");
-         $('.grey').removeClass("active");
          $('.white').removeClass("active");
          me.color=1;
          me.judgeType();
       });
       $(".white").click(function(){
          $(this).addClass("active");
-         $('.grey').removeClass("active");
          $('.black').removeClass("active");
          me.color=2;
          me.judgeType();
