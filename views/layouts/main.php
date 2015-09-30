@@ -29,8 +29,11 @@ $username = $this->context->layout_data;
             </div>
             <div class="col-xs-6 nav-item col-xs-offset-2">
                 <span><a href="<?=Url::to(['site/index'])?>"> 首页</a></span>
+
                 <span><a href="<?=Url::to(['site/choose'])?>"> 认识ONTEE</a></span>
                 <span><a href="<?=Url::to(['site/myshirt'])?>"> 我的T恤</a></span>
+                
+
                 <?php 
                 if(empty($username)){
                     ?>
