@@ -56,7 +56,7 @@ $this->title = 'Ontee';
         <div class="item">
             <span class="lText">字体：</span>
             <span class="fontChoose">
-                <select id="fontList">
+                <select id="fontList" >
                 </select>
             </span>
         </div>
