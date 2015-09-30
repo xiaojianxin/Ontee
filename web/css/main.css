@@ -1132,8 +1132,11 @@ a{
 	float:left;
 }
 .doAnotherBtn{
-	float: left;
-	margin-left:100px;
+	 float: left;
+	 margin-left:100px;
+ }
+.doAnotherBtn img{
+	cursor: pointer;
 }
 .myholder {
 	margin: 15px 0;

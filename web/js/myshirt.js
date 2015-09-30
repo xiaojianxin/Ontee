@@ -10,9 +10,13 @@ myshirt=function(){
         $(function(){
             $("div.myholder").jPages({
                 containerID : "itemContainer",
-                perPage: 8
+                perPage: 8,
+                delay : 0
             });
         });
+        $("#makeTshirt").click(function(){
+            window.location.href="../site/choose";
+        })
     }
 };
 var shirt=new myshirt();

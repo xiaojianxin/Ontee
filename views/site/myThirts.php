@@ -48,7 +48,7 @@ $this->title = 'Ontee';
             <a class="jp-next">next →</a>
         </div>
         <div class="doAnotherBtn">
-            <img src="<?=Url::to('@web/img/doanother.png');?>">
+            <img src="<?=Url::to('@web/img/doanother.png');?>" id="makeTshirt">
         </div>
     </div>
     <div class="row" style="height: 40px;">
