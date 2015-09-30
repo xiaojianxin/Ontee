@@ -65,13 +65,21 @@ class SiteController extends Controller
 
     public function actionIndex()
     {   
-        $this->layout_data = Yii::$app->session['username'];
+        $layout_data =  array(
+            'username' => Yii::$app->session['username'],
+            'status' => 0
+         );
+        $this->layout_data = $layout_data;
         return $this->render('index');
     }
 
     public function actionChoose()
     {
-        $this->layout_data = Yii::$app->session['username'];
+        $layout_data =  array(
+            'username' => Yii::$app->session['username'],
+            'status' => 1
+         );
+        $this->layout_data = $layout_data;
         $username = Yii::$app->session['username'];
         $pictures = Pictures:: find()->where(['type' => "0"])->all();
         $svg = pictures::find()->where(['type' => "1"])->all();
@@ -85,12 +93,16 @@ class SiteController extends Controller
 
     public function actionMytshirts()
     {   
+
         if(empty(Yii::$app->session['username'])){
 
             return $this->runAction('choose');
         }else{
-
-            $this->layout_data = Yii::$app->session['username'];
+           $layout_data =  array(
+                'username' => Yii::$app->session['username'],
+                'status' => 2
+             );
+            $this->layout_data = $layout_data;
             $Orders = Order::find()->where(['userid' => Yii::$app->session['userid']])->with('address')->OrderBy('createtime')->all();
             return $this->render('myThirts',[
                 'orders'=>$Orders,
