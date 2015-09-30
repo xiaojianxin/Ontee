@@ -26,7 +26,7 @@ class OrderController extends Controller{
     		echo "1";
     	}else{
     		 $user= User::find()->where(['username' => $username])->one();
-    		 $frontname = time();
+    		 $frontname = md5(Yii::$app->session['userid'].time());
 	         $url = Yii::$app->basePath."/web".'/';
 	    	 $frontPicUrl = $post['frontPic'];
 
@@ -35,18 +35,18 @@ class OrderController extends Controller{
 
 	    	 $frontPicUrl = base64_decode($frontPicUrl);
 
-	    	 $file = $url.'orderpic/' . $frontname. '.png';
-	    	 $file = file_put_contents($file,$frontPicUrl);
+	    	 $file1 = $url.'orderpic/' . $frontname. '.png';
+	    	 $file1 = file_put_contents($file1,$frontPicUrl);
 
-	    	 // $backPicUrl = $post['backPic'];
+	    	 $backPicUrl = $post['backPic'];
 
-	    	 // //$frontPicUrl = substr(strstr($frontPicUrl,','),1);
-	    	 // $backPicUrl = str_replace('data:image/png;base64,', '', $backPicUrl);
+	    	 //$frontPicUrl = substr(strstr($frontPicUrl,','),1);
+	    	 $backPicUrl = str_replace('data:image/png;base64,', '', $backPicUrl);
 
-	    	 // $backPicUrl = base64_decode($backPicUrl);
-	    	  $backname = time();
-	    	 // $file = $url.'orderpic/' . $backname. '.png';
-	    	 // $file = file_put_contents($file,$backPicUrl);
+	    	 $backPicUrl = base64_decode($backPicUrl);
+	    	 $backname = md5(Yii::$app->session['userid'].(time()+1));
+	    	 $file2 = $url.'orderpic/' . $backname. '.png';
+	    	 $file2 = file_put_contents($file2,$backPicUrl);
 	    	 
     	 	$order->userid = Yii::$app->session['userid'];
 	    	$order->frontpic = 'orderpic/' . $frontname. '.png';
