@@ -82,6 +82,21 @@ class SiteController extends Controller
             'svg' => $svg
             ]);
     }
+
+    public function actionMytshirts()
+    {   
+        if(empty(Yii::$app->session['username'])){
+
+            return $this->runAction('choose');
+        }else{
+
+            $this->layout_data = Yii::$app->session['username'];
+            $Orders = Order::find()->where(['userid' => Yii::$app->session['userid']])->with('address')->OrderBy('createtime')->all();
+            return $this->render('mytshirts',[
+                'orders'=>$Orders,
+                ]); 
+        }
+    }
     public function actionConfirm()
     {
         $this->layout_data = Yii::$app->session['username'];
@@ -101,7 +116,7 @@ class SiteController extends Controller
         return $this->render('ordermanage',[
                 'orders'=>$Orders,
             ]);
-       
+
     }
     public function actionPersonal()
     {
