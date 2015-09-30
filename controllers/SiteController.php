@@ -92,7 +92,7 @@ class SiteController extends Controller
 
             $this->layout_data = Yii::$app->session['username'];
             $Orders = Order::find()->where(['userid' => Yii::$app->session['userid']])->with('address')->OrderBy('createtime')->all();
-            return $this->render('mytshirts',[
+            return $this->render('myThirts',[
                 'orders'=>$Orders,
                 ]); 
         }
@@ -230,11 +230,6 @@ class SiteController extends Controller
         }
 
         echo "1";
-    }
-    public function actionMyshirt()
-    {
-        $this->layout_data = Yii::$app->session['username'];
-        return $this->render('myThirts');
     }
 
 }
