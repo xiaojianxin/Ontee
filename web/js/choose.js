@@ -347,10 +347,13 @@ editTee=function(){
       $("#addTeeNum").click(function(){
          me.num+=1;
          $("#teeNum").text(me.num);
+         me.price=79*me.num;
+         $("#totalPrice").text(me.price+"元");
       });
       $("#cutTeeNum").click(function(){
          if(me.num == 1){ }
-         else{  me.num-=1;$("#teeNum").text(me.num);}
+         else{  me.num-=1;$("#teeNum").text(me.num); me.price=79*me.num;
+            $("#totalPrice").text(me.price+"元");}
       });
       $("#teeNum").click(function(){
          $("#inputTeeNum").show();
@@ -369,6 +372,8 @@ editTee=function(){
          $(this).hide();
          $("#teeNum").show();
          $("#teeNum").text(me.num);
+         me.price=79*me.num;
+         $("#totalPrice").text(me.price+"元");
 
       });
       $("#buyBtn").click(function(){

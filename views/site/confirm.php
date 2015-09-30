@@ -117,9 +117,9 @@ $this->title = 'Ontee';
                 <div class="row">
                         <span class="numText">尺寸</span>
                         <div class="numOption">
-                            <span class="glyphicon glyphicon-minus"></span>
+                            <span class="glyphicon glyphicon-minus" id="minusConfirmSize"></span>
                             <span class="showBuyNum" id="orderSizeInit">L</span>
-                            <span class="glyphicon glyphicon-plus"></span>
+                            <span class="glyphicon glyphicon-plus" id="addConfirmSize"></span>
                         </div>
                 </div>
                 <div class="row">
@@ -134,7 +134,7 @@ $this->title = 'Ontee';
             </div>
             <div class="paynum">
                 <span>支付金额：</span>
-                <span>79元</span>
+                <span id="showConfirmPrice">79元</span>
             </div>
 
         </div>
