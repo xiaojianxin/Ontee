@@ -31,7 +31,7 @@ $username = $this->context->layout_data;
                 <span><a href="<?=Url::to(['site/index'])?>"> 首页</a></span>
 
                 <span><a href="<?=Url::to(['site/choose'])?>"> 认识ONTEE</a></span>
-                <span><a href="<?=Url::to(['site/Mytshirts'])?>"> 我的T恤</a></span>
+                <span><a href="<?=Url::to(['site/mytshirts'])?>"> 我的T恤</a></span>
                 
 
                 <?php 
