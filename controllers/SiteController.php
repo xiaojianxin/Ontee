@@ -13,6 +13,7 @@ use app\models\Address;
 use app\models\ContactForm;
 use app\models\UploadForm;
 use app\models\Pictures;
+use app\models\Order;
 use yii\web\UploadedFile;
 use yii\helpers\Json;
 use yii\helpers\Url;
@@ -86,7 +87,7 @@ class SiteController extends Controller
         $this->layout_data = Yii::$app->session['username'];
         $cache = \Yii::$app->cache;
         $response = $cache['response'];
-        $address = Address::find()->where(['userid' => Yii::$app->session['userid']])->all();
+        $address = Address::find()->where(['userid' => Yii::$app->session['userid'],])->all();
         return $this->render('confirm',[
             'address'=>$address,
             'response'=>$response,
@@ -95,7 +96,11 @@ class SiteController extends Controller
     public function actionOrdermanage()
     {
         $this->layout_data = Yii::$app->session['username'];
-        return $this->render('ordermanage');
+
+        $Orders = Order::find()->where(['userid' => Yii::$app->session['userid']])->OrderBy('createtime')->all();
+        return $this->render('ordermanage',[
+                'orders'=>$Orders,
+            ]);
     }
     public function actionPersonal()
     {
