@@ -146,10 +146,10 @@ class SiteController extends Controller
             'username' => Yii::$app->session['username'],
             'status' => 3
         );
-        $this->layout_data = $layo
+        $this->layout_data = $layout_data;
         return $this->render('personal',[
             'user' => $user,
-            'address'=> $address,            ]);
+            'address'=> $address, ]);
     }
     public function actionLogin()
     {
