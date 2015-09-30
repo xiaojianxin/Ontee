@@ -11,7 +11,7 @@ $this->title = 'Ontee';
 <div class="chooseContent container">
     <div class="row">
         <div class="col-sm-5 col-sm-offset-2 teePic">
-            <img src="<?=Url::to('@web/img/teebf.png');?>" class="tShirtPic"/>
+            <img src="<?=Url::to('@web/img/teef1.png');?>" class="tShirtPic"/>
         </div>
         <div class="col-sm-4 teeArea">
             <div class="chooseItem">
@@ -32,7 +32,6 @@ $this->title = 'Ontee';
                 <span class="chooseText">颜色</span>
                 <span class="chooseOption color">
                     <span class="black active"><img src="<?=Url::to('@web/img/trans.png');?>"/></span>
-                    <span class="grey"><img src="<?=Url::to('@web/img/trans.png');?>"/></span>
                     <span class="white"><img src="<?=Url::to('@web/img/trans.png');?>"/></span>
                 </span>
             </div>
@@ -90,7 +89,7 @@ $this->title = 'Ontee';
     </div>
     <div class="teeEditPic">
         <div id="saveArea">
-            <img src="<?=Url::to('@web/img/teebf.png')?>" class="tShirtPic"/>
+            <img src="<?=Url::to('@web/img/teef1.png')?>" class="tShirtPic"/>
         </div>
         <div class="printArea" id="printArea">
             <svg id="mySvg" xmlns = "http://www.w3.org/2000/svg">

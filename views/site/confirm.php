@@ -110,7 +110,7 @@ $this->title = 'Ontee';
         </div>
         <div class="orderContent">
             <div class="orderPic">
-                <img src="<?=Url::to('@web/img/teebb.png');?>">
+                <img id="confirmShirtColor" src="<?=Url::to('@web/img/teef1.png');?>">
                 <img src="<?=Url::to('@web/'.$response['frontPicUrl']);?>" id="renderEditPic">
             </div>
             <div class="orderNum">

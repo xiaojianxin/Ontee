@@ -14,6 +14,7 @@ editTee=function(){
    };
    var me=this;
    me.sex=1;
+   me.type=1;
    me.style=1;
    me.color=1;
    me.side=1;
@@ -202,6 +203,13 @@ editTee=function(){
 
       })
    };
+   this.judgeType=function(){
+      if(me.style==1&&me.color==1){me.type=1}
+      else if(me.style==2&&me.color==1){me.type=2}
+      else if(me.style==1&&me.color==2){me.type=3}
+      else{me.type=4}
+      $('.tShirtPic').attr('src','../img/teef'+me.type+".png");
+   };
    this.bindEvent=function(){
       $(".boyTee").click(function(){
          $(this).addClass("active");
@@ -217,45 +225,38 @@ editTee=function(){
          $(this).addClass("active");
          $('.style2').removeClass("active");
          me.style=1;
+         me.judgeType();
       });
       $(".style2").click(function(){
          $(this).addClass("active");
          $('.style1').removeClass("active");
          me.style=2;
+         me.judgeType();
       });
       $(".black").click(function(){
          $(this).addClass("active");
          $('.grey').removeClass("active");
          $('.white').removeClass("active");
-         $('.tShirtPic').attr('src','../img/teebf.png');
          me.color=1;
-      });
-      $(".grey").click(function(){
-         $(this).addClass("active");
-         $('.black').removeClass("active");
-         $('.white').removeClass("active");
-         me.color=2;
+         me.judgeType();
       });
       $(".white").click(function(){
          $(this).addClass("active");
          $('.grey').removeClass("active");
          $('.black').removeClass("active");
-         $('.tShirtPic').attr('src','../img/teewf.png');
-
-         me.color=3;
+         me.color=2;
+         me.judgeType();
       });
       $(".r-Side").click(function(){
          $('.l-Side').removeClass("active");
          $(this).addClass("active");
          me.side=1;
-         if(me.color==1){ $('.tShirtPic').attr('src','../img/teebf.png');}
-         else if(me.color==2){$('.tShirtPic').attr('src','../img/teebf.png');}
-         else{$('.tShirtPic').attr('src','../img/teewf.png');}
+
          $("#upPicBack").hide();
          $("#upPicFront").show();
          me.select.select(false);
          me.hasSelected.select(false);
-
+         $('.tShirtPic').attr('src','../img/teef'+me.type+".png");
 
       });
       $(".l-Side").click(function(){
@@ -263,7 +264,6 @@ editTee=function(){
          $(this).addClass("active");
          me.side=2;
          if(me.color==1){ $('.tShirtPic').attr('src','../img/teebb.png');}
-         else if(me.color==2){$('.tShirtPic').attr('src','../img/teebb.png');}
          else{$('.tShirtPic').attr('src','../img/teewb.png');}
          $("#upPicFront").hide();
          $("#upPicBack").show();
@@ -306,14 +306,8 @@ editTee=function(){
             $("#testPic").attr("src",me.picData[0]);
             $(".editContent").hide();
             $("#confirmContent").show();
-            if(me.color==1)
-            {
-               $("#printTeeColor").attr("src","../img/teebf.png");
-            }
-            else
-            {
-               $("#printTeeColor").attr("src","../img/teewf.png");
-            }
+
+            $("#printTeeColor").attr("src","../img/teef"+me.type+".png");
             $("#printEditTee").attr("src",me.picData[0]);
          }});
 
@@ -377,7 +371,7 @@ editTee=function(){
 
       });
       $("#buyBtn").click(function(){
-         var postData={sex:me.sex,color:me.color,type:me.style,
+         var postData={sex:me.sex,type:me.type,
             frontPic:me.picData[0],backPic:me.picData[1],size:me.size,num:me.num,price:me.price};
          //var storge=JSON.stringify(postData);
          //window.localStorage.setItem("orderInfo",storge);
@@ -394,7 +388,7 @@ editTee=function(){
                else if(data=="0")
                {
                   window.location.href="../site/confirm";
-                  var store={color:me.color,type:me.style,size:me.size,num:me.num,price:me.price}
+                  var store={type:me.type,size:me.size,num:me.num,price:me.price};
                   var storge=JSON.stringify(store);
                   window.localStorage.setItem("orderInfo",storge);
                }

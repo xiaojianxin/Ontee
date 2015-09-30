@@ -9,7 +9,6 @@ orderConfirm=function(){
         var obj=JSON.parse(data);
         me.size=obj.size;
         me.num=obj.num;
-        me.color=obj.color;
         me.type=obj.type;
         me.price=obj.price;
         me.initInfo();
@@ -24,6 +23,7 @@ orderConfirm=function(){
         $("#orderSizeInit").html(me.size);
         $("#orderNumInit").html(me.num);
         $("#showConfirmPrice").html(me.price+"元");
+        $("#confirmShirtColor").attr("src","../img/teef"+me.type+".png");
     };
     this.initTime=function(){
         var d = new Date();
