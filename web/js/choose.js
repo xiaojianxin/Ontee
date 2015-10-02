@@ -35,7 +35,9 @@ editTee=function(){
    me.picData=["",""];
    this.select={};
    this.hasSelected=me.drawBack.circle(0);
-   this.fontArr=["宋体","黑体","微软雅黑","微软正黑体"," 新宋体","新细明体"," 细明体","标楷体","仿宋","楷体","幼圆"];
+   this.fontArr=["STHeiti","STKaiti","STSong","STFangsong","LiHei Pro Medium","LiSong Pro Light","BiauKai",
+   "PMingLiU","MingLiU","DFKai-SB","SimHei","SimSun","NSimSun","FangSong",
+      "KaiTi","Microsoft YaHei"];
    this.colorArr=["#F0F8FF","#FAEBD7","#00FFFF","#7FFFD4","#F0FFFF","#F5F5DC", "#FFE4C4","#000000",
       "#FFEBCD","#0000FF","#8A2BE2", "#A52A2A","#DEB887","#5F9EA0","#D2691E","#FF7F50","#6495ED",
       "#7FFF00","#6495ED","#FFF8DC", "#DC143C","#00FFFF","#00008B","#008B8B","#B8860B","#A9A9A9",
@@ -127,7 +129,6 @@ editTee=function(){
             me.svgElementArr.push(text);
             me.svgElementEvent();
             me.selectFunc(text);
-            $("input[name='textAreaValue']").val("");
          }
 
       });
@@ -252,8 +253,9 @@ editTee=function(){
 
          $("#upPicBack").hide();
          $("#upPicFront").show();
-         me.select.select(false);
-         me.hasSelected.select(false);
+         if(!me.select){  me.select.select(false);}
+         if(!me.hasSelected){ me.hasSelected.select(false);}
+
          $('.tShirtPic').attr('src','../img/teef'+me.type+".png");
 
       });
@@ -265,8 +267,8 @@ editTee=function(){
          else{$('.tShirtPic').attr('src','../img/teewb.png');}
          $("#upPicFront").hide();
          $("#upPicBack").show();
-         me.select.select(false);
-         me.hasSelected.select(false);
+         if(!me.select){me.select.select(false)}
+         if(!me.hasSelected){me.hasSelected.select(false);}
       });
       $(".insertText").click(function(){
          $("#svgIconBox").hide();
