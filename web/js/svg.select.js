@@ -56,6 +56,7 @@
         // set.get(1) is always in the upper left corner. no need to move it
         if (this.options.points) {
             this.rectSelection.set.get(1).center(0, bbox.height+15);
+            this.rectSelection.set.get(3).center(bbox.width,0);
         }
         if (this.options.rotationPoint) {
             this.rectSelection.set.get(2).center(bbox.width, bbox.height+15);
@@ -101,6 +102,14 @@
                 }));
 
         }
+        if (this.options.points && !this.rectSelection.set.get(3)) {
+            this.rectSelection.set.add(this.nested.image("../img/delete.png").attr('class', this.options.classPoints + '_rt').mousedown(getMoseDownFunc('rt')));
+            this.rectSelection.set.each(function () {
+                this.addClass(_this.options.classPoints);
+            });
+        }
+
+
 
     };
 
@@ -238,6 +247,7 @@
         // We listen to all these events which are specifying different edges
 
         this.el.on('lb.resize', function(e){ _this.resize(e || window.event); });  // Left-Bottom
+        this.el.on('rt.resize', function(e){ _this.resize(e || window.event); });  // Left-Bottom
         this.el.on('rot.resize', function(e){ _this.resize(e || window.event); }); // Rotation
         this.update();
 
@@ -246,6 +256,7 @@
     ResizeHandler.prototype.stop = function(){
 
         this.el.off('lb.resize');
+        this.el.off('rt.resize');
         this.el.off('rot.resize');
         return this;
     };
@@ -285,6 +296,16 @@
                     var snap = this.snapToGrid(diffX, diffY, 1);
                     if (this.parameters.box.width - snap[0] > 0 && this.parameters.box.height + snap[1] > 0) {
                         this.el.move(this.parameters.box.x + snap[0], this.parameters.box.y).size(this.parameters.box.width - snap[0], this.parameters.box.height + snap[1]);
+                    }
+                };
+                break;
+            case 'rt':
+                // s.a.
+                this.calc = function (diffX, diffY) {
+                    this.el.remove();
+                    var svg=$("#upPicFront").prev().attr("id");
+                    if(svg.indexOf("Svg")+1){
+                        $("#upPicFront").prev().remove();
                     }
                 };
                 break;
