@@ -8,7 +8,9 @@
     fill: #F9FFED;
     cursor: pointer;
 }
-
+.svg_select_points_rt {
+    cursor: pointer;
+}
 
 
 .svg_select_boundingRect{

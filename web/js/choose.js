@@ -253,8 +253,10 @@ editTee=function(){
 
          $("#upPicBack").hide();
          $("#upPicFront").show();
-         if(!me.select){  me.select.select(false);}
-         if(!me.hasSelected){ me.hasSelected.select(false);}
+         var svg=$("#upPicFront").prev().attr("id");
+         if(svg.indexOf("Svg")+1){
+            $("#upPicFront").prev().remove();
+         }
 
          $('.tShirtPic').attr('src','../img/teef'+me.type+".png");
 
@@ -267,8 +269,10 @@ editTee=function(){
          else{$('.tShirtPic').attr('src','../img/teewb.png');}
          $("#upPicFront").hide();
          $("#upPicBack").show();
-         if(!me.select){me.select.select(false)}
-         if(!me.hasSelected){me.hasSelected.select(false);}
+         var svg=$("#upPicFront").prev().attr("id");
+         if(svg.indexOf("Svg")+1){
+            $("#upPicFront").prev().remove();
+         }
       });
       $(".insertText").click(function(){
          $("#svgIconBox").hide();
