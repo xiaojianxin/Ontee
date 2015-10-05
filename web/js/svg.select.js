@@ -331,13 +331,29 @@
                     this.el.center(this.parameters.box.cx, this.parameters.box.cy).rotate(this.parameters.rotation + angle - angle % this.options.snapToAngle, this.parameters.box.cx, this.parameters.box.cy);
                 };
         }
-        // When resizing started, we have to register events for...
-        SVG.on(window, 'mousemove.resize', function (e) {
-            _this.update(e || window.event);
-        });    // mousemove to keep track of the changes and...
-        SVG.on(window, 'mouseup.resize', function () {
-            _this.done();
-        });
+        if(event.type=="rt"){
+            SVG.on(window, 'mousedown.resize', function (e) {
+                _this.update(e || window.event);
+
+            });    // mousemove to keep track of the changes and...
+            SVG.on(window, 'mouseup.resize', function () {
+                this.lastUpdateCall = null;
+                SVG.off(window, 'mousedown.resize');
+                SVG.off(window, 'mouseup.resize');
+            });
+        }
+        else{
+            // When resizing started, we have to register events for...
+            SVG.on(window, 'mousemove.resize', function (e) {
+                _this.update(e || window.event);
+
+            });    // mousemove to keep track of the changes and...
+            SVG.on(window, 'mouseup.resize', function () {
+                _this.done();
+            });
+
+        }
+
     };
     // The update-function redraws the element every time the mouse is moving
     ResizeHandler.prototype.update = function (event) {
