@@ -315,10 +315,6 @@ editTee=function(){
             $("#printTeeColor").attr("src","../img/teef"+me.type+".png");
             $("#printEditTee").attr("src",me.picData[0]);
          }});
-
-
-
-
       });
       $("#nextStepButton").click(function(){
          $(".chooseContent").hide();
