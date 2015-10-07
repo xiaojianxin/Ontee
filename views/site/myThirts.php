@@ -17,6 +17,7 @@ $this->title = 'Ontee';
                 <div class="oneTshirt">
                     <img src="<?=Url::to('@web/img/teef'.$order->type.".png");?>">
                     <img class="printSelfTshirt" src="<?=Url::to('@web/'.$order->frontpic);?>">
+                    <span class="zoomInIcon"><i class="glyphicon glyphicon-zoom-in"></i></span>
                     <div class="btnArea">
                         <span>删除</span><span>|</span><span>购买</span>
                     </div>
@@ -26,10 +27,38 @@ $this->title = 'Ontee';
                     <div>创建时间：<?=date('Y-m-d',$order->createtime)?></div>
                 </div>
             </div>
+
+
+
+
           <?php } ?>
 
         </div>
     </div>
+    <div class="modal fade" id="showBigTshirt" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                        ×
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <img id="backgroundPic" src=""/>
+                    <img id="editPic" src=""/>
+                </div>
+                <div class="modal-footer">
+
+                    <button type="button" class="btn btn-default" data-dismiss="modal">
+                        关闭
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
     <div class="row">
         <div class="myholder myshirtHolder">
             <a class="jp-previous jp-disabled">← previous</a>

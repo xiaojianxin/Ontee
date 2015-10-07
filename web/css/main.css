@@ -57,8 +57,7 @@ a{
 	width: 500px;
 	height: 250px;
 	background: rgba(0,0,0, 0.6);
-
-	margin-left: auto;
+	margin-left:auto;
 	margin-right: auto;
 }
 #modalBox .modalClose{
@@ -1117,6 +1116,19 @@ a{
 	text-align: center;
 
 }
+.zoomInIcon{
+	position: absolute;
+	top:120px;
+	left:150px;
+	text-align:center;
+}
+.zoomInIcon i{
+	color:white;
+	font-size: 50px;
+	cursor: pointer;
+
+
+}
 .oneTshirt .btnArea span{
 	text-align: center;
 	color:white;
@@ -1176,3 +1188,29 @@ a{
 }
 
 .myholder span { margin: 0 5px; }
+#showBigTshirt{
+	top:2%;
+	width:600px;
+	height:800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#showBigTshirt .modal-body{
+	position: relative;
+	height:480px;
+}
+#showBigTshirt .modal-body #backgroundPic{
+	position: absolute;
+	width:360px;
+	height:450px;
+	left:120px;
+	margin: auto 0;
+}
+#showBigTshirt .modal-body #editPic{
+	position: absolute;
+	top:80px;
+	width:180px;
+	height:300px;
+	left:210px;
+}
