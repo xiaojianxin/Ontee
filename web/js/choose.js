@@ -299,15 +299,17 @@ editTee=function(){
       });
       $(".nextBtn").click(function(){
          var svgHtmlBack= me.drawBack.svg();
-         canvg("printCanvasBack",svgHtmlBack,{renderCallback:function(){  //var imgSrcFront = document.getElementById("printCanvasFront").toDataURL("image/png");
+         var sBack = svgHtmlBack.replace("NS1","xlink");
+         canvg("printCanvasBack",sBack,{renderCallback:function(){  //var imgSrcFront = document.getElementById("printCanvasFront").toDataURL("image/png");
             var imgSrcBack = document.getElementById("printCanvasBack").toDataURL("image/png");
             me.picData[1]=imgSrcBack;
+
          }});
          var svgHtmlFront= me.drawFront.svg();
-         canvg("printCanvasFront",svgHtmlFront,{renderCallback:function(){
+         var sFront = svgHtmlFront.replace("NS1","xlink");
+         canvg("printCanvasFront",sFront,{renderCallback:function(){
             var imgSrcFront = document.getElementById("printCanvasFront").toDataURL("image/png");
             me.picData[0]=imgSrcFront;
-            $("#testPic").attr("src",me.picData[0]);
             $(".editContent").hide();
             $("#confirmContent").show();
             $("#printTeeColor").attr("src","../img/teef"+me.type+".png");
