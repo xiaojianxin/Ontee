@@ -138,7 +138,11 @@ $status = $this->context->layout_data['status'];
 </div><!-- /.modal -->
 <?php $this->beginBlock("sign")?>
 $.getScript("<?=Url::to('@web/js/sign.js');?>");
-var num=<?=$status?>;
+var num=<?php if(empty($status)){
+    echo 0;
+}else{
+    echo $status;
+}?>;
 $(".nav-item").children('span').eq(num).addClass("active");
 <?php $this->endBlock()?>
 <?php $this->registerJs($this->blocks['sign'],\yii\web\View::POS_END)?>

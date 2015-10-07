@@ -255,4 +255,10 @@ class SiteController extends Controller
         echo "1";
     }
 
+    public function actionOrdersuccess()
+    {
+
+        return $this->render("orderSuccess");
+    }
+
 }
