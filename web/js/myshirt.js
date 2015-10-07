@@ -16,6 +16,16 @@ myshirt=function(){
         });
         $("#makeTshirt").click(function(){
             window.location.href="../site/choose";
+        });
+        $(".zoomInIcon").each(function(){
+            $(this).click(function(){
+                var editSrc=$(this).prev().attr("src");
+                var bgSrc=$(this).prev().prev().attr("src");
+
+                $("#backgroundPic").attr("src",bgSrc);
+                $("#editPic").attr("src",editSrc);
+                $("#showBigTshirt").modal('show');
+            })
         })
     }
 };
