@@ -87,14 +87,14 @@
         }
         // Draw Points at the edges, if enabled
         if (this.options.points && !this.rectSelection.set.get(1)) {
-            this.rectSelection.set.add(this.nested.image("../img/la.png").center(-16, bbox.height-1).attr('class', this.options.classPoints + '_lb').mousedown(getMoseDownFunc('lb')));
+            this.rectSelection.set.add(this.nested.image("../img/la.png").center(-20, bbox.height-5).attr('class', this.options.classPoints + '_lb').mousedown(getMoseDownFunc('lb')));
             this.rectSelection.set.each(function () {
                 this.addClass(_this.options.classPoints);
             });
         }
         // draw rotationPint, if enabled
         if (this.options.rotationPoint && !this.rectSelection.set.get(2)) {
-            this.rectSelection.set.add(this.nested.image("../img/rotate.png").center(bbox.width-16, bbox.height-1).attr('class', this.options.classPoints + '_rot')
+            this.rectSelection.set.add(this.nested.image("../img/rotate.png").center(bbox.width-16, bbox.height).attr('class', this.options.classPoints + '_rot')
                 .mousedown(function (ev) {
                     ev = ev || window.event;
                     ev.preventDefault ? ev.preventDefault() : ev.returnValue = false;
