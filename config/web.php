@@ -2,6 +2,8 @@
 
 $params = require(__DIR__ . '/params.php');
 
+Yii::$classMap['Alipay'] = '@app/lib/Alipay.php';
+
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),
