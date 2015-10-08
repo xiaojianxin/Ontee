@@ -46,10 +46,10 @@
         var bbox = this.el.bbox();
 
         this.rectSelection.set.get(0).attr({
-            width: bbox.width+10,
+            width: bbox.width,
             height: bbox.height+20,
-            x:-5,
-            y:-5
+            x:0,
+            y:0
         });
         this.rectSelection.set.get(0).addClass("centerRect");
 
@@ -83,18 +83,18 @@
 
         // create the selection-rectangle and add the css-class
         if (!this.rectSelection.set.get(0)) {
-            this.rectSelection.set.add(this.nested.rect(bbox.width+10, bbox.height+20).addClass(this.options.classRect));
+            this.rectSelection.set.add(this.nested.rect(bbox.width, bbox.height+20).addClass(this.options.classRect));
         }
         // Draw Points at the edges, if enabled
         if (this.options.points && !this.rectSelection.set.get(1)) {
-            this.rectSelection.set.add(this.nested.image("../img/la.png").attr('class', this.options.classPoints + '_lb').mousedown(getMoseDownFunc('lb')));
+            this.rectSelection.set.add(this.nested.image("../img/la.png").center(-16, bbox.height-1).attr('class', this.options.classPoints + '_lb').mousedown(getMoseDownFunc('lb')));
             this.rectSelection.set.each(function () {
                 this.addClass(_this.options.classPoints);
             });
         }
         // draw rotationPint, if enabled
         if (this.options.rotationPoint && !this.rectSelection.set.get(2)) {
-            this.rectSelection.set.add(this.nested.image("../img/rotate.png").center(bbox.width, bbox.height).attr('class', this.options.classPoints + '_rot')
+            this.rectSelection.set.add(this.nested.image("../img/rotate.png").center(bbox.width-16, bbox.height-1).attr('class', this.options.classPoints + '_rot')
                 .mousedown(function (ev) {
                     ev = ev || window.event;
                     ev.preventDefault ? ev.preventDefault() : ev.returnValue = false;
@@ -103,7 +103,7 @@
 
         }
         if (this.options.points && !this.rectSelection.set.get(3)) {
-            this.rectSelection.set.add(this.nested.image("../img/delete.png").attr('class', this.options.classPoints + '_rt').mousedown(getMoseDownFunc('rt')));
+            this.rectSelection.set.add(this.nested.image("../img/delete.png").center(bbox.width-16, -16).attr('class', this.options.classPoints + '_rt').mousedown(getMoseDownFunc('rt')));
             this.rectSelection.set.each(function () {
                 this.addClass(_this.options.classPoints);
             });
@@ -116,7 +116,7 @@
     SelectHandler.prototype.handler = function () {
 
         var bbox = this.el.bbox();
-        this.nested.size(bbox.width+10 || 1, bbox.height+20 || 1).transform(this.el.ctm()).move(bbox.x, bbox.y);
+        this.nested.size(bbox.width|| 1, bbox.height+20 || 1).transform(this.el.ctm()).move(bbox.x, bbox.y);
 
         if (this.rectSelection.isSelected) {
             this.updateRectSelection();
@@ -200,7 +200,7 @@
         points: true,                            // If true, points at the edges are drawn. Needed for resize!
         classRect: 'svg_select_boundingRect',    // Css-class added to the rect
         classPoints: 'svg_select_points',        // Css-class added to the points
-        radius: 7,                               // radius of the points
+        radius: 16,                               // radius of the points
         rotationPoint: true,                     // If true, rotation point is drawn. Needed for rotation!
         deepSelect: false                        // If true, moving of single points is possible (only line, polyline, polyon)
     };

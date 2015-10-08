@@ -27,7 +27,7 @@ editTee=function(){
       color:"grey",
       bold:false,
       bend:false,
-      fontSize:14,
+      fontSize:18,
       fontFamily:"宋体"
    };
    me.size="S";
@@ -194,7 +194,7 @@ editTee=function(){
                );
             }
 
-            image.center(10,10);
+            image.center(15,20);
             me.svgElementArr.push(image);
             me.svgElementEvent();
             me.selectFunc(image);
