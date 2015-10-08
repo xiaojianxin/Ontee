@@ -16,6 +16,8 @@ orderConfirm=function(){
         setup();
         preselect('北京市');
         promptinfo();
+
+        me.addressId=0;
     };
     this.initInfo=function(){
         var time=me.initTime();
@@ -117,7 +119,35 @@ orderConfirm=function(){
                 }
             })
         });
-    }
+        $(".addressContainer .oneAddr").each(function(){
+            $(this).click(function(){
+                $(".addressContainer .oneAddr").removeClass("active");
+                $(this).addClass("active");
+                me.addressId=parseInt($(this).first().first().text());
+            })
+        });
+        $("#confirmPayBtn").click(function(){
+            me.payOrderAjax();
+        })
+    };
+    this.payOrderAjax=function(){
+        var orderId=$("#orderNumber").text();
+        var num=me.num;
+        var price=me.price;
+        var addrId=me.addressId;
+        console.log(orderId+","+num+","+price+","+addrId);
+        $.ajax({
+            type:"POST",
+            url:"",
+            data:{orderId:orderId,num:num,price:price,addressId:addrId},
+            success:function(){
+
+            },
+            error:function(){
+
+            }
+        })
+    };
 };
 var confirm= new orderConfirm();
 confirm.init();

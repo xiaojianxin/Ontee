@@ -21,9 +21,9 @@ $this->title = 'Ontee';
         <div class="row">
             <?php
             foreach ($address as $add){?>
-                <div class="oneAddr  active">
-
+                <div class="oneAddr">
                     <div class="oneBox">
+                        <div class="addressId" style="display: none;"><?=$add->id?></div>
                         <div class="addressText">地址：</div>
                         <div class="address"><?=$add->location?></div>
                         <div class="addressText">详细地址：</div>
@@ -138,7 +138,7 @@ $this->title = 'Ontee';
             </div>
 
         </div>
-        <div class="payButton btn btn-success">支付
+        <div class="payButton btn btn-success" id="confirmPayBtn">支付
         </div>
     </div>
 </div>
