@@ -9,7 +9,7 @@ class Alipay{
         private $alipay_config;
         public function init()
         {
-            require_once("/../config/alipay/alipay.config.php");
+            require_once("alipay.config.php");
             $this->alipay_config = $alipay_config;
         }
         function myPay($trade_no, $subject, $fee) {
