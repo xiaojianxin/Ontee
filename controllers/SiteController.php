@@ -276,16 +276,16 @@ class SiteController extends Controller
         $Order->num = $num;
         $Order->price = $price;
         $Order->addressid = $addressId;
-        $orderId = md5($orderId);
+        // $orderId = md5($orderId);
         $name = $orderId.Yii::$app->session['userid'];
         if($Order->update()){
-            $result = $this->redirect(Url::to(['pay/alipay',
+            return $this->redirect(Url::to(['pay/alipay',
                 'WIDout_trade_no' => $orderId,
                 'WIDsubject' => $name,
-                'WIDtotal_fee' => $price,
+                'WIDtotal_fee' => "0.01",
             ]));
         }else{
-            echo "1";
+            return false;
         }
 
     }

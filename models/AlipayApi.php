@@ -15,11 +15,11 @@ class AlipayApi {
         		$payment_type = "1";
         		//必填，不能修改
         		//服务器异步通知页面路径
-        		$notify_url = "http://localhost/basic/config/alipay/notify_url.php";
+        		$notify_url = "http://www.ontee.cn/pay/confirmpay";
         		//需http://格式的完整路径，不能加?id=123这类自定义参数
 
         		//页面跳转同步通知页面路径
-        		$return_url = "http://localhost/basic/config/alipay/return_url.php";
+        		$return_url = "http://www.ontee.cn/pay/paysuccess";
         		//需http://格式的完整路径，不能加?id=123这类自定义参数，不能写成http://localhost/
 
         		//商户订单号
@@ -73,8 +73,8 @@ class AlipayApi {
 
 				//建立请求
 				$alipaySubmit = new Alipaysubmit($alipay_config);
-				$html_text = $alipaySubmit->buildRequestForm($parameter,"get", "确认");
-				echo $html_text;
+				$html_text = $alipaySubmit->buildRequestForm($parameter,"get",'');
+				// echo $html_text;
         }
 }
 

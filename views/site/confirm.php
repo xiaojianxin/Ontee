@@ -138,13 +138,13 @@ $this->title = 'Ontee';
             </div>
 
         </div>
-        
-            <input name="orderId"  value=''>
+        <form action="/site/pay" method="post">
+            <input name="orderId" style="display:none;" value=''>
             <input name="num" style="display:none;">
             <input name="price" style="display:none;">
             <input name="addressId" style="display:none;">
             <input id='submit' style="display:none;" type="submit" />
-            
+        </form> 
         
         <div id="confirmPayBtn" class="btn btn-success payButton">支付</div>
     </div>

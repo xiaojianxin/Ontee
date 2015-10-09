@@ -126,13 +126,15 @@ orderConfirm=function(){
                 me.addressId=parseInt($(this).first().first().text());
             })
         });
-        $("#confirmPayBtn").click(function(){ 
-            $("input[name='orderId']").value='111';
-            $("input[name='num']").value=me.num;
-            $("input[name='price']").value=me.price;
-            $("input[name='addressId']").value=me.addressId;
-            
-        
+        $("#confirmPayBtn").click(function(){
+
+            var orderId =  $('#orderNumber').text();
+            $("input[name='orderId']").attr('value',orderId);
+            $("input[name='num']").attr('value',me.num);
+            $("input[name='price']").attr('value',me.price);
+            $("input[name='addressId']").attr('value',me.addressId);
+
+            return $('#submit').click();
             
         })
     };
