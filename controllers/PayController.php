@@ -15,10 +15,10 @@ class PayController extends Controller{
 
         public $alipay_config;
 
-        // public function init(){
-        //     require_once("/../config/alipay/alipay.config.php");
-        //     $this->alipay_config = $alipay_config;
-        // }
+        public function init(){
+            require_once("alipay.config.php");
+            $this->alipay_config = $alipay_config;
+        }
 		public function actionConfirmpay(){
     
            $alipayNotify = new AlipayNotify($this->alipay_config);
