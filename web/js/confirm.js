@@ -126,28 +126,17 @@ orderConfirm=function(){
                 me.addressId=parseInt($(this).first().first().text());
             })
         });
-        $("#confirmPayBtn").click(function(){
-            me.payOrderAjax();
+        $("#confirmPayBtn").click(function(){ 
+            $("input[name='orderId']").value='111';
+            $("input[name='num']").value=me.num;
+            $("input[name='price']").value=me.price;
+            $("input[name='addressId']").value=me.addressId;
+            
+        
+            
         })
     };
-    this.payOrderAjax=function(){
-        var orderId=$("#orderNumber").text();
-        var num=me.num;
-        var price=me.price;
-        var addrId=me.addressId;
-        console.log(orderId+","+num+","+price+","+addrId);
-        $.ajax({
-            type:"POST",
-            url:"",
-            data:{orderId:orderId,num:num,price:price,addressId:addrId},
-            success:function(){
-
-            },
-            error:function(){
-
-            }
-        })
-    };
+    
 };
 var confirm= new orderConfirm();
 confirm.init();

@@ -138,8 +138,15 @@ $this->title = 'Ontee';
             </div>
 
         </div>
-        <div class="payButton btn btn-success" id="confirmPayBtn">支付
-        </div>
+        
+            <input name="orderId"  value=''>
+            <input name="num" style="display:none;">
+            <input name="price" style="display:none;">
+            <input name="addressId" style="display:none;">
+            <input id='submit' style="display:none;" type="submit" />
+            
+        
+        <div id="confirmPayBtn" class="btn btn-success payButton">支付</div>
     </div>
 </div>
 <?php $this->beginBlock("confirm")?>

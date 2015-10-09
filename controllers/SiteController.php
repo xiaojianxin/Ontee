@@ -261,4 +261,33 @@ class SiteController extends Controller
         return $this->render("orderSuccess");
     }
 
+
+
+    public function actionPay(){
+
+        $post = Yii::$app->request->post();
+        $orderId = $post['orderId'];
+        $num = $post['num'];
+        $price = $post['price'];
+        $addressId = $post['addressId'];
+
+        $Order = Order::find()->where(['id' => $orderId])->one();
+
+        $Order->num = $num;
+        $Order->price = $price;
+        $Order->addressid = $addressId;
+        $orderId = md5($orderId);
+        $name = $orderId.Yii::$app->session['userid'];
+        if($Order->update()){
+            $result = $this->redirect(Url::to(['pay/alipay',
+                'WIDout_trade_no' => $orderId,
+                'WIDsubject' => $name,
+                'WIDtotal_fee' => $price,
+            ]));
+        }else{
+            echo "1";
+        }
+
+    }
+
 }
