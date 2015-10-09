@@ -15,16 +15,37 @@ class PayController extends Controller{
 
         public $alipay_config;
 
-        public function init(){
-            require_once("lib/alipay.config.php");
-            $this->alipay_config = $alipay_config;
-        }
 		public function actionConfirmpay(){
-    
-           $alipayNotify = new AlipayNotify($this->alipay_config);
-           $verify_result = $alipayNotify->verifyNotify();
+            
+            $this->alipay_config['partner']        = '2088021811676105';
 
-           if($verify_result) {//验证成功
+            //收款支付宝账号
+            $this->alipay_config['seller_email']  = 'ot@ontee.cn';
+
+            //安全检验码，以数字和字母组成的32位字符
+            $this->alipay_config['key']           = '84v8foymt7w60ph3hqjs81c4fr7t7fm9';
+
+
+            //↑↑↑↑↑↑↑↑↑↑请在这里配置您的基本信息↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
+
+
+            //签名方式 不需修改
+            $this->alipay_config['sign_type']    = strtoupper('MD5');
+
+            //字符编码格式 目前支持 gbk 或 utf-8
+            $this->alipay_config['input_charset']= strtolower('utf-8');
+
+            //ca证书路径地址，用于curl中ssl校验
+            //请保证cacert.pem文件在当前文件夹目录中
+            $this->alipay_config['cacert']    = getcwd().'\\cacert.pem';
+
+            //访问模式,根据自己的服务器是否支持ssl访问，若支持请选择https；若不支持请选择http
+            $this->alipay_config['transport']    = 'http'; 
+            
+            $alipayNotify = new AlipayNotify($this->alipay_config);
+            $verify_result = $alipayNotify->verifyNotify();
+
+            if($verify_result) {//验证成功
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //请在这里加上商户的业务逻辑程序代
 
