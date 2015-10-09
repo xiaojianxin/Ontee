@@ -399,7 +399,7 @@ a{
 	width: 180px;
 	margin: 0 auto;
 	margin-top: -320px;
-	margin-left: 94px;
+	margin-left: 90px;
 	z-index: 3;
 	height:300px;
 
@@ -538,7 +538,7 @@ a{
 }
 .printTee #printEditTee{
 	position: absolute;
-	top:180px;
+	top:200px;
 	left:130px;
 	width:225px;
 }
@@ -633,6 +633,7 @@ a{
 	margin-top:10px;
 	height:220px;
 	margin-bottom: 20px;
+	cursor: pointer;
 }
 
 .oneAddr .oneBox{
@@ -1083,6 +1084,9 @@ a{
 	width:120px;
 
  }
+.oneSelfAddr .deleteAddr{
+	cursor: pointer;
+}
 /*******************************************************我的T恤页面*****************************************************/
 .tshirtsList{
 	height:620px;

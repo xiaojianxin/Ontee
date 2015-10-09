@@ -21,9 +21,9 @@ $this->title = 'Ontee';
         <div class="row">
             <?php
             foreach ($address as $add){?>
-                <div class="oneAddr  active">
-
+                <div class="oneAddr">
                     <div class="oneBox">
+                        <div class="addressId" style="display: none;"><?=$add->id?></div>
                         <div class="addressText">地址：</div>
                         <div class="address"><?=$add->location?></div>
                         <div class="addressText">详细地址：</div>
@@ -138,8 +138,15 @@ $this->title = 'Ontee';
             </div>
 
         </div>
-        <div class="payButton btn btn-success">支付
-        </div>
+        <form action="/site/pay" method="post">
+            <input name="orderId" style="display:none;" value=''>
+            <input name="num" style="display:none;">
+            <input name="price" style="display:none;">
+            <input name="addressId" style="display:none;">
+            <input id='submit' style="display:none;" type="submit" />
+        </form> 
+        
+        <div id="confirmPayBtn" class="btn btn-success payButton">支付</div>
     </div>
 </div>
 <?php $this->beginBlock("confirm")?>

@@ -2,6 +2,9 @@
 
 $params = require(__DIR__ . '/params.php');
 
+Yii::$classMap['Alipay'] = '@app/lib/Alipay.php';
+Yii::$classMap['AlipayNotify'] = '@app/lib/alipay_notify.class.php';
+
 $config = [
     'id' => 'basic',
     'basePath' => dirname(__DIR__),

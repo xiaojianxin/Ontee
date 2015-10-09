@@ -113,13 +113,14 @@ $this->title = 'Ontee';
           <div class='oneSelfAddr'>
              <div class='thumbnail'>
                  <div style='width: 75%;margin-left: 30px;margin-top: 15px; float:left;'>
+                     <span class="addrId" style="display: none;"><?=$add->id?></span>
                      <div class='orderText'>地址：<?=$add->location?></div>
                      <span>收货人：</span><span class='showForm'><?=$add->receiver?></span>
                      <span>电话：</span><span class='showForm'><?=$add->telephone?></span>
                      <span>邮编：</span><span class='showForm'><?=$add->code?></span>
                  </div>
                  <div class='manageButton' style='float: left;margin-top: 20px;'>
-                     <span>修改</span><span>｜</span><span>删除</span>
+                     <span>修改</span><span>｜</span><span class="deleteAddr"> 删除</span>
                  </div>
              </div>
          </div>
