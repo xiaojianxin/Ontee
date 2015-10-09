@@ -2,7 +2,7 @@
 require_once("alipay_core.function.php");
 require_once("alipay_submit.class.php");
 
-// require_once("/../config/alipay/Liu.php");
+ require_once("Liu.php");
 
 
 class Alipay{
