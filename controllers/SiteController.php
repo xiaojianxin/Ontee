@@ -282,7 +282,7 @@ class SiteController extends Controller
             return $this->redirect(Url::to(['pay/alipay',
                 'WIDout_trade_no' => $orderId,
                 'WIDsubject' => $name,
-                'WIDtotal_fee' => "0.01",
+                'WIDtotal_fee' => $price,
             ]));
         }else{
             return false;
