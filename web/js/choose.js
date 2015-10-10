@@ -306,7 +306,7 @@ editTee=function(){
 
          }});
          var svgHtmlFront= me.drawFront.svg();
-         var sFront = svgHtmlFront.replace("NS1","xlink");
+         var sFront = svgHtmlFront.replace("NS1:href=","xlink:href=");
          canvg("printCanvasFront",sFront,{renderCallback:function(){
             var imgSrcFront = document.getElementById("printCanvasFront").toDataURL("image/png");
             me.picData[0]=imgSrcFront;
