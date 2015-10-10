@@ -127,27 +127,18 @@ orderConfirm=function(){
             })
         });
         $("#confirmPayBtn").click(function(){
-            me.payOrderAjax();
+
+            var orderId =  $('#orderNumber').text();
+            $("input[name='orderId']").attr('value',orderId);
+            $("input[name='num']").attr('value',me.num);
+            $("input[name='price']").attr('value',me.price);
+            $("input[name='addressId']").attr('value',me.addressId);
+
+            return $('#submit').click();
+            
         })
     };
-    this.payOrderAjax=function(){
-        var orderId=$("#orderNumber").text();
-        var num=me.num;
-        var price=me.price;
-        var addrId=me.addressId;
-        console.log(orderId+","+num+","+price+","+addrId);
-        $.ajax({
-            type:"POST",
-            url:"",
-            data:{orderId:orderId,num:num,price:price,addressId:addrId},
-            success:function(){
-
-            },
-            error:function(){
-
-            }
-        })
-    };
+    
 };
 var confirm= new orderConfirm();
 confirm.init();

@@ -122,6 +122,20 @@ person=function(){
                 }
             })
         });
+        $(".oneSelfAddr .deleteAddr").click(function(){
+            var id=$(this).parent().parent().find(".addrId").html();
+            $.ajax({
+                type:"POST",
+                url:"",
+                data:{addressId:id},
+                success:function(){
+
+                },
+                error:function(){
+
+                }
+            })
+        })
         
     };
     this.updateInfoAjax=function(){

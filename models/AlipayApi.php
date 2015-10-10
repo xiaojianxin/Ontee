@@ -1,19 +1,14 @@
 <?php
-require_once("alipay_core.function.php");
-require_once("alipay_submit.class.php");
+namespace app\models;
 
+// use app\lib\alipay_submit;
+use app\models\alipay_submit;
 
+// require_once("../config/alipay/alipay.config.php");
+// require_once("../lib/alipay_submit.class.php");
 
-class Alipay{
-        private $alipay_config;
-        public function init()
-        {
-
-            require_once("alipay.config.php");
-            $this->alipay_config = $alipay_config;
-        }
+class AlipayApi {
         function myPay($trade_no, $subject, $fee) {
-                $this->init();
         		/**************************请求参数**************************/
 
         		//支付类型
@@ -38,14 +33,13 @@ class Alipay{
         		//付款金额
         		$total_fee = $fee;
         		//必填
+
         		//订单描述
 
-        		//$body = $_POST['WIDbody'];
-                $body = '';
+        		// $body = $_POST['WIDbody'];
 
         		//商品展示地址
-        		//$show_url = $_POST['WIDshow_url'];
-                $show_url = '';
+        		// $show_url = $_POST['WIDshow_url'];
         		//需以http://开头的完整路径，例如：http://www.商户网址.com/myorder.html
 
         		//防钓鱼时间戳
@@ -62,8 +56,8 @@ class Alipay{
 				//构造要请求的参数数组，无需改动
 				$parameter = array(
 					"service" => "create_direct_pay_by_user",
-					"partner" => trim($this->alipay_config['partner']),
-					"seller_email" => trim($this->alipay_config['seller_email']),
+					"partner" => trim($alipay_config['partner']),
+					"seller_email" => trim($alipay_config['seller_email']),
 					"payment_type"	=> $payment_type,
 					"notify_url"	=> $notify_url,
 					"return_url"	=> $return_url,
@@ -74,14 +68,13 @@ class Alipay{
 					"show_url"	=> $show_url,
 					"anti_phishing_key"	=> $anti_phishing_key,
 					"exter_invoke_ip"	=> $exter_invoke_ip,
-					"_input_charset"	=> trim(strtolower($this->alipay_config['input_charset']))
+					"_input_charset"	=> trim(strtolower($alipay_config['input_charset']))
 				);
 
 				//建立请求
-				$alipaySubmit = new Alipaysubmit($this->alipay_config);
-				$html_text = $alipaySubmit->buildRequestForm($parameter,"get", "确认");
-				echo $html_text;
+				$alipaySubmit = new Alipaysubmit($alipay_config);
+				$html_text = $alipaySubmit->buildRequestForm($parameter,"get",'');
+				// echo $html_text;
         }
 }
 
-?>
