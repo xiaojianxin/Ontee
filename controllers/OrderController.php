@@ -71,4 +71,18 @@ class OrderController extends Controller{
 	    	}
 		}
     }
+
+    public function actionDeletephoto(){
+
+    	$post =  Yii::$app->request->post();
+    	$OrderId = $post['id'];
+    	$Order = Order::find()->where(['id' => $OrderId])->one();
+    	$Order->show = 1;
+    	if($Order->update()){
+    		echo "0";
+    	}else{
+    		echo "-1";
+    	}
+
+    }
 }
