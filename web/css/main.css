@@ -2,6 +2,36 @@ body{
 	background: url("../img/bg.jpg");
 	min-width: 720px;
 }
+@font-face {
+	font-family:'ChalkboardSE';
+	src: url('./fonts/ChalkboardSE.ttc'); /* IE9 Compat Modes */
+	url('./fonts/ChalkboardSE.ttc')  format('truetype'), /* Safari, Android, iOS */
+}
+@font-face {
+	font-family:'Chalkduster';
+	src: url('./fonts/Chalkduster.ttf'); /* IE9 Compat Modes */
+url('./fonts/Chalkduster.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+@font-face {
+	font-family:'ComicSansMSBold';
+	src: url('./fonts/Comic Sans MS Bold.ttf'); /* IE9 Compat Modes */
+		url('./fonts/Comic Sans MS Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+@font-face {
+	font-family:'ComicSansMS';
+	src: url('./fonts/Comic Sans MS.ttf'); /* IE9 Compat Modes */
+url('./fonts/Comic Sans MS.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+@font-face {
+	font-family:'Copperplate';
+	src: url('./fonts/Copperplate.ttc'); /* IE9 Compat Modes */
+url('./fonts/Copperplate.ttc')  format('truetype'), /* Safari, Android, iOS */
+}
+@font-face {
+	font-family:'CourierNewBoldItalic';
+	src: url('./fonts/Courier New Bold Italic.ttf'); /* IE9 Compat Modes */
+url('./fonts/Courier New Bold Italic.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
 a{
 	text-decoration:none;
 }

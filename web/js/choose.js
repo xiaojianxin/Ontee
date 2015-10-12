@@ -35,7 +35,7 @@ editTee=function(){
    me.picData=["",""];
    this.select={};
    this.hasSelected=me.drawBack.circle(0);
-   this.fontArr=["STHeiti","STKaiti","STSong","STFangsong","LiHei Pro Medium","LiSong Pro Light","BiauKai",
+   this.fontArr=["ChalkboardSE","Chalkduster","ComicSansMSBold","ComicSansMS","Copperplate","CourierNewBoldItalic","BiauKai",
    "PMingLiU","MingLiU","DFKai-SB","SimHei","SimSun","NSimSun","FangSong",
       "KaiTi","Microsoft YaHei"];
    this.colorArr=["#F0F8FF","#FAEBD7","#00FFFF","#7FFFD4","#F0FFFF","#F5F5DC", "#FFE4C4","#000000",
@@ -306,7 +306,7 @@ editTee=function(){
 
          }});
          var svgHtmlFront= me.drawFront.svg();
-         var sFront = svgHtmlFront.replace("NS1","xlink");
+         var sFront = svgHtmlFront.replace("NS1:href=","xlink:href=");
          canvg("printCanvasFront",sFront,{renderCallback:function(){
             var imgSrcFront = document.getElementById("printCanvasFront").toDataURL("image/png");
             me.picData[0]=imgSrcFront;
@@ -412,7 +412,7 @@ editTee=function(){
    this.fontList=function(){
       me.fontArr.map(function(item){
          var str='';
-         str +="<option value="+item+">"+item+"</option>";
+         str +="<option value="+item+" style='font-family:"+item+"'>"+item+"</option>";
          $("#fontList").append(str);
       });
    };
