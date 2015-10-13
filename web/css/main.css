@@ -1248,3 +1248,28 @@ a{
 	height:300px;
 	left:210px;
 }
+.myOrderHolder a:hover {
+	background-color: #222;
+	color: #fff;
+	cursor: pointer;
+}
+
+.myOrderHolder a.jp-previous { margin-right: 15px; }
+.myOrderHolder a.jp-next { margin-left: 15px; }
+
+.myOrderHolder a.jp-current, a.jp-current:hover {
+	color: #FF4242;
+	font-weight: bold;
+}
+
+.myOrderHolder a.jp-disabled, a.jp-disabled:hover {
+	color: #bbb;
+}
+
+.myOrderHolder a.jp-current, a.jp-current:hover,
+.myOrderHolder a.jp-disabled, a.jp-disabled:hover {
+	cursor: default;
+	background: none;
+}
+
+.myOrderHolder span { margin: 0 5px; }

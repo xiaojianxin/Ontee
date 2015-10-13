@@ -17,6 +17,7 @@ $this->title = 'Ontee';
     <div class="userTitle">
         <div class="userPic">
             <div class="img-thumbnail" id="showUserHead">
+                <img src="./<?=$user->facepic?>"/>
             </div>
             <div style="height:5px">
             </div>
