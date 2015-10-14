@@ -55,6 +55,7 @@ class SaveController extends Controller
         $model =  User::find()->where(['userid' => Yii::$app->session['userid']])->one();
         $post = Yii::$app->request->post();
         $model->username = $post['username'];
+        Yii::$app->session['username'] = $post['username'];
         $model->nickname = $post['nickname'];
         $model->email = $post['email'];
         $model->description = $post['userinfo'];

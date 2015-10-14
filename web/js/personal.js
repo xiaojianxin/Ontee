@@ -115,10 +115,12 @@ person=function(){
                 dataType:"Json",
                 data:{address:address,detail:detail,phone:phone,name:receiver,code:zipCode},
                 success:function(data){
-                    alert('success');
+                        alertify.alert( "添加成功", function () { 
+                            window.location.href = window.location.href;
+                        });
                 },
                 error:function(){
-
+                        alertify.error("添加失败");
                 }
             })
         });
@@ -143,7 +145,7 @@ person=function(){
         var nickName=$("input[name='nickName']").val();
         var userEmail=$("input[name='userEmail']").val();
         var userIntro=$("#userIntro").val();
-        alert(userIntro);
+        //alert(userIntro);
         if(userName!=""&&nickName!="")
         {
           
@@ -153,16 +155,22 @@ person=function(){
                 dataType:"Json",
                 data:{username:userName,nickname:nickName,email:userEmail,userinfo:userIntro},
                 success:function(data){
-                    alert('更新成功');
+
+                    alertify.alert( "更新成功", function () { 
+                        window.location.href = window.location.href;
+                    });
+
                 },
                 error:function(){
-
+                    alertify.alert( "更新失败", function () { 
+                        window.location.href = window.location.href;
+                    });
                 }
             })
         }
         else
         {
-            alert("用户名或昵称不能为空");
+                alertify.error("用户名或昵称不能为空");
         }
 
     }
@@ -179,12 +187,14 @@ person=function(){
             data:{telephone:telephone},
             success:function(data){
                 if(data == "0")
-                alert('发送成功');
+                alertify.alert( "发送成功", function () { 
+                    window.location.href = window.location.href;
+                });
                 else
-                alert('发送失败');    
+                alertify.error("发送失败");   
             },
             error:function(){
-
+                alertify.error("发送失败");
             }
         })
 
@@ -201,12 +211,14 @@ person=function(){
             data:{telephone:telephone,testcode:testcode},
             success:function(data){
                 if(data == "0")
-                alert('更新成功');
+                alertify.alert( "发送成功", function () { 
+                    window.location.href = window.location.href;
+                });
                 else
-                alert('更新失败');
+                alertify.error("发送失败"); 
             },
             error:function(){
-
+                alertify.error("发送失败"); 
             }
         })
 
@@ -216,12 +228,12 @@ person=function(){
         var oldpassword = $.md5($("input[name='oldPsw']").val());
         var confirmoldpassword = $("input[name='confirmoldPsw']").val();
         if ($.md5(oldpassword)!= confirmoldpassword) {
-             alert('旧密码错误');
+             alertify.error("旧密码错误");
         }else{
             var newpassword = $("input[name='newPsw']").val();
             var confirmpasswprd = $("input[name='confirmPsw']").val();
             if(newpassword!=confirmpasswprd){
-                alert('两次输入的新密码不一致');
+                alertify.error('两次输入的新密码不一致');
             }else{
                 $.ajax({
                 type:"POST",
@@ -230,9 +242,11 @@ person=function(){
                 data:{password:$.md5(confirmpasswprd),},
                 success:function(data){
                     if(data == "0")
-                    alert('更新成功');
+                    alertify.alert( "更新成功", function () { 
+                        window.location.href = window.location.href;
+                    });
                     else
-                    alert('更新失败');
+                    alertify.error('更新失败');
                 },
                 error:function(){
 

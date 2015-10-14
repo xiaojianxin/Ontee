@@ -34,9 +34,9 @@ $this->title = 'Ontee';
         </div>
   
         <div class="userItemInput">
-            <input class="form-control" type="text" name="userName" placeholder= "<?=$user->username?>" />
-            <input class="form-control" type="text" name="nickName" placeholder="<?=$user->nickname?>"/>
-            <input class="form-control" type="email" name="userEmail" placeholder="<?=$user->email?>"/>
+            <input class="form-control" type="text" name="userName" value= "<?=$user->username?>" />
+            <input class="form-control" type="text" name="nickName" value="<?=$user->nickname?>"/>
+            <input class="form-control" type="email" name="userEmail" value="<?=$user->email?>"/>
             <textarea class="form-control" name="userIntro" id="userIntro"></textarea>
                 <div id="updateUserInfo">
             <img src="<?=Url::to('@web/img/save.png');?>"/>
@@ -180,7 +180,7 @@ $this->title = 'Ontee';
     </div>
 </div>
 <?php $this->beginBlock("personal")?>
-
     $.getScript("<?=Url::to('@web/js/personal.js');?>");
+
 <?php $this->endBlock()?>
 <?php $this->registerJs($this->blocks['personal'],\yii\web\View::POS_END)?>
