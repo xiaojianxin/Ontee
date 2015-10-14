@@ -17,7 +17,7 @@ $this->title = 'Ontee';
     <div class="userTitle">
         <div class="userPic">
             <div class="img-thumbnail" id="showUserHead">
-                <?php if(empty($user->facepic)){?>
+                <?php if($user->facepic===""){?>
                     <img src="/<?=$user->facepic?>"/>
                 <?php }else{?>
                     <img src="/images/default.png"/>
