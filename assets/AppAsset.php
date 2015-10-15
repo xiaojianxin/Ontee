@@ -29,10 +29,13 @@ class AppAsset extends AssetBundle
         'css/svg.select.css',
         'css/webuploader.css',
         'css/jPages.css',
-        'css/main.css'
+        'css/main.css',
+        'css/alertify.core.css',
+        'css/alertify.default.css',
     ];
     public $js = [
         'js/jquery-2.1.1.js',
+        'js/alertify.js',
         "//cdn.bootcss.com/svg.js/2.0.5/svg.js",
         'js/svg.draggable.js',
         'js/svg.select.js',
@@ -43,7 +46,7 @@ class AppAsset extends AssetBundle
         'js/jPages.min.js',
         'js/webuploader.min.js',
         'js/city.js',
-        'js/md5.js'
+        'js/md5.js',
     ];
 
 }
