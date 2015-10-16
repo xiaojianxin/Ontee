@@ -138,7 +138,7 @@ $this->title = 'Ontee';
             </div>
 
         </div>
-        <form action="/site/pay" method="post">
+        <form action="/site/pay" target="_blank" method="post">
             <input name="orderId" style="display:none;" value=''>
             <input name="num" style="display:none;">
             <input name="price" style="display:none;">

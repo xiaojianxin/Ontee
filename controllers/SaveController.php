@@ -182,7 +182,7 @@ class SaveController extends Controller
     public function actionDeladdress(){
         $post = Yii::$app->request->post();
 
-        $address =  Address::find()->where(['id' => $post['id']])->one();
+        $address =  Address::find()->where(['id' => $post['addressId']])->one();
 
         if($address->delete()){
 
