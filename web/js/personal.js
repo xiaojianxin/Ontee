@@ -25,6 +25,11 @@ person=function(){
         }
     });
     this.bindEvent=function(){
+        $("div.myAddressHolder").jPages({
+            containerID : "addressBox",
+            perPage: 4,
+            delay : 0
+        });
          $("#cityForm").ready(function(){
             setup();
             preselect('北京市');
@@ -125,13 +130,16 @@ person=function(){
             })
         });
         $(".oneSelfAddr .deleteAddr").click(function(){
-            var id=$(this).parent().parent().find(".addrId").html();
+            var that=this;
+            var id=$(this).parentsUntil(".oneSelfAddr").find(".addrId").html();
             $.ajax({
                 type:"POST",
-                url:"",
+                url:"/save/deladdress",
                 data:{addressId:id},
                 success:function(){
-
+                    alertify.alert("删除成功",function(){
+                        window.location.href=window.location.href;
+                    })
                 },
                 error:function(){
 

@@ -161,7 +161,6 @@ sign=function(){
                         }
                     },
                     error:function(data){
-                        //alert(data);
                         alert("登录失败");
                     }
                 });

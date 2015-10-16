@@ -113,29 +113,50 @@ $this->title = 'Ontee';
     </div>
     <div class="selfAddManage">
         <h5>收货地址管理</h5>
-        <?php
-        foreach ($address as $add){?>
-          <div class='oneSelfAddr'>
-             <div class='thumbnail'>
-                 <div style='width: 75%;margin-left: 30px;margin-top: 15px; float:left;'>
-                     <span class="addrId" style="display: none;"><?=$add->id?></span>
-                     <div class='orderText'>地址：<?=$add->location?></div>
-                     <span>收货人：</span><span class='showForm'><?=$add->receiver?></span>
-                     <span>电话：</span><span class='showForm'><?=$add->telephone?></span>
-                     <span>邮编：</span><span class='showForm'><?=$add->code?></span>
-                 </div>
-                 <div class='manageButton' style='float: left;margin-top: 20px;'>
-                     <span>修改</span><span>｜</span><span class="deleteAddr"> 删除</span>
-                 </div>
-             </div>
-         </div>
-        <?php }
-        ?>
+        <div id="addressBox">
+            <?php
+            foreach ($address as $add){?>
+                <div class='oneSelfAddr'>
+                    <div class='thumbnail'>
+                        <div style='width: 75%;margin-left: 30px;margin-top: 15px; float:left;'>
+                            <span class="addrId" style="display: none;"><?=$add->id?></span>
+                            <div class='orderText'>地址：<?=$add->location?></div>
+                            <span>收货人：</span><span class='showForm'><?=$add->receiver?></span>
+                            <span>电话：</span><span class='showForm'><?=$add->telephone?></span>
+                            <span>邮编：</span><span class='showForm'><?=$add->code?></span>
+                        </div>
+                        <div class='manageButton' style='float: left;margin-top: 20px;'>
+                            <span>修改</span><span>｜</span><span class="deleteAddr"> 删除</span>
+                        </div>
+                    </div>
+                </div>
+            <?php }
+            ?>
+        </div>
+
         <div class="addAddrButton">
                <a data-toggle="modal" data-target="#addrModal">
                 <span class="glyphicon glyphicon-plus"></span>
                </a>
                 <a data-toggle="modal" data-target="#addrModal" style="cursor: pointer">添加一个新的收货地址</a>
+        </div>
+        <div class="row">
+            <div class="myAddressHolder myOrderHolder">
+                <a class="jp-previous jp-disabled">← previous</a>
+                <a class="jp-current">1</a>
+                <span class="jp-hidden">...</span>
+                <a>2</a>
+                <a>3</a>
+                <a>4</a>
+                <a>5</a>
+                <a class="jp-hidden">6</a>
+                <a class="jp-hidden">7</a>
+                <a class="jp-hidden">8</a>
+                <a class="jp-hidden">9</a>
+                <span>...</span>
+                <a>10</a>
+                <a class="jp-next">next →</a>
+            </div>
         </div>
     </div>
 
