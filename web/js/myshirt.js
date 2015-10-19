@@ -26,6 +26,24 @@ myshirt=function(){
                 $("#editPic").attr("src",editSrc);
                 $("#showBigTshirt").modal('show');
             })
+        });
+        $(".deleteOrder").click(function(){
+            var id=$(this).prev().text();
+            var me=this;
+            $.ajax({
+                type:"POST",
+                data:{id:id},
+                url:"/order/deletephoto",
+                success:function(data){
+                    alertify.alert("删除成功",function(){
+                        $(me).parentsUntil(".tshirtBox").parent().hide();
+                        //window.location.href=window.location.href;
+                    })
+                },
+                error:function(){
+                    alertify.alert("删除失败")
+                }
+            })
         })
     }
 };

@@ -13,13 +13,14 @@ $this->title = 'Ontee';
         <div class="row">
             <?php
             foreach ($orders as $order){ ?>
-            <div class="col-xs-3">
+            <div class="col-xs-3 tshirtBox">
                 <div class="oneTshirt">
                     <img src="<?=Url::to('@web/img/teef'.$order->type.".png");?>">
                     <img class="printSelfTshirt" src="<?=Url::to('@web/'.$order->frontpic);?>">
                     <span class="zoomInIcon"><i class="glyphicon glyphicon-zoom-in"></i></span>
                     <div class="btnArea">
-                        <span>删除</span><span>|</span><span>购买</span>
+                        <div class="tShirtId" style="display: none"><?=$order->id?></div>
+                        <span class="deleteOrder">删除</span><span>|</span><span>购买</span>
                     </div>
                 </div>
                 <div class="productInfo">
@@ -27,10 +28,6 @@ $this->title = 'Ontee';
                     <div>创建时间：<?=date('Y-m-d',$order->createtime)?></div>
                 </div>
             </div>
-
-
-
-
           <?php } ?>
 
         </div>
@@ -70,7 +67,7 @@ $this->title = 'Ontee';
             <a>5</a>
             <a class="jp-hidden">6</a>
             <a class="jp-hidden">7</a>
-            <a class="jp-hidden">8</a>
+            <a class="jp-hidden">8< /a>
             <a class="jp-hidden">9</a>
             <span>...</span>
             <a>10</a>
