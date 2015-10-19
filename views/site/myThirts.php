@@ -12,7 +12,7 @@ $this->title = 'Ontee';
     <div class="tshirtsList" id="itemContainer">
         <div class="row">
             <?php
-            foreach ($orders as $order){ ?>
+            foreach ($orders as $order){ if($order->show == 0){?>
             <div class="col-xs-3">
                 <div class="oneTshirt">
                     <img src="<?=Url::to('@web/img/teef'.$order->type.".png");?>">
@@ -28,10 +28,7 @@ $this->title = 'Ontee';
                 </div>
             </div>
 
-
-
-
-          <?php } ?>
+          <?php }} ?>
 
         </div>
     </div>
