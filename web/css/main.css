@@ -1273,3 +1273,6 @@ a{
 }
 
 .myOrderHolder span { margin: 0 5px; }
+.btnArea span{
+	cursor: pointer;
+}
