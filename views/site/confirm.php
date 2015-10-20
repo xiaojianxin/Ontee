@@ -104,7 +104,7 @@ $this->title = 'Ontee';
     </div>
     <div class="confirmArea">
         <div class="orderTitle">
-            <span id="orderTime">2015-05-02</span>
+            <span id="orderTime"><?=date('Y-m-d',time());?></span>
             <span style="margin-left: 10px;">订单号：</span>
             <span id="orderNumber"><?=$response['id']?></span>
         </div>
