@@ -21,7 +21,7 @@ $this->title = 'Ontee';
                     <span class="zoomInIcon"><i class="glyphicon glyphicon-zoom-in"></i></span>
                     <div class="btnArea">
                         <div class="tShirtId" style="display: none"><?=$order->id?></div>
-                        <span class="deleteOrder">删除</span><span>|</span><span>购买</span>
+                        <span class="deleteOrder">删除</span><span>|</span><span class="purchaseOrder">购买</span>
                     </div>
                 </div>
                 <div class="productInfo">

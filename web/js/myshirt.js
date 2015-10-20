@@ -44,6 +44,22 @@ myshirt=function(){
                     alertify.alert("删除失败")
                 }
             })
+        });
+        $(".purchaseOrder").click(function(){
+            var id=$(this).prev().prev().prev().text();
+            var me=this;
+            $.ajax({
+                type:"POST",
+                url:"/order/buytshirt",
+                data:{id:id},
+                dataType:"JSON",
+                success:function(){
+                    window.location.href="../site/confirm";
+                },
+                error:function(){
+                    alertify.alert("购买失败")
+                }
+            })
         })
     }
 };
