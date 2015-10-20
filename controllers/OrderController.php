@@ -88,15 +88,17 @@ class OrderController extends Controller{
     public function actionBuytshirt(){
 
 	    $order = new Order();
+	    $oldorder =  Order::find()->where(['id' => $OrderId])->one();
 
-        $order->userid = Yii::$app->session['userid'];
-        $order->frontpic = $post['frontpic'];
-        $order->backpic = $post['backpic'];
-        $order->size = $post['size'];
-        $order->num = (int)$post['num'];
-        $order->type = (int)$post['type'];
-        $order->price = $post['price'];
-        $order->gender = (int)$post['sex'];
+
+        $order->userid = $oldorder->userid;
+        $order->frontpic = $oldorder->frontpic;
+        $order->backpic = $oldorder->backpic;
+        $order->size = $oldorder->size
+        $order->num = $oldorder->num
+        $order->type = $oldorder->type
+        $order->price = $oldorder->price
+        $order->gender = $oldorder->gender
         $order->status = 0;
         $order->createtime = time();
 
