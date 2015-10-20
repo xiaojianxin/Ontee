@@ -116,40 +116,16 @@ class SiteController extends Controller
             'status' => 2
          );
         $this->layout_data = $layout_data;
-        $post = Yii::$app->request->post();
-        if(empty($post)){
-            
-            $cache = \Yii::$app->cache;
-            $response = $cache['response'];
-            $address = Address::find()->where(['userid' => Yii::$app->session['userid'],])->all();
-            return $this->render('confirm',[
-                'address'=>$address,
-                'response'=>$response,
-            ]);
-        }else{
-            $order = new Order();
+  
+        $cache = \Yii::$app->cache;
+        $response = $cache['response'];
+        $address = Address::find()->where(['userid' => Yii::$app->session['userid'],])->all();
+        return $this->render('confirm',[
+            'address'=>$address,
+            'response'=>$response,
+        ]);
+     
 
-            $order->userid = Yii::$app->session['userid'];
-            $order->frontpic = $post['frontpic'];
-            $order->backpic = $post['backpic'];
-            $order->size = $post['size'];
-            $order->num = (int)$post['num'];
-            $order->type = (int)$post['type'];
-            $order->price = $post['price'];
-            $order->gender = (int)$post['sex'];
-            $order->status = 0;
-            $order->createtime = time();
-
-            if ($Order->save()) {
-                
-                            $address = Address::find()->where(['userid' => Yii::$app->session['userid'],])->all();
-            return $this->render('confirm',[
-                'address'=>$address,
-                'response'=>$response,
-            ]);
-            }
-
-        }
         
     }
     public function actionOrdermanage()

@@ -85,4 +85,31 @@ class OrderController extends Controller{
     	}
 
     }
+    public function actionBuytshirt(){
+
+	    $order = new Order();
+
+        $order->userid = Yii::$app->session['userid'];
+        $order->frontpic = $post['frontpic'];
+        $order->backpic = $post['backpic'];
+        $order->size = $post['size'];
+        $order->num = (int)$post['num'];
+        $order->type = (int)$post['type'];
+        $order->price = $post['price'];
+        $order->gender = (int)$post['sex'];
+        $order->status = 0;
+        $order->createtime = time();
+
+        if ($order->save()) {
+           	$response =  array(
+		    		'id' => $order->id , 
+		    		'frontPicUrl'=> $order->frontpic,
+		    		);
+	    	$cache = \Yii::$app->cache;
+	    	$cache['response'] = $response;
+        	echo "0";
+        }else{
+        	echo "-1";
+        }
+    }
 }
