@@ -117,4 +117,21 @@ class OrderController extends Controller{
         	echo "-1";
         }
     }
+
+
+    public function actionDeleteorder(){
+
+    	$post =  Yii::$app->request->post();
+    	$OrderId = $post['id']; 
+	    $order = Order::find()->where(['id' => $OrderId])->one();
+	    $url = Yii::$app->basePath."/web".'/';
+
+	    if($order->delete()){
+	    	unlink($url.$order->frontpic);
+	    	unlink($url.$order->backpic);
+	    	echo "0";
+	    }else{
+	    	echo "-1";
+	    }
+    }
 }
