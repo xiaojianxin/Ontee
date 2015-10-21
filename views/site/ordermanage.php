@@ -29,16 +29,12 @@ $this->title = 'Ontee';
                          <div class="orderInfo">
                              <span>尺码：</span><span><?=$order->size?></span>
                              <span>数量：</span><span><?=$order->num?></span>
-
                          </div>
 
                          <div class="orderNum1">
                              <a class="changeUnpaySizeNum">更改尺寸和数量</a><br/>
                              <a>选择收货地址</a>
-                         </div><br/>
-
-
-
+                         </div>
                          <div class="paynum">
                              <span>支付金额：</span>
                              <span><?=$order->price?>元</span>

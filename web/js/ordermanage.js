@@ -18,7 +18,7 @@ ordermanage=function(){
             $.ajax({
                 type:"POST",
                 data:{id:id},
-                url:"../order/deleteorder",
+                url:"/order/deleteorder",
                 dataType:"JSON",
                 success:function(){
                     alertify.alert( "删除成功", function () {
