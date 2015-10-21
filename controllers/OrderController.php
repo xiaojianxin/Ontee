@@ -20,7 +20,6 @@ class OrderController extends Controller{
 
     	$order = new Order();
 
-
     	$username = Yii::$app->session['username'];
     	if(empty($username)){
     		echo "1";
@@ -149,5 +148,17 @@ class OrderController extends Controller{
 		    	echo "-1";
 		    }
 		}
+    }
+
+    public function actionAlladdress(){
+    	$username = Yii::$app->session['username'];
+    	if(empty($username)){
+    		echo "1";
+    	}else{
+    		$address = Address::find()->where(['userid' => Yii::$app->session['userid'],])->all();
+    		$address = json_encode($address);
+    		print_r($address);
+    	}
+    	
     }
 }
