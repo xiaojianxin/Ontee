@@ -844,9 +844,16 @@ a{
 	float:right;
 	width:80px;
 }
-.payButton1{
+.payButtonFinal{
 	float: right;
 	width: 100px;
+	margin-top: 10px;
+	margin-right: 20px;
+	margin-bottom: 40px;
+}
+.deleteButtonFinal{
+	float: right;
+	width:100px;
 	margin-top: 10px;
 	margin-right: 20px;
 	margin-bottom: 40px;
@@ -1272,7 +1279,7 @@ a{
 	background: none;
 }
 
-.myOrderHolder span { margin: 0 5px; }
+.myOrderHolderUnpay span { margin: 0 5px; }
 .btnArea span{
 	cursor: pointer;
 }
