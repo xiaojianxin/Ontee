@@ -159,7 +159,10 @@ class OrderController extends Controller{
     		$post =  Yii::$app->request->post();
 	    	$OrderId = $post['id'];
 	    	$order = Order::find()->where(['id' => $OrderId])->one();
-	    	if(empty($order)){
+	    	$order->addressid = $post['addressid'];
+	    	$order->size = $post['size'];
+	    	$order->num = $post['num'];
+	    	if($order->update()){
 	    		$response =  array(
 				'id' => $order->id , 
 				'frontPicUrl'=> $order->frontpic,
