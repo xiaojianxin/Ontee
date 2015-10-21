@@ -171,7 +171,7 @@ class OrderController extends Controller{
 				$cache['response'] = $response;
 				echo "0";
 	    	}else{
-	    		echo "-1"
+	    		echo "-1";
 	    	}
     	}
 
