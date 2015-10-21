@@ -151,16 +151,4 @@ class OrderController extends Controller{
 		}
     }
 
-    public function actionAlladdress(){
-    	// $username = Yii::$app->session['username'];
-    	// if(empty($username)){
-    	// 	echo "404";
-    	// }else{
-    		$address = Address::find()->where(['userid' => 73,])->all();
-    		$response =  array('status'=>0,'data'=>$address);
-    		$response = json_encode($response);
-    		echo $response;
-    	//}
-    	
-    }
 }

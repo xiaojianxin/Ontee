@@ -135,7 +135,9 @@ class SiteController extends Controller
         $this->layout_data = $layout_data;
 
         $Orders = Order::find()->where(['userid' => Yii::$app->session['userid']])->with('address')->OrderBy(['createtime'=>SORT_DESC])->all();
+        $address = Address::find()->where(['userid' => Yii::$app->session['userid']])->all();
         return $this->render('ordermanage',[
+                'address' => $address,
                 'orders'=>$Orders,
             ]);
 
