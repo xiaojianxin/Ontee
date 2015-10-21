@@ -7,6 +7,7 @@ use yii\web\Controller;
 use app\models\Order;
 use app\models\UploadForm;
 use app\models\User;
+use app\models\Address;
 
 class OrderController extends Controller{
 
@@ -22,7 +23,7 @@ class OrderController extends Controller{
 
     	$username = Yii::$app->session['username'];
     	if(empty($username)){
-    		echo "1";
+    		echo "404";
     	}else{
     		 $user= User::find()->where(['username' => $username])->one();
     		 $frontname = md5(Yii::$app->session['userid'].time());
@@ -75,7 +76,7 @@ class OrderController extends Controller{
 
     	$username = Yii::$app->session['username'];
     	if(empty($username)){
-    		echo "1";
+    		echo "404";
     	}else{
 	    	$post =  Yii::$app->request->post();
 	    	$OrderId = $post['id'];
@@ -93,7 +94,7 @@ class OrderController extends Controller{
     public function actionBuytshirt(){
     	$username = Yii::$app->session['username'];
     	if(empty($username)){
-    		echo "1";
+    		echo "404";
     	}else{
     		$post =  Yii::$app->request->post();
 	    	$OrderId = $post['id']; 
@@ -133,7 +134,7 @@ class OrderController extends Controller{
 
     	$username = Yii::$app->session['username'];
     	if(empty($username)){
-    		echo "1";
+    		echo "404";
     	}else{
 	    	$post =  Yii::$app->request->post();
 	    	$OrderId = $post['id']; 
@@ -151,14 +152,15 @@ class OrderController extends Controller{
     }
 
     public function actionAlladdress(){
-    	$username = Yii::$app->session['username'];
-    	if(empty($username)){
-    		echo "1";
-    	}else{
-    		$address = Address::find()->where(['userid' => Yii::$app->session['userid'],])->all();
-    		$address = json_encode($address);
-    		print_r($address);
-    	}
+    	// $username = Yii::$app->session['username'];
+    	// if(empty($username)){
+    	// 	echo "404";
+    	// }else{
+    		$address = Address::find()->where(['userid' => 73,])->all();
+    		$response =  array('status'=>0,'data'=>$address);
+    		$response = json_encode($response);
+    		echo $response;
+    	//}
     	
     }
 }
