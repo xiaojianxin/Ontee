@@ -151,4 +151,27 @@ class OrderController extends Controller{
 		}
     }
 
+    public function actionOrderpay(){
+    	$username = Yii::$app->session['username'];
+    	if(empty($username)){
+    		echo "404";
+    	}else{
+    		$post =  Yii::$app->request->post();
+	    	$OrderId = $post['id'];
+	    	$order = Order::find()->where(['id' => $OrderId])->one();
+	    	if(empty($order)){
+	    		$response =  array(
+				'id' => $order->id , 
+				'frontPicUrl'=> $order->frontpic,
+				);
+				$cache = \Yii::$app->cache;
+				$cache['response'] = $response;
+				echo "0";
+	    	}else{
+	    		echo "-1"
+	    	}
+    	}
+
+    }
+
 }
