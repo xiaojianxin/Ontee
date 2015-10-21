@@ -14,12 +14,12 @@ $this->title = 'Ontee';
    <div id="userOrderList">
     <?php
       foreach ($orders as $order){ if($order->status==0){?>
-       <div>
-       <div class="confirmArea">
+
+       <div class="confirmArea unpayOrders">
                      <div class="orderTitle">
                          <span><?=date('Y-m-d',$order->createtime)?></span>
                          <span style="margin-left: 10px;">订单号：</span>
-                         <span><?=$order->id?></span>
+                         <span class="orderId"><?=$order->id?></span>
                      </div>
                      <div class="orderContent1">
                          <div class="orderPic1">
@@ -29,10 +29,10 @@ $this->title = 'Ontee';
                          <div class="orderInfo">
                              <span>尺码：</span><span><?=$order->size?></span>
                              <span>数量：</span><span><?=$order->num?></span>
-
                          </div>
+
                          <div class="orderNum1">
-                             <a>更改尺寸和数量</a><br/>
+                             <a class="changeUnpaySizeNum">更改尺寸和数量</a><br/>
                              <a>选择收货地址</a>
                          </div>
                          <div class="paynum">
@@ -40,14 +40,15 @@ $this->title = 'Ontee';
                              <span><?=$order->price?>元</span>
                          </div>
                      </div>
-                 </div>
+
                  <div class="choosepay">
                      <span>30分钟内不支付订单将失效</span>
                      <span class="payway">支付宝</span>
                      <span class="payway">微信</span>
                  </div>
                  <div style="height:40px;">
-                       <div class="payButton1 btn btn-success">支付</div>
+                       <div class="deleteButtonFinal btn btn-warning">取消订单</div>
+                       <div class="payButtonFinal btn btn-success">支付</div>
                  </div>
        </div>
 
@@ -55,7 +56,7 @@ $this->title = 'Ontee';
       ?>
     <?php
       foreach ($orders as $order){ if($order->status==1&&!empty($order->address)){?>
-      <div>
+
               <div class="confirmArea orderList">
                     <div class="orderTitle">
                         <span><?=date('Y-m-d',$order->createtime)?></span>
@@ -82,7 +83,7 @@ $this->title = 'Ontee';
                         </div>
                     </div>
                 </div>
-      </div>
+
 
       <?php }}
       ?>
