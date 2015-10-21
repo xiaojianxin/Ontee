@@ -54,7 +54,7 @@ $this->title = 'Ontee';
       <?php }}
       ?>
     <?php
-      foreach ($orders as $order){ if($order->status==1){?>
+      foreach ($orders as $order){ if($order->status==1&&!empty($order->address)){?>
       <div>
               <div class="confirmArea orderList">
                     <div class="orderTitle">
