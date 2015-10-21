@@ -111,64 +111,47 @@ class SiteController extends Controller
     }
     public function actionConfirm()
     {
-        $username = Yii::$app->session['username'];
-        if(empty(username)){
-            return $this->runAction('login');
-        }else{
-           $layout_data =  array(
+        $layout_data =  array(
             'username' => Yii::$app->session['username'],
             'status' => 2
-            );
-            $this->layout_data = $layout_data;
-      
-            $cache = \Yii::$app->cache;
-            $response = $cache['response']; 
-            $address = Address::find()->where(['userid' => Yii::$app->session['userid'],])->all();
-            return $this->render('confirm',[
-                'address'=>$address,
-                'response'=>$response,
-            ]);
-        }
- 
+         );
+        $this->layout_data = $layout_data;
+  
+        $cache = \Yii::$app->cache;
+        $response = $cache['response']; 
+        $address = Address::find()->where(['userid' => Yii::$app->session['userid'],])->all();
+        return $this->render('confirm',[
+            'address'=>$address,
+            'response'=>$response,
+        ]);
         
     }
     public function actionOrdermanage()
     {
+        $layout_data =  array(
+            'username' => Yii::$app->session['username'],
+            'status' => 3
+         );
+        $this->layout_data = $layout_data;
 
-        $username = Yii::$app->session['username'];
-        if(empty(username)){
-            return $this->runAction('login');
-        }else{
-            $layout_data =  array(
-                'username' => Yii::$app->session['username'],
-                'status' => 3
-             );
-            $this->layout_data = $layout_data;
-
-            $Orders = Order::find()->where(['userid' => Yii::$app->session['userid']])->with('address')->OrderBy('createtime')->all();
-            return $this->render('ordermanage',[
-                    'orders'=>$Orders,
-                ]);
+        $Orders = Order::find()->where(['userid' => Yii::$app->session['userid']])->with('address')->OrderBy(['createtime'=>SORT_DESC])->all();
+        return $this->render('ordermanage',[
+                'orders'=>$Orders,
+            ]);
 
     }
     public function actionPersonal()
     {
-        $username = Yii::$app->session['username'];
-        if(empty(username)){
-            return $this->runAction('login');
-        }else{
-            $user = User::find()->where(['userid' => Yii::$app->session['userid']])->one();
-            $address = Address::find()->where(['userid' => Yii::$app->session['userid']])->all();
-            $layout_data =  array(
-                'username' => Yii::$app->session['username'],
-                'status' => 3
-            );
-            $this->layout_data = $layout_data;
-            return $this->render('personal',[
-                'user' => $user,
-                'address'=> $address, ]);
-        }
- 
+        $user = User::find()->where(['userid' => Yii::$app->session['userid']])->one();
+        $address = Address::find()->where(['userid' => Yii::$app->session['userid']])->all();
+        $layout_data =  array(
+            'username' => Yii::$app->session['username'],
+            'status' => 3
+        );
+        $this->layout_data = $layout_data;
+        return $this->render('personal',[
+            'user' => $user,
+            'address'=> $address, ]);
     }
     public function actionLogin()
     {
@@ -178,7 +161,7 @@ class SiteController extends Controller
        if(empty($post['username'])){
             return $this->render('error',[
                     "name" => "wrong",
-                    "message" => "You are not allowed to access this page,please sign in",
+                    "message" => "You are not allowed to access this page",
             ]);
        }else{
            $model->telephone = $post['username'];
