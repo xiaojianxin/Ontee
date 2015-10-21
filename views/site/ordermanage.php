@@ -29,11 +29,21 @@ $this->title = 'Ontee';
                          <div class="orderInfo">
                              <span>尺码：</span><span><?=$order->size?></span>
                              <span>数量：</span><span><?=$order->num?></span>
+
+                            <div class="unpayAddrInfo" style="display:none;">
+                                 <div class="orderText showUnpayAddress">地址：</div>
+                                 <span class="selectAddrId" style="display:none;"></span>
+                                 <span>收货人：</span><span class='showForm showUnpayReceiver'></span>
+                                 <span>电话：</span><span class='showForm showUnpayPhone'></span>
+                                 <span>邮编：</span><span class='showForm showUnpaycode'></span></div>
+
+
+
                          </div>
 
                          <div class="orderNum1">
                              <a class="changeUnpaySizeNum">更改尺寸和数量</a><br/>
-                             <a>选择收货地址</a>
+                             <a class="chooseUnpayAddr"data-toggle="modal" data-target="#chooseUnpayAddr" style="cursor: pointer">选择收货地址</a>
                          </div>
                          <div class="paynum">
                              <span>支付金额：</span>
@@ -106,6 +116,83 @@ $this->title = 'Ontee';
                <a class="jp-next">next →</a>
            </div>
        </div>
+       <div class="modal fade addrModalBox" id="chooseUnpayAddr" tabindex="-1" role="dialog"
+                       aria-labelledby="myModalLabel" aria-hidden="true">
+                      <button type="button" class="close modalClose" data-dismiss="modal" aria-hidden="true">
+                          ×
+                      </button>
+                      <div class="modal-dialog">
+                          <div class="boxHeader">
+                              <span>收货地址</span>
+                          </div>
+                          <div class="boxContent">
+                                <div id="addressBox" style="height:120px;overflow-y:scroll;">
+                                            <?php
+                                            foreach ($address as $add){?>
+                                                <div class='oneSelfAddr' style="cursor:pointer;">
+                                                    <div class='thumbnail' style="height:50px;">
+                                                        <div style='width: 75%;margin-left: 30px; float:left;'>
+                                                            <span class="addrId" style="display: none;"><?=$add->id?></span>
+                                                            <div class='orderText address'>地址：<?=$add->location?></div>
+                                                            <span>收货人：</span><span class='showForm receiver'><?=$add->receiver?></span>
+                                                            <span>电话：</span><span class='showForm telephone'><?=$add->telephone?></span>
+                                                            <span>邮编：</span><span class='showForm zipcode'><?=$add->code?></span>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            <?php }
+                                            ?>
+                                        </div>
+
+                          </div>
+
+                      </div>
+                  </div>
+       <div class="modal fade addrModalBox" id="addrModal" tabindex="-1" role="dialog"
+                aria-labelledby="myModalLabel" aria-hidden="true">
+               <button type="button" class="close modalClose" data-dismiss="modal" aria-hidden="true">
+                   ×
+               </button>
+               <div class="modal-dialog">
+                   <div class="boxHeader">
+                       <span>新增地址</span>
+                   </div>
+                   <div class="boxContent">
+                       <div id="cityConfirmForm">
+                           <select class="select" name="province" id="s1">
+                               <option></option>
+                           </select>
+                           <select class="select" name="city" id="s2">
+                               <option></option>
+                           </select>
+                           <select class="select" name="town" id="s3">
+                               <option></option>
+                           </select>
+                           <input id="address" name="address" type="hidden" value="" />
+                           <div style="text-align: center">
+                               <div class="formItem">
+                                   <span class="formText"> 详细地址</span>
+                                   <span class="formArea"><input type="text" name="addrDetail"/></span>
+                               </div>
+                               <div class="formItem">
+                                   <span class="formText"> 电话</span>
+                                   <span class="formAreaHalf"><input type="text" name="receiverPhone"/></span>
+                                   <span class="formText"> 收货人</span>
+                                   <span class="formAreaHalf"><input type="text" name="receiverName"/></span>
+                               </div>
+                               <div class="formItem">
+                                   <span class="formText"> 邮编</span>
+                                   <span class="formAreaHalf"><input type="text" name="receiverCode"/></span>
+                                   <span class="btn btn-success" id="submitNewAddr"> 确认添加</span>
+                               </div>
+                           </div>
+                       </div>
+
+                   </div>
+
+               </div>
+           </div>
 </div>
 <?php $this->beginBlock("ordermanage")?>
 $(function() {
