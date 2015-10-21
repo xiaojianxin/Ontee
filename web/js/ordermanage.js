@@ -10,7 +10,9 @@ ordermanage=function(){
         me.addrHtml="";
         me.receiver="";
         me.code=0;me.phone=0;
-
+        me.sizeArr=["S","M","L","XL","XXL","XXXL"];
+        me.size="S";
+        me.num=1;
         me.addressId=-1;
         me.index=0;
         me.bindEvent();
@@ -60,6 +62,64 @@ ordermanage=function(){
                     $(this).find(".showUnpaycode").html(me.code);
                     $(this).find(".showUnpayPhone").html(me.phone);
                     $(this).find(".selectAddrId").html(id);
+                }
+            })
+        });
+        $(".changeUnpaySizeNum").click(function(){
+            var id=$(this).parentsUntil(".unpayOrders").find(".orderId").text();
+            me.index=id;
+            var size=$(this).parent().prev().find(".unpaySize").text();
+            var num=$(this).parent().prev().find(".unpayNum").text();
+            $(".teeSize span").each(function(){
+                if($(this).text()==size)
+                {
+                    $(this).addClass("active");
+                }
+                me.size=size;
+                me.num=num;
+            });
+            $("#teeNum").text(num);
+        });
+        $("#teeSize span").each(function(){
+            $(this).click(function(){
+                $("#teeSize span").removeClass("active");
+                $(this).addClass("active");
+                me.size=$(this).text();
+            })
+        });
+        $("#addTeeNum").click(function(){
+            me.num=1+parseInt(me.num);
+            $("#teeNum").text(me.num);
+
+        });
+        $("#cutTeeNum").click(function(){
+            if(me.num == 1){ }
+            else{  me.num=parseInt(me.num)-1;$("#teeNum").text(me.num);}
+        });
+        $("#teeNum").click(function(){
+            $("#inputTeeNum").show();
+            $(this).hide();
+            $("#inputTeeNum").val(me.num);
+            $("#inputTeeNum").focus();
+        });
+        $("#inputTeeNum").blur(function(){
+            var num=$("#inputTeeNum").val();
+            var nInt=parseInt(num);
+            console.log(nInt);
+            if(!isNaN(nInt))
+            {
+                me.num=nInt
+            }
+            $(this).hide();
+            $("#teeNum").show();
+            $("#teeNum").text(me.num);
+        });
+        $("#changeSizeConfirm").click(function(){
+            $("#changeUnpaySize").modal("hide");
+            $(".unpayOrders").each(function(){
+                if($(this).find(".orderId").text()==me.index){
+                    $(this).find(".orderInfo").find(".unpaySize").html(me.size);
+                    $(this).find(".orderInfo").find(".unpayNum").html(me.num);
                 }
             })
         })

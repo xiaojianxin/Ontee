@@ -27,22 +27,23 @@ $this->title = 'Ontee';
                              <img class='showOrderPrintSvg' src="<?=Url::to('@web/'.$order->frontpic);?>">
                          </div>
                          <div class="orderInfo">
-                             <span>尺码：</span><span><?=$order->size?></span>
-                             <span>数量：</span><span><?=$order->num?></span>
+                             <span>尺码：</span><span class="unpaySize"><?=$order->size?></span>
+                             <span>数量：</span><span class="unpayNum"><?=$order->num?></span>
 
-                            <div class="unpayAddrInfo" style="display:none;">
+                             <div class="unpayAddrInfo" style="display:none;">
                                  <div class="orderText showUnpayAddress">地址：</div>
                                  <span class="selectAddrId" style="display:none;"></span>
                                  <span>收货人：</span><span class='showForm showUnpayReceiver'></span>
                                  <span>电话：</span><span class='showForm showUnpayPhone'></span>
-                                 <span>邮编：</span><span class='showForm showUnpaycode'></span></div>
+                                 <span>邮编：</span><span class='showForm showUnpaycode'></span>
+                             </div>
 
 
 
                          </div>
 
                          <div class="orderNum1">
-                             <a class="changeUnpaySizeNum">更改尺寸和数量</a><br/>
+                             <a class="changeUnpaySizeNum"data-toggle="modal" data-target="#changeUnpaySize" style="cursor: pointer">更改尺寸和数量</a><br/>
                              <a class="chooseUnpayAddr"data-toggle="modal" data-target="#chooseUnpayAddr" style="cursor: pointer">选择收货地址</a>
                          </div>
                          <div class="paynum">
@@ -148,7 +149,55 @@ $this->title = 'Ontee';
                           </div>
 
                       </div>
-                  </div>
+        </div>
+        <div class="modal fade addrModalBox" id="changeUnpaySize" tabindex="-1" role="dialog"
+                               aria-labelledby="myModalLabel" aria-hidden="true">
+                              <button type="button" class="close modalClose" data-dismiss="modal" aria-hidden="true">
+                                  ×
+                              </button>
+                              <div class="modal-dialog">
+                                  <div class="boxHeader">
+                                      <span>修改尺寸和数目</span>
+                                  </div>
+                                  <div class="boxContent">
+                                      <div class="chooseItem1">
+                                          <div class="row">
+                                              <div class="col-xs-3">
+                                                  <span class="chooseText">尺码</span>
+                                              </div>
+                                              <div class="col-xs-6">
+                                               <span class="chooseOption teeSize" id="teeSize">
+                                                   <span>S</span>
+                                                   <span>M</span>
+                                                   <span>L</span>
+                                                   <span>XL</span>
+                                                   <span>XXL</span>
+                                                   <span>XXXL</span>
+                                              </span>
+                                              </div>
+                                          </div>
+                                      </div>
+                                      <div class="chooseItem1">
+                                          <div class="row">
+                                              <div class="col-xs-3">
+                                                  <span class="chooseText">数量</span>
+                                              </div>
+                                              <div class="col-xs-6">
+                                                  <div class="chooseOption">
+                                                      <span class="glyphicon glyphicon-minus" id="cutTeeNum"></span>
+                                                      <span class="showNum" id="teeNum">1</span>
+                                                      <input class="form-control" id="inputTeeNum">
+                                                      <span class="glyphicon glyphicon-plus" id="addTeeNum"></span>
+                                                  </div>
+                                              </div>
+                                              <div class="col-xs-3 btn btn-success " id="changeSizeConfirm">确定</div>
+                                          </div>
+                                      </div>
+
+                                  </div>
+
+                              </div>
+                </div>
        <div class="modal fade addrModalBox" id="addrModal" tabindex="-1" role="dialog"
                 aria-labelledby="myModalLabel" aria-hidden="true">
                <button type="button" class="close modalClose" data-dismiss="modal" aria-hidden="true">
