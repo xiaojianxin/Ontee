@@ -17,7 +17,7 @@ orderConfirm=function(){
         preselect('北京市');
         promptinfo();
 
-        me.addressId=0;
+        me.addressId="-1";
     };
     this.initInfo=function(){
         var time=me.initTime();
@@ -136,13 +136,21 @@ orderConfirm=function(){
                     alertify.error("请选择地址");
                 } 
             }else{
-                $("input[name='orderId']").attr('value',orderId);
-                $("input[name='num']").attr('value',me.num);
-                $("input[name='price']").attr('value',me.price);
-                $("input[name='addressId']").attr('value',me.addressId);
+                if(me.addressId == -1)
+                {
+                    alertify.error("请选择地址");
+                }
+                else{
+                    $("input[name='orderId']").attr('value',orderId);
+                    $("input[name='num']").attr('value',me.num);
+                    $("input[name='price']").attr('value',me.price);
+                    $("input[name='addressId']").attr('value',me.addressId);
+                    return $('#submit').click();
+                }
 
 
-                return $('#submit').click(); 
+
+
             }
 
         })

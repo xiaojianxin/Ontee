@@ -1288,3 +1288,21 @@ a{
 	border-width:2px;
 	border-color:green;
 }
+#payModal .boxContent{
+	text-align:center;
+
+}
+#payModal .boxContent span{
+
+	margin-right:30px;
+}
+#payModal .paySuccess i{
+	color:green;
+}
+#payModal .payError i{
+	color:red;
+}
+#confirmPayBtn a{
+	text-decoration: none;
+	color: inherit;
+}
