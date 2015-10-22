@@ -146,7 +146,25 @@ $this->title = 'Ontee';
             <input id='submit' style="display:none;" type="submit" />
         </form> 
         
-        <div id="confirmPayBtn" class="btn btn-success payButton">支付</div>
+        <div id="confirmPayBtn" class="btn btn-success payButton"><a data-toggle="modal" data-target="#payModal" style="cursor: pointer">支付</a></div>
+        <div class="modal fade addrModalBox" id="payModal" tabindex="-1" role="dialog"
+             aria-labelledby="myModalLabel" aria-hidden="true">
+            <button type="button" class="close modalClose" data-dismiss="modal" aria-hidden="true">
+                ×
+            </button>
+            <div class="modal-dialog">
+                <div class="boxHeader">
+                    <span>支付订单</span>
+                </div>
+                <div class="boxContent">
+                    <div style="height:50px;"></div>
+                    <span class="paySuccess"><a href="<?=Url::to(['site/ordersuccess'])?>"> 支付成功<i class="glyphicon glyphicon-ok"></i></a></span>
+                    <span class="payError"><a href="<?=Url::to(['site/ordermanage'])?>">支付失败<i class="glyphicon glyphicon-remove"></i></a> </span>
+
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>
 <?php $this->beginBlock("confirm")?>
