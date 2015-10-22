@@ -144,7 +144,8 @@ ordermanage=function(){
                     url:"../order/orderpay",
                     dataType:"JSON",
                     success:function(data){
-                        window.location.href="../site/confirm";
+                        alert(data);
+                        window.location.href="../site/orderconfirm";
                     },
                     error:function(){
 

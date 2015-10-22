@@ -168,8 +168,8 @@ class OrderController extends Controller{
 				'frontPicUrl'=> $order->frontpic,
 				);
 				$cache = \Yii::$app->cache;
-				$cache['response'] = $response;
-				echo "0";
+				$cache['id'] = $order->id;
+				echo $cache['id'];
 	    	}else{
 	    		echo "-1";
 	    	}

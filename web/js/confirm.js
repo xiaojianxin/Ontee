@@ -129,13 +129,22 @@ orderConfirm=function(){
         $("#confirmPayBtn").click(function(){
 
             var orderId =  $('#orderNumber').text();
-            $("input[name='orderId']").attr('value',orderId);
-            $("input[name='num']").attr('value',me.num);
-            $("input[name='price']").attr('value',me.price);
-            $("input[name='addressId']").attr('value',me.addressId);
 
-            return $('#submit').click();
-            
+            if(typeof(me.addressId)=='undefined'){
+                me.addressId=parseInt($('#addressId').text());
+                if(typeof(me.addressId)=='undefined'){
+                    alertify.error("请选择地址");
+                } 
+            }else{
+                $("input[name='orderId']").attr('value',orderId);
+                $("input[name='num']").attr('value',me.num);
+                $("input[name='price']").attr('value',me.price);
+                $("input[name='addressId']").attr('value',me.addressId);
+
+
+                return $('#submit').click(); 
+            }
+
         })
     };
     

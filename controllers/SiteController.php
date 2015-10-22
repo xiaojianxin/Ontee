@@ -265,6 +265,24 @@ class SiteController extends Controller
         return $this->render("orderSuccess");
     }
 
+    public function actionOrderconfirm(){
+
+        $layout_data =  array(
+            'username' => Yii::$app->session['username'],
+            'status' => 2
+         );
+        $this->layout_data = $layout_data;
+        $cache = \Yii::$app->cache;
+        $orderId =  $cache['id'];
+        $Order = Order::find()->where(['id' => $orderId])->one();
+        $address = Address::find()->where(['id'=>$Order->addressid])->one();
+
+        return $this->render("orderconfirm",[
+            'order'=>$Order,
+            'address'=>$address,
+            ]);
+    }
+
 
 
     public function actionPay(){
@@ -274,7 +292,6 @@ class SiteController extends Controller
         $num = $post['num'];
         $price = $post['price'];
         $addressId = $post['addressId'];
-
         $Order = Order::find()->where(['id' => $orderId])->one();
 
         $Order->num = $num;
@@ -282,7 +299,7 @@ class SiteController extends Controller
         $Order->addressid = $addressId;
         // $orderId = md5($orderId);
         $name = $orderId.Yii::$app->session['userid'];
-        if($Order->update()){
+        if($Order->save()){
             return $this->redirect(Url::to(['pay/alipay',
                 'WIDout_trade_no' => $orderId,
                 'WIDsubject' => $name,
