@@ -43,6 +43,7 @@ ordermanage=function(){
         });
         $(".chooseUnpayAddr").click(function(){
             var id=$(this).parentsUntil(".unpayOrders").parent().find(".orderId").text();
+
             me.index=id;
         });
         $(".oneSelfAddr").click(function(){
@@ -66,7 +67,8 @@ ordermanage=function(){
             })
         });
         $(".changeUnpaySizeNum").click(function(){
-            var id=$(this).parentsUntil(".unpayOrders").find(".orderId").text();
+            var id=$(this).parentsUntil(".unpayOrders").parent().find(".orderId").text();
+
             me.index=id;
             var size=$(this).parent().prev().find(".unpaySize").text();
             var num=$(this).parent().prev().find(".unpayNum").text();
@@ -116,10 +118,11 @@ ordermanage=function(){
         });
         $("#changeSizeConfirm").click(function(){
             $("#changeUnpaySize").modal("hide");
+            $("#teeSize span").removeClass("active");
             $(".unpayOrders").each(function(){
                 if($(this).find(".orderId").text()==me.index){
-                    $(this).find(".orderInfo").find(".unpaySize").html(me.size);
-                    $(this).find(".orderInfo").find(".unpayNum").html(me.num);
+                    $(this).find(".orderContent1").find(".orderInfo").find(".unpaySize").html(me.size);
+                    $(this).find(".orderContent1").find(".orderInfo").find(".unpayNum").html(me.num);
                 }
             })
         })
