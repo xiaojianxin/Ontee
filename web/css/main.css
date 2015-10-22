@@ -1302,3 +1302,7 @@ a{
 #payModal .payError i{
 	color:red;
 }
+#confirmPayBtn a{
+	text-decoration: none;
+	color: inherit;
+}
