@@ -48,7 +48,7 @@ $this->title = 'Ontee';
                          </div>
                          <div class="paynum">
                              <span>支付金额：</span>
-                             <span><?=$order->price?>元</span>
+                             <span class="payNum"><?=$order->price?>元</span>
                          </div>
                      </div>
 

@@ -123,8 +123,34 @@ ordermanage=function(){
                 if($(this).find(".orderId").text()==me.index){
                     $(this).find(".orderContent1").find(".orderInfo").find(".unpaySize").html(me.size);
                     $(this).find(".orderContent1").find(".orderInfo").find(".unpayNum").html(me.num);
+                    $(this).find(".paynum").find(".payNum").html(parseInt(me.num)*79+"元");
                 }
             })
+        });
+        $(".payButtonFinal").click(function(){
+            var id=$(this).parentsUntil(".unpayOrders").parent().find(".orderId").text();
+            var addrId=$(this).parentsUntil(".unpayOrders").parent().find(".selectAddrId").text();
+            var size=$(this).parentsUntil(".unpayOrders").parent().find(".unpaySize").text();
+            var num=$(this).parentsUntil(".unpayOrders").parent().find(".unpayNum").text();
+            if(addrId==""||addrId=="-1")
+            {
+                alertify.error("请选择地址");
+            }
+            else
+            {
+                $.ajax({
+                    type:"POST",
+                    data:{id:id,addressid:addrId,size:size,num:num},
+                    url:"../order/orderpay",
+                    dataType:"JSON",
+                    success:function(data){
+                        window.location.href="../site/confirm";
+                    },
+                    error:function(){
+
+                    }
+                })
+            }
         })
     }
 };
