@@ -145,6 +145,7 @@ orderConfirm=function(){
                     $("input[name='num']").attr('value',me.num);
                     $("input[name='price']").attr('value',me.price);
                     $("input[name='addressId']").attr('value',me.addressId);
+                    $("#payModal").modal("show");
                     return $('#submit').click();
                 }
 

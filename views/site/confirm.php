@@ -146,7 +146,7 @@ $this->title = 'Ontee';
             <input id='submit' style="display:none;" type="submit" />
         </form> 
         
-        <div id="confirmPayBtn" class="btn btn-success payButton"><a data-toggle="modal" data-target="#payModal" style="cursor: pointer">支付</a></div>
+        <div id="confirmPayBtn" class="btn btn-success payButton">支付</div>
         <div class="modal fade addrModalBox" id="payModal" tabindex="-1" role="dialog"
              aria-labelledby="myModalLabel" aria-hidden="true">
             <button type="button" class="close modalClose" data-dismiss="modal" aria-hidden="true">
