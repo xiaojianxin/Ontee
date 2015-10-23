@@ -80,7 +80,7 @@ $this->title = 'Ontee';
             <span class="lText">输入文字：</span>
             <input class="form-control" placeholder="请输入文字" name="textAreaValue"/>
         </div>
-        <div class=" btn btn-success" id="confirmText">修改文字 </div>
+        <div class=" btn btn-success" id="confirmText">插入文字 </div>
 
     </div>
     <div class="svgIconBox" id="svgIconBox">
