@@ -371,39 +371,43 @@ editTee=function(){
          $("#totalPrice").text(me.price+"元");
 
       });
+      var flag = 1;
       $("#buyBtn").click(function(){
-         var postData={sex:me.sex,type:me.type,
-            frontPic:me.picData[0],backPic:me.picData[1],size:me.size,num:me.num,price:me.price};
-         //var storge=JSON.stringify(postData);
-         //window.localStorage.setItem("orderInfo",storge);
-         $.ajax({
-            type:"POST",
-            url:"/order/createorder",
-            data:postData,
-            dataType:"JSON",
-            success:function(data){
-               if(data=="1")
-               {
-                  alert("请先登录");
-               }
-               else if(data=="0")
-               {
-                  window.location.href="../site/confirm";
-                  var store={type:me.type,size:me.size,num:me.num,price:me.price};
-                  var storge=JSON.stringify(store);
-                  window.localStorage.setItem("orderInfo",storge);
-               }
-               else
-               {
-                  alert("保存失败");
-               }
+         if(flag == 1){
+                  var postData={sex:me.sex,type:me.type,
+               frontPic:me.picData[0],backPic:me.picData[1],size:me.size,num:me.num,price:me.price};
+            //var storge=JSON.stringify(postData);
+            //window.localStorage.setItem("orderInfo",storge);
+            $.ajax({
+               type:"POST",
+               url:"/order/createorder",
+               data:postData,
+               dataType:"JSON",
+               success:function(data){
+                  if(data=="1")
+                  {
+                      alertify.error("请先登录");
+                  }
+                  else if(data=="0")
+                  {
+                     window.location.href="../site/confirm";
+                     var store={type:me.type,size:me.size,num:me.num,price:me.price};
+                     var storge=JSON.stringify(store);
+                     window.localStorage.setItem("orderInfo",storge);
+                  }
+                  else
+                  {
+                     alert("保存失败");
+                  }
 
-            },
-            error:function(){
-               alert("wrong");
-               console.log("生成订单失败");
-            }
-         })
+               },
+               error:function(){
+                  alert("wrong");
+                  console.log("生成订单失败");
+               }
+            });
+            flag = 0;  
+         }
 
       })
 
