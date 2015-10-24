@@ -194,9 +194,8 @@ person=function(){
             dataType:"Json",
             data:{telephone:telephone},
             success:function(data){
-                if(data == "0")
-                alertify.alert( "发送成功", function () { 
-                    window.location.href = window.location.href;
+                if(data != "")
+                alertify.success( "发送成功")
                 });
                 else
                 alertify.error("发送失败");   
