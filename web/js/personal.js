@@ -195,8 +195,7 @@ person=function(){
             data:{telephone:telephone},
             success:function(data){
                 if(data != "")
-                alertify.success( "发送成功")
-                });
+                alertify.success( "发送成功");
                 else
                 alertify.error("发送失败");   
             },
