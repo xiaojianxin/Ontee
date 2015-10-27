@@ -133,7 +133,7 @@ class SiteController extends Controller
             'status' => 3
          );
         $this->layout_data = $layout_data;
-        $deadlinetime = time()-20;
+        $deadlinetime = time()-1800;
         Order::deleteAll('createtime<:deadlinetime and status = 0',[':deadlinetime'=>$deadlinetime]);
         $Orders = Order::find()->where(['userid' => Yii::$app->session['userid']])->with('address')->OrderBy(['createtime'=>SORT_DESC])->all();
         $address = Address::find()->where(['userid' => Yii::$app->session['userid']])->all();
