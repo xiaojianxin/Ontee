@@ -96,6 +96,7 @@ class PayController extends Controller{
                 $Order = Order::find()->where(['id' => $out_trade_no])->one();
 
                 $Order->status = 1;
+                $Order->tradeno = $trade_no;
                 $Order->update();
             }
 
