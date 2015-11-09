@@ -20,7 +20,7 @@ $this->title = 'Ontee';
                 <?php if($user->facepic==""){?>
                     <img style="width:100%" src="/images/default.png"/>   
                 <?php }else{?>
-                    <img src="/<?=$user->facepic?>"/>
+                    <img style="width:100%" src="/<?=$user->facepic?>"/>
                 <?php }?>
             </div>
             <div style="height:5px">
