@@ -17,10 +17,10 @@ $this->title = 'Ontee';
     <div class="userTitle">
         <div class="userPic">
             <div class="img-thumbnail" id="showUserHead">
-                <?php if($user->facepic===" "){?>
-                    <img src="/<?=$user->facepic?>"/>
+                <?php if($user->facepic==""){?>
+                    <img src="/images/default.png"/>   
                 <?php }else{?>
-                    <img src="/images/default.png"/>
+                    <img src="/<?=$user->facepic?>"/>
                 <?php }?>
             </div>
             <div style="height:5px">
