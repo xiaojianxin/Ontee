@@ -111,8 +111,9 @@ orderConfirm=function(){
                 dataType:"Json",
                 data:{address:address,detail:detail,phone:phone,name:receiver,code:zipCode},
                 success:function(data){
-                    alert('success');
-                    $("#addrModal").fadeOut()
+                    alertify.alert( "添加成功", function () { 
+                            $("#addrModal").fadeOut();
+                    }); 
                 },
                 error:function(){
 
