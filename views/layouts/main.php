@@ -48,7 +48,7 @@ $status = $this->context->layout_data['status'];
                 else{
                     ?>
                     <span class="user-nav" data-num="4">
-                        <a class="dropdown-toggle operator-name" data-toggle="dropdown"><img src="<?=Url::to('@web/img/head.jpg');?>" alt=""/><?PHP echo $username?></a>
+                        <a class="dropdown-toggle operator-name" data-toggle="dropdown"><img src="<?=Url::to('@web/img/head.png');?>" alt=""/><?PHP echo $username?></a>
                         <ul class="dropdown-menu self-menu">
                             <li>
                                 <a href="<?=Url::to(['site/personal'])?>"><span class="glyphicon glyphicon-envelope"></span>个人资料&收货地址</a>
