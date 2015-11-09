@@ -112,7 +112,7 @@ orderConfirm=function(){
                 data:{address:address,detail:detail,phone:phone,name:receiver,code:zipCode},
                 success:function(data){
                     alertify.alert( "添加成功", function () { 
-                            $("#addrModal").fadeOut();
+                            $("#addrModal .modalClose").click();
                     }); 
                 },
                 error:function(){
