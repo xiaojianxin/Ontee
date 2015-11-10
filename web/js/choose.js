@@ -391,6 +391,7 @@ editTee=function(){
                   if(data=="404")
                   {
                       alertify.error("请先登录");
+                      break;
                   }
                   else if(data=="0")
                   {
