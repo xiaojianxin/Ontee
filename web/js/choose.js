@@ -388,7 +388,7 @@ editTee=function(){
                data:postData,
                dataType:"JSON",
                success:function(data){
-                  if(data=="1")
+                  if(data=="404")
                   {
                       alertify.error("请先登录");
                   }
@@ -399,7 +399,7 @@ editTee=function(){
                      var storge=JSON.stringify(store);
                      window.localStorage.setItem("orderInfo",storge);
                   }
-                  else
+                  else if(data=="-1")
                   {
                      alert("保存失败");
                   }
