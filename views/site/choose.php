@@ -145,7 +145,7 @@ $this->title = 'Ontee';
 
 </div>
 <div id="confirmContent"style="display: none;">
-    <div style="position:absolute; top:60%;left:20%;">
+    <div style="position:absolute; top:65%;left:20%;">
         <span class="previousEditBtn"><img src="<?=Url::to('@web/img/backbutton.png');?>"/> </span>
     </div>
     <div class="container">
