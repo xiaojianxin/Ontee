@@ -144,36 +144,41 @@ $this->title = 'Ontee';
     <canvas id="printCanvasBack" style="display: none;"></canvas>
 
 </div>
-<div id="confirmContent"style="display: none;">
-    <div style="position:absolute; top:65%;left:20%;">
+<div id="confirmContent" class="confirmContent container" style="display: none; margin-top: 10px;">
+     <div style="position:absolute; top:75%;left:23%;">
         <span class="previousEditBtn"><img src="<?=Url::to('@web/img/backbutton.png');?>"/> </span>
-    </div>
-    <div class="container">
+     </div>
+
         <div class="row">
-            <div class="col-xs-5 col-xs-offset-2">
+            <div class="col-md-5" >
+
                 <div class="textPointer">
                     <span class="glyphicon glyphicon-arrow-down"></span>
                     <span class="intro-text">这里将有你的专属标签</span>
+
                 </div>
+
                 <div class="printTee">
-                    <img src=<?=Url::to('@web/img/teebb.png');?> id="printTeeColor">
+                    <img src="<?=Url::to('@web/img/teebb.png');?>" id="printTeeColor">
                     <img src="" id="printEditTee">
                 </div>
-       
             </div>
-            <div class="col-xs-4">
+            <div class="col-md-2">
+            </div>
+            <div class="col-md-4">
                 <div class="paramArea">
                     <div class="priceTag">
                         <span id="totalPrice">79元</span>
                     </div>
+                 </div>
 
-                    <div class="chooseItem1">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <span class="chooseText">尺码</span>
-                            </div>
-                            <div class="col-xs-6">
-                             <span class="chooseOption teeSize" id="teeSize">
+                <div class="chooseItem1">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <span class="chooseText">尺码</span>
+                        </div>
+                        <div class="col-xs-6">
+                            <span class="chooseOption teeSize" id="teeSize">
                                  <span class="active">S</span>
                                  <span>M</span>
                                  <span>L</span>
@@ -181,35 +186,39 @@ $this->title = 'Ontee';
                                  <span>XXL</span>
                                  <span>XXXL</span>
                             </span>
-                            </div>
                         </div>
                     </div>
-                    <div class="chooseItem1">
-                        <div class="row">
-                            <div class="col-xs-3">
-                                <span class="chooseText">数量</span>
-                            </div>
-                            <div class="col-xs-6">
-                                <div class="chooseOption">
-                                    <span class="glyphicon glyphicon-minus" id="cutTeeNum"></span>
-                                    <span class="showNum" id="teeNum">1</span>
-                                    <input class="form-control" id="inputTeeNum">
-                                    <span class="glyphicon glyphicon-plus" id="addTeeNum"></span>
-                                </div>
-                            </div>
-                            <div class="col-xs-3"></div>
+                </div>
+
+
+
+                <div class="chooseItem1">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <span class="chooseText">数量</span>
                         </div>
+                        <div class="col-xs-6">
+                            <div class="chooseOption">
+                                <span class="glyphicon glyphicon-minus" id="cutTeeNum"></span>
+                                <span class="showNum" id="teeNum">1</span>
+                                <input class="form-control" id="inputTeeNum">
+                                <span class="glyphicon glyphicon-plus" id="addTeeNum"></span>
+                            </div>
+                        </div>
+                        <div class="col-xs-3"></div>
                     </div>
-                    <div class="purchaseBtn">
-                        <div class="btn btn-success">
-                            <span id="buyBtn">确认购买</span>
-                        </div>
+                </div>
+
+               <div class="purchaseBtn">
+                    <div class="btn btn-success">
+                        <span id="buyBtn">确认购买</span>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </div>
+
+
 <?php $this->beginBlock("choose")?>
 $(function() {
 $.getScript("<?=Url::to('@web/js/choose.js');?>",function(){
