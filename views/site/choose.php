@@ -147,7 +147,7 @@ $this->title = 'Ontee';
 <div id="confirmContent"style="display: none;">
     <div class="container">
         <div class="row">
-            <div class="col-xs-5 col-xs-offset-2">
+            <div class="col-xs-6">
                 <div class="textPointer">
                     <span class="glyphicon glyphicon-arrow-down"></span>
                     <span class="intro-text">这里将有你的专属标签</span>
@@ -160,7 +160,7 @@ $this->title = 'Ontee';
                     <span class="previousEditBtn" ><img src="<?=Url::to('@web/img/backbutton.png');?>"/> </span>
                 </div>       
             </div>
-            <div class="col-xs-4">
+            <div class="col-xs-6">
                 <div class="paramArea">
                     <div class="priceTag">
                         <span id="totalPrice">79元</span>
