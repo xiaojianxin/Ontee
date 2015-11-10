@@ -332,6 +332,10 @@ editTee=function(){
          $(".editContent").hide();
          $(".chooseContent").show();
       });
+      $(".previousEditBtn").click(function(){
+         $("#confirmContent").hide();
+         $(".editContent").show();   
+      });
       $("#teeSize span").each(function(){
          $(this).click(function(){
             $("#teeSize span").removeClass("active");
