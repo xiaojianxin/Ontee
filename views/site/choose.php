@@ -156,7 +156,7 @@ $this->title = 'Ontee';
                     <img src=<?=Url::to('@web/img/teebb.png');?> id="printTeeColor">
                     <img src="" id="printEditTee">
                 </div>
-                <span class="previousEditBtn"><img src="<?=Url::to('@web/img/backbutton.png');?>"/> </span>
+                <span class="previousEditBtn" style="float:left;"><img src="<?=Url::to('@web/img/backbutton.png');?>"/> </span>
 
             </div>
             <div class="col-xs-4">
