@@ -391,10 +391,10 @@ editTee=function(){
                   if(data=="404")
                   {
                       alertify.error("请先登录");
-                      return;
                   }
                   else if(data=="0")
                   {
+                     flag = 0;
                      window.location.href="../site/confirm";
                      var store={type:me.type,size:me.size,num:me.num,price:me.price};
                      var storge=JSON.stringify(store);
@@ -411,7 +411,7 @@ editTee=function(){
                   console.log("生成订单失败");
                }
             });
-            flag = 0;  
+              
          }
 
       })
