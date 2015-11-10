@@ -71,8 +71,8 @@ $this->title = 'Ontee';
                     </div>
                    
                     <div class="confirmBtn">
-                        <div class="btn btn-success confirm-telephone"> 确定</div> 
-                        <div class="btn btn-success confirm-all"> 确定</div> 
+                        <div class="btn btn-success confirm-telephone">发送验证码</div> 
+                        <div class="btn btn-success confirm-all">提交</div> 
                     </div>
                 </div>
                 <div class="editPswArea editClass">
@@ -88,7 +88,7 @@ $this->title = 'Ontee';
                         <input type="password" name="newPsw" class="form-control"/>
                         <input type="password" name="confirmPsw" class="form-control"/>
                     </div>
-                    <div class="confirmBtn"><div class="btn btn-success changepassword"> 确定</div> </div>
+                    <div class="confirmBtn"><div class="btn btn-success changepassword">确认修改</div> </div>
                 </div>
             </div>
             <div class="secondShow">

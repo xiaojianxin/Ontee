@@ -1046,10 +1046,18 @@ a{
 	margin-top:5px;
 
 }
+.thirdShow .confirmBtn{
+	width: 100px;
+	margin-left: 60%;
+}
+.thirdShow .confirmBtn .changepassword{
+	margin-top: 60px;
+}
 .thirdShow .confirmBtn .btn{
-	height:25px ;
-	font-size: 13px;
-	margin-top: 40px;
+	height:30px ;
+	font-size:13px;
+	width: 100px;
+	margin-bottom: 5px;
 }
 .addrModalBox{
 	width: 500px;

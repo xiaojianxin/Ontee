@@ -217,14 +217,14 @@ person=function(){
             data:{telephone:telephone,testcode:testcode},
             success:function(data){
                 if(data == "0")
-                alertify.alert( "发送成功", function () { 
+                alertify.alert( "绑定成功", function () { 
                     window.location.href = window.location.href;
                 });
                 else
-                alertify.error("发送失败"); 
+                alertify.error("绑定失败，请再试一次"); 
             },
             error:function(){
-                alertify.error("发送失败"); 
+                alertify.error("绑定失败，请再试一次"); 
             }
         })
 
