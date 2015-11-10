@@ -156,7 +156,7 @@ $this->title = 'Ontee';
                     <img src=<?=Url::to('@web/img/teebb.png');?> id="printTeeColor">
                     <img src="" id="printEditTee">
                 </div>
-                <div class="preNextButton">
+                <div style="position:absolute;">
                     <span class="previousEditBtn"><img src="<?=Url::to('@web/img/backbutton.png');?>"/> </span>
                 </div>       
             </div>
