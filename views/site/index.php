@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 /* @var $this yii\web\View */
-$this->title = 'Ontee';
+$this->title = 'Ontee,设计你自己的个性T恤';
 ?>
 <div class="fixContainer">
     <div class="flexslider">

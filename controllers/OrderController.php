@@ -65,9 +65,14 @@ class OrderController extends Controller{
 		    		);
 		    	$cache = \Yii::$app->cache;
 		    	$cache['response'] = $response;
-		    	echo "0";
+		    	echo json_encode(array(
+		    		'status'=>"200",
+		    		"id"=>$order->id,
+		    		'frontpic'=>$order->frontpic));
 		    }else{
-		    	echo "-1";
+		    	echo json_encode(array(
+		    	'status'=>"500",
+		    	"massage"=>"wrong"));
 	    	}
 		}
     }
@@ -101,10 +106,15 @@ class OrderController extends Controller{
 		    $oldorder = Order::find()->where(['id' => $OrderId])->one();
 		    $order = new Order();
 
-
+		    $url = Yii::$app->basePath."/web".'/';
 	        $order->userid = $oldorder->userid;
-	        $order->frontpic = $oldorder->frontpic;
-	        $order->backpic = $oldorder->backpic;
+	        $frontname = md5(Yii::$app->session['userid'].time());
+	        $backname = md5(Yii::$app->session['userid'].(time()+1));
+	        
+	        $order->frontpic = 'orderpic/' . $frontname. '.png';
+	        $order->backpic = 'orderpic/' . $backname. '.png';
+	        copy($url.$oldorder->frontpic,$url.$order->frontpic);
+	        copy($url.$oldorder->backpic,$url.$order->backpic);
 	        $order->size = $oldorder->size;
 	        $order->num = $oldorder->num;
 	        $order->type = $oldorder->type;
@@ -121,9 +131,18 @@ class OrderController extends Controller{
 			    		);
 		    	$cache = \Yii::$app->cache;
 		    	$cache['response'] = $response;
-	        	echo "0";
+		    	echo json_encode(array(
+		    		'status'=>"200",
+		    		"id"=>$order->id,
+		    		'type'=>$order->type,
+		    		"num"=>$order->num,
+		    		"size"=>$order->size,
+		    		'frontpic'=>$order->frontpic,
+		    		));
 	        }else{
-	        	echo "-1";
+		    	echo json_encode(array(
+		    	'status'=>"500",
+		    	"massage"=>"wrong"));
 	        }
     	}
 	    

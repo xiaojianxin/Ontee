@@ -116,13 +116,10 @@ class SiteController extends Controller
             'status' => 2
          );
         $this->layout_data = $layout_data;
-  
-        $cache = \Yii::$app->cache;
-        $response = $cache['response']; 
+        
         $address = Address::find()->where(['userid' => Yii::$app->session['userid'],])->all();
         return $this->render('confirm',[
             'address'=>$address,
-            'response'=>$response,
         ]);
         
     }
@@ -132,8 +129,22 @@ class SiteController extends Controller
             'username' => Yii::$app->session['username'],
             'status' => 3
          );
+        $url = Yii::$app->basePath."/web".'/';
         $this->layout_data = $layout_data;
         $deadlinetime = time()-1800;
+        $orders = Order::find()->where('createtime<:deadlinetime and status = 0',[':deadlinetime'=>$deadlinetime])->all();
+        foreach($orders as $key => $order){
+            $file1 = $url.$order->frontpic;
+            $file2 = $url.$order->backpic;
+            if(file_exists($file1)){
+                unlink($url.$order->frontpic);
+            }
+            if(file_exists($file2)){
+
+                unlink($url.$order->backpic);
+            }
+           
+        }
         Order::deleteAll('createtime<:deadlinetime and status = 0',[':deadlinetime'=>$deadlinetime]);
         $Orders = Order::find()->where(['userid' => Yii::$app->session['userid']])->with('address')->OrderBy(['createtime'=>SORT_DESC])->all();
         $address = Address::find()->where(['userid' => Yii::$app->session['userid']])->all();

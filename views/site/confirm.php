@@ -106,12 +106,12 @@ $this->title = 'Ontee';
         <div class="orderTitle">
             <span id="orderTime"><?=date('Y-m-d',time());?></span>
             <span style="margin-left: 10px;">订单号：</span>
-            <span id="orderNumber"><?=$response['id']?></span>
+            <span id="orderNumber"></span>
         </div>
         <div class="orderContent">
             <div class="orderPic">
                 <img id="confirmShirtColor" src="<?=Url::to('@web/img/teef1.png');?>">
-                <img src="<?=Url::to('@web/'.$response['frontPicUrl']);?>" id="renderEditPic">
+                <img src="" id="renderEditPic">
             </div>
             <div class="orderNum">
                 <div class="row">

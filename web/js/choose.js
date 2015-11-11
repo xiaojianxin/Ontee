@@ -392,15 +392,16 @@ editTee=function(){
                   {
                       alertify.error("请先登录");
                   }
-                  else if(data=="0")
+                  else if(data.status=="200")
                   {
+                     var id = data.id;
                      flag = 0;
-                     window.location.href="../site/confirm";
-                     var store={type:me.type,size:me.size,num:me.num,price:me.price};
+                     var store={id:id,type:me.type,size:me.size,num:me.num,price:me.price,frontpic:data.frontpic};
                      var storge=JSON.stringify(store);
                      window.localStorage.setItem("orderInfo",storge);
+                     window.location.href="../site/confirm";
                   }
-                  else if(data=="-1")
+                  else if(data.status=="500")
                   {
                      alert("保存失败");
                   }

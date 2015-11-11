@@ -46,20 +46,35 @@ myshirt=function(){
             })
         });
         $(".purchaseOrder").click(function(){
-            var id=$(this).prev().prev().prev().text();
-            var me=this;
-            $.ajax({
-                type:"POST",
-                url:"/order/buytshirt",
-                data:{id:id},
-                dataType:"JSON",
-                success:function(){
-                    window.location.href="../site/confirm";
-                },
-                error:function(){
-                    alertify.alert("购买失败")
-                }
-            })
+            var flag = 1;
+            if(flag == 1){
+                var id=$(this).prev().prev().prev().text();
+                var me=this;
+                $.ajax({
+                    type:"POST",
+                    url:"/order/buytshirt",
+                    data:{id:id},
+                    dataType:"JSON",
+                    success:function(data){
+                        if(data=="404"){
+                            alertify.alert('请重新登录');
+                        }else if(data.status == "200"){
+                            flag = 0;
+                            var id = data.id;
+                            var store={id:id,type:data.type,size:data.size,num:1,price:79,frontpic:data.frontpic};
+                            var storge=JSON.stringify(store);
+                            window.localStorage.setItem("orderInfo",storge);
+                            window.location.href="../site/confirm";
+                        }else if(data.status == "500"){
+                             alertify.alert("购买失败,请再试一次");
+                        }
+
+                    },
+                    error:function(){
+                        alertify.alert("购买失败")
+                    }
+                })
+            }
         })
     }
 };

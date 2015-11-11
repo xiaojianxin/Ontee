@@ -7,10 +7,12 @@ orderConfirm=function(){
     this.init=function(){
         var data=window.localStorage.getItem("orderInfo");
         var obj=JSON.parse(data);
+        me.id = obj.id;
         me.size=obj.size;
         me.num=obj.num;
         me.type=obj.type;
         me.price=obj.price;
+        me.frontpic = obj.frontpic;
         me.initInfo();
         me.bindEvent();
         setup();
@@ -22,10 +24,12 @@ orderConfirm=function(){
     this.initInfo=function(){
         var time=me.initTime();
         $("#orderTime").html(time);
+        $("#orderNumber").html(me.id);
         $("#orderSizeInit").html(me.size);
         $("#orderNumInit").html(me.num);
         $("#showConfirmPrice").html(me.price+"元");
         $("#confirmShirtColor").attr("src","../img/teef"+me.type+".png");
+        $('#renderEditPic').attr('src',"../"+me.frontpic);
     };
     this.initTime=function(){
         var d = new Date();
