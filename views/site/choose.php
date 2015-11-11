@@ -145,9 +145,7 @@ $this->title = 'Ontee';
 
 </div>
 <div id="confirmContent" class="confirmContent container" style="display: none; margin-top: 10px;">
-     <div style="position:absolute; top:75%;left:23%;">
-        <span class="previousEditBtn"><img src="<?=Url::to('@web/img/backbutton.png');?>"/> </span>
-     </div>
+
 
         <div class="row">
             <div class="col-md-5" >
@@ -161,6 +159,10 @@ $this->title = 'Ontee';
                 <div class="printTee">
                     <img src="<?=Url::to('@web/img/teebb.png');?>" id="printTeeColor">
                     <img src="" id="printEditTee">
+                </div>
+
+                <div style="margin-left:25%;margin-bottom:100px;">
+                    <span class="previousEditBtn"><img src="<?=Url::to('@web/img/backbutton.png');?>"/> </span>
                 </div>
             </div>
             <div class="col-md-2">
